@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WebcreteAPITest.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WebcreteAPITest_com_concretego_api_WebcreteAPI" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.concretego.com/webcreteapi.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
