@@ -51,24 +51,24 @@ namespace WebcreteAPIExplorer
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 25);
+            this.label1.Location = new System.Drawing.Point(49, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "URL";
+            this.label1.Text = "API URL";
             // 
             // textBoxURL
             // 
             this.textBoxURL.Location = new System.Drawing.Point(103, 18);
             this.textBoxURL.Name = "textBoxURL";
-            this.textBoxURL.Size = new System.Drawing.Size(246, 20);
+            this.textBoxURL.Size = new System.Drawing.Size(379, 20);
             this.textBoxURL.TabIndex = 1;
-            this.textBoxURL.Text = "http://api.concretego.com/webcreteapi.asmx";
+            this.textBoxURL.Text = "http://demo.api.concretego.com/webcreteapi.asmx";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(355, 21);
+            this.label2.Location = new System.Drawing.Point(498, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 2;
@@ -76,7 +76,7 @@ namespace WebcreteAPIExplorer
             // 
             // textBoxUserName
             // 
-            this.textBoxUserName.Location = new System.Drawing.Point(418, 18);
+            this.textBoxUserName.Location = new System.Drawing.Point(561, 18);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(134, 20);
             this.textBoxUserName.TabIndex = 3;
@@ -84,7 +84,7 @@ namespace WebcreteAPIExplorer
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(564, 21);
+            this.label3.Location = new System.Drawing.Point(707, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 4;
@@ -92,7 +92,7 @@ namespace WebcreteAPIExplorer
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(627, 18);
+            this.textBoxPassword.Location = new System.Drawing.Point(770, 18);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(136, 20);
             this.textBoxPassword.TabIndex = 5;
@@ -175,9 +175,9 @@ namespace WebcreteAPIExplorer
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 54);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 13);
+            this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Request Sample";
+            this.label4.Text = "Request Type";
             // 
             // comboBoxRequest
             // 

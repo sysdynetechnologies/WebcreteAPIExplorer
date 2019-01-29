@@ -27,11 +27,11 @@ namespace WebcreteAPIExplorer
                 textBoxResponse.Text = "";
                 WebcreteAPI api = new WebcreteAPI();
                 if (textBoxURL.Text.Length > 0)
-                    api.Url = textBoxURL.Text;
+                    api.Url = textBoxURL.Text;  // each concretego customer uses its own api endpoint in the format of {account}.api.concretego.com/webcreteapi.asmx
 
                 api.Timeout = -1;
 
-                string publicKey = api.GetPublicKey("Test", "F52D2965BF8318F");
+                string publicKey = api.GetPublicKey("Test", "F52D2965BF8318F"); // please contact us to get the appId and apiKey for your application
                
                 if (publicKey == null)
                 {

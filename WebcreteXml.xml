@@ -1,0 +1,2836 @@
+<?xml version="1.0" ?>
+<!--                                                                         -->
+<!-- ======================================================================= -->
+<!-- (c) 2009 SYSDYNE All rights reserved.                                   -->
+<!-- Use is subject to a webcretexml Developer Agreement available at:       -->
+<!--          http://developer.concretego.com/legal/                               -->
+<!--                                                                         -->
+<!-- ======================================================================= -->
+
+<!-- The value for the 'webcretexml version' processing instruction is       -->
+<!-- the version of the webcretexml spec to be used for validation purposes. -->
+
+<?webcretexml version="1.0"?>
+<WebcreteXML>
+  <!--  WebcreteXMLMsgsRq contains 4 attributes -->
+  <!--     'oldMessageSetID' is optional  -->
+  <!--     'newMessageSetID' is optional  -->
+  <!--     'responseData' is optional and may have one of the following values: includeAll[DEFAULT], includeNone -->
+  <!--     'onError' is required and must have one of the following values: continueOnError, rollbackOnError, stopOnError -->
+  <WebcreteXMLMsgsRq oldMessageSetID="STRTYPE" newMessageSetID="STRTYPE" responseData="ENUMTYPE" onError="ENUMTYPE">
+    <!--  VersionQueryRq contains 1 optional attribute: 'requestID' -->
+    <VersionQueryRq  requestID="UUIDTYPE">      
+    </VersionQueryRq>
+    <!--  CompanyQueryRq contains 1 optional attribute: 'requestID' -->
+    <CompanyQueryRq requestID="UUIDTYPE" metaData="ENUMTYPE" iterator="ENUMTYPE" iteratorID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Name>STRTYPE</Name>
+      <!-- END OR -->
+      <!--  opt, may rep -->
+      <IncludeRetElement>STRTYPE</IncludeRetElement>       
+    </CompanyQueryRq>
+    <!--    'requestID' is optional -->
+    <!--    'metaData' is optional and may have one of the following values: NoMetaData[DEFAULT], MetaDataOnly, MetaDataAndResponseData -->
+    <!--    'iterator' is optional and may have one of the following values: Start, Continue, Stop -->
+    <!--    'iteratorID' is optional -->
+    <CustomerQueryRq requestID="UUIDTYPE" metaData="ENUMTYPE" iterator="ENUMTYPE" iteratorID="UUIDTYPE">
+      <!-- BEGIN OR-->
+      <!-- optional, may repeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!-- optional, may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- OR -->
+      <!-- optional, may repeat-->
+      <Name>STRTYPE</Name>
+      <!-- OR -->
+      <!-- optional -->
+      <MaxReturned >INTTYPE</MaxReturned>      
+      <!-- optional -->
+      <FromSetupDate>DATETIMETYPE</FromSetupDate>
+      <!-- optional -->
+      <ToSetupDate>DATETIMETYPE</ToSetupDate>
+      <!-- optional -->
+      <FromUpdateDate>DATETIMETYPE</FromUpdateDate>
+      <!-- optional -->
+      <ToUpdateDate>DATETIMETYPE</ToUpdateDate>
+      <!-- optional, may repeat-->      
+      <SalesAnalysisCode>STRTYPE</SalesAnalysisCode>
+      <!-- optional, may repeat-->
+      <SalesmanCode>STRTYPE</SalesmanCode>
+      <!-- optional, may repeat-->
+      <SalesmanName>STRTYPE</SalesmanName>
+      <!-- optional, may repeat-->
+      <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+      <!-- optional, may repeat-->
+      <PricingPlantCode>STRTYPE</PricingPlantCode>
+      <!-- optional, may repeat-->
+      <TermsCode>STRTYPE</TermsCode>
+      <!-- optional, may repeat-->
+      <ZoneCode>STRTYPE</ZoneCode>
+      <!-- optional, may repeat-->
+      <StatementCycle>STRTYPE</StatementCycle>
+      <!-- optional, may repeat-->
+      <AccountingCategoryCode>STRTYPE</AccountingCategoryCode>
+      <!-- END OR -->
+      <!-- optional, may repeat-->      
+      <IncludeRetElement>STRTYPE</IncludeRetElement>
+    </CustomerQueryRq>
+    <!--    'requestID' is optional -->
+    <CustomerUpdateRq  requestID="UUIDTYPE">
+      <CustomerUpdate>
+        <!-- BEGIN OR-->
+        <!-- optional-->
+        <ID>INTTYPE</ID>
+        <!-- OR -->
+        <!-- optional-->
+        <Code>STRTYPE</Code>
+        <!-- OR -->
+        <!-- optional-->
+        <Name>STRTYPE</Name>
+        <!-- END OR -->
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+        <!-- optional -->
+        <SetupDate>DATETIMETYPE</SetupDate>
+        <!-- optional -->
+        <SortName>STRTYPE</SortName>
+        <!-- optional -->
+        <Address>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <Addr3>STRTYPE</Addr3>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </Address>
+        <!-- optional -->
+        <InvoiceAddress>
+          <!-- optional -->
+          <Name>STRTYPE</Name>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </InvoiceAddress>
+        <!-- optional -->
+        <StatementAddress>
+          <!-- optional -->
+          <Name>STRTYPE</Name>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </StatementAddress>
+        <!-- optional -->
+        <Contact>STRTYPE</Contact>
+        <!-- optional -->
+        <Phone>STRTYPE</Phone>
+        <!-- optional -->
+        <Fax>STRTYPE</Fax>
+        <!-- optional -->
+        <Cellular>STRTYPE</Cellular>
+        <!-- optional -->
+        <Email>STRTYPE</Email>
+        <!-- optional -->
+        <QBInvoiceEmailChecked>BOOL</QBInvoiceEmailChecked>
+        <!-- optional -->        
+        <Sales>
+          <!-- optional -->
+          <SalesAnalysisCode>STRTYPE</SalesAnalysisCode>
+          <!-- optional -->
+          <SalesmanCode>STRTYPE</SalesmanCode>
+          <!-- optional -->
+          <SalesmanName>STRTYPE</SalesmanName>
+        </Sales>
+        <!-- optional -->
+        <Taxing>
+          <!-- optional -->
+          <TaxID>STRTYPE</TaxID>
+          <!-- optional -->
+          <TaxCode>STRTYPE</TaxCode>
+          <!-- optional -->
+          <Taxable>BOOLTYPE</Taxable>
+          <!-- optional -->
+          <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
+          <!-- optional, may repeat -->
+          <TaxExcempt>
+            <!-- optional -->
+            <TaxAuthorityCode>STRTYPE</TaxAuthorityCode>
+            <!-- optional -->
+            <TaxExemptID>STRTYPE</TaxExemptID>
+          </TaxExcempt>
+        </Taxing>
+        <!-- optional -->
+        <Pricing>
+          <!-- optional -->
+          <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+          <!-- optional -->
+          <PricingPlantCode>STRTYPE</PricingPlantCode>
+          <!-- optional -->
+          <TradeDiscountPercent>PERCENTTYPE</TradeDiscountPercent>
+          <!-- optional -->
+          <TradeDiscountAmount>FLOATTYPE</TradeDiscountAmount>
+          <!-- optional -->
+          <TradeDiscountAmountUnitCode>STRTYPE</TradeDiscountAmountUnitCode>
+          <!-- optional -->
+          <TermCode>STRTYPE</TermCode>
+          <!-- optional -->
+          <ZoneCode>STRTYPE</ZoneCode>
+          <!-- optional -->
+          <OverrideChargeRate>FLOATTYPE</OverrideChargeRate>
+          <!-- optional -->
+          <OverrideChargeEfftiveDate>DATETIEMTYPE</OverrideChargeEfftiveDate>
+          <!-- optional -->
+          <PreviousRate>DATETIMETYPE</PreviousRate>
+          <!-- optional -->
+          <ApplyZoneCharges>BOOLTYPE</ApplyZoneCharges>
+          <!-- optional -->
+          <AllowPriceChangeInOrderEntry>BOOLTYPE</AllowPriceChangeInOrderEntry>
+          <!-- optional -->
+          <ControlPricePrintInOE>BOOLTYPE</ControlPricePrintInOE>
+          <!-- optional -->
+          <PrintPricesOnTicket>BOOLTYPE</PrintPricesOnTicket>
+          <!-- optional -->
+          <RestrictOrderstoCustomerProducts>BOOLTYPE</RestrictOrderstoCustomerProducts>
+          <!-- optional -->
+          <AllowAutomaticPriceAjustment>BOOLTYPE</AllowAutomaticPriceAjustment>
+        </Pricing>
+        <!-- optional -->
+        <Charges>
+          <!-- optional -->
+          <MinimumLoadChargeTableCode>STRTYPE</MinimumLoadChargeTableCode>
+          <!-- optional -->
+          <SeasonalChargeTableCode>STRTYPE</SeasonalChargeTableCode>
+          <!-- optional -->
+          <UnloadingChargeTableCode>STRTYPE</UnloadingChargeTableCode>
+          <!-- optional -->
+          <ApplyMinimumLoadCharge>BOOLTYPE</ApplyMinimumLoadCharge>
+          <!-- optional -->
+          <ApplySeasonalCharge>BOOLTYPE</ApplySeasonalCharge>
+          <!-- optional -->
+          <ApplyUnloadingCharge>BOOLTYPE</ApplyUnloadingCharge>
+          <!-- optional -->
+          <PrintMinimumLoadChargeOnSeperateInvoice>BOOLTYPE</PrintMinimumLoadChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintSeasonalChargeOnSeperateInvoice>BOOLTYPE</PrintSeasonalChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintUnloadingChargeOnSeperateInvoice>BOOLTYPE</PrintUnloadingChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintAutomaticSundryChargeOnSeperateInvoice>BOOLTYPE</PrintAutomaticSundryChargeOnSeperateInvoice>
+        </Charges>
+        <!-- optional -->
+        <Accounting>
+          <!-- optional -->
+          <StatementCycle>STRTYPE</StatementCycle>
+          <!-- optional -->
+          <AccountingCategoryCode>STRTYPE</AccountingCategoryCode>
+          <!-- optional -->
+          <ApplyFinanceCharges>BOOLTYPE</ApplyFinanceCharges>
+          <!-- optional -->
+          <PrintStatements>BOOLTYPE</PrintStatements>
+          <!-- optional -->
+          <CreditCard>
+            <!-- optional -->
+            <CardName>STRTYPE</CardName>
+            <!-- optional -->
+            <CardNumber>STRTYPE</CardNumber>
+            <!-- optional -->
+            <ResponsibleName>STRTYPE</ResponsibleName>
+            <!-- optional -->
+            <ExpirationDate>STRTYPE</ExpirationDate>
+          </CreditCard>
+          <!-- optional -->
+          <CreditInformation>
+            <!-- optional, may repeat -->
+            <Credit>
+              <!-- required -->
+              <CompanyCode>STRTYPE</CompanyCode>
+              <!-- required -->
+              <CreditCode>STRTYPE</CreditCode>
+              <!-- optional -->
+              <CreditChangeDate>DATETIMETYPE</CreditChangeDate>
+              <!-- optional -->
+              <CreditLimit>AMTTYPE</CreditLimit>
+              <!-- optional -->
+              <CurrentBalance>AMTTYPE</CurrentBalance>
+              <!-- optional -->
+              <HighBalance>AMTTYPE</HighBalance>
+              <!-- optional -->
+              <UpdateCredit>BOOLTYPE</UpdateCredit>
+              <!-- optional -->
+              <CreditUpdateDate>DATETIMETYPE</CreditUpdateDate>
+              <!-- optional -->
+              <HighBalanceDate>DATETIMETYPE</HighBalanceDate>
+              <!-- optional -->
+              <LastInvoiceDate>DATETIMETYPE</LastInvoiceDate>
+              <!-- optional -->
+              <CreditPersonCode>STRTYPE</CreditPersonCode>
+              <!-- optional -->
+              <CreditPersonName>STRTYPE</CreditPersonName>
+            </Credit>
+          </CreditInformation>
+          <!-- optional -->
+          <PurchaseOrderRequiredInOrderEntry>BOOLTYPE</PurchaseOrderRequiredInOrderEntry>
+          <!-- optional -->
+          <CustomerJobRequiredInOrderEntry>BOOLTYPE</CustomerJobRequiredInOrderEntry>
+          <!-- optional -->
+          <ExternalLiensRequiredInOrderEntry>BOOLTYPE</ExternalLiensRequiredInOrderEntry>
+          <!-- optional -->
+          <SuspendOrderReasonCode>BOOLTYPE</SuspendOrderReasonCode>
+        </Accounting>
+        <!-- optional -->
+        <Distribution>
+          <!-- optional -->
+          <TrackingOrderColorCode>STRTYPE</TrackingOrderColorCode>
+          <!-- optional -->
+          <PrintMixWeightOnTicket>BOOLTYPE</PrintMixWeightOnTicket>
+          <!-- optional -->
+          <PrinterSelector>STRTYPE</PrinterSelector>
+        </Distribution>
+      </CustomerUpdate>
+      <!--optional, may repeat -->
+      <IncludeRetElement>STRTYPE</IncludeRetElement>
+    </CustomerUpdateRq>
+    <!--    'requestID' is optional -->
+    <!--    'metaData' is optional and may have one of the following values: NoMetaData[DEFAULT], MetaDataOnly, MetaDataAndResponseData -->
+    <!--    'iterator' is optional and may have one of the following values: Start, Continue, Stop -->
+    <!--    'iteratorID' is optional -->
+    <ProjectQueryRq  requestID="UUIDTYPE" metaData="ENUMTYPE" iterator="ENUMTYPE" iteratorID="UUIDTYPE">
+      <!-- BEGIN OR-->
+      <!-- optional, may repeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!-- optional, may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- OR -->
+      <!-- optional, may repeat-->
+      <Name>STRTYPE</Name>
+      <!-- OR -->
+      <!-- optional, may repeat-->
+      <CustomerID>STRTYPE</CustomerID>
+      <!-- OR -->
+      <!-- optional, may repeat-->
+      <CustomerCode>STRTYPE</CustomerCode>
+      <!-- OR -->
+      <!-- optional, may repeat-->
+      <CustomerName>STRTYPE</CustomerName>
+      <!-- OR -->
+      <!-- optional -->
+      <MaxReturned >INTTYPE</MaxReturned>
+      <!-- optional -->
+      <FromSetupDate>DATETIMETYPE</FromSetupDate>
+      <!-- optional -->
+      <ToSetupDate>DATETIMETYPE</ToSetupDate>
+      <!-- optional -->
+      <FromUpdateDate>DATETIMETYPE</FromUpdateDate>
+      <!-- optional -->
+      <ToUpdateDate>DATETIMETYPE</ToUpdateDate>
+      <!-- optional, may repeat-->
+      <SalesAnalysisCode>STRTYPE</SalesAnalysisCode>
+      <!-- optional, may repeat-->
+      <SalesmanCode>STRTYPE</SalesmanCode>
+      <!-- optional, may repeat-->
+      <SalesmanName>STRTYPE</SalesmanName>
+      <!-- optional, may repeat-->
+      <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+      <!-- optional, may repeat-->
+      <PricingPlantCode>STRTYPE</PricingPlantCode>
+      <!-- optional, may repeat-->
+      <TermsCode>STRTYPE</TermsCode>
+      <!-- optional, may repeat-->
+      <ZoneCode>STRTYPE</ZoneCode>
+      <!-- optional, may repeat-->
+      <StatementCycle>STRTYPE</StatementCycle>
+      <!-- optional, may repeat-->
+      <AccountingCategoryCode>STRTYPE</AccountingCategoryCode>
+      <!-- END OR -->
+      <!--optional, may repeat -->
+      <IncludeRetElement>STRTYPE</IncludeRetElement>
+    </ProjectQueryRq>
+    <!--    'requestID' is optional -->
+    <ProjectUpdateRq  requestID="UUIDTYPE">
+      <ProjectUpdate>
+        <!-- BEGIN OR-->
+        <!-- optional-->
+        <ID>INTTYPE</ID>
+        <!-- OR -->
+        <!-- optional-->
+        <Code>STRTYPE</Code>
+        <!-- OR -->
+        <!-- optional-->
+        <Name>STRTYPE</Name>
+        <!-- END OR -->
+        <!-- BEGIN OR-->
+        <!-- optional-->
+        <CustomerID>INTTYPE</CustomerID>
+        <!-- OR -->
+        <!-- optional-->
+        <CustomerCode>STRTYPE</CustomerCode>
+        <!-- OR -->
+        <!-- optional-->
+        <CustomerName>STRTYPE</CustomerName>
+        <!-- END OR -->
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+        <!-- optional -->
+        <SetupDate>DATETIMETYPE</SetupDate>        
+        <!-- optional -->
+        <DeliveryAddress>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <Addr3>STRTYPE</Addr3>                 
+        </DeliveryAddress>
+        <!-- optional -->
+        <Instruction>
+          <!-- optional -->
+          <Instruction1>STRTYPE</Instruction1>
+          <!-- optional -->
+          <Instruction2>STRTYPE</Instruction2>
+          <!-- optional -->
+          <Instruction3>STRTYPE</Instruction3>
+        </Instruction>
+        <!-- optional -->
+        <InvoiceAddress>
+          <!-- optional -->
+          <Name>STRTYPE</Name>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </InvoiceAddress>
+        <!-- optional -->
+        <StatementAddress>
+          <!-- optional -->
+          <Name>STRTYPE</Name>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </StatementAddress>
+        <!-- optional -->
+        <Contact>STRTYPE</Contact>
+        <!-- optional -->
+        <Phone>STRTYPE</Phone>
+        <!-- optional -->
+        <Fax>STRTYPE</Fax>
+        <!-- optional -->
+        <Cellular>STRTYPE</Cellular>
+        <!-- optional -->
+        <Email>STRTYPE</Email>
+        <!-- optional -->
+        <CustomerJob>STRTYPE</CustomerJob>
+        <!-- optional -->
+        <PurchaseOrder>STRTYPE</PurchaseOrder>
+        <!-- optional -->
+        <ExpirationDate>STRTYPE</ExpirationDate>
+        <!-- optional -->
+        <ShippingCustomerCode>STRTYPE</ShippingCustomerCode>
+        <!-- optional -->
+        <ReferenceCustomerCode>STRTYPE</ReferenceCustomerCode>
+        <!-- optional -->
+        <Sales>
+          <!-- optional -->
+          <SalesAnalysisCode>STRTYPE</SalesAnalysisCode>
+          <!-- optional -->
+          <SalesmanCode>STRTYPE</SalesmanCode>
+          <!-- optional -->
+          <SalesmanName>STRTYPE</SalesmanName>
+        </Sales>
+        <!-- optional -->
+        <Taxing>
+          <!-- optional -->
+          <TaxID>STRTYPE</TaxID>
+          <!-- optional -->
+          <TaxCode>STRTYPE</TaxCode>
+          <!-- optional -->
+          <Taxable>BOOLTYPE</Taxable>
+          <!-- optional -->
+          <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
+          <!-- optional, may repeat -->
+          <TaxExcempt>
+            <!-- optional -->
+            <TaxAuthorityCode>STRTYPE</TaxAuthorityCode>
+            <!-- optional -->
+            <TaxExemptID>STRTYPE</TaxExemptID>
+          </TaxExcempt>
+        </Taxing>
+        <!-- optional -->
+        <Pricing>
+          <!-- optional -->
+          <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+          <!-- optional -->
+          <PricingPlantCode>STRTYPE</PricingPlantCode>
+          <!-- optional -->
+          <TradeDiscountPercent>PERCENTTYPE</TradeDiscountPercent>
+          <!-- optional -->
+          <TradeDiscountAmount>FLOATTYPE</TradeDiscountAmount>
+          <!-- optional -->
+          <TradeDiscountAmountUnitCode>STRTYPE</TradeDiscountAmountUnitCode>
+          <!-- optional -->
+          <TermCode>STRTYPE</TermCode>
+          <!-- optional -->
+          <ZoneCode>STRTYPE</ZoneCode>          
+          <!-- optional -->
+          <ApplyZoneCharges>BOOLTYPE</ApplyZoneCharges>
+          <!-- optional -->
+          <AllowPriceChangeInOrderEntry>BOOLTYPE</AllowPriceChangeInOrderEntry>
+          <!-- optional -->
+          <PrintPricesOnTicket>BOOLTYPE</PrintPricesOnTicket>
+          <!-- optional -->
+          <RestrictOrderstoCustomerProducts>BOOLTYPE</RestrictOrderstoCustomerProducts>
+          <!-- optional -->
+          <AllowAutomaticPriceAjustment>BOOLTYPE</AllowAutomaticPriceAjustment>
+        </Pricing>
+        <!-- optional -->
+        <Charges>
+          <!-- optional -->
+          <MinimumLoadChargeTableCode>STRTYPE</MinimumLoadChargeTableCode>
+          <!-- optional -->
+          <SeasonalChargeTableCode>STRTYPE</SeasonalChargeTableCode>
+          <!-- optional -->
+          <UnloadingChargeTableCode>STRTYPE</UnloadingChargeTableCode>
+          <!-- optional -->
+          <ApplyMinimumLoadCharge>BOOLTYPE</ApplyMinimumLoadCharge>
+          <!-- optional -->
+          <ApplySeasonalCharge>BOOLTYPE</ApplySeasonalCharge>
+          <!-- optional -->
+          <ApplyUnloadingCharge>BOOLTYPE</ApplyUnloadingCharge>
+          <!-- optional -->
+          <PrintMinimumLoadChargeOnSeperateInvoice>BOOLTYPE</PrintMinimumLoadChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintSeasonalChargeOnSeperateInvoice>BOOLTYPE</PrintSeasonalChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintUnloadingChargeOnSeperateInvoice>BOOLTYPE</PrintUnloadingChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintAutomaticSundryChargeOnSeperateInvoice>BOOLTYPE</PrintAutomaticSundryChargeOnSeperateInvoice>
+        </Charges>
+        <!-- optional -->
+        <Accounting>          
+          <!-- optional -->
+          <AccountingCategoryCode>STRTYPE</AccountingCategoryCode>
+          <!-- optional -->
+          <PrepaymentPercentage>FLOATTYPE</PrepaymentPercentage>         
+          <!-- optional -->
+          <CreditCard>
+            <!-- optional -->
+            <CardName>STRTYPE</CardName>
+            <!-- optional -->
+            <CardNumber>STRTYPE</CardNumber>
+            <!-- optional -->
+            <ResponsibleName>STRTYPE</ResponsibleName>
+            <!-- optional -->
+            <ExpirationDate>STRTYPE</ExpirationDate>
+          </CreditCard>
+          <!-- optional -->
+          <CreditInformation>
+            <!-- optional  -->
+            <Credit>              
+              <!-- required -->
+              <CreditCode>STRTYPE</CreditCode>
+              <!-- optional -->
+              <CreditEffectiveDate>DATETIMETYPE</CreditEffectiveDate>              
+            </Credit>
+          </CreditInformation>
+          <!-- optional -->
+          <PurchaseOrderRequiredInOrderEntry>BOOLTYPE</PurchaseOrderRequiredInOrderEntry>
+          <!-- optional -->
+          <CustomerJobRequiredInOrderEntry>BOOLTYPE</CustomerJobRequiredInOrderEntry>
+          <!-- optional -->
+          <LotBlockRequiredInOrderEntry>BOOLTYPE</LotBlockRequiredInOrderEntry>
+          <!-- optional -->
+          <LotBlock>STRTYPE</LotBlock>
+          <!-- optional -->
+          <SuspendOrderReasonCode>BOOLTYPE</SuspendOrderReasonCode>
+        </Accounting>
+        <!-- optional -->
+        <Distribution>
+          <!-- optional -->
+          <TrackingOrderColorCode>STRTYPE</TrackingOrderColorCode>
+          <!-- optional -->
+          <PrintMixWeightOnTicket>BOOLTYPE</PrintMixWeightOnTicket>
+          <!-- optional -->
+          <ProjectType>STRTYPE</ProjectType>
+          <!-- optional -->
+          <Stage>STRTYPE</Stage>
+          <!-- optional -->
+          <MapPage>STRTYPE</MapPage>
+          <!-- optional -->
+          <EstimatedTravelTime>FLOATTYPE</EstimatedTravelTime>
+          <!-- optional -->
+          <TruckPollType>STRTYPE</TruckPollType>
+          <!-- optional -->
+          <UpdateProjectMapCoordinates>BOOLTYPE</UpdateProjectMapCoordinates>
+          <!-- optional -->
+          <UpdateOrderMapCoordinates>BOOLTYPE</UpdateOrderMapCoordinates>
+          <!-- optional -->
+          <DefaultOrderType>STRTYPE</DefaultOrderType>
+          <!-- optional -->
+          <SchedulePlantCode>STRTYPE</SchedulePlantCode>
+          <!-- optional -->
+          <TruckTypeCode>STRTYPE</TruckTypeCode>
+          <!-- optional -->
+          <DeliveryMethod>STRTYPE</DeliveryMethod>
+        </Distribution>
+      </ProjectUpdate>
+      <!--optional, may repeat -->
+      <IncludeRetElement>STRTYPE</IncludeRetElement>
+    </ProjectUpdateRq>
+    <!--    'requestID' is optional -->
+    <!--    'metaData' is optional and may have one of the following values: NoMetaData[DEFAULT], MetaDataOnly, MetaDataAndResponseData -->
+    <!--    'iterator' is optional and may have one of the following values: Start, Continue, Stop -->
+    <!--    'iteratorID' is optional -->
+    <TicketQueryRq  requestID = "UUIDTYPE" metaData = "ENUMTYPE" iterator = "ENUMTYPE" iteratorID = "UUIDTYPE">
+      <!-- optional in format MM/dd/yyyy-->
+      <FromOrderDate>DATETIMETYPE</FromOrderDate>
+      <!-- optional -->
+      <ToOrderDate>DATETIMETYPE</ToOrderDate>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <FromUpdateTime>DATETIMETYPE</FromUpdateTime>
+      <!-- optional -->
+      <ToUpdateTime>DATETIMETYPE</ToUpdateTime>
+      <!-- optional,may repeat -->
+      <TicketID>STRTYPE</TicketID>
+      <!-- optional,may repeat -->
+      <TicketCode>STRTYPE</TicketCode>
+      <!-- optional,may repeat -->
+      <PlantCode>STRTYPE</PlantCode>
+      <!-- optional,may repeat -->
+      <CustomerCode>STRTYPE</CustomerCode>
+      <!-- optional,may repeat -->
+      <ProjectCode>STRTYPE</ProjectCode>
+      <!-- optional -->
+      <IncludeRemovedTicket>BOOLTYPE</IncludeRemovedTicket>
+    </TicketQueryRq>
+    <!--    'requestID' is optional -->
+    <!--    'metaData' is optional and may have one of the following values: NoMetaData[DEFAULT], MetaDataOnly, MetaDataAndResponseData -->
+    <!--    'iterator' is optional and may have one of the following values: Start, Continue, Stop -->
+    <!--    'iteratorID' is optional -->
+    <ItemQueryRq requestID="UUIDTYPE" metaData="ENUMTYPE" iterator="ENUMTYPE" iteratorID="UUIDTYPE">
+      <!-- BEGIN OR-->
+      <!-- optional, may repeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!-- optional, may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- OR -->
+      <!-- optional, may repeat-->
+      <CategoryCode>STRTYPE</CategoryCode>
+      <!-- OR -->
+      <!-- optional -->
+      <MaxReturned >INTTYPE</MaxReturned>      
+      <!-- optional -->
+      <IsConstituent>BOOLTYPE</IsConstituent>
+      <!-- optional -->
+      <KeepInInventory>BOOLTYPE</KeepInInventory>
+      <!-- optional -->
+      <Resaleable>BOOLTYPE</Resaleable>
+      <!-- optional -->
+      <DoNotAllowTicketing>BOOLTYPE</DoNotAllowTicketing>
+      <!-- optional -->
+      <Taxable>BOOLTYPE</Taxable>
+      <!-- END OR -->
+      <!-- optional -->
+      <FromUpdateDate>DATETIMETYPE</FromUpdateDate>
+      <!-- optional -->
+      <ToUpdateDate>DATETIMETYPE</ToUpdateDate>
+      <!-- optional, may repeat-->
+      <IncludeRetElement>STRTYPE</IncludeRetElement>
+    </ItemQueryRq>
+    <!--    'requestID' is optional -->
+    <ItemUpdateRq  requestID="UUIDTYPE">
+      <ItemUpdate>
+        <!-- BEGIN OR-->
+        <!-- optional -->
+        <ID>INTTYPE</ID>
+        <!-- OR-->
+        <!-- optional -->
+        <Code>STRTYPE</Code>
+        <!-- Action is optional and may have one of the following values: Add,Edit,Delete -->
+        <Action>STRTYPE</Action>
+        <!-- optional -->        
+        <Description>STRTYPE</Description>
+        <!-- optional -->
+        <ShortDescription>STRTYPE</ShortDescription>
+        <!-- optional -->
+        <CategoryCode>STRTYPE</CategoryCode>
+        <!-- optional -->
+        <KeepInInventory>BOOLTYPE</KeepInInventory>
+        <!-- optional -->
+        <Resaleable>BOOLTYPE</Resaleable>
+        <!-- optional -->
+        <DoNotAllowTicketing>BOOLTYPE</DoNotAllowTicketing>
+        <!-- optional -->
+        <IsConstituent>BOOLTYPE</IsConstituent>
+        <!-- optional -->
+        <AccountLinkCode>STRTYPE</AccountLinkCode>
+        <!-- optional -->
+        <UOM>
+          <!-- optional -->
+          <OrderedQuantityUnit>STRTYPE</OrderedQuantityUnit>
+          <!-- optional -->
+          <OrderedQuantityExtCode>STRTYPE</OrderedQuantityExtCode>
+          <!-- optional -->
+          <DeliveredQuantityUnit>STRTYPE</DeliveredQuantityUnit>
+          <!-- optional -->
+          <TicketQuantityExtCode>STRTYPE</TicketQuantityExtCode>
+          <!-- optional -->
+          <PriceQuantityUnit>STRTYPE</PriceQuantityUnit>
+          <!-- optional -->
+          <PriceQuantityExtCode>STRTYPE</PriceQuantityExtCode>
+          <!-- optional -->
+          <BatchUnit>STRTYPE</BatchUnit>
+          <!-- optional -->
+          <InventoryUnit>STRTYPE</InventoryUnit>
+          <!-- optional -->
+          <PurchaseUnit>STRTYPE</PurchaseUnit>
+          <!-- optional -->
+          <ReportingUnit>STRTYPE</ReportingUnit>
+        </UOM>
+        <!-- optional -->
+        <Sales>
+          <!-- optional -->
+          <Taxable>BOOLTYPE</Taxable>
+          <!-- optional -->
+          <TradeDiscountable>BOOLTYPE</TradeDiscountable>
+          <!-- optional -->
+          <TermDiscountable>BOOLTYPE</TermDiscountable>
+          <!-- optional -->
+          <UsageCode>STRTYPE</UsageCode>
+          <!-- optional -->
+          <ExpirationDate>DATETIMETYPE</ExpirationDate>
+        </Sales>
+        <!-- optional -->
+        <Mix>
+          <!-- optional -->
+          <Strength>INTTYPE</Strength>
+          <!-- optional -->
+          <StrengthUnit>STRTYPE</StrengthUnit>
+          <!-- optional -->
+          <Slump>FLOATTYPE</Slump>
+          <!-- optional -->
+          <WaterCementRatio>FLOATTYPE</WaterCementRatio>
+          <!-- optional -->
+          <AggregateSize>STRTYPE</AggregateSize>
+          <!-- optional -->
+          <CementType>STRTYPE</CementType>
+          <!-- optional -->
+          <DaysToStrength>INTTYPE</DaysToStrength>
+          <!-- optional -->
+          <MaximumWater>FLOATTYPE</MaximumWater>
+          <!-- optional -->
+          <MinCementContent>FLOATTYPE</MinCementContent>
+          <!-- optional -->
+          <PercentAirVolume>FLOATTYPE</PercentAirVolume>
+          <!-- optional -->
+          <WaterHoldback>FLOATTYPE</WaterHoldback>
+          <!-- optional -->
+          <LightweightCubicFeet>FLOATTYPE</LightweightCubicFeet>
+        </Mix>
+        <!-- optional -->
+        <Locations>
+          <!-- optional, may repeat -->
+          <Location>
+            <LocationID>INTTYPE</LocationID>
+            <LocationCode>STRTYPE</LocationCode>
+            <!-- optional -->
+            <Batching>
+              <!-- optional -->
+              <SpecificGravity>FLOATTYPE</SpecificGravity>
+              <!-- optional -->
+              <MoisturePercent>FLOATTYPE</MoisturePercent>
+              <!-- optional -->
+              <BatchUnit>STRTYPE</BatchUnit>
+              <!-- optional -->
+              <MaximumBatchSize>FLOATTYPE</MaximumBatchSize>
+              <!-- optional -->
+              <MixerTime>INTTYPE</MixerTime>
+              <!-- optional -->
+              <DownloadToBatchSystem>BOOLTYPE</DownloadToBatchSystem>
+            </Batching>
+            <!-- optional -->
+            <MixDesign>
+              <!-- optional, may repeat -->
+              <Material>
+                <MixOrder>INTTYPE</MixOrder>
+                <Code>STRTYPE</Code>
+                <Description>STRTYPE</Description>
+                <Quantity>FLOATTYPE</Quantity>
+                <Unit>STRTYPE</Unit>
+              </Material>
+            </MixDesign>
+            <!-- optional -->
+            <Cost>
+              <!-- optional -->
+              <StandardCost>FLOATTYPE</StandardCost>
+              <!-- optional -->
+              <CostExtensionCode>STRTYPE</CostExtensionCode>
+              <!-- optional -->
+              <CostEffectiveDate>DATETIMETYPE</CostEffectiveDate>
+              <!-- optional -->
+              <PreviousCost>FLOATTYPE</PreviousCost>
+              <!-- optional -->
+              <PreviousCostExtensionCode>STRTYPE</PreviousCostExtensionCode>
+            </Cost>
+            <!-- optional , may repeat-->
+            <Pricing>
+              <!-- optional -->
+              <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+              <!-- optional -->
+              <Price>FLOATTYPE</Price>
+              <!-- optional -->
+              <PriceExtensionCode>STRTYPE</PriceExtensionCode>
+              <!-- optional -->
+              <PriceEffectiveDate>DATETIMETYPE</PriceEffectiveDate>
+              <!-- optional -->
+              <PreviousPrice>FLOATTYPE</PreviousPrice>
+              <!-- optional -->
+              <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>              
+            </Pricing>
+            <!-- optional -->
+            <Inventory>
+            </Inventory>
+          </Location>
+        </Locations>
+      </ItemUpdate>
+      <!--optional, may repeat -->
+      <IncludeRetElement>STRTYPE</IncludeRetElement>
+    </ItemUpdateRq>
+    <!--    'requestID' is optional -->
+    <EmployeeTimeUpdateRq  requestID="UUIDTYPE">
+      <!-- required, may repeat-->
+      <ClockTime>
+        <!-- required -->
+        <EmployeeId>STRTYPE</EmployeeId>
+        <!-- required YYYY-MM-DD -->
+        <ClockDate>DATETYPE</ClockDate>
+        <!-- required  YYYY-MM-DDTHH:mm:ss 2008-08-01T05:30:0-->
+        <ClockInTime>DATETIMETYPE0</ClockInTime>
+        <!-- optional  YYYY-MM-DDTHH:mm:ss 2008-08-01T08:31:00-->
+        <ClockOutTime>DATETIMETYPE</ClockOutTime>
+      </ClockTime>
+    </EmployeeTimeUpdateRq>
+    <!--    'requestID' is optional -->
+    <TruckStatusUpdateRq   requestID="UUIDTYPE">
+      <!-- required, may repeat-->
+      <TruckStatusUpdate>
+        <!-- required update sequence id-->
+        <StatusUpdateID>INTTYPE</StatusUpdateID>
+        <!-- required -->
+        <StatusType>STRTYPE</StatusType>
+        <!-- optional -->
+        <TruckID>STRTYPE</TruckID>
+        <!-- optional -->
+        <TruckCode>STRTYPE</TruckCode>
+        <!-- optional -->
+        <AltTruckCode>STRTYPE</AltTruckCode>
+        <!-- optional -->
+        <DeviceID>STRTYPE</DeviceID>
+        <!-- optional -->
+        <DriverCode>STRTYPE</DriverCode>
+        <!-- optional -->
+        <AltDriverCode>STRTYPE</AltDriverCode>
+        <!-- optional -->
+        <DriverName>STRTYPE</DriverName>            
+        <!-- required -->
+        <Status>
+          <!-- required -->
+          <StatusCode>INTTYPE</StatusCode>
+          <!-- required -->
+          <AltStatusCode>INTTYPE</AltStatusCode>
+          <!-- optional -->
+          <StatusName>STRTYPE</StatusName>
+          <!-- optional -->
+          <StatusDescription>STRTYPE</StatusDescription>
+          <!-- use sortable format like 2009-06-15T13:45:30 -->
+          <StatusTimeStamp>DATETIMETYPE</StatusTimeStamp>
+        </Status>
+        <!-- optional -->
+        <Gps>
+          <!-- required -->
+          <Latitude>STRTYPE</Latitude>
+          <!-- required -->
+          <Longitude>STRTYPE</Longitude>
+          <!-- optional -->
+          <Speed>STRTYPE</Speed>
+          <!-- optional -->
+          <Heading>STRTYPE</Heading>
+          <!-- use sortable format like 2009-06-15T13:45:30 -->
+          <GpsTimeStamp>DATETIMETYPE</GpsTimeStamp>
+        </Gps>
+        <!-- optional -->
+        <Ticket>
+          <!-- optional -->
+          <TicketID>INTTYPE</TicketID>
+          <!-- optional -->
+          <TicketNum>STRTYPE</TicketNum>
+          <!-- optional -->
+          <AltTicketNum>STRTYPE</AltTicketNum>
+          <!-- optional -->
+          <CustomerCode>STRTYPE</CustomerCode>
+          <!-- optional -->
+          <CustomerName>STRTYPE</CustomerName>
+          <!-- optional -->
+          <ProjectCode>STRTYPE</ProjectCode>
+          <!-- optional -->
+          <ProjectName>STRTYPE</ProjectName>
+          <!-- optional -->
+          <JobNumber>STRTYPE</JobNumber>
+          <!-- optional -->
+          <OrderID>INTTYPE</OrderID>
+          <!-- optional -->
+          <OrderCode>STRTYPE</OrderCode>
+          <!-- optional -->
+          <!-- use sortable format like 2009-06-15-->
+          <OrderDate>DATETYPE</OrderDate>
+          <!-- optional -->
+          <Comment>STRTYPE</Comment>
+          <!-- optional -->
+          <OriginalPlant>
+            <!-- optional -->
+            <PlantCode>STRTYPE</PlantCode>
+            <!-- optional -->
+            <PlantName>STRTYPE</PlantName>
+            <!-- optional -->
+            <Address1>STRTYPE</Address1>
+            <!-- optional -->
+            <Address2>STRTYPE</Address2>
+            <!-- optional -->
+            <Address3>STRTYPE</Address3>
+            <!-- optional -->
+            <City>STRTYPE</City>
+            <!-- optional -->
+            <State>STRTYPE</State>
+            <!-- optional -->
+            <Country>STRTYPE</Country>
+            <!-- optional -->
+            <Zip>STRTYPE</Zip>
+            <!-- optional -->
+            <Latitude>FLOATTYPE</Latitude>
+            <!-- optional -->
+            <Longitude>FLOATTYPE</Longitude>
+            <!-- optional -->
+            <Radius>FLOATTYPE</Radius>
+            <!-- optional -->
+            <Description>STRTYPE</Description>
+            <!-- optional -->
+          </OriginalPlant>
+          <JobSite>
+            <!-- optional -->
+            <JobSiteName>STRTYPE</JobSiteName>
+            <!-- optional -->
+            <Address1>STRTYPE</Address1>
+            <!-- optional -->
+            <Address2>STRTYPE</Address2>
+            <!-- optional -->
+            <Address3>STRTYPE</Address3>
+            <!-- optional -->
+            <City>STRTYPE</City>
+            <!-- optional -->
+            <State>STRTYPE</State>
+            <!-- optional -->
+            <Country>STRTYPE</Country>
+            <!-- optional -->
+            <Zip>STRTYPE</Zip>
+            <!-- optional -->
+            <Latitude>FLOATTYPE</Latitude>
+            <!-- optional -->
+            <Longitude>FLOATTYPE</Longitude>
+            <!-- optional -->
+            <Radius>FLOATTYPE</Radius>
+            <!-- optional -->
+            <Description>STRTYPE</Description>
+            <!-- optional -->
+            <Instruction1>STRTYPE</Instruction1>
+            <!-- optional -->
+            <Instruction2>STRTYPE</Instruction2>
+            <!-- optional -->
+            <Instruction3>STRTYPE</Instruction3>
+          </JobSite>
+          <!-- optional -->
+          <ReturnPlant>
+            <!-- optional -->
+            <PlantCode>STRTYPE</PlantCode>
+            <!-- optional -->
+            <PlantName>STRTYPE</PlantName>
+            <!-- optional -->
+            <Address1>STRTYPE</Address1>
+            <!-- optional -->
+            <Address2>STRTYPE</Address2>
+            <!-- optional -->
+            <Address3>STRTYPE</Address3>
+            <!-- optional -->
+            <City>STRTYPE</City>
+            <!-- optional -->
+            <State>STRTYPE</State>
+            <!-- optional -->
+            <Country>STRTYPE</Country>
+            <!-- optional -->
+            <Zip>STRTYPE</Zip>
+            <!-- optional -->
+            <Latitude>FLOATTYPE</Latitude>
+            <!-- optional -->
+            <Longitude>FLOATTYPE</Longitude>
+            <!-- optional -->
+            <Radius>FLOATTYPE</Radius>
+            <!-- optional -->
+            <Description>STRTYPE</Description>            
+          </ReturnPlant>
+        </Ticket>
+        <!-- optional -->
+        <Message>
+          <!-- optional -->
+          <TextMessage>STRTYPE</TextMessage>
+          <!-- optional -->
+          <QuestionMessage>
+            <!-- optional -->
+            <QuestionID>STRTYPE</QuestionID>
+            <!-- optional -->
+            <Question>STRTYPE</Question>
+            <Questioner>STRTYPE</Questioner>
+            <!-- optional -->
+            <Answer>STRTYPE</Answer>
+          </QuestionMessage>
+        </Message>
+        <UpdateTimeStamp>DATETIMETYPE</UpdateTimeStamp>        
+      </TruckStatusUpdate>
+      <!--optional, may repeat -->
+      <IncludeRetElement>STRTYPE</IncludeRetElement>
+    </TruckStatusUpdateRq>
+  </WebcreteXMLMsgsRq>
+  <!-- WebcreteXMLMsgsRs contains 2 attributes -->
+  <!--    'newMessageSetID' is optional -->
+  <!--    'messageSetStatusCode' is optional -->
+  <WebcreteXMLMsgsRs newMessageSetID="STRTYPE" messageSetStatusCode="INTTYPE">
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <VersionQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!--requried -->
+      <ConcreteGoVersion>STRTYPE</ConcreteGoVersion>
+      <!--requried -->
+      <WebcreteVersion>STRTYPE</WebcreteVersion>
+      <!-- required, may repeat-->
+      <SupportedWebcreteXMLVersion>STRTYPE</SupportedWebcreteXMLVersion>
+    </VersionQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <CompanyQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional -->
+      <CompanyRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- required -->
+        <Short>STRTYPE</Short>
+        <!-- required -->
+        <Name>STRTYPE</Name>
+        <!-- optional -->
+        <Address>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <Addr3>STRTYPE</Addr3>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+          <!-- optional -->
+        </Address>
+        <!-- optional -->
+        <RemitAddress>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <Addr3>STRTYPE</Addr3>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </RemitAddress>
+        <!-- optional -->
+        <Phone>STRTYPE</Phone>
+        <!-- optional -->
+        <Fax>STRTYPE</Fax>
+        <!-- optional -->
+        <Email>STRTYPE</Email>
+        <!-- optional -->
+        <WebSite>STRTYPE</WebSite>
+      </CompanyRet>
+    </CompanyQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <!--     'retCount' is optional -->
+    <!--     'iteratorRemainingCount' is optional -->
+    <!--     'iteratorID' is optional -->
+    <CustomerQueryRs  requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE"  retCount = "INTTYPE" iteratorRemainingCount = "INTTYPE" iteratorID = "UUIDTYPE">
+      <!-- optional, may repeat-->
+      <CustomerRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- required -->
+        <Name>STRTYPE</Name>
+        <!-- optional -->
+        <SetupDate>DATETIMETYPE</SetupDate>
+        <!-- optional -->
+        <SortName>STRTYPE</SortName>
+        <!-- optional -->
+        <Address>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <Addr3>STRTYPE</Addr3>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </Address>
+        <!-- optional -->
+        <InvoiceAddress>
+          <!-- optional -->
+          <Name>STRTYPE</Name>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>          
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </InvoiceAddress>
+        <!-- optional -->
+        <StatementAddress>
+          <!-- optional -->
+          <Name>STRTYPE</Name>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>          
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </StatementAddress>
+        <!-- optional -->
+        <Contact>STRTYPE</Contact>
+        <!-- optional -->
+        <Phone>STRTYPE</Phone>
+        <!-- optional -->
+        <Fax>STRTYPE</Fax>
+        <!-- optional -->
+        <Cellular>STRTYPE</Cellular>
+        <!-- optional -->
+        <Email>STRTYPE</Email>
+        <!-- optional -->
+        <QBInvoiceEmailChecked>BOOL</QBInvoiceEmailChecked>
+        <!-- optional -->
+        <Sales>
+          <!-- optional -->
+          <SalesAnalysisCode>STRTYPE</SalesAnalysisCode>
+          <!-- optional -->
+          <SalesmanCode>STRTYPE</SalesmanCode>
+          <!-- optional -->
+          <SalesmanName>STRTYPE</SalesmanName>
+        </Sales>
+        <!-- optional -->
+        <Taxing>
+          <!-- optional -->
+          <TaxID>STRTYPE</TaxID>
+          <!-- optional -->
+          <TaxCode>STRTYPE</TaxCode>
+          <!-- optional -->
+          <Taxable>BOOLTYPE</Taxable>
+          <!-- optional -->
+          <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
+          <!-- optional, may repeat -->
+          <TaxExcempt>
+            <!-- optional -->
+            <TaxAuthorityCode>STRTYPE</TaxAuthorityCode>
+            <!-- optional -->
+            <TaxExemptID>STRTYPE</TaxExemptID>
+          </TaxExcempt>
+        </Taxing>
+        <!-- optional -->
+        <Pricing>
+          <!-- optional -->
+          <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+          <!-- optional -->
+          <PricingPlantCode>STRTYPE</PricingPlantCode>
+          <!-- optional -->
+          <TradeDiscountPercent>PERCENTTYPE</TradeDiscountPercent>
+          <!-- optional -->
+          <TradeDiscountAmount>FLOATTYPE</TradeDiscountAmount>
+          <!-- optional -->
+          <TradeDiscountAmountUnitCode>STRTYPE</TradeDiscountAmountUnitCode>
+          <!-- optional -->
+          <TermCode>STRTYPE</TermCode>
+          <!-- optional -->
+          <ZoneCode>STRTYPE</ZoneCode>
+          <!-- optional -->
+          <OverrideChargeRate>FLOATTYPE</OverrideChargeRate>
+          <!-- optional -->
+          <OverrideChargeEfftiveDate>DATETIEMTYPE</OverrideChargeEfftiveDate>
+          <!-- optional -->
+          <PreviousRate>DATETIMETYPE</PreviousRate>
+          <!-- optional -->
+          <ApplyZoneCharges>BOOLTYPE</ApplyZoneCharges>
+          <!-- optional -->
+          <AllowPriceChangeInOrderEntry>BOOLTYPE</AllowPriceChangeInOrderEntry>
+          <!-- optional -->
+          <PrintPricesOnTicket>BOOLTYPE</PrintPricesOnTicket>
+          <!-- optional -->
+          <RestrictOrderstoCustomerProducts>BOOLTYPE</RestrictOrderstoCustomerProducts>
+          <!-- optional -->
+          <AllowAutomaticPriceAjustment>BOOLTYPE</AllowAutomaticPriceAjustment>
+        </Pricing>
+        <!-- optional -->
+        <Charges>
+          <!-- optional -->
+          <MinimumLoadChargeTableCode>STRTYPE</MinimumLoadChargeTableCode>
+          <!-- optional -->
+          <SeasonalChargeTableCode>STRTYPE</SeasonalChargeTableCode>
+          <!-- optional -->
+          <UnloadingChargeTableCode>STRTYPE</UnloadingChargeTableCode>
+          <!-- optional -->
+          <ApplyMinimumLoadCharge>BOOLTYPE</ApplyMinimumLoadCharge>
+          <!-- optional -->
+          <ApplySeasonalCharge>BOOLTYPE</ApplySeasonalCharge>
+          <!-- optional -->
+          <ApplyUnloadingCharge>BOOLTYPE</ApplyUnloadingCharge>
+          <!-- optional -->
+          <PrintMinimumLoadChargeOnSeperateInvoice>BOOLTYPE</PrintMinimumLoadChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintSeasonalChargeOnSeperateInvoice>BOOLTYPE</PrintSeasonalChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintUnloadingChargeOnSeperateInvoice>BOOLTYPE</PrintUnloadingChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintAutomaticSundryChargeOnSeperateInvoice>BOOLTYPE</PrintAutomaticSundryChargeOnSeperateInvoice>          
+        </Charges>
+        <!-- optional -->
+        <Accounting>
+          <!-- optional -->
+          <StatementCycle>STRTYPE</StatementCycle>
+          <!-- optional -->
+          <AccountingCategoryCode>STRTYPE</AccountingCategoryCode>
+          <!-- optional -->
+          <ApplyFinanceCharges>BOOLTYPE</ApplyFinanceCharges>
+          <!-- optional -->
+          <PrintStatements>BOOLTYPE</PrintStatements>
+          <!-- optional -->
+          <CreditCard>
+            <!-- optional -->
+            <CardName>STRTYPE</CardName>
+            <!-- optional -->
+            <CardNumber>STRTYPE</CardNumber>
+            <!-- optional -->
+            <ResponsibleName>STRTYPE</ResponsibleName>
+            <!-- optional -->
+            <ExpirationDate>STRTYPE</ExpirationDate>
+          </CreditCard>
+          <!-- optional -->
+          <CreditInformation>
+            <!-- optional, may repeat -->
+            <Credit>
+              <!-- required -->
+              <CompanyCode>STRTYPE</CompanyCode>
+              <!-- required -->
+              <CreditCode>STRTYPE</CreditCode>
+              <!-- optional -->
+              <CreditChangeDate>DATETIMETYPE</CreditChangeDate>
+              <!-- optional -->
+              <CreditLimit>AMTTYPE</CreditLimit>
+              <!-- optional -->
+              <CurrentBalance>AMTTYPE</CurrentBalance>
+              <!-- optional -->
+              <HighBalance>AMTTYPE</HighBalance>
+              <!-- optional -->
+              <UpdateCredit>BOOLTYPE</UpdateCredit>
+              <!-- optional -->
+              <CreditUpdateDate>DATETIMETYPE</CreditUpdateDate>
+              <!-- optional -->
+              <HighBalanceDate>DATETIMETYPE</HighBalanceDate>
+              <!-- optional -->
+              <LastInvoiceDate>DATETIMETYPE</LastInvoiceDate>
+              <!-- optional -->
+              <CreditPersonCode>STRTYPE</CreditPersonCode>
+              <!-- optional -->
+              <CreditPersonName>STRTYPE</CreditPersonName>
+            </Credit>
+          </CreditInformation>
+          <!-- optional -->
+          <PurchaseOrderRequiredInOrderEntry>BOOLTYPE</PurchaseOrderRequiredInOrderEntry>
+          <!-- optional -->
+          <CustomerJobRequiredInOrderEntry>BOOLTYPE</CustomerJobRequiredInOrderEntry>
+          <!-- optional -->
+          <ExternalLiensRequiredInOrderEntry>BOOLTYPE</ExternalLiensRequiredInOrderEntry>
+          <!-- optional -->
+          <SuspendOrderReasonCode>BOOLTYPE</SuspendOrderReasonCode>
+        </Accounting>
+        <!-- optional -->
+        <Distribution>
+          <!-- optional -->
+          <TrackingOrderColorCode>STRTYPE</TrackingOrderColorCode>
+          <!-- optional -->
+          <PrintMixWeightOnTicket>BOOLTYPE</PrintMixWeightOnTicket>
+          <!-- optional -->
+          <PrinterSelector>STRTYPE</PrinterSelector>
+        </Distribution>
+        <UpdateDate>DATETIMETYPE</UpdateDate>
+      </CustomerRet>
+    </CustomerQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required  -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <CustomerUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <CustomerRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- required -->
+        <Name>STRTYPE</Name>
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+        <!-- optional -->
+        <SetupDate>DATETIMETYPE</SetupDate>
+        <!-- optional -->
+        <SortName>STRTYPE</SortName>
+        <!-- optional -->        
+        <Address>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <Addr3>STRTYPE</Addr3>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </Address>
+        <!-- optional -->
+        <InvoiceAddress>
+          <!-- optional -->
+          <Name>STRTYPE</Name>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </InvoiceAddress>
+        <!-- optional -->
+        <StatementAddress>
+          <!-- optional -->
+          <Name>STRTYPE</Name>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </StatementAddress>
+        <!-- optional -->
+        <Contact>STRTYPE</Contact>
+        <!-- optional -->
+        <Phone>STRTYPE</Phone>
+        <!-- optional -->
+        <Fax>STRTYPE</Fax>
+        <!-- optional -->
+        <Cellular>STRTYPE</Cellular>
+        <!-- optional -->
+        <Email>STRTYPE</Email>
+        <!-- optional -->
+        <Sales>
+          <!-- optional -->
+          <SalesAnalysisCode>STRTYPE</SalesAnalysisCode>
+          <!-- optional -->
+          <SalesmanCode>STRTYPE</SalesmanCode>
+          <!-- optional -->
+          <SalesmanName>STRTYPE</SalesmanName>
+        </Sales>
+        <!-- optional -->
+        <Taxing>
+          <!-- optional -->
+          <TaxID>STRTYPE</TaxID>
+          <!-- optional -->
+          <TaxCode>STRTYPE</TaxCode>
+          <!-- optional -->
+          <Taxable>BOOLTYPE</Taxable>
+          <!-- optional -->
+          <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
+          <!-- optional, may repeat -->
+          <TaxExcempt>
+            <!-- optional -->
+            <TaxAuthorityCode>STRTYPE</TaxAuthorityCode>
+            <!-- optional -->
+            <TaxExemptID>STRTYPE</TaxExemptID>
+          </TaxExcempt>
+        </Taxing>
+        <!-- optional -->
+        <Pricing>
+          <!-- optional -->
+          <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+          <!-- optional -->
+          <PricingPlantCode>STRTYPE</PricingPlantCode>
+          <!-- optional -->
+          <TradeDiscountPercent>PERCENTTYPE</TradeDiscountPercent>
+          <!-- optional -->
+          <TradeDiscountAmount>FLOATTYPE</TradeDiscountAmount>
+          <!-- optional -->
+          <TradeDiscountAmountUnitCode>STRTYPE</TradeDiscountAmountUnitCode>
+          <!-- optional -->
+          <TermCode>STRTYPE</TermCode>
+          <!-- optional -->
+          <ZoneCode>STRTYPE</ZoneCode>
+          <!-- optional -->
+          <OverrideChargeRate>FLOATTYPE</OverrideChargeRate>
+          <!-- optional -->
+          <OverrideChargeEfftiveDate>DATETIEMTYPE</OverrideChargeEfftiveDate>
+          <!-- optional -->
+          <PreviousRate>DATETIMETYPE</PreviousRate>
+          <!-- optional -->
+          <ApplyZoneCharges>BOOLTYPE</ApplyZoneCharges>
+          <!-- optional -->
+          <AllowPriceChangeInOrderEntry>BOOLTYPE</AllowPriceChangeInOrderEntry>
+          <!-- optional -->
+          <PrintPricesOnTicket>BOOLTYPE</PrintPricesOnTicket>
+          <!-- optional -->
+          <RestrictOrderstoCustomerProducts>BOOLTYPE</RestrictOrderstoCustomerProducts>
+          <!-- optional -->
+          <AllowAutomaticPriceAjustment>BOOLTYPE</AllowAutomaticPriceAjustment>
+        </Pricing>
+        <!-- optional -->
+        <Charges>
+          <!-- optional -->
+          <MinimumLoadChargeTableCode>STRTYPE</MinimumLoadChargeTableCode>
+          <!-- optional -->
+          <SeasonalChargeTableCode>STRTYPE</SeasonalChargeTableCode>
+          <!-- optional -->
+          <UnloadingChargeTableCode>STRTYPE</UnloadingChargeTableCode>
+          <!-- optional -->
+          <ApplyMinimumLoadCharge>BOOLTYPE</ApplyMinimumLoadCharge>
+          <!-- optional -->
+          <ApplySeasonalCharge>BOOLTYPE</ApplySeasonalCharge>
+          <!-- optional -->
+          <ApplyUnloadingCharge>BOOLTYPE</ApplyUnloadingCharge>
+          <!-- optional -->
+          <PrintMinimumLoadChargeOnSeperateInvoice>BOOLTYPE</PrintMinimumLoadChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintSeasonalChargeOnSeperateInvoice>BOOLTYPE</PrintSeasonalChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintUnloadingChargeOnSeperateInvoice>BOOLTYPE</PrintUnloadingChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintAutomaticSundryChargeOnSeperateInvoice>BOOLTYPE</PrintAutomaticSundryChargeOnSeperateInvoice>
+        </Charges>
+        <!-- optional -->
+        <Accounting>
+          <!-- optional -->
+          <StatementCycle>STRTYPE</StatementCycle>
+          <!-- optional -->
+          <AccountingCategoryCode>STRTYPE</AccountingCategoryCode>
+          <!-- optional -->
+          <ApplyFinanceCharges>BOOLTYPE</ApplyFinanceCharges>
+          <!-- optional -->
+          <PrintStatements>BOOLTYPE</PrintStatements>
+          <!-- optional -->
+          <CreditCard>
+            <!-- optional -->
+            <CardName>STRTYPE</CardName>
+            <!-- optional -->
+            <CardNumber>STRTYPE</CardNumber>
+            <!-- optional -->
+            <ResponsibleName>STRTYPE</ResponsibleName>
+            <!-- optional -->
+            <ExpirationDate>STRTYPE</ExpirationDate>
+          </CreditCard>
+          <!-- optional -->
+          <CreditInformation>
+            <!-- optional, may repeat -->
+            <Credit>
+              <!-- required -->
+              <CompanyCode>STRTYPE</CompanyCode>
+              <!-- required -->
+              <CreditCode>STRTYPE</CreditCode>
+              <!-- optional -->
+              <CreditChangeDate>DATETIMETYPE</CreditChangeDate>
+              <!-- optional -->
+              <CreditLimit>AMTTYPE</CreditLimit>
+              <!-- optional -->
+              <CurrentBalance>AMTTYPE</CurrentBalance>
+              <!-- optional -->
+              <HighBalance>AMTTYPE</HighBalance>
+              <!-- optional -->
+              <UpdateCredit>BOOLTYPE</UpdateCredit>
+              <!-- optional -->
+              <HighBalanceDate>DATETIMETYPE</HighBalanceDate>
+              <!-- optional -->
+              <CreditUpdateDate>DATETIMETYPE</CreditUpdateDate>
+              <!-- optional -->
+              <LastInvoiceDate>DATETIMETYPE</LastInvoiceDate>
+              <!-- optional -->
+              <CreditPersonCode>STRTYPE</CreditPersonCode>
+              <!-- optional -->
+              <CreditPersonName>STRTYPE</CreditPersonName>
+            </Credit>
+          </CreditInformation>
+          <!-- optional -->
+          <PurchaseOrderRequiredInOrderEntry>BOOLTYPE</PurchaseOrderRequiredInOrderEntry>
+          <!-- optional -->
+          <CustomerJobRequiredInOrderEntry>BOOLTYPE</CustomerJobRequiredInOrderEntry>
+          <!-- optional -->
+          <ExternalLiensRequiredInOrderEntry>BOOLTYPE</ExternalLiensRequiredInOrderEntry>
+          <!-- optional -->
+          <SuspendOrderReasonCode>BOOLTYPE</SuspendOrderReasonCode>
+        </Accounting>
+        <!-- optional -->
+        <Distribution>
+          <!-- optional -->
+          <TrackingOrderColorCode>STRTYPE</TrackingOrderColorCode>
+          <!-- optional -->
+          <PrintMixWeightOnTicket>BOOLTYPE</PrintMixWeightOnTicket>
+          <!-- optional -->
+          <PrinterSelector>STRTYPE</PrinterSelector>
+        </Distribution>
+      </CustomerRet>
+    </CustomerUpdateRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <!--     'retCount' is optional -->
+    <!--     'iteratorRemainingCount' is optional -->
+    <!--     'iteratorID' is optional -->
+    <ProjectQueryRs  requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE"  retCount = "INTTYPE" iteratorRemainingCount = "INTTYPE" iteratorID = "UUIDTYPE">
+      <!-- optional, may repeat-->
+      <ProjectRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- required -->
+        <Name>STRTYPE</Name>
+        <!-- required -->
+        <CustomerID>INTTYPE</CustomerID>
+        <!-- required -->
+        <CustomerCode>STRTYPE</CustomerCode>
+        <!-- required -->
+        <CustomerName>STRTYPE</CustomerName>
+        <!-- optional -->
+        <SetupDate>DATETIMETYPE</SetupDate>
+        <!-- optional -->
+        <DeliveryAddress>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <Addr3>STRTYPE</Addr3>
+        </DeliveryAddress>
+        <!-- optional -->
+        <Instruction>
+          <!-- optional -->
+          <Instruction1>STRTYPE</Instruction1>
+          <!-- optional -->
+          <Instruction2>STRTYPE</Instruction2>
+          <!-- optional -->
+          <Instruction3>STRTYPE</Instruction3>
+        </Instruction>
+        <!-- optional -->
+        <InvoiceAddress>
+          <!-- optional -->
+          <Name>STRTYPE</Name>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </InvoiceAddress>
+        <!-- optional -->
+        <StatementAddress>
+          <!-- optional -->
+          <Name>STRTYPE</Name>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </StatementAddress>
+        <!-- optional -->
+        <Contact>STRTYPE</Contact>
+        <!-- optional -->
+        <Phone>STRTYPE</Phone>
+        <!-- optional -->
+        <Fax>STRTYPE</Fax>
+        <!-- optional -->
+        <Cellular>STRTYPE</Cellular>
+        <!-- optional -->
+        <Email>STRTYPE</Email>
+        <!-- optional -->
+        <CustomerJob>STRTYPE</CustomerJob>
+        <!-- optional -->
+        <PurchaseOrder>STRTYPE</PurchaseOrder>
+        <!-- optional -->
+        <ExpirationDate>STRTYPE</ExpirationDate>
+        <!-- optional -->
+        <ShippingCustomerCode>STRTYPE</ShippingCustomerCode>
+        <!-- optional -->
+        <ReferenceCustomerCode>STRTYPE</ReferenceCustomerCode>
+        <!-- optional -->
+        <Sales>
+          <!-- optional -->
+          <SalesAnalysisCode>STRTYPE</SalesAnalysisCode>
+          <!-- optional -->
+          <SalesmanCode>STRTYPE</SalesmanCode>
+          <!-- optional -->
+          <SalesmanName>STRTYPE</SalesmanName>
+        </Sales>
+        <!-- optional -->
+        <Taxing>
+          <!-- optional -->
+          <TaxID>STRTYPE</TaxID>
+          <!-- optional -->
+          <TaxCode>STRTYPE</TaxCode>
+          <!-- optional -->
+          <Taxable>BOOLTYPE</Taxable>
+          <!-- optional -->
+          <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
+          <!-- optional, may repeat -->
+          <TaxExcempt>
+            <!-- optional -->
+            <TaxAuthorityCode>STRTYPE</TaxAuthorityCode>
+            <!-- optional -->
+            <TaxExemptID>STRTYPE</TaxExemptID>
+          </TaxExcempt>
+        </Taxing>
+        <!-- optional -->
+        <Pricing>
+          <!-- optional -->
+          <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+          <!-- optional -->
+          <PricingPlantCode>STRTYPE</PricingPlantCode>
+          <!-- optional -->
+          <TradeDiscountPercent>PERCENTTYPE</TradeDiscountPercent>
+          <!-- optional -->
+          <TradeDiscountAmount>FLOATTYPE</TradeDiscountAmount>
+          <!-- optional -->
+          <TradeDiscountAmountUnitCode>STRTYPE</TradeDiscountAmountUnitCode>
+          <!-- optional -->
+          <TermCode>STRTYPE</TermCode>
+          <!-- optional -->
+          <ZoneCode>STRTYPE</ZoneCode>
+          <!-- optional -->
+          <ApplyZoneCharges>BOOLTYPE</ApplyZoneCharges>
+          <!-- optional -->
+          <AllowPriceChangeInOrderEntry>BOOLTYPE</AllowPriceChangeInOrderEntry>
+          <!-- optional -->
+          <PrintPricesOnTicket>BOOLTYPE</PrintPricesOnTicket>
+          <!-- optional -->
+          <RestrictOrderstoCustomerProducts>BOOLTYPE</RestrictOrderstoCustomerProducts>
+          <!-- optional -->
+          <AllowAutomaticPriceAjustment>BOOLTYPE</AllowAutomaticPriceAjustment>
+        </Pricing>
+        <!-- optional -->
+        <Charges>
+          <!-- optional -->
+          <MinimumLoadChargeTableCode>STRTYPE</MinimumLoadChargeTableCode>
+          <!-- optional -->
+          <SeasonalChargeTableCode>STRTYPE</SeasonalChargeTableCode>
+          <!-- optional -->
+          <UnloadingChargeTableCode>STRTYPE</UnloadingChargeTableCode>
+          <!-- optional -->
+          <ApplyMinimumLoadCharge>BOOLTYPE</ApplyMinimumLoadCharge>
+          <!-- optional -->
+          <ApplySeasonalCharge>BOOLTYPE</ApplySeasonalCharge>
+          <!-- optional -->
+          <ApplyUnloadingCharge>BOOLTYPE</ApplyUnloadingCharge>
+          <!-- optional -->
+          <PrintMinimumLoadChargeOnSeperateInvoice>BOOLTYPE</PrintMinimumLoadChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintSeasonalChargeOnSeperateInvoice>BOOLTYPE</PrintSeasonalChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintUnloadingChargeOnSeperateInvoice>BOOLTYPE</PrintUnloadingChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintAutomaticSundryChargeOnSeperateInvoice>BOOLTYPE</PrintAutomaticSundryChargeOnSeperateInvoice>
+        </Charges>
+        <!-- optional -->
+        <Accounting>
+          <!-- optional -->
+          <AccountingCategoryCode>STRTYPE</AccountingCategoryCode>
+          <!-- optional -->
+          <PrepaymentPercentage>FLOATTYPE</PrepaymentPercentage>
+          <!-- optional -->
+          <CreditCard>
+            <!-- optional -->
+            <CardName>STRTYPE</CardName>
+            <!-- optional -->
+            <CardNumber>STRTYPE</CardNumber>
+            <!-- optional -->
+            <ResponsibleName>STRTYPE</ResponsibleName>
+            <!-- optional -->
+            <ExpirationDate>STRTYPE</ExpirationDate>
+          </CreditCard>
+          <!-- optional -->
+          <CreditInformation>
+            <!-- optional  -->
+            <Credit>
+              <!-- required -->
+              <CreditCode>STRTYPE</CreditCode>
+              <!-- optional -->
+              <CreditEffectiveDate>DATETIMETYPE</CreditEffectiveDate>
+            </Credit>
+          </CreditInformation>
+          <!-- optional -->
+          <PurchaseOrderRequiredInOrderEntry>BOOLTYPE</PurchaseOrderRequiredInOrderEntry>
+          <!-- optional -->
+          <CustomerJobRequiredInOrderEntry>BOOLTYPE</CustomerJobRequiredInOrderEntry>
+          <!-- optional -->
+          <LotBlockRequiredInOrderEntry>BOOLTYPE</LotBlockRequiredInOrderEntry>
+          <!-- optional -->
+          <LotBlock>STRTYPE</LotBlock>
+          <!-- optional -->
+          <SuspendOrderReasonCode>BOOLTYPE</SuspendOrderReasonCode>
+        </Accounting>
+        <!-- optional -->
+        <Distribution>
+          <!-- optional -->
+          <TrackingOrderColorCode>STRTYPE</TrackingOrderColorCode>
+          <!-- optional -->
+          <PrintMixWeightOnTicket>BOOLTYPE</PrintMixWeightOnTicket>
+          <!-- optional -->
+          <ProjectType>STRTYPE</ProjectType>
+          <!-- optional -->
+          <Stage>STRTYPE</Stage>
+          <!-- optional -->
+          <MapPage>STRTYPE</MapPage>
+          <!-- optional -->
+          <EstimatedTravelTime>FLOATTYPE</EstimatedTravelTime>
+          <!-- optional -->
+          <TruckPollType>STRTYPE</TruckPollType>
+          <!-- optional -->
+          <UpdateProjectMapCoordinates>BOOLTYPE</UpdateProjectMapCoordinates>
+          <!-- optional -->
+          <UpdateOrderMapCoordinates>BOOLTYPE</UpdateOrderMapCoordinates>
+          <!-- optional -->
+          <DefaultOrderType>STRTYPE</DefaultOrderType>
+          <!-- optional -->
+          <SchedulePlantCode>STRTYPE</SchedulePlantCode>
+          <!-- optional -->
+          <TruckTypeCode>STRTYPE</TruckTypeCode>
+          <!-- optional -->
+          <DeliveryMethod>STRTYPE</DeliveryMethod>
+        </Distribution>
+        <!-- optional -->
+        <UpdateDate>DATETIMETYPE</UpdateDate>
+      </ProjectRet>      
+    </ProjectQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required  -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <ProjectUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <ProjectRet>
+        <!-- BEGIN OR-->
+        <!-- optional-->
+        <ID>INTTYPE</ID>
+        <!-- OR -->
+        <!-- optional-->
+        <Code>STRTYPE</Code>
+        <!-- OR -->
+        <!-- optional-->
+        <Name>STRTYPE</Name>
+        <!-- END OR -->
+        <!-- BEGIN OR-->
+        <!-- optional-->
+        <CustomerID>INTTYPE</CustomerID>
+        <!-- OR -->
+        <!-- optional-->
+        <CustomerCode>STRTYPE</CustomerCode>
+        <!-- OR -->
+        <!-- optional-->
+        <CustomerName>STRTYPE</CustomerName>
+        <!-- END OR -->
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+        <!-- optional -->
+        <SetupDate>DATETIMETYPE</SetupDate>
+        <!-- optional -->
+        <DeliveryAddress>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <Addr3>STRTYPE</Addr3>
+        </DeliveryAddress>
+        <!-- optional -->
+        <Instruction>
+          <!-- optional -->
+          <Instruction1>STRTYPE</Instruction1>
+          <!-- optional -->
+          <Instruction2>STRTYPE</Instruction2>
+          <!-- optional -->
+          <Instruction3>STRTYPE</Instruction3>
+        </Instruction>
+        <!-- optional -->
+        <InvoiceAddress>
+          <!-- optional -->
+          <Name>STRTYPE</Name>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </InvoiceAddress>
+        <!-- optional -->
+        <StatementAddress>
+          <!-- optional -->
+          <Name>STRTYPE</Name>
+          <!-- optional -->
+          <Addr1>STRTYPE</Addr1>
+          <!-- optional -->
+          <Addr2>STRTYPE</Addr2>
+          <!-- optional -->
+          <City>STRTYPE</City>
+          <!-- optional -->
+          <State>STRTYPE</State>
+          <!-- optional -->
+          <PostalCode>STRTYPE</PostalCode>
+          <!-- optional -->
+          <Country>STRTYPE</Country>
+        </StatementAddress>
+        <!-- optional -->
+        <Contact>STRTYPE</Contact>
+        <!-- optional -->
+        <Phone>STRTYPE</Phone>
+        <!-- optional -->
+        <Fax>STRTYPE</Fax>
+        <!-- optional -->
+        <Cellular>STRTYPE</Cellular>
+        <!-- optional -->
+        <Email>STRTYPE</Email>
+        <!-- optional -->
+        <CustomerJob>STRTYPE</CustomerJob>
+        <!-- optional -->
+        <PurchaseOrder>STRTYPE</PurchaseOrder>
+        <!-- optional -->
+        <ExpirationDate>STRTYPE</ExpirationDate>
+        <!-- optional -->
+        <ShippingCustomerCode>STRTYPE</ShippingCustomerCode>
+        <!-- optional -->
+        <ReferenceCustomerCode>STRTYPE</ReferenceCustomerCode>
+        <!-- optional -->
+        <Sales>
+          <!-- optional -->
+          <SalesAnalysisCode>STRTYPE</SalesAnalysisCode>
+          <!-- optional -->
+          <SalesmanCode>STRTYPE</SalesmanCode>
+          <!-- optional -->
+          <SalesmanName>STRTYPE</SalesmanName>
+        </Sales>
+        <!-- optional -->
+        <Taxing>
+          <!-- optional -->
+          <TaxID>STRTYPE</TaxID>
+          <!-- optional -->
+          <TaxCode>STRTYPE</TaxCode>
+          <!-- optional -->
+          <Taxable>BOOLTYPE</Taxable>
+          <!-- optional -->
+          <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
+          <!-- optional, may repeat -->
+          <TaxExcempt>
+            <!-- optional -->
+            <TaxAuthorityCode>STRTYPE</TaxAuthorityCode>
+            <!-- optional -->
+            <TaxExemptID>STRTYPE</TaxExemptID>
+          </TaxExcempt>
+        </Taxing>
+        <!-- optional -->
+        <Pricing>
+          <!-- optional -->
+          <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+          <!-- optional -->
+          <PricingPlantCode>STRTYPE</PricingPlantCode>
+          <!-- optional -->
+          <TradeDiscountPercent>PERCENTTYPE</TradeDiscountPercent>
+          <!-- optional -->
+          <TradeDiscountAmount>FLOATTYPE</TradeDiscountAmount>
+          <!-- optional -->
+          <TradeDiscountAmountUnitCode>STRTYPE</TradeDiscountAmountUnitCode>
+          <!-- optional -->
+          <TermCode>STRTYPE</TermCode>
+          <!-- optional -->
+          <ZoneCode>STRTYPE</ZoneCode>
+          <!-- optional -->
+          <ApplyZoneCharges>BOOLTYPE</ApplyZoneCharges>
+          <!-- optional -->
+          <AllowPriceChangeInOrderEntry>BOOLTYPE</AllowPriceChangeInOrderEntry>
+          <!-- optional -->
+          <PrintPricesOnTicket>BOOLTYPE</PrintPricesOnTicket>
+          <!-- optional -->
+          <RestrictOrderstoCustomerProducts>BOOLTYPE</RestrictOrderstoCustomerProducts>
+          <!-- optional -->
+          <AllowAutomaticPriceAjustment>BOOLTYPE</AllowAutomaticPriceAjustment>
+        </Pricing>
+        <!-- optional -->
+        <Charges>
+          <!-- optional -->
+          <MinimumLoadChargeTableCode>STRTYPE</MinimumLoadChargeTableCode>
+          <!-- optional -->
+          <SeasonalChargeTableCode>STRTYPE</SeasonalChargeTableCode>
+          <!-- optional -->
+          <UnloadingChargeTableCode>STRTYPE</UnloadingChargeTableCode>
+          <!-- optional -->
+          <ApplyMinimumLoadCharge>BOOLTYPE</ApplyMinimumLoadCharge>
+          <!-- optional -->
+          <ApplySeasonalCharge>BOOLTYPE</ApplySeasonalCharge>
+          <!-- optional -->
+          <ApplyUnloadingCharge>BOOLTYPE</ApplyUnloadingCharge>
+          <!-- optional -->
+          <PrintMinimumLoadChargeOnSeperateInvoice>BOOLTYPE</PrintMinimumLoadChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintSeasonalChargeOnSeperateInvoice>BOOLTYPE</PrintSeasonalChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintUnloadingChargeOnSeperateInvoice>BOOLTYPE</PrintUnloadingChargeOnSeperateInvoice>
+          <!-- optional -->
+          <PrintAutomaticSundryChargeOnSeperateInvoice>BOOLTYPE</PrintAutomaticSundryChargeOnSeperateInvoice>
+        </Charges>
+        <!-- optional -->
+        <Accounting>
+          <!-- optional -->
+          <AccountingCategoryCode>STRTYPE</AccountingCategoryCode>
+          <!-- optional -->
+          <PrepaymentPercentage>FLOATTYPE</PrepaymentPercentage>
+          <!-- optional -->
+          <CreditCard>
+            <!-- optional -->
+            <CardName>STRTYPE</CardName>
+            <!-- optional -->
+            <CardNumber>STRTYPE</CardNumber>
+            <!-- optional -->
+            <ResponsibleName>STRTYPE</ResponsibleName>
+            <!-- optional -->
+            <ExpirationDate>STRTYPE</ExpirationDate>
+          </CreditCard>
+          <!-- optional -->
+          <CreditInformation>
+            <!-- optional  -->
+            <Credit>
+              <!-- required -->
+              <CreditCode>STRTYPE</CreditCode>
+              <!-- optional -->
+              <CreditEffectiveDate>DATETIMETYPE</CreditEffectiveDate>
+            </Credit>
+          </CreditInformation>
+          <!-- optional -->
+          <PurchaseOrderRequiredInOrderEntry>BOOLTYPE</PurchaseOrderRequiredInOrderEntry>
+          <!-- optional -->
+          <CustomerJobRequiredInOrderEntry>BOOLTYPE</CustomerJobRequiredInOrderEntry>
+          <!-- optional -->
+          <LotBlockRequiredInOrderEntry>BOOLTYPE</LotBlockRequiredInOrderEntry>
+          <!-- optional -->
+          <LotBlock>STRTYPE</LotBlock>
+          <!-- optional -->
+          <SuspendOrderReasonCode>BOOLTYPE</SuspendOrderReasonCode>
+        </Accounting>
+        <!-- optional -->
+        <Distribution>
+          <!-- optional -->
+          <TrackingOrderColorCode>STRTYPE</TrackingOrderColorCode>
+          <!-- optional -->
+          <PrintMixWeightOnTicket>BOOLTYPE</PrintMixWeightOnTicket>
+          <!-- optional -->
+          <ProjectType>STRTYPE</ProjectType>
+          <!-- optional -->
+          <Stage>STRTYPE</Stage>
+          <!-- optional -->
+          <MapPage>STRTYPE</MapPage>
+          <!-- optional -->
+          <EstimatedTravelTime>FLOATTYPE</EstimatedTravelTime>
+          <!-- optional -->
+          <TruckPollType>STRTYPE</TruckPollType>
+          <!-- optional -->
+          <UpdateProjectMapCoordinates>BOOLTYPE</UpdateProjectMapCoordinates>
+          <!-- optional -->
+          <UpdateOrderMapCoordinates>BOOLTYPE</UpdateOrderMapCoordinates>
+          <!-- optional -->
+          <DefaultOrderType>STRTYPE</DefaultOrderType>
+          <!-- optional -->
+          <SchedulePlantCode>STRTYPE</SchedulePlantCode>
+          <!-- optional -->
+          <TruckTypeCode>STRTYPE</TruckTypeCode>
+          <!-- optional -->
+          <DeliveryMethod>STRTYPE</DeliveryMethod>
+        </Distribution>
+      </ProjectRet>
+      <!--optional, may repeat -->
+      <IncludeRetElement>STRTYPE</IncludeRetElement>
+    </ProjectUpdateRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <!--     'retCount' is optional -->
+    <!--     'iteratorRemainingCount' is optional -->
+    <!--     'iteratorID' is optional -->    
+    <TicketQueryRs  requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE"  retCount = "INTTYPE" iteratorRemainingCount = "INTTYPE" iteratorID = "UUIDTYPE">
+      <!-- optional, may rep -->
+      <TicketRet>
+        <!-- required -->
+        <TicketID>INTTYPE</TicketID>
+        <!-- required -->
+        <CreatedDate>DATETIMETYPE</CreatedDate>
+        <!-- required -->
+        <PlantCode>STRTYPE</PlantCode>
+        <!-- optional -->
+        <PlantName>STRTYPE</PlantName>
+        <!-- required -->
+        <TicketCode>STRTYPE</TicketCode>
+        <!-- required -->
+        <OrderDate>DATETIMETYPE</OrderDate>
+        <!-- required -->
+        <OrderID>INTTYPE</OrderID>
+        <!-- required -->
+        <OrderCode>STRTYPE</OrderCode>
+        <!-- required -->
+        <PaymentForm>ENUMTYPE</PaymentForm>
+        <!-- optional -->
+        <TruckCode>STRTYPE</TruckCode>
+        <!-- optional -->
+        <DriverCode>STRTYPE</DriverCode>
+        <!-- optional -->
+        <DriverName>STRTYPE</DriverName>
+        <!-- required -->
+        <CustomerCode>STRTYPE</CustomerCode>
+        <!-- required -->
+        <CustomerName>STRTYPE</CustomerName>
+        <!-- optional -->
+        <CustomerJob>STRTYPE</CustomerJob>
+        <!-- optional -->
+        <ProjectCode>STRTYPE</ProjectCode>
+        <!-- optional -->
+        <ProjectName>STRTYPE</ProjectName>
+        <!-- optional -->
+        <LotBlockNumber>STRTYPE</LotBlockNumber>
+        <!-- optional -->
+        <PurchaseOrder>STRTYPE</PurchaseOrder>
+        <!-- optional -->
+        <PocketNumber>STRTYPE</PocketNumber>
+        <!-- optional -->
+        <JobNumber>STRTYPE</JobNumber>
+        <!-- optional -->
+        <DeliveryAddr1>STRTYPE</DeliveryAddr1>
+        <!-- optional -->
+        <DeliveryAddr2>STRTYPE</DeliveryAddr2>
+        <!-- optional -->
+        <DeliveryAddr3>STRTYPE</DeliveryAddr3>
+        <!-- optional -->
+        <InstructionAddr1>STRTYPE</InstructionAddr1>
+        <!-- optional -->
+        <InstructionAddr2>STRTYPE</InstructionAddr2>
+        <!-- optional -->
+        <InstructionAddr3>STRTYPE</InstructionAddr3>
+        <!-- optional -->
+        <InstructionAddr4>STRTYPE</InstructionAddr4>
+        <!-- optional -->
+        <InstructionAddr5>STRTYPE</InstructionAddr5>
+        <!-- optional -->
+        <InstructionAddr6>STRTYPE</InstructionAddr6>
+        <!-- optional -->
+        <ZoneCode>STRTYPE</ZoneCode>
+        <!-- optional -->
+        <ZoneName>STRTYPE</ZoneName>
+        <!-- optional -->
+        <RemoveReasonCode>STRTYPE</RemoveReasonCode>
+        <!-- optional -->
+        <TaxCode>STRTYPE</TaxCode>
+        <!-- optional -->
+        <Taxable>BOOLTYPE</Taxable>
+        <!-- optional -->
+        <HaulerCode>STRTYPE</HaulerCode>
+        <!-- optional -->
+        <HaulerName>STRTYPE</HaulerName>
+        <!-- optional -->
+        <UsageCode>STRTYPE</UsageCode>
+        <!-- optional -->
+        <UsageShort>STRTYPE</UsageShort>
+        <!-- optional -->
+        <WeightMasterCode>STRTYPE</WeightMasterCode>
+        <!-- optional -->
+        <WeightMasterName>STRTYPE</WeightMasterName>
+        <!-- optional -->
+        <WaterAddedOnJob>FLOATTYPE</WaterAddedOnJob>
+        <!-- optional -->
+        <QBInvoiceEmailChecked>BOOL</QBInvoiceEmailChecked>
+         <!-- optional -->
+        <PrintedTime>DATETIMETYPE</PrintedTime>
+        <!-- optional -->
+        <LoadTime>DATETIMETYPE</LoadTime>
+        <!-- optional -->
+        <ToJobTime>DATETIMETYPE</ToJobTime>
+        <!-- optional -->
+        <OnJobTime>DATETIMETYPE</OnJobTime>
+        <!-- optional -->
+        <UnloadTime>DATETIMETYPE</UnloadTime>
+        <!-- optional -->
+        <EndUnload>DATETIMETYPE</EndUnload>
+        <!-- optional -->
+        <WashTime>DATETIMETYPE</WashTime>
+        <!-- optional -->
+        <ToPlantTime>DATETIMETYPE</ToPlantTime>
+        <!-- optional -->
+        <AtPlantTime>DATETIMETYPE</AtPlantTime>
+        <!-- required -->
+        <Active>BOOLTYPE</Active>
+        <!-- optional -->
+        <Amount>AMTTYPE</Amount>
+        <!-- optional -->
+        <TotalAmount>AMTTYPE</TotalAmount>
+        <!-- optional -->
+        <TaxAmount>AMTTYPE</TaxAmount>
+        <!-- optional -->
+        <TradeDiscountPercent>PERCENTTYPE</TradeDiscountPercent>
+        <!-- optional -->
+        <TaxExemptID1>STRTYPE</TaxExemptID1>
+        <!-- optional -->
+        <TradeDiscountAmount>AMTTYPE</TradeDiscountAmount>
+        <!-- optional -->
+        <BuildingPermit>AMTTYPE</BuildingPermit>
+        <!-- optional -->
+        <Removed>BOOLTYPE</Removed>
+        <!-- optional -->
+        <UpdateTime>DATETIMETYPE</UpdateTime>
+        <!-- optional -->
+        <Products>
+          <!-- optional may repeat-->
+          <Product>
+            <!-- required -->
+            <ItemCode>STRTYPE</ItemCode>
+            <!-- optional -->
+            <Description>STRTYPE</Description>
+            <!-- optional -->
+            <ShortDescription>STRTYPE</ShortDescription>
+            <!-- required -->
+            <IsMix>BOOLTYPE</IsMix>
+            <!-- required -->
+            <IsAssoc>BOOLTYPE</IsAssoc>
+            <!-- required -->            
+            <ChargeType>ENUMTYPE</ChargeType>
+            <!-- optional -->
+            <Price>PRICETYPE</Price>
+            <!-- optional -->
+            <PriceUnit>STRTYPE</PriceUnit>
+            <!-- optional -->
+            <OrderQty>FLOATTYPE</OrderQty>
+            <!-- optional -->
+            <OrderQtyUnit>STRTYPE</OrderQtyUnit>
+            <!-- optional -->
+            <LoadQty>FLOATTYPE</LoadQty>
+            <!-- optional -->
+            <DelvQty>FLOATTYPE</DelvQty>
+            <!-- optional -->
+            <DelvQtyUnit>STRTYPE</DelvQtyUnit>
+            <!-- optional -->
+            <AccDelvQty>FLOATTYPE</AccDelvQty>
+            <!-- optional -->
+            <PreQty>FLOATTYPE</PreQty>
+            <!-- optional -->
+            <TicketQty>FLOATTYPE</TicketQty>
+            <!-- optional -->
+            <TicketQtyUnit>STRTYPE</TicketQtyUnit>
+            <!-- optional -->
+            <PriceQty>FLOATTYPE</PriceQty>
+            <!-- optional -->
+            <PriceQtyUnit>STRTYPE</PriceQtyUnit>
+            <!-- optional -->
+            <Slump>FLOATTYPE</Slump>
+            <!-- optional -->
+            <TrimPercent>PERCENTTYPE</TrimPercent>
+            <!-- optional -->
+            <TradeDiscountable>BOOLTYPE</TradeDiscountable>
+            <!-- optional -->
+            <Taxable>BOOLTYPE</Taxable>
+            <!-- optional -->
+            <Tax1>AMTTYPE</Tax1>
+            <!-- optional -->
+            <Tax2>AMTTYPE</Tax2>
+            <!-- optional -->
+            <Tax3>AMTTYPE</Tax3>
+            <!-- optional -->
+            <Tax4>AMTTYPE</Tax4>
+            <!-- optional -->
+            <Tax5>AMTTYPE</Tax5>
+            <!-- optional -->
+            <TaxAmount>AMTTYPE</TaxAmount>
+            <!-- optional -->
+            <Amount>AMTTYPE</Amount>
+            <!-- optional -->
+            <TotalAmount>AMTTYPE</TotalAmount>
+            <!-- optional -->
+            <AccountLinkCode>STRTYPE</AccountLinkCode>
+          </Product>
+        </Products>
+        <!-- optional -->
+        <BatchResult>
+          <!-- optional -->
+          <TemperWater>FLOATTYPE</TemperWater>
+          <!-- optional -->
+          <TemperWaterUnit>STRTYPE</TemperWaterUnit>
+          <!-- optional -->
+          <BatchWeight>
+            <!-- optional may repeat-->
+            <Material>
+              <!-- required -->
+              <Code>STRTYPE</Code>
+              <!-- required -->
+              <BatchTarget>FLOATTYPE</BatchTarget>
+              <!-- required -->
+              <BatchActual>FLOATTYPE</BatchActual>
+              <!-- required -->
+              <BatchUnit>STRTYPE</BatchUnit>
+              <!-- optional -->
+              <MoisturePercent>FLOATTYPE</MoisturePercent>
+            </Material>
+          </BatchWeight>
+        </BatchResult>        
+      </TicketRet>
+    </TicketQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <!--     'retCount' is optional -->
+    <!--     'iteratorRemainingCount' is optional -->
+    <!--     'iteratorID' is optional -->
+    <ItemQueryRs  requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE"  retCount = "INTTYPE" iteratorRemainingCount = "INTTYPE" iteratorID = "UUIDTYPE">
+      <!-- optional, may repeat-->
+      <ItemRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- required -->
+        <Description>STRTYPE</Description>
+        <!-- optional -->
+        <ShortDescription>STRTYPE</ShortDescription>
+        <!-- optional -->
+        <CategoryCode>STRTYPE</CategoryCode>
+        <!-- optional -->
+        <KeepInInventory>BOOLTYPE</KeepInInventory>
+        <!-- optional -->
+        <Resaleable>BOOLTYPE</Resaleable>
+        <!-- optional -->
+        <DoNotAllowTicketing>BOOLTYPE</DoNotAllowTicketing>
+        <!-- optional -->
+        <IsConstituent>BOOLTYPE</IsConstituent>
+        <!-- optional -->
+        <AccountLinkCode>STRTYPE</AccountLinkCode>
+        <!-- optional -->
+        <UOM>
+          <!-- optional -->
+          <OrderedQuantityUnit>STRTYPE</OrderedQuantityUnit>
+          <!-- optional -->
+          <OrderedQuantityExtCode>STRTYPE</OrderedQuantityExtCode>
+          <!-- optional -->
+          <DeliveredQuantityUnit>STRTYPE</DeliveredQuantityUnit>
+          <!-- optional -->
+          <TicketQuantityExtCode>STRTYPE</TicketQuantityExtCode>
+          <!-- optional -->
+          <PriceQuantityUnit>STRTYPE</PriceQuantityUnit>
+          <!-- optional -->
+          <PriceQuantityExtCode>STRTYPE</PriceQuantityExtCode>
+          <!-- optional -->
+          <BatchUnit>STRTYPE</BatchUnit>
+          <!-- optional -->
+          <InventoryUnit>STRTYPE</InventoryUnit>
+          <!-- optional -->
+          <PurchaseUnit>STRTYPE</PurchaseUnit>
+          <!-- optional -->
+          <ReportingUnit>STRTYPE</ReportingUnit>          
+        </UOM>
+        <!-- optional -->
+        <Sales>
+          <!-- optional -->
+          <Taxable>BOOLTYPE</Taxable>
+          <!-- optional -->
+          <TradeDiscountable>BOOLTYPE</TradeDiscountable>
+          <!-- optional -->
+          <TermDiscountable>BOOLTYPE</TermDiscountable>
+          <!-- optional -->
+          <UsageCode>STRTYPE</UsageCode>
+          <!-- optional -->
+          <ExpirationDate>DATETIMETYPE</ExpirationDate>
+        </Sales>
+        <!-- optional -->
+        <Mix>
+          <!-- optional -->
+          <Strength>INTTYPE</Strength>
+          <!-- optional -->
+          <StrengthUnit>STRTYPE</StrengthUnit>
+          <!-- optional -->
+          <Slump>FLOATTYPE</Slump>
+          <!-- optional -->
+          <WaterCementRatio>FLOATTYPE</WaterCementRatio>
+          <!-- optional -->
+          <AggregateSize>STRTYPE</AggregateSize>
+          <!-- optional -->
+          <CementType>STRTYPE</CementType>
+          <!-- optional -->
+          <DaysToStrength>INTTYPE</DaysToStrength>
+          <!-- optional -->
+          <MaximumWater>FLOATTYPE</MaximumWater>
+          <!-- optional -->
+          <MinCementContent>FLOATTYPE</MinCementContent>
+          <!-- optional -->
+          <PercentAirVolume>FLOATTYPE</PercentAirVolume>
+          <!-- optional -->
+          <WaterHoldback>FLOATTYPE</WaterHoldback>
+          <!-- optional -->
+          <LightweightCubicFeet>FLOATTYPE</LightweightCubicFeet>
+        </Mix>
+        <!-- optional -->
+        <Locations>
+          <!-- optional, may repeat -->
+          <Location>
+            <LocationID>INTTYPE</LocationID>
+            <LocationCode>STRTYPE</LocationCode>
+            <!-- optional -->
+            <Batching>
+              <!-- optional -->
+              <SpecificGravity>FLOATTYPE</SpecificGravity>
+              <!-- optional -->
+              <MoisturePercent>FLOATTYPE</MoisturePercent>
+              <!-- optional -->
+              <BatchUnit>STRTYPE</BatchUnit>
+              <!-- optional -->
+              <MaximumBatchSize>FLOATTYPE</MaximumBatchSize>
+              <!-- optional -->
+              <MixerTime>INTTYPE</MixerTime>
+              <!-- optional -->
+              <DownloadToBatchSystem>BOOLTYPE</DownloadToBatchSystem>
+            </Batching>
+            <!-- optional -->
+            <MixDesign>
+              <!-- optional, may repeat -->
+              <Material>
+                <Sort>INTTYPE</Sort>
+                <Code>STRTYPE</Code>
+                <Description>STRTYPE</Description>
+                <Quantity>FLOATTYPE</Quantity>
+                <Unit>STRTYPE</Unit>
+              </Material>
+            </MixDesign>
+            <!-- optional -->
+            <Cost>
+              <!-- optional -->
+              <StandardCost>FLOATTYPE</StandardCost>
+              <!-- optional -->
+              <CostExtensionCode>STRTYPE</CostExtensionCode>
+              <!-- optional -->
+              <CostEffectiveDate>DATETIMETYPE</CostEffectiveDate>
+              <!-- optional -->
+              <PreviousCost>FLOATTYPE</PreviousCost>
+              <!-- optional -->
+              <PreviousCostExtensionCode>STRTYPE</PreviousCostExtensionCode>
+            </Cost>
+            <!-- optional -->
+            <Pricing>
+              <!-- optional -->
+              <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+              <!-- optional -->
+              <Price>FLOATTYPE</Price>
+              <!-- optional -->
+              <PriceExtensionCode>STRTYPE</PriceExtensionCode>
+              <!-- optional -->
+              <PriceEffectiveDate>DATETIMETYPE</PriceEffectiveDate>
+              <!-- optional -->
+              <PreviousPrice>FLOATTYPE</PreviousPrice>
+              <!-- optional -->
+              <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
+            </Pricing>
+            <!-- optional -->
+            <Inventory>
+            </Inventory>
+          </Location>
+        </Locations>
+        <!-- optional -->
+        <UpdateDate>DATETIMETYPE</UpdateDate>
+      </ItemRet>
+    </ItemQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required  -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <ItemUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <ItemRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+        <!-- required -->
+        <Description>STRTYPE</Description>        
+        <!-- optional -->
+        <ShortDescription>STRTYPE</ShortDescription>
+        <!-- optional -->
+        <CategoryCode>STRTYPE</CategoryCode>
+        <!-- optional -->
+        <KeepInInventory>BOOLTYPE</KeepInInventory>
+        <!-- optional -->
+        <Resaleable>BOOLTYPE</Resaleable>
+        <!-- optional -->
+        <DoNotAllowTicketing>BOOLTYPE</DoNotAllowTicketing>
+        <!-- optional -->
+        <IsConstituent>BOOLTYPE</IsConstituent>
+        <!-- optional -->
+        <AccountLinkCode>STRTYPE</AccountLinkCode>
+        <!-- optional -->
+        <UOM>
+          <!-- optional -->
+          <OrderedQuantityUnit>STRTYPE</OrderedQuantityUnit>
+          <!-- optional -->
+          <OrderedQuantityExtCode>STRTYPE</OrderedQuantityExtCode>
+          <!-- optional -->
+          <DeliveredQuantityUnit>STRTYPE</DeliveredQuantityUnit>
+          <!-- optional -->
+          <TicketQuantityExtCode>STRTYPE</TicketQuantityExtCode>
+          <!-- optional -->
+          <PriceQuantityUnit>STRTYPE</PriceQuantityUnit>
+          <!-- optional -->
+          <PriceQuantityExtCode>STRTYPE</PriceQuantityExtCode>
+          <!-- optional -->
+          <BatchUnit>STRTYPE</BatchUnit>
+          <!-- optional -->
+          <InventoryUnit>STRTYPE</InventoryUnit>
+          <!-- optional -->
+          <PurchaseUnit>STRTYPE</PurchaseUnit>
+          <!-- optional -->
+          <ReportingUnit>STRTYPE</ReportingUnit>
+        </UOM>
+        <!-- optional -->
+        <Sales>
+          <!-- optional -->
+          <Taxable>BOOLTYPE</Taxable>
+          <!-- optional -->
+          <TradeDiscountable>BOOLTYPE</TradeDiscountable>
+          <!-- optional -->
+          <TermDiscountable>BOOLTYPE</TermDiscountable>
+          <!-- optional -->
+          <UsageCode>STRTYPE</UsageCode>
+          <!-- optional -->
+          <ExpirationDate>DATETIMETYPE</ExpirationDate>
+        </Sales>
+        <!-- optional -->
+        <Mix>
+          <!-- optional -->
+          <Strength>INTTYPE</Strength>
+          <!-- optional -->
+          <StrengthUnit>STRTYPE</StrengthUnit>
+          <!-- optional -->
+          <Slump>FLOATTYPE</Slump>
+          <!-- optional -->
+          <WaterCementRatio>FLOATTYPE</WaterCementRatio>
+          <!-- optional -->
+          <AggregateSize>STRTYPE</AggregateSize>
+          <!-- optional -->
+          <CementType>STRTYPE</CementType>
+          <!-- optional -->
+          <DaysToStrength>INTTYPE</DaysToStrength>
+          <!-- optional -->
+          <MaximumWater>FLOATTYPE</MaximumWater>
+          <!-- optional -->
+          <MinCementContent>FLOATTYPE</MinCementContent>
+          <!-- optional -->
+          <PercentAirVolume>FLOATTYPE</PercentAirVolume>
+          <!-- optional -->
+          <WaterHoldback>FLOATTYPE</WaterHoldback>
+          <!-- optional -->
+          <LightweightCubicFeet>FLOATTYPE</LightweightCubicFeet>
+        </Mix>
+        <!-- optional -->
+        <Locations>
+          <!-- optional, may repeat -->
+          <Location>
+            <LocationID>INTTYPE</LocationID>
+            <LocationCode>STRTYPE</LocationCode>
+            <!-- optional -->
+            <Batching>
+              <!-- optional -->
+              <SpecificGravity>FLOATTYPE</SpecificGravity>
+              <!-- optional -->
+              <MoisturePercent>FLOATTYPE</MoisturePercent>
+              <!-- optional -->
+              <BatchUnit>STRTYPE</BatchUnit>
+              <!-- optional -->
+              <MaximumBatchSize>FLOATTYPE</MaximumBatchSize>
+              <!-- optional -->
+              <MixerTime>INTTYPE</MixerTime>
+              <!-- optional -->
+              <DownloadToBatchSystem>BOOLTYPE</DownloadToBatchSystem>
+            </Batching>
+            <!-- optional -->
+            <MixDesign>
+              <!-- optional, may repeat -->
+              <Material>
+                <MixOrder>INTTYPE</MixOrder>
+                <Code>STRTYPE</Code>                
+                <Quantity>FLOATTYPE</Quantity>
+                <ByPercent>BOOLTYPE</ByPercent>
+                <Unit>STRTYPE</Unit>
+              </Material>
+            </MixDesign>
+            <!-- optional -->
+            <Cost>
+              <!-- optional -->
+              <StandardCost>FLOATTYPE</StandardCost>
+              <!-- optional -->
+              <CostExtensionCode>STRTYPE</CostExtensionCode>
+              <!-- optional -->
+              <CostEffectiveDate>DATETIMETYPE</CostEffectiveDate>
+              <!-- optional -->
+              <PreviousCost>FLOATTYPE</PreviousCost>
+              <!-- optional -->
+              <PreviousCostExtensionCode>STRTYPE</PreviousCostExtensionCode>
+            </Cost>
+            <!-- optional -->
+            <Pricing>
+              <!-- optional -->
+              <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+              <!-- optional -->
+              <Price>FLOATTYPE</Price>
+              <!-- optional -->
+              <PriceExtensionCode>STRTYPE</PriceExtensionCode>
+              <!-- optional -->
+              <PriceEffectiveDate>DATETIMETYPE</PriceEffectiveDate>
+              <!-- optional -->
+              <PreviousPrice>FLOATTYPE</PreviousPrice>
+              <!-- optional -->
+              <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
+            </Pricing>
+            <!-- optional -->
+            <Inventory>
+            </Inventory>
+          </Location>
+        </Locations>
+      </ItemRet>
+    </ItemUpdateRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required  -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <EmployeeTimeUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+    </EmployeeTimeUpdateRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required  -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <TruckStatusUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- required, may repeat-->
+      <TruckStatusRet>
+        <!-- required update sequence id-->
+        <StatusUpdateID>INTTYPE</StatusUpdateID>
+        <!-- required -->
+        <StatusType>STRTYPE</StatusType>
+        <!-- optional -->
+        <TruckID>STRTYPE</TruckID>
+        <!-- optional -->
+        <TruckCode>STRTYPE</TruckCode>
+        <!-- optional -->
+        <AltTruckCode>STRTYPE</AltTruckCode>
+        <!-- optional -->
+        <DeviceID>STRTYPE</DeviceID>
+        <!-- optional -->
+        <DriverCode>STRTYPE</DriverCode>
+        <!-- optional -->
+        <AltDriverCode>STRTYPE</AltDriverCode>
+        <!-- optional -->
+        <DriverName>STRTYPE</DriverName>
+        <!-- required -->
+        <Status>
+          <!-- required -->
+          <StatusCode>INTTYPE</StatusCode>
+          <!-- required -->
+          <AltStatusCode>INTTYPE</AltStatusCode>
+          <!-- optional -->
+          <StatusName>STRTYPE</StatusName>
+          <!-- optional -->
+          <StatusDescription>STRTYPE</StatusDescription>
+          <!-- use sortable format like 2009-06-15T13:45:30 -->
+          <StatusTimeStamp>DATETIMETYPE</StatusTimeStamp>
+        </Status>
+        <!-- optional -->
+        <Gps>
+          <!-- required -->
+          <Latitude>STRTYPE</Latitude>
+          <!-- required -->
+          <Longitude>STRTYPE</Longitude>
+          <!-- optional -->
+          <Speed>STRTYPE</Speed>
+          <!-- optional -->
+          <Heading>STRTYPE</Heading>
+          <!-- use sortable format like 2009-06-15T13:45:30 -->
+          <GpsTimeStamp>DATETIMETYPE</GpsTimeStamp>
+        </Gps>
+        <!-- optional -->
+        <Ticket>
+          <!-- optional -->
+          <TicketID>INTTYPE</TicketID>
+          <!-- optional -->
+          <TicketNum>STRTYPE</TicketNum>
+          <!-- optional -->
+          <AltTicketNum>STRTYPE</AltTicketNum>
+          <!-- optional -->
+          <CustomerCode>STRTYPE</CustomerCode>
+          <!-- optional -->
+          <CustomerName>STRTYPE</CustomerName>
+          <!-- optional -->
+          <ProjectCode>STRTYPE</ProjectCode>
+          <!-- optional -->
+          <ProjectName>STRTYPE</ProjectName>
+          <!-- optional -->
+          <JobNumber>STRTYPE</JobNumber>
+          <!-- optional -->
+          <OrderID>INTTYPE</OrderID>
+          <!-- optional -->
+          <OrderCode>STRTYPE</OrderCode>
+          <!-- optional -->
+          <!-- use sortable format like 2009-06-15-->
+          <OrderDate>DATETYPE</OrderDate>
+          <!-- optional -->
+          <Comment>STRTYPE</Comment>
+          <!-- optional -->
+          <OriginalPlant>
+            <!-- optional -->
+            <PlantCode>STRTYPE</PlantCode>
+            <!-- optional -->
+            <PlantName>STRTYPE</PlantName>
+            <!-- optional -->
+            <Address1>STRTYPE</Address1>
+            <!-- optional -->
+            <Address2>STRTYPE</Address2>
+            <!-- optional -->
+            <Address3>STRTYPE</Address3>
+            <!-- optional -->
+            <City>STRTYPE</City>
+            <!-- optional -->
+            <State>STRTYPE</State>
+            <!-- optional -->
+            <Country>STRTYPE</Country>
+            <!-- optional -->
+            <Zip>STRTYPE</Zip>
+            <!-- optional -->
+            <Latitude>FLOATTYPE</Latitude>
+            <!-- optional -->
+            <Longitude>FLOATTYPE</Longitude>
+            <!-- optional -->
+            <Radius>FLOATTYPE</Radius>
+            <!-- optional -->
+            <Description>STRTYPE</Description>
+          </OriginalPlant>
+          <!-- optional -->
+          <JobSite>
+            <!-- optional -->
+            <JobSiteName>STRTYPE</JobSiteName>
+            <!-- optional -->
+            <Address1>STRTYPE</Address1>
+            <!-- optional -->
+            <Address2>STRTYPE</Address2>
+            <!-- optional -->
+            <Address3>STRTYPE</Address3>
+            <!-- optional -->
+            <City>STRTYPE</City>
+            <!-- optional -->
+            <State>STRTYPE</State>
+            <!-- optional -->
+            <Country>STRTYPE</Country>
+            <!-- optional -->
+            <Zip>STRTYPE</Zip>
+            <!-- optional -->
+            <Latitude>FLOATTYPE</Latitude>
+            <!-- optional -->
+            <Longitude>FLOATTYPE</Longitude>
+            <!-- optional -->
+            <Radius>FLOATTYPE</Radius>
+            <!-- optional -->
+            <Description>STRTYPE</Description>
+            <!-- optional -->
+            <Instruction1>STRTYPE</Instruction1>
+            <!-- optional -->
+            <Instruction2>STRTYPE</Instruction2>
+            <!-- optional -->
+            <Instruction3>STRTYPE</Instruction3>
+          </JobSite>
+          <ReturnPlant>
+            <!-- optional -->
+            <PlantCode>STRTYPE</PlantCode>
+            <!-- optional -->
+            <PlantName>STRTYPE</PlantName>
+            <!-- optional -->
+            <Address1>STRTYPE</Address1>
+            <!-- optional -->
+            <Address2>STRTYPE</Address2>
+            <!-- optional -->
+            <Address3>STRTYPE</Address3>
+            <!-- optional -->
+            <City>STRTYPE</City>
+            <!-- optional -->
+            <State>STRTYPE</State>
+            <!-- optional -->
+            <Country>STRTYPE</Country>
+            <!-- optional -->
+            <Zip>STRTYPE</Zip>
+            <!-- optional -->
+            <Latitude>FLOATTYPE</Latitude>
+            <!-- optional -->
+            <Longitude>FLOATTYPE</Longitude>
+            <!-- optional -->
+            <Radius>FLOATTYPE</Radius>
+            <!-- optional -->
+            <Description>STRTYPE</Description>
+          </ReturnPlant>
+        </Ticket>
+        <!-- optional -->
+        <Message>
+          <!-- optional -->
+          <TextMessage>STRTYPE</TextMessage>
+          <!-- optional -->
+          <QAMessage>
+            <!-- optional -->
+            <QuestionID>STRTYPE</QuestionID>
+            <!-- optional -->
+            <Question>STRTYPE</Question>
+            <!-- optional -->
+            <Answer>STRTYPE</Answer>
+          </QAMessage>
+        </Message>
+        <UpdateTimeStamp>DATETIMETYPE</UpdateTimeStamp>
+      </TruckStatusRet>
+    </TruckStatusUpdateRs>    
+  </WebcreteXMLMsgsRs>
+</WebcreteXML>
+
