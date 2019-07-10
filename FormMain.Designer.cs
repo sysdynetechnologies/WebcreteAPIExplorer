@@ -193,7 +193,10 @@ namespace WebcreteAPIExplorer
             "TicketQuery",
             "CustomerUpdate",
             "ProjectUpdate",
-            "ItemUpdate"});
+            "ItemUpdate",
+            "TruckStatusUpdate",
+            "TruckGpsUpdate",
+            "TicketMessageQuery"});
             this.comboBoxRequest.Location = new System.Drawing.Point(103, 48);
             this.comboBoxRequest.Name = "comboBoxRequest";
             this.comboBoxRequest.Size = new System.Drawing.Size(246, 21);

@@ -193,6 +193,56 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetTruckStatusUpdateRequest(string code, string truckCode, string statusCode, DateTime statusTimeStamp)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+             new XDeclaration("1.0", "utf-8", "yes"),
+             new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+             new XElement("WebcreteXML",
+                 new XElement("WebcreteXMLMsgsRq",
+                     new XElement("TruckStatusUpdateRq",
+                         new XElement("TruckStatusUpdate",
+                            new XElement("SignalingUnitCode", code),
+                            new XElement("TruckCode", truckCode),
+                            new XElement("StatusCode", statusCode),
+                            new XElement("StatusTimeStamp", statusTimeStamp.ToString("s")))))));
+
+            return x.ToString();
+        }
+
+        public string GetTruckGpsUpdateRequest(string code, string truckCode, string latitue, string longitue, DateTime gpsTimeStamp)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+             new XDeclaration("1.0", "utf-8", "yes"),
+             new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+             new XElement("WebcreteXML",
+                 new XElement("WebcreteXMLMsgsRq",
+                     new XElement("TruckGpsUpdateRq",
+                         new XElement("TruckGpsUpdate",
+                            new XElement("SignalingUnitCode", code),
+                            new XElement("TruckCode", truckCode),
+                            new XElement("Latitude", latitue),
+                            new XElement("Longitude", longitue),
+                            new XElement("GpsTimeStamp", gpsTimeStamp.ToString("s")))))));
+
+            return x.ToString();
+        }
+
+        public string GetTicketMessageQueryRequest(string code, string messageQueueID, string LastTicketMessageID)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+             new XDeclaration("1.0", "utf-8", "yes"),
+             new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+             new XElement("WebcreteXML",
+                 new XElement("WebcreteXMLMsgsRq",
+                     new XElement("TicketMessageQueryRq",                         
+                            new XElement("SignalingUnitCode", code),
+                            new XElement("MessageQueueID", messageQueueID),
+                            new XElement("LastTicketMessageID", LastTicketMessageID)))));
+
+            return x.ToString();
+        }
+
         private void comboBoxRequest_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (comboBoxRequest.SelectedItem.ToString())
@@ -223,6 +273,15 @@ namespace WebcreteAPIExplorer
                     break;
                 case "ItemUpdate":
                     textBoxRequest.Text = IndentXMLString(GetItemUpdateRequest("4011", "4000 psi pump", "4000 psi", "MIX"));
+                    break;
+                case "TruckStatusUpdate":
+                    textBoxRequest.Text = IndentXMLString(GetTruckStatusUpdateRequest("1", "32", "TOJOB", DateTime.Now));
+                    break;
+                case "TruckGpsUpdate":
+                    textBoxRequest.Text = IndentXMLString(GetTruckGpsUpdateRequest("1", "32", "41.303603", "-73.933310", DateTime.Now));
+                    break;
+                case "TicketMessageQuery":
+                    textBoxRequest.Text = IndentXMLString(GetTicketMessageQueryRequest("1", "1", "0"));
                     break;
             }
         }
