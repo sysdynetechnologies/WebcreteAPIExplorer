@@ -5,11 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using WebcreteAPIExplorer.com.concretego.api;
 using System.Security.Cryptography;
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
+using WebcreteAPIExplorer.WebcreteAPI;
+
 
 namespace WebcreteAPIExplorer
 {
@@ -25,19 +26,24 @@ namespace WebcreteAPIExplorer
             try
             {
                 textBoxResponse.Text = "";
-                WebcreteAPI api = new WebcreteAPI();
+
+                var api = new WebcreteAPISoapClient();
+                
                 if (textBoxURL.Text.Length > 0)
-                    api.Url = textBoxURL.Text;  // each concretego customer uses its own api endpoint in the format of {account}.api.concretego.com/webcreteapi.asmx
+                {
+                    // each concretego customer uses its own api endpoint in the format of {account}.api.concretego.com/webcreteapi.asmx
+                    api.Endpoint.Address = new System.ServiceModel.EndpointAddress(textBoxURL.Text);
+                }
 
-                api.Timeout = -1;
-
-                string publicKey = api.GetPublicKey("Test", "F52D2965BF8318F"); // please contact us to get the appId and apiKey for your application
+                // please contact us to get the appId and apiKey for your application                
+                var ticketHeader = api.GetPublicKey("Test", "F52D2965BF8318F", out string publicKey); 
                
                 if (publicKey == null)
                 {
                     MessageBox.Show("Can not get public key.");
                     return;
                 }
+
                 RSACryptoServiceProvider key = new RSACryptoServiceProvider();
                 key.FromXmlString(publicKey);
                 UnicodeEncoding enc = new UnicodeEncoding();
@@ -46,22 +52,28 @@ namespace WebcreteAPIExplorer
 
                 encryptedPassword = key.Encrypt(enc.GetBytes(textBoxPassword.Text), false);
 
-                if (api.Login(textBoxUserName.Text, encryptedPassword) == false)
+                try
                 {
-                    MessageBox.Show("Login failed.");
-                    return;
+                    if (api.Login(ticketHeader, textBoxUserName.Text, encryptedPassword) == false)
+                    {
+                        MessageBox.Show("Login failed.");
+                        return;
+                    }
+                    string response = api.ProcessRequest(ticketHeader, textBoxRequest.Text);
+                    if (response != null)
+                    {
+                        textBoxResponse.Text = IndentXMLString(response);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Request failed.");
+                        return;
+                    }
                 }
-                string response = api.ProcessRequest(textBoxRequest.Text);
-                if (response != null)
+                finally
                 {
-                    textBoxResponse.Text = IndentXMLString(response);
+                    api.Logout(ticketHeader);
                 }
-                else
-                {
-                    MessageBox.Show("Request failed.");
-                    return;
-                }
-                api.Logout();
             }
             catch (SystemException ex)
             {
