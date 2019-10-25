@@ -662,13 +662,16 @@
       <ID>INTTYPE</ID>
       <!-- OR -->
       <!-- optional, may repeat-->
-      <Code>STRTYPE</Code>
-      <!-- OR -->
+      <Code>STRTYPE</Code>      
+      <!-- END OR -->      
+      <!-- optional, may repeat-->
+      <CategoryID>INTTYPE</CategoryID>
       <!-- optional, may repeat-->
       <CategoryCode>STRTYPE</CategoryCode>
-      <!-- OR -->
-      <!-- optional -->
-      <MaxReturned >INTTYPE</MaxReturned>      
+      <!-- optional, may repeat-->
+      <ItemTypeID>INTTYPE</ItemTypeID>
+      <!-- optional, may repeat-->
+      <ItemType>STRTYPE</ItemType>
       <!-- optional -->
       <IsConstituent>BOOLTYPE</IsConstituent>
       <!-- optional -->
@@ -679,12 +682,13 @@
       <DoNotAllowTicketing>BOOLTYPE</DoNotAllowTicketing>
       <!-- optional -->
       <Taxable>BOOLTYPE</Taxable>
-      <!-- END OR -->
       <!-- optional -->
       <FromUpdateDate>DATETIMETYPE</FromUpdateDate>
       <!-- optional -->
       <ToUpdateDate>DATETIMETYPE</ToUpdateDate>
-      <!-- optional, may repeat-->
+      <!-- optional -->
+      <MaxReturned>INTTYPE</MaxReturned>      
+      <!-- optional, may repeat, can be COST|PRICING|MIXDESIGN|BATCHING-->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
     </ItemQueryRq>
     <!--    'requestID' is optional -->
@@ -822,21 +826,24 @@
               <!-- optional -->
               <PreviousCostExtensionCode>STRTYPE</PreviousCostExtensionCode>
             </Cost>
-            <!-- optional , may repeat-->
-            <Pricing>
-              <!-- optional -->
-              <PriceCategoryCode>STRTYPE</PriceCategoryCode>
-              <!-- optional -->
-              <Price>FLOATTYPE</Price>
-              <!-- optional -->
-              <PriceExtensionCode>STRTYPE</PriceExtensionCode>
-              <!-- optional -->
-              <PriceEffectiveDate>DATETIMETYPE</PriceEffectiveDate>
-              <!-- optional -->
-              <PreviousPrice>FLOATTYPE</PreviousPrice>
-              <!-- optional -->
-              <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>              
-            </Pricing>
+            <!-- optional -->
+            <Pricings>
+              <!-- optional , may repeat-->
+              <Pricing>
+                <!-- optional -->
+                <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+                <!-- optional -->
+                <Price>FLOATTYPE</Price>
+                <!-- optional -->
+                <PriceExtensionCode>STRTYPE</PriceExtensionCode>
+                <!-- optional -->
+                <PriceEffectiveDate>DATETIMETYPE</PriceEffectiveDate>
+                <!-- optional -->
+                <PreviousPrice>FLOATTYPE</PreviousPrice>
+                <!-- optional -->
+                <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>              
+              </Pricing>
+            </Pricings>
             <!-- optional -->
             <Inventory>
             </Inventory>
@@ -864,189 +871,128 @@
     <TruckStatusUpdateRq   requestID="UUIDTYPE">
       <!-- required, may repeat-->
       <TruckStatusUpdate>
-        <!-- required update sequence id-->
-        <StatusUpdateID>INTTYPE</StatusUpdateID>
         <!-- required -->
-        <StatusType>STRTYPE</StatusType>
-        <!-- optional -->
-        <TruckID>STRTYPE</TruckID>
-        <!-- optional -->
+        <SignalingUnitCode>STRTYPE</SignalingUnitCode>
+        <!-- required -->
         <TruckCode>STRTYPE</TruckCode>
-        <!-- optional -->
-        <AltTruckCode>STRTYPE</AltTruckCode>
-        <!-- optional -->
-        <DeviceID>STRTYPE</DeviceID>
         <!-- optional -->
         <DriverCode>STRTYPE</DriverCode>
         <!-- optional -->
-        <AltDriverCode>STRTYPE</AltDriverCode>
+        <TicketCode>STRTYPE</TicketCode>
+        <!-- required TICKETED|LOADING|LOADED|TOJOB|ONJOB|POURING|WASHING|TOPLANT|ATPLANT|INSERVICE|OUTOFSERVICE|CLOCKEDIN|CLOCKEDOUT|DEADHEAD --> 
+        <StatusCode>STRTYPE</StatusCode>          
+        <!-- required use sortable format like 2009-06-15T13:45:30 -->
+        <StatusTimeStamp>DATETIMETYPE</StatusTimeStamp>
         <!-- optional -->
-        <DriverName>STRTYPE</DriverName>            
-        <!-- required -->
-        <Status>
-          <!-- required -->
-          <StatusCode>INTTYPE</StatusCode>
-          <!-- required -->
-          <AltStatusCode>INTTYPE</AltStatusCode>
-          <!-- optional -->
-          <StatusName>STRTYPE</StatusName>
-          <!-- optional -->
-          <StatusDescription>STRTYPE</StatusDescription>
-          <!-- use sortable format like 2009-06-15T13:45:30 -->
-          <StatusTimeStamp>DATETIMETYPE</StatusTimeStamp>
-        </Status>
+        <PlantCode>STRTYPE</PlantCode>
         <!-- optional -->
-        <Gps>
-          <!-- required -->
-          <Latitude>STRTYPE</Latitude>
-          <!-- required -->
-          <Longitude>STRTYPE</Longitude>
-          <!-- optional -->
-          <Speed>STRTYPE</Speed>
-          <!-- optional -->
-          <Heading>STRTYPE</Heading>
-          <!-- use sortable format like 2009-06-15T13:45:30 -->
-          <GpsTimeStamp>DATETIMETYPE</GpsTimeStamp>
-        </Gps>
+        <Latitude>STRTYPE</Latitude>
         <!-- optional -->
-        <Ticket>
-          <!-- optional -->
-          <TicketID>INTTYPE</TicketID>
-          <!-- optional -->
-          <TicketNum>STRTYPE</TicketNum>
-          <!-- optional -->
-          <AltTicketNum>STRTYPE</AltTicketNum>
-          <!-- optional -->
-          <CustomerCode>STRTYPE</CustomerCode>
-          <!-- optional -->
-          <CustomerName>STRTYPE</CustomerName>
-          <!-- optional -->
-          <ProjectCode>STRTYPE</ProjectCode>
-          <!-- optional -->
-          <ProjectName>STRTYPE</ProjectName>
-          <!-- optional -->
-          <JobNumber>STRTYPE</JobNumber>
-          <!-- optional -->
-          <OrderID>INTTYPE</OrderID>
-          <!-- optional -->
-          <OrderCode>STRTYPE</OrderCode>
-          <!-- optional -->
-          <!-- use sortable format like 2009-06-15-->
-          <OrderDate>DATETYPE</OrderDate>
-          <!-- optional -->
-          <Comment>STRTYPE</Comment>
-          <!-- optional -->
-          <OriginalPlant>
-            <!-- optional -->
-            <PlantCode>STRTYPE</PlantCode>
-            <!-- optional -->
-            <PlantName>STRTYPE</PlantName>
-            <!-- optional -->
-            <Address1>STRTYPE</Address1>
-            <!-- optional -->
-            <Address2>STRTYPE</Address2>
-            <!-- optional -->
-            <Address3>STRTYPE</Address3>
-            <!-- optional -->
-            <City>STRTYPE</City>
-            <!-- optional -->
-            <State>STRTYPE</State>
-            <!-- optional -->
-            <Country>STRTYPE</Country>
-            <!-- optional -->
-            <Zip>STRTYPE</Zip>
-            <!-- optional -->
-            <Latitude>FLOATTYPE</Latitude>
-            <!-- optional -->
-            <Longitude>FLOATTYPE</Longitude>
-            <!-- optional -->
-            <Radius>FLOATTYPE</Radius>
-            <!-- optional -->
-            <Description>STRTYPE</Description>
-            <!-- optional -->
-          </OriginalPlant>
-          <JobSite>
-            <!-- optional -->
-            <JobSiteName>STRTYPE</JobSiteName>
-            <!-- optional -->
-            <Address1>STRTYPE</Address1>
-            <!-- optional -->
-            <Address2>STRTYPE</Address2>
-            <!-- optional -->
-            <Address3>STRTYPE</Address3>
-            <!-- optional -->
-            <City>STRTYPE</City>
-            <!-- optional -->
-            <State>STRTYPE</State>
-            <!-- optional -->
-            <Country>STRTYPE</Country>
-            <!-- optional -->
-            <Zip>STRTYPE</Zip>
-            <!-- optional -->
-            <Latitude>FLOATTYPE</Latitude>
-            <!-- optional -->
-            <Longitude>FLOATTYPE</Longitude>
-            <!-- optional -->
-            <Radius>FLOATTYPE</Radius>
-            <!-- optional -->
-            <Description>STRTYPE</Description>
-            <!-- optional -->
-            <Instruction1>STRTYPE</Instruction1>
-            <!-- optional -->
-            <Instruction2>STRTYPE</Instruction2>
-            <!-- optional -->
-            <Instruction3>STRTYPE</Instruction3>
-          </JobSite>
-          <!-- optional -->
-          <ReturnPlant>
-            <!-- optional -->
-            <PlantCode>STRTYPE</PlantCode>
-            <!-- optional -->
-            <PlantName>STRTYPE</PlantName>
-            <!-- optional -->
-            <Address1>STRTYPE</Address1>
-            <!-- optional -->
-            <Address2>STRTYPE</Address2>
-            <!-- optional -->
-            <Address3>STRTYPE</Address3>
-            <!-- optional -->
-            <City>STRTYPE</City>
-            <!-- optional -->
-            <State>STRTYPE</State>
-            <!-- optional -->
-            <Country>STRTYPE</Country>
-            <!-- optional -->
-            <Zip>STRTYPE</Zip>
-            <!-- optional -->
-            <Latitude>FLOATTYPE</Latitude>
-            <!-- optional -->
-            <Longitude>FLOATTYPE</Longitude>
-            <!-- optional -->
-            <Radius>FLOATTYPE</Radius>
-            <!-- optional -->
-            <Description>STRTYPE</Description>            
-          </ReturnPlant>
-        </Ticket>
-        <!-- optional -->
-        <Message>
-          <!-- optional -->
-          <TextMessage>STRTYPE</TextMessage>
-          <!-- optional -->
-          <QuestionMessage>
-            <!-- optional -->
-            <QuestionID>STRTYPE</QuestionID>
-            <!-- optional -->
-            <Question>STRTYPE</Question>
-            <Questioner>STRTYPE</Questioner>
-            <!-- optional -->
-            <Answer>STRTYPE</Answer>
-          </QuestionMessage>
-        </Message>
-        <UpdateTimeStamp>DATETIMETYPE</UpdateTimeStamp>        
-      </TruckStatusUpdate>
-      <!--optional, may repeat -->
-      <IncludeRetElement>STRTYPE</IncludeRetElement>
+        <Longitude>STRTYPE</Longitude>        
+      </TruckStatusUpdate>      
     </TruckStatusUpdateRq>
+    <!--    'requestID' is optional -->
+    <TruckGpsUpdateRq   requestID="UUIDTYPE">
+      <!-- required, may repeat-->
+      <TruckGpsUpdate>
+        <!-- required -->
+        <SignalingUnitCode>STRTYPE</SignalingUnitCode>
+        <!-- required -->
+        <TruckCode>STRTYPE</TruckCode>        
+        <!-- required -->
+        <Latitude>STRTYPE</Latitude>
+        <!-- required -->
+        <Longitude>STRTYPE</Longitude>
+        <!-- optional -->
+        <Speed>STRTYPE</Speed>
+        <!-- optional -->
+        <Heading>STRTYPE</Heading>
+        <!-- use sortable format like 2009-06-15T13:45:30 -->
+        <GpsTimeStamp>DATETIMETYPE</GpsTimeStamp>        
+      </TruckGpsUpdate>
+    </TruckGpsUpdateRq>
+    <!--    'requestID' is optional -->    
+    <TruckMessgeQueryRq  requestID = "UUIDTYPE">         
+      <!-- required -->
+      <LastTruckMessageID>INTTYPE</LastTruckMessageID>
+    </TruckMessgeQueryRq>
+    <!--    'requestID' is optional -->    
+    <TicketMessgeQueryRq  requestID = "UUIDTYPE">    
+      <!-- optional -->
+      <SignalingUnitCode>STRTYPE</SignalingUnitCode>
+      <!-- required, 1/2/3 -->
+      <MessageQueueID>INTTYPE</MessageQueueID>
+      <!-- required -->
+      <LastTicketMessageID>INTTYPE</LastTicketMessageID>
+    </TicketMessgeQueryRq>
+    <!--    'requestID' is optional -->    
+    <TicketBatchResultMessgeQueryRq  requestID = "UUIDTYPE">         
+      <!-- required, 1/2/3 -->
+      <MessageQueueID>INTTYPE</MessageQueueID>
+      <!-- required -->
+      <LastTicketBatchResultMessageID>INTTYPE</LastTicketBatchResultMessageID>
+    </TicketBatchResultMessgeQueryRq>
+    <!--  UOMQueryRq contains 1 optional attribute: 'requestID' -->
+    <UOMQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Name>STRTYPE</Name>
+      <!-- END OR -->
+      <!--  opt, may rep -->
+    </UOMQueryRq>
+    <!--  ItemTypeQueryRq contains 1 optional attribute: 'requestID' -->
+    <ItemTypeQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Name>STRTYPE</Name>
+      <!-- END OR -->
+      <!--  opt, may rep -->
+    </ItemTypeQueryRq>
+    <!--  ItemCategoryQueryRq contains 1 optional attribute: 'requestID' -->
+    <ItemCategoryQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- END OR -->
+      <!--  opt, may rep -->
+    </ItemCategoryQueryRq>
+    <!--  LocationQueryRq contains 1 optional attribute: 'requestID' -->
+    <LocationQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Name>STRTYPE</Name>
+      <!-- END OR -->
+      <!--  opt, may rep -->
+    </LocationQueryRq>
+    <!--  PlantQueryRq contains 1 optional attribute: 'requestID' -->
+    <PlantQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>     
+      <!-- END OR -->
+      <!--  opt, may rep -->
+    </PlantQueryRq>
   </WebcreteXMLMsgsRq>
   <!-- WebcreteXMLMsgsRs contains 2 attributes -->
   <!--    'newMessageSetID' is optional -->
@@ -2349,6 +2295,12 @@
         <!-- optional -->
         <AccountLinkCode>STRTYPE</AccountLinkCode>
         <!-- optional -->
+        <CategoryAccountLinkCode>STRTYPE</CategoryAccountLinkCode>
+        <!-- optional -->
+        <ItemTypeID>INTTYPE</ItemTypeID>
+        <!-- optional -->
+        <ItemType>INTTYPE</ItemType>
+        <!-- optional -->
         <UOM>
           <!-- optional -->
           <OrderedQuantityUnit>STRTYPE</OrderedQuantityUnit>
@@ -2457,25 +2409,30 @@
               <PreviousCostExtensionCode>STRTYPE</PreviousCostExtensionCode>
             </Cost>
             <!-- optional -->
-            <Pricing>
-              <!-- optional -->
-              <PriceCategoryCode>STRTYPE</PriceCategoryCode>
-              <!-- optional -->
-              <Price>FLOATTYPE</Price>
-              <!-- optional -->
-              <PriceExtensionCode>STRTYPE</PriceExtensionCode>
-              <!-- optional -->
-              <PriceEffectiveDate>DATETIMETYPE</PriceEffectiveDate>
-              <!-- optional -->
-              <PreviousPrice>FLOATTYPE</PreviousPrice>
-              <!-- optional -->
-              <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
-            </Pricing>
+            <Pricings>
+              <!-- optional may repeat -->
+              <Pricing>
+                <!-- optional -->
+                <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+                <!-- optional -->
+                <Price>FLOATTYPE</Price>
+                <!-- optional -->
+                <PriceExtensionCode>STRTYPE</PriceExtensionCode>
+                <!-- optional -->
+                <PriceEffectiveDate>DATETIMETYPE</PriceEffectiveDate>
+                <!-- optional -->
+                <PreviousPrice>FLOATTYPE</PreviousPrice>
+                <!-- optional -->
+                <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
+              </Pricing>
+            </Pricings>
             <!-- optional -->
             <Inventory>
             </Inventory>
           </Location>
         </Locations>
+        <!-- optional -->
+        <SetupDate>DATETIMETYPE</SetupDate>
         <!-- optional -->
         <UpdateDate>DATETIMETYPE</UpdateDate>
       </ItemRet>
@@ -2618,20 +2575,23 @@
               <PreviousCostExtensionCode>STRTYPE</PreviousCostExtensionCode>
             </Cost>
             <!-- optional -->
-            <Pricing>
-              <!-- optional -->
-              <PriceCategoryCode>STRTYPE</PriceCategoryCode>
-              <!-- optional -->
-              <Price>FLOATTYPE</Price>
-              <!-- optional -->
-              <PriceExtensionCode>STRTYPE</PriceExtensionCode>
-              <!-- optional -->
-              <PriceEffectiveDate>DATETIMETYPE</PriceEffectiveDate>
-              <!-- optional -->
-              <PreviousPrice>FLOATTYPE</PreviousPrice>
-              <!-- optional -->
-              <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
-            </Pricing>
+            <Pricings>
+              <!-- optional may repeat-->
+              <Pricing>
+                <!-- optional -->
+                <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+                <!-- optional -->
+                <Price>FLOATTYPE</Price>
+                <!-- optional -->
+                <PriceExtensionCode>STRTYPE</PriceExtensionCode>
+                <!-- optional -->
+                <PriceEffectiveDate>DATETIMETYPE</PriceEffectiveDate>
+                <!-- optional -->
+                <PreviousPrice>FLOATTYPE</PreviousPrice>
+                <!-- optional -->
+                <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
+              </Pricing>
+            </Pricings>
             <!-- optional -->
             <Inventory>
             </Inventory>
@@ -2651,186 +2611,233 @@
     <!--     'statusMessage' is optional -->
     <TruckStatusUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
       <!-- required, may repeat-->
-      <TruckStatusRet>
-        <!-- required update sequence id-->
-        <StatusUpdateID>INTTYPE</StatusUpdateID>
+      <TruckStatusUpdateRet>
         <!-- required -->
-        <StatusType>STRTYPE</StatusType>
-        <!-- optional -->
-        <TruckID>STRTYPE</TruckID>
-        <!-- optional -->
+        <SignalingUnitCode>STRTYPE</SignalingUnitCode>
+        <!-- required -->
         <TruckCode>STRTYPE</TruckCode>
-        <!-- optional -->
-        <AltTruckCode>STRTYPE</AltTruckCode>
-        <!-- optional -->
-        <DeviceID>STRTYPE</DeviceID>
         <!-- optional -->
         <DriverCode>STRTYPE</DriverCode>
         <!-- optional -->
-        <AltDriverCode>STRTYPE</AltDriverCode>
+        <TicketCode>STRTYPE</TicketCode>
+        <!-- required TICKETED|LOADING|LOADED|TOJOB|ONJOB|POURING|WASHING|TOPLANT|ATPLANT|INSERVICE|OUTOFSERVICE|CLOCKEDIN|CLOCKEDOUT|DEADHEAD -->
+        <StatusCode>STRTYPE</StatusCode>
+        <!-- required use sortable format like 2009-06-15T13:45:30 -->
+        <StatusTimeStamp>DATETIMETYPE</StatusTimeStamp>
         <!-- optional -->
-        <DriverName>STRTYPE</DriverName>
+        <PlantCode>STRTYPE</PlantCode>
+        <!-- optional -->
+        <Latitude>STRTYPE</Latitude>
+        <!-- optional -->
+        <Longitude>STRTYPE</Longitude>                
+      </TruckStatusUpdateRet>
+    </TruckStatusUpdateRs>
+    <TruckGpsUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- required, may repeat-->
+      <TruckGpsUpdateRet>
         <!-- required -->
-        <Status>
-          <!-- required -->
-          <StatusCode>INTTYPE</StatusCode>
-          <!-- required -->
-          <AltStatusCode>INTTYPE</AltStatusCode>
-          <!-- optional -->
-          <StatusName>STRTYPE</StatusName>
-          <!-- optional -->
-          <StatusDescription>STRTYPE</StatusDescription>
-          <!-- use sortable format like 2009-06-15T13:45:30 -->
-          <StatusTimeStamp>DATETIMETYPE</StatusTimeStamp>
-        </Status>
+        <SignalingUnitCode>STRTYPE</SignalingUnitCode>
+        <!-- required -->
+        <TruckCode>STRTYPE</TruckCode>        
         <!-- optional -->
-        <Gps>
-          <!-- required -->
-          <Latitude>STRTYPE</Latitude>
-          <!-- required -->
-          <Longitude>STRTYPE</Longitude>
-          <!-- optional -->
-          <Speed>STRTYPE</Speed>
-          <!-- optional -->
-          <Heading>STRTYPE</Heading>
-          <!-- use sortable format like 2009-06-15T13:45:30 -->
-          <GpsTimeStamp>DATETIMETYPE</GpsTimeStamp>
-        </Gps>
+        <Latitude>STRTYPE</Latitude>
         <!-- optional -->
-        <Ticket>
-          <!-- optional -->
-          <TicketID>INTTYPE</TicketID>
-          <!-- optional -->
-          <TicketNum>STRTYPE</TicketNum>
-          <!-- optional -->
-          <AltTicketNum>STRTYPE</AltTicketNum>
-          <!-- optional -->
-          <CustomerCode>STRTYPE</CustomerCode>
-          <!-- optional -->
-          <CustomerName>STRTYPE</CustomerName>
-          <!-- optional -->
-          <ProjectCode>STRTYPE</ProjectCode>
-          <!-- optional -->
-          <ProjectName>STRTYPE</ProjectName>
-          <!-- optional -->
-          <JobNumber>STRTYPE</JobNumber>
-          <!-- optional -->
-          <OrderID>INTTYPE</OrderID>
-          <!-- optional -->
-          <OrderCode>STRTYPE</OrderCode>
-          <!-- optional -->
-          <!-- use sortable format like 2009-06-15-->
-          <OrderDate>DATETYPE</OrderDate>
-          <!-- optional -->
-          <Comment>STRTYPE</Comment>
-          <!-- optional -->
-          <OriginalPlant>
-            <!-- optional -->
-            <PlantCode>STRTYPE</PlantCode>
-            <!-- optional -->
-            <PlantName>STRTYPE</PlantName>
-            <!-- optional -->
-            <Address1>STRTYPE</Address1>
-            <!-- optional -->
-            <Address2>STRTYPE</Address2>
-            <!-- optional -->
-            <Address3>STRTYPE</Address3>
-            <!-- optional -->
-            <City>STRTYPE</City>
-            <!-- optional -->
-            <State>STRTYPE</State>
-            <!-- optional -->
-            <Country>STRTYPE</Country>
-            <!-- optional -->
-            <Zip>STRTYPE</Zip>
-            <!-- optional -->
-            <Latitude>FLOATTYPE</Latitude>
-            <!-- optional -->
-            <Longitude>FLOATTYPE</Longitude>
-            <!-- optional -->
-            <Radius>FLOATTYPE</Radius>
-            <!-- optional -->
-            <Description>STRTYPE</Description>
-          </OriginalPlant>
-          <!-- optional -->
-          <JobSite>
-            <!-- optional -->
-            <JobSiteName>STRTYPE</JobSiteName>
-            <!-- optional -->
-            <Address1>STRTYPE</Address1>
-            <!-- optional -->
-            <Address2>STRTYPE</Address2>
-            <!-- optional -->
-            <Address3>STRTYPE</Address3>
-            <!-- optional -->
-            <City>STRTYPE</City>
-            <!-- optional -->
-            <State>STRTYPE</State>
-            <!-- optional -->
-            <Country>STRTYPE</Country>
-            <!-- optional -->
-            <Zip>STRTYPE</Zip>
-            <!-- optional -->
-            <Latitude>FLOATTYPE</Latitude>
-            <!-- optional -->
-            <Longitude>FLOATTYPE</Longitude>
-            <!-- optional -->
-            <Radius>FLOATTYPE</Radius>
-            <!-- optional -->
-            <Description>STRTYPE</Description>
-            <!-- optional -->
-            <Instruction1>STRTYPE</Instruction1>
-            <!-- optional -->
-            <Instruction2>STRTYPE</Instruction2>
-            <!-- optional -->
-            <Instruction3>STRTYPE</Instruction3>
-          </JobSite>
-          <ReturnPlant>
-            <!-- optional -->
-            <PlantCode>STRTYPE</PlantCode>
-            <!-- optional -->
-            <PlantName>STRTYPE</PlantName>
-            <!-- optional -->
-            <Address1>STRTYPE</Address1>
-            <!-- optional -->
-            <Address2>STRTYPE</Address2>
-            <!-- optional -->
-            <Address3>STRTYPE</Address3>
-            <!-- optional -->
-            <City>STRTYPE</City>
-            <!-- optional -->
-            <State>STRTYPE</State>
-            <!-- optional -->
-            <Country>STRTYPE</Country>
-            <!-- optional -->
-            <Zip>STRTYPE</Zip>
-            <!-- optional -->
-            <Latitude>FLOATTYPE</Latitude>
-            <!-- optional -->
-            <Longitude>FLOATTYPE</Longitude>
-            <!-- optional -->
-            <Radius>FLOATTYPE</Radius>
-            <!-- optional -->
-            <Description>STRTYPE</Description>
-          </ReturnPlant>
-        </Ticket>
+        <Longitude>STRTYPE</Longitude>
         <!-- optional -->
-        <Message>
-          <!-- optional -->
-          <TextMessage>STRTYPE</TextMessage>
-          <!-- optional -->
-          <QAMessage>
-            <!-- optional -->
-            <QuestionID>STRTYPE</QuestionID>
-            <!-- optional -->
-            <Question>STRTYPE</Question>
-            <!-- optional -->
-            <Answer>STRTYPE</Answer>
-          </QAMessage>
-        </Message>
-        <UpdateTimeStamp>DATETIMETYPE</UpdateTimeStamp>
-      </TruckStatusRet>
-    </TruckStatusUpdateRs>    
+        <Speed>STRTYPE</Speed>
+        <!-- optional -->
+        <Heading>STRTYPE</Heading>
+        <!-- use sortable format like 2009-06-15T13:45:30 -->
+        <GpsTimeStamp>DATETIMETYPE</GpsTimeStamp>
+      </TruckGpsUpdateRet>
+    </TruckGpsUpdateRs>
+    <TicketMessageQueryRs statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE"  retCount = "INTTYPE" iteratorRemainingCount = "INTTYPE" iteratorID = "UUIDTYPE">
+      <!-- optional, may repeat -->
+      <TicketMessageRet>        
+        <TicketMessageID>INTTYPE</TicketMessageID>
+        <!-- 1:new ticket 2:update ticket -1: remove ticket -->
+        <MessageComand>INTTYPE</MessageComand>        
+        <OrderDate>DATETIMETYPE</OrderDate>        
+        <OrderCode>INTTYPE</OrderCode>
+        <OrderId>INTTYPE</OrderId>
+        <TicketId>INTTYPE</TicketId>
+        <TicketCode>STRTYPE</TicketCode>
+        <CreatedDate>DATETIMETYPE</CreatedDate>
+        <TruckId>INTTYPE</TruckId>
+        <TruckCode>STRTYPE</TruckCode>
+        <DriverId>INTTYPE</DriverId>
+        <DriverCode>STRTYPE</DriverCode>
+        <DriverName>STRTYPE</DriverName>
+        <CustomerId>INTTYPE</CustomerId>
+        <CustomerCode>STRTYPE</CustomerCode>
+        <CustomerName>STRTYPE</CustomerName>
+        <ProjectId>INTTYPE</ProjectId>
+        <ProjectCode>STRTYPE</ProjectCode>
+        <ProjectName>STRTYPE</ProjectName>
+        <PlantId>INTTYPE</PlantId>
+        <PlantCode>STRTYPE</PlantCode>
+        <CustomerJob>STRTYPE</CustomerJob>
+        <PurchaseOrder>STRTYPE</PurchaseOrder>
+        <PocketNumber>STRTYPE</PocketNumber>
+        <ScheduledOnJobTime>DATETIMETYPE</ScheduledOnJobTime>
+        <JobNumber>STRTYPE</JobNumber>
+        <DeliveryAddr1>STRTYPE</DeliveryAddr1>
+        <DeliveryAddr2>STRTYPE</DeliveryAddr2>
+        <DeliveryAddr3>STRTYPE</DeliveryAddr3>
+        <Latitude>FLOATTYPE</Latitude>
+        <Longitude>FLOATTYPE</Longitude>
+        <JobsiteRadius>INTTYPE</JobsiteRadius>
+        <JobsiteRadiusUnit>STRTYPE</JobsiteRadiusUnit>
+        <Instruction1>STRTYPE</Instruction1>
+        <Instruction2>STRTYPE</Instruction2>
+        <Instruction3>STRTYPE</Instruction3>
+        <Instruction4>STRTYPE</Instruction4>
+        <Instruction5>STRTYPE</Instruction5>
+        <Instruction6>STRTYPE</Instruction6>
+        <ZoneCode>STRTYPE</ZoneCode>
+        <ZoneName>STRTYPE</ZoneName>
+        <TaxCode>STRTYPE</TaxCode>
+        <UsageCode>STRTYPE</UsageCode>
+        <OrderedByName>STRTYPE</OrderedByName>
+        <OrderedByPhone>STRTYPE</OrderedByPhone>
+        <Amount>FLOATTYPE</Amount>
+        <TaxAmount>FLOATTYPE</TaxAmount>
+        <TotalAmount>FLOATTYPE</TotalAmount>
+        <ScheduleLoadId>INTTYPE</ScheduleLoadId>        
+        <Products>
+          <!-- optional may repeat-->
+          <Product>
+            <TicketProductId>INTTYPE</TicketProductId>
+            <OrderProductId>INTTYPE</OrderProductId>
+            <ItemId>INTTYPE</ItemId>
+            <ItemCode>STRTYPE</ItemCode>
+            <IsMix>BOOLTYPE</IsMix>
+            <IsAssoc>BOOLTYPE</IsAssoc>
+            <ChargeType>INTTYPE</ChargeType>
+            <ItemDescription>STRTYPE</ItemDescription>
+            <ItemShortDescription>STRTYPE</ItemShortDescription>
+            <Slump>STRTYPE</Slump>
+            <Price>FLOATTYPE</Price>
+            <PriceUnit>STRTYPE</PriceUnit>
+            <DelvQty>FLOATTYPE</DelvQty>
+            <DelvQtyUnit>STRTYPE</DelvQtyUnit>
+            <OrderQty>FLOATTYPE</OrderQty>
+            <OrderQtyUnit>STRTYPE</OrderQtyUnit>
+            <AccDelvQty>FLOATTYPE</AccDelvQty>
+            <Amount>FLOATTYPE</Amount>
+            <TaxAmount>FLOATTYPE</TaxAmount>
+            <TotalAmount>FLOATTYPE</TotalAmount>
+          </Product>          
+        </Products>
+      </TicketMessageRet>
+    </TicketMessageQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <UOMQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <UOMRet>
+        <!-- required -->
+        <ID>STRTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- required -->
+        <Name>STRTYPE</Name>
+        <!-- required -->
+        <Description>STRTYPE</Description>
+        <!-- required -->
+        <ShortDescription>STRTYPE</ShortDescription>
+        <!-- required -->
+        <UnitTypeID>INTTYPE</UnitTypeID>
+        <!-- required -->
+        <UnitType>STRTYPE</UnitType>
+      </UOMRet>      
+    </UOMQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <ItemTypeQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <ItemTypeRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>       
+        <!-- required -->
+        <Name>STRTYPE</Name>
+        <!-- required -->
+        <Description>STRTYPE</Description>        
+      </ItemTypeRet>
+    </ItemTypeQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <ItemCategoryQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <ItemCategoryRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Name>STRTYPE</Name>
+        <!-- optional -->
+        <Description>STRTYPE</Description>
+        <!-- optional -->
+        <ShortDescription>STRTYPE</ShortDescription>
+        <!-- required -->
+        <ItemTypeID>INTTYPE</ItemTypeID>
+        <!-- required -->
+        <ItemType>STRTYPE</ItemType>
+      </ItemCategoryRet>
+    </ItemCategoryQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <LocationQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <LocationRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>INTTYPE</Code>
+        <!-- required -->
+        <Name>STRTYPE</Name>
+        <!-- required -->
+        <CompanyID>INTTYPE</CompanyID>
+        <!-- required -->
+        <CompanyCode>INTTYPE</CompanyCode>
+      </LocationRet>
+    </LocationQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <PlantQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <PlantRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- optional -->
+        <Description>STRTYPE</Description>
+        <!-- optional -->
+        <ShortDescription>STRTYPE</ShortDescription>
+        <!-- optional -->
+        <Address1>STRTYPE</Address1>
+        <!-- optional -->
+        <Address2>STRTYPE</Address2>
+        <!-- optional -->
+        <Address3>STRTYPE</Address3>
+        <!-- optional -->
+        <Phone>STRTYPE</Phone>
+        <!-- required -->
+        <CompanyID>INTTYPE</CompanyID>
+        <!-- required -->
+        <CompanyCode>INTTYPE</CompanyCode>
+      </PlantRet>
+    </PlantQueryRs>
   </WebcreteXMLMsgsRs>
 </WebcreteXML>
 
