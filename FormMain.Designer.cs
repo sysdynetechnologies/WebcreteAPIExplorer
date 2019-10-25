@@ -185,21 +185,33 @@ namespace WebcreteAPIExplorer
             this.comboBoxRequest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRequest.FormattingEnabled = true;
             this.comboBoxRequest.Items.AddRange(new object[] {
-            "VersionQuery",
             "CompanyQuery",
             "CustomerQuery",
-            "ItemQuery",
-            "ProjectQuery",
-            "TicketQuery",
             "CustomerUpdate",
-            "ProjectUpdate",
+            "ItemCategoryQuery",
+            "ItemQuery",
+            "ItemQuery(ByItemCateogry)",
+            "ItemQuery(ConstituentOnly)",
+            "ItemQuery(IncludeCost)",
+            "ItemQuery(IncludeMixDesign)",
+            "ItemQuery(IncludePricing)",
+            "ItemQuery(MixOnly)",
+            "ItemTypeQuery",
             "ItemUpdate",
-            "TruckStatusUpdate",
+            "LocationQuery",
+            "PlantQuery",
+            "ProjectQuery",
+            "ProjectUpdate",
+            "TicketMessageQuery",
+            "TicketQuery",
             "TruckGpsUpdate",
-            "TicketMessageQuery"});
+            "TruckStatusUpdate",
+            "UOMQuery",
+            "VersionQuery"});
             this.comboBoxRequest.Location = new System.Drawing.Point(103, 48);
             this.comboBoxRequest.Name = "comboBoxRequest";
             this.comboBoxRequest.Size = new System.Drawing.Size(246, 21);
+            this.comboBoxRequest.Sorted = true;
             this.comboBoxRequest.TabIndex = 11;
             this.comboBoxRequest.SelectedIndexChanged += new System.EventHandler(this.comboBoxRequest_SelectedIndexChanged);
             // 

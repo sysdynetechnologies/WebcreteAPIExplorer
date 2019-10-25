@@ -106,6 +106,66 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetUOMQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("UOMQueryRq", ""))));
+
+            return x.ToString();
+        }
+
+        public string GetItemTypeQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("ItemTypeQueryRq", ""))));
+
+            return x.ToString();
+        }
+
+        public string GetItemCategoryQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("ItemCategoryQueryRq", ""))));
+
+            return x.ToString();
+        }
+
+        public string GetLocationQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("LocationQueryRq", ""))));
+
+            return x.ToString();
+        }
+
+        public string GetPlantQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("PlantQueryRq", ""))));
+
+            return x.ToString();
+        }
+
         public string GetCustomerQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -142,6 +202,85 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetItemByItemCategoryQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("ItemQueryRq",
+                        new XElement("CategoryCode", "MIX")))));
+
+            return x.ToString();
+        }
+
+        public string GetMixItemQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("ItemQueryRq",
+                        new XElement("ItemType", "Concrete")))));
+
+            return x.ToString();
+        }
+
+        public string GetConstituentItemQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("ItemQueryRq",
+                        new XElement("IsConstituent", "True")))));
+
+            return x.ToString();
+        }
+
+
+        public string GetItemIncludeMixDesignQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("ItemQueryRq",
+                        new XElement("IncludeRetElement", "MixDesign")))));
+
+            return x.ToString();
+        }
+
+        public string GetItemIncludePricingQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("ItemQueryRq",
+                        new XElement("IncludeRetElement", "Pricing")))));
+
+            return x.ToString();
+        }
+
+        public string GetItemIncludeCostQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("ItemQueryRq",
+                        new XElement("IncludeRetElement", "Cost")))));
+
+            return x.ToString();
+        }
+        
         public string GetTicketQueryRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
            XDocument x = new System.Xml.Linq.XDocument(
@@ -274,6 +413,24 @@ namespace WebcreteAPIExplorer
                 case "ItemQuery":
                     textBoxRequest.Text = IndentXMLString(GetItemQueryRequest());
                     break;
+                case "ItemQuery(MixOnly)":
+                    textBoxRequest.Text = IndentXMLString(GetMixItemQueryRequest());
+                    break;
+                case "ItemQuery(ConstituentOnly)":
+                    textBoxRequest.Text = IndentXMLString(GetConstituentItemQueryRequest());
+                    break;
+                case "ItemQuery(ByItemCateogry)":
+                    textBoxRequest.Text = IndentXMLString(GetItemByItemCategoryQueryRequest());
+                    break;
+                case "ItemQuery(IncludeMixDesign)":
+                    textBoxRequest.Text = IndentXMLString(GetItemIncludeMixDesignQueryRequest());
+                    break;
+                case "ItemQuery(IncludePricing)":
+                    textBoxRequest.Text = IndentXMLString(GetItemIncludePricingQueryRequest());
+                    break;
+                case "ItemQuery(IncludeCost)":
+                    textBoxRequest.Text = IndentXMLString(GetItemIncludeCostQueryRequest());
+                    break;
                 case "ProjectQuery":
                     textBoxRequest.Text = IndentXMLString(GetProjectQueryRequest());
                     break;
@@ -294,6 +451,21 @@ namespace WebcreteAPIExplorer
                     break;
                 case "TicketMessageQuery":
                     textBoxRequest.Text = IndentXMLString(GetTicketMessageQueryRequest("1", "1", "0"));
+                    break;
+                case "UOMQuery":
+                    textBoxRequest.Text = IndentXMLString(GetUOMQueryRequest());
+                    break;
+                case "ItemTypeQuery":
+                    textBoxRequest.Text = IndentXMLString(GetItemTypeQueryRequest());
+                    break;
+                case "ItemCategoryQuery":
+                    textBoxRequest.Text = IndentXMLString(GetItemCategoryQueryRequest());
+                    break;
+                case "LocationQuery":
+                    textBoxRequest.Text = IndentXMLString(GetLocationQueryRequest());
+                    break;
+                case "PlantQuery":
+                    textBoxRequest.Text = IndentXMLString(GetPlantQueryRequest());
                     break;
             }
         }
