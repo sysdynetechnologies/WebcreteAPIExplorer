@@ -241,6 +241,18 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetItemIncludeLocationQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("ItemQueryRq",
+                        new XElement("IncludeRetElement", "Location")))));
+
+            return x.ToString();
+        }
 
         public string GetItemIncludeMixDesignQueryRequest()
         {
@@ -280,7 +292,20 @@ namespace WebcreteAPIExplorer
 
             return x.ToString();
         }
-        
+
+        public string GetItemIncludeBatchingQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("ItemQueryRq",
+                        new XElement("IncludeRetElement", "Batching")))));
+
+            return x.ToString();
+        }
+
         public string GetTicketQueryRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
            XDocument x = new System.Xml.Linq.XDocument(
@@ -422,6 +447,9 @@ namespace WebcreteAPIExplorer
                 case "ItemQuery(ByItemCateogry)":
                     textBoxRequest.Text = IndentXMLString(GetItemByItemCategoryQueryRequest());
                     break;
+                case "ItemQuery(IncludeLocation)":
+                    textBoxRequest.Text = IndentXMLString(GetItemIncludeLocationQueryRequest());
+                    break;
                 case "ItemQuery(IncludeMixDesign)":
                     textBoxRequest.Text = IndentXMLString(GetItemIncludeMixDesignQueryRequest());
                     break;
@@ -430,6 +458,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "ItemQuery(IncludeCost)":
                     textBoxRequest.Text = IndentXMLString(GetItemIncludeCostQueryRequest());
+                    break;
+                case "ItemQuery(IncludeBatching)":
+                    textBoxRequest.Text = IndentXMLString(GetItemIncludeBatchingQueryRequest());
                     break;
                 case "ProjectQuery":
                     textBoxRequest.Text = IndentXMLString(GetProjectQueryRequest());
