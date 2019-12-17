@@ -187,6 +187,7 @@ namespace WebcreteAPIExplorer
             this.comboBoxRequest.Items.AddRange(new object[] {
             "CompanyQuery",
             "CustomerQuery",
+            "CustomerQuery(ListOnly)",
             "CustomerUpdate",
             "ItemCategoryQuery",
             "ItemQuery",
@@ -203,6 +204,8 @@ namespace WebcreteAPIExplorer
             "LocationQuery",
             "PlantQuery",
             "ProjectQuery",
+            "ProjectQuery(IncludeCustomer)",
+            "ProjectQuery(ListOnly)",
             "ProjectUpdate",
             "TicketMessageQuery",
             "TicketQuery",

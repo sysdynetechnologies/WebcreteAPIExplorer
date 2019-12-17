@@ -178,6 +178,18 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetCustomerListQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("CustomerQueryRq", new XElement("ListOnly", "True")))));
+
+            return x.ToString();
+        }
+
         public string GetProjectQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -189,6 +201,31 @@ namespace WebcreteAPIExplorer
 
             return x.ToString();
         }
+
+        public string GetProjectListQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("ProjectQueryRq", new XElement("ListOnly", "True")))));
+
+            return x.ToString();
+        }
+
+        public string GetProjectIncludeCustomerQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("ProjectQueryRq", ""),
+                            new XElement("IncludeRetElement", "Customer"))));
+
+            return x.ToString();
+        }        
 
         public string GetItemQueryRequest()
         {
@@ -432,6 +469,9 @@ namespace WebcreteAPIExplorer
                 case "CustomerQuery":
                     textBoxRequest.Text = IndentXMLString(GetCustomerQueryRequest());
                     break;
+                case "CustomerQuery(ListOnly)":
+                    textBoxRequest.Text = IndentXMLString(GetCustomerListQueryRequest());
+                    break;
                 case "TicketQuery":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryRequest(DateTime.Now,DateTime.Now));
                     break;           
@@ -464,6 +504,12 @@ namespace WebcreteAPIExplorer
                     break;
                 case "ProjectQuery":
                     textBoxRequest.Text = IndentXMLString(GetProjectQueryRequest());
+                    break;
+                case "ProjectQuery(ListOnly)":
+                    textBoxRequest.Text = IndentXMLString(GetProjectListQueryRequest());
+                    break;
+                case "ProjectQuery(IncludeCustomer)":
+                    textBoxRequest.Text = IndentXMLString(GetProjectIncludeCustomerQueryRequest());
                     break;
                 case "CustomerUpdate":
                     textBoxRequest.Text = IndentXMLString(GetCustomerUpdateRequest("ABCConcrete","ABCConcrete Inc.","ABCConcrete"));
