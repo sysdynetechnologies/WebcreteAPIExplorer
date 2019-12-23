@@ -52,7 +52,9 @@
       <Name>STRTYPE</Name>
       <!-- OR -->
       <!-- optional -->
-      <MaxReturned >INTTYPE</MaxReturned>      
+      <MaxReturned >INTTYPE</MaxReturned>
+      <!-- optional -->
+      <ListOnly>BOOLTYPE</ListOnly>
       <!-- optional -->
       <FromSetupDate>DATETIMETYPE</FromSetupDate>
       <!-- optional -->
@@ -350,6 +352,8 @@
       <!-- optional -->
       <MaxReturned >INTTYPE</MaxReturned>
       <!-- optional -->
+      <ListOnly>BOOLTYPE</ListOnly>
+      <!-- optional -->
       <FromSetupDate>DATETIMETYPE</FromSetupDate>
       <!-- optional -->
       <ToSetupDate>DATETIMETYPE</ToSetupDate>
@@ -375,9 +379,9 @@
       <StatementCycle>STRTYPE</StatementCycle>
       <!-- optional, may repeat-->
       <AccountingCategoryCode>STRTYPE</AccountingCategoryCode>
-      <!-- END OR -->
-      <!--optional, may repeat -->
+      <!--optional, may repeat, can be CUSTOMER -->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
+      <!-- END OR -->      
     </ProjectQueryRq>
     <!--    'requestID' is optional -->
     <ProjectUpdateRq  requestID="UUIDTYPE">
@@ -630,6 +634,34 @@
     <!--    'metaData' is optional and may have one of the following values: NoMetaData[DEFAULT], MetaDataOnly, MetaDataAndResponseData -->
     <!--    'iterator' is optional and may have one of the following values: Start, Continue, Stop -->
     <!--    'iteratorID' is optional -->
+    <OrderQueryRq  requestID = "UUIDTYPE" metaData = "ENUMTYPE" iterator = "ENUMTYPE" iteratorID = "UUIDTYPE">
+      <!-- optional in format MM/dd/yyyy-->
+      <FromOrderDate>DATETIMETYPE</FromOrderDate>
+      <!-- optional -->
+      <ToOrderDate>DATETIMETYPE</ToOrderDate>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <FromUpdateTime>DATETIMETYPE</FromUpdateTime>
+      <!-- optional -->
+      <ToUpdateTime>DATETIMETYPE</ToUpdateTime>
+      <!-- optional,may repeat -->
+      <OrderID>STRTYPE</OrderID>
+      <!-- optional,may repeat -->
+      <OrderCode>STRTYPE</OrderCode>
+      <!-- optional,may repeat -->
+      <PlantCode>STRTYPE</PlantCode>
+      <!-- optional,may repeat -->
+      <CustomerCode>STRTYPE</CustomerCode>
+      <!-- optional,may repeat -->
+      <ProjectCode>STRTYPE</ProjectCode>
+      <!-- optional -->
+      <IncludeRemovedOrder>BOOLTYPE</IncludeRemovedOrder>
+      <!--optional, may repeat can be  PRODUCT|SCHEDULE|SCHEDULELOAD|CUSTOMFIELD|ORDERNOTE-->
+      <IncludeRetElement>STRTYPE</IncludeRetElement>
+    </OrderQueryRq>
+    <!--    'requestID' is optional -->
+    <!--    'metaData' is optional and may have one of the following values: NoMetaData[DEFAULT], MetaDataOnly, MetaDataAndResponseData -->
+    <!--    'iterator' is optional and may have one of the following values: Start, Continue, Stop -->
+    <!--    'iteratorID' is optional -->
     <TicketQueryRq  requestID = "UUIDTYPE" metaData = "ENUMTYPE" iterator = "ENUMTYPE" iteratorID = "UUIDTYPE">
       <!-- optional in format MM/dd/yyyy-->
       <FromOrderDate>DATETIMETYPE</FromOrderDate>
@@ -663,7 +695,11 @@
       <!-- OR -->
       <!-- optional, may repeat-->
       <Code>STRTYPE</Code>      
-      <!-- END OR -->      
+      <!-- END OR -->
+      <!-- optional -->
+      <ListOnly>BOOLTYPE</ListOnly>
+      <!-- optional, may repeat-->
+      <LocationCode>STRTYPE</LocationCode>
       <!-- optional, may repeat-->
       <CategoryID>INTTYPE</CategoryID>
       <!-- optional, may repeat-->
@@ -688,7 +724,7 @@
       <ToUpdateDate>DATETIMETYPE</ToUpdateDate>
       <!-- optional -->
       <MaxReturned>INTTYPE</MaxReturned>      
-      <!-- optional, may repeat, can be COST|PRICING|MIXDESIGN|BATCHING-->
+      <!-- optional, may repeat, can be LOCATION|COST|PRICING|MIXDESIGN|BATCHING-->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
     </ItemQueryRq>
     <!--    'requestID' is optional -->
@@ -740,6 +776,10 @@
           <PurchaseUnit>STRTYPE</PurchaseUnit>
           <!-- optional -->
           <ReportingUnit>STRTYPE</ReportingUnit>
+          <!-- optional -->
+          <DosageQuantity>INTTYPE</DosageQuantity>
+          <!-- optional -->
+          <PerCemWeightDivisor>INTTYPE</PerCemWeightDivisor>
         </UOM>
         <!-- optional -->
         <Sales>
@@ -2116,6 +2156,10 @@
         <!-- optional -->
         <Taxable>BOOLTYPE</Taxable>
         <!-- optional -->
+        <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
+        <!-- optional -->
+        <NonTaxableReasonShortDescription>STRTYPE</NonTaxableReasonShortDescription>
+        <!-- optional -->
         <HaulerCode>STRTYPE</HaulerCode>
         <!-- optional -->
         <HaulerName>STRTYPE</HaulerName>
@@ -2321,7 +2365,11 @@
           <!-- optional -->
           <PurchaseUnit>STRTYPE</PurchaseUnit>
           <!-- optional -->
-          <ReportingUnit>STRTYPE</ReportingUnit>          
+          <ReportingUnit>STRTYPE</ReportingUnit>
+          <!-- optional -->
+          <DosageQuantity>INTTYPE</DosageQuantity>
+          <!-- optional -->
+          <PerCemWeightDivisor>INTTYPE</PerCemWeightDivisor>
         </UOM>
         <!-- optional -->
         <Sales>
@@ -2833,9 +2881,13 @@
         <!-- optional -->
         <Phone>STRTYPE</Phone>
         <!-- required -->
+        <LocationID>INTTYPE</LocationID>
+        <!-- required -->
+        <LocationCode>STRTYPE</LocationCode>
+        <!-- required -->
         <CompanyID>INTTYPE</CompanyID>
         <!-- required -->
-        <CompanyCode>INTTYPE</CompanyCode>
+        <CompanyCode>STRTYPE</CompanyCode>
       </PlantRet>
     </PlantQueryRs>
   </WebcreteXMLMsgsRs>
