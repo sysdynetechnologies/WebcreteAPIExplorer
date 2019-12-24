@@ -411,6 +411,38 @@ namespace WebcreteAPIExplorer
            return x.ToString();
         }
 
+        public string GeOrderQueryRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("OrderQueryRq",
+                          new XElement("FromOrderDate", dtOrderFrom.ToShortDateString()),
+                          new XElement("ToOrderDate", dtOrderTo.ToShortDateString()),
+                          new XElement("IncludeRetElement", "PRODUCT"),
+                          new XElement("IncludeRetElement", "SCHEDULE")))));
+
+            return x.ToString();
+        }
+
+        public string GeOrderUpdateQueryRequest(DateTime dtOrderUpdateFrom, DateTime dtOrderUpdateTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("OrderQueryRq",
+                          new XElement("FromUpdateTime", dtOrderUpdateFrom.ToString("s")),
+                          new XElement("ToUpdateTime", dtOrderUpdateTo.ToString("s")),
+                          new XElement("IncludeRetElement", "PRODUCT"),
+                          new XElement("IncludeRetElement", "SCHEDULE")))));
+
+            return x.ToString();
+        }
+
         public string GetCustomerUpdateRequest(string code, string name, string sort)
         {          
             XDocument x = new System.Xml.Linq.XDocument(
@@ -525,6 +557,12 @@ namespace WebcreteAPIExplorer
                     break;
                 case "CustomerQuery(ListOnly)":
                     textBoxRequest.Text = IndentXMLString(GetCustomerListQueryRequest());
+                    break;
+                case "OrderQuery":
+                    textBoxRequest.Text = IndentXMLString(GeOrderQueryRequest(DateTime.Now, DateTime.Now));
+                    break;
+                case "OrderQuery(OrderUpdate)":
+                    textBoxRequest.Text = IndentXMLString(GeOrderUpdateQueryRequest(DateTime.Now, DateTime.Now.AddHours(-1)));
                     break;
                 case "TicketQuery":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryRequest(DateTime.Now,DateTime.Now));

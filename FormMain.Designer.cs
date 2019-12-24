@@ -206,6 +206,8 @@ namespace WebcreteAPIExplorer
             "ItemTypeQuery",
             "ItemUpdate",
             "LocationQuery",
+            "OrderQuery",
+            "OrderQuery(OrderUpdate)",
             "PlantQuery",
             "ProjectQuery",
             "ProjectQuery(IncludeCustomer)",

@@ -655,7 +655,7 @@
       <ProjectCode>STRTYPE</ProjectCode>
       <!-- optional -->
       <IncludeRemovedOrder>BOOLTYPE</IncludeRemovedOrder>
-      <!--optional, may repeat can be  PRODUCT|SCHEDULE|SCHEDULELOAD|CUSTOMFIELD|ORDERNOTE-->
+      <!--optional, may repeat can be  PRODUCT|SCHEDULE|SCHEDULELOAD|USERDEFINEDFIELD|ORDERNOTE-->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
     </OrderQueryRq>
     <!--    'requestID' is optional -->
@@ -2075,6 +2075,7 @@
       <!--optional, may repeat -->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
     </ProjectUpdateRs>
+    
     <!--     'requestID' is optional   -->
     <!--     'statusCode' is required -->
     <!--     'statusSeverity' is required -->
@@ -2082,6 +2083,303 @@
     <!--     'retCount' is optional -->
     <!--     'iteratorRemainingCount' is optional -->
     <!--     'iteratorID' is optional -->    
+    <OrderQueryRs  requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE"  retCount = "INTTYPE" iteratorRemainingCount = "INTTYPE" iteratorID = "UUIDTYPE">
+      <!-- optional, may rep -->
+      <OrderRet>
+        <!-- required -->
+        <OrderID>INTTYPE</OrderID>
+        <!-- required -->
+        <CreatedDate>DATETIMETYPE</CreatedDate>
+        <!-- required -->
+        <OrderDate>DATETIMETYPE</OrderDate>
+        <!-- required -->
+        <OrderCode>STRTYPE</OrderCode>
+        <!-- required -->
+        <CustomerCode>STRTYPE</CustomerCode>
+        <!-- required -->
+        <CustomerName>STRTYPE</CustomerName>
+        <!-- optional -->
+        <CustomerJob>STRTYPE</CustomerJob>
+        <!-- optional -->
+        <PaymentForm>INTTYPE</PaymentForm>
+        <!-- optional -->
+        <ProjectCode>STRTYPE</ProjectCode>
+        <!-- optional -->
+        <ProjectName>STRTYPE</ProjectName>
+        <!-- optional -->
+        <LotBlockNumber>STRTYPE</LotBlockNumber>
+        <!-- optional -->
+        <PurchaseOrder>STRTYPE</PurchaseOrder>
+        <!-- optional -->
+        <JobNumber>STRTYPE</JobNumber>
+        <!-- optional -->
+        <DeliveryAddr1>STRTYPE</DeliveryAddr1>
+        <!-- optional -->
+        <DeliveryAddr2>STRTYPE</DeliveryAddr2>
+        <!-- optional -->
+        <DeliveryAddr3>STRTYPE5</DeliveryAddr3>
+        <!-- optional -->
+        <InstructionAddr1>STRTYPE</InstructionAddr1>
+        <!-- optional -->
+        <InstructionAddr2>STRTYPE</InstructionAddr2>
+        <!-- optional -->
+        <InstructionAddr3>STRTYPE</InstructionAddr3>
+        <!-- optional -->
+        <InstructionAddr4>STRTYPE</InstructionAddr4>
+        <!-- optional -->
+        <InstructionAddr5>STRTYPE</InstructionAddr5>
+        <!-- optional -->
+        <InstructionAddr6>STRTYPE</InstructionAddr6>
+        <!-- optional -->
+        <MapPage>STRTYPE</MapPage>
+        <!-- optional -->
+        <ZoneCode>STRTYPE</ZoneCode>
+        <!-- optional -->
+        <ZoneName>STRTYPE</ZoneName>
+        <!-- required -->
+        <CurrentStatus>INTTYPE</CurrentStatus>
+        <!-- optional -->
+        <RemoveReasonCode>STRTYPE</RemoveReasonCode>
+        <!-- optional -->
+        <HaulerCode>STRTYPE</HaulerCode>
+        <!-- optional -->
+        <HaulerName>STRTYPE</HaulerName>
+        <!-- optional -->
+        <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+        <!-- optional -->
+        <PriceCategoryName>STRTYPE</PriceCategoryName>
+        <!-- optional -->
+        <PricingPlantCode>STRTYPE</PricingPlantCode>
+        <!-- required -->
+        <TaxCode>STRTYPE</TaxCode>
+        <!-- required -->
+        <Taxable>BOOLTYPE</Taxable>
+        <!-- optional -->
+        <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
+        <!-- optional -->
+        <NonTaxableReasonShortDescription>STRTYPE</NonTaxableReasonShortDescription>
+        <!-- optional -->
+        <TakenByEmployeeCode>STRTYPE</TakenByEmployeeCode>
+        <!-- optional -->
+        <TakenOnExtension>STRTYPE</TakenOnExtension>
+        <!-- optional -->
+        <OrderedByName>STRTYPE</OrderedByName>
+        <!-- optional -->
+        <OrderedByPhone>STRTYPE</OrderedByPhone>
+        <!-- optional -->
+        <PocketNumber>STRTYPE</PocketNumber>
+        <!-- optional -->
+        <SalesmanCode>STRTYPE</SalesmanCode>
+        <!-- optional -->
+        <SalesAnalysisCode>STRTYPE</SalesAnalysisCode>
+        <!-- optional -->
+        <TradeDiscountPercent>PERCENTTYPE</TradeDiscountPercent>
+        <!-- optional -->
+        <TradeDiscountAmount>AMTTYPE</TradeDiscountAmount>
+        <!-- optional -->
+        <GrandTotalAmount>AMTTYPE</GrandTotalAmount>
+        <!-- optional -->
+        <IsSuspended>BOOLTYPE</IsSuspended>
+        <!-- optional -->
+        <SuspendReasonCode>STRTYPE</SuspendReasonCode>
+        <!-- optional -->
+        <SuspendShortDescription>STRTYPE</SuspendShortDescription>
+        <!-- optional -->
+        <CreditOverrideUser>STRTYPE</CreditOverrideUser>
+        <!-- optional -->
+        <Latitude>STRTYPE</Latitude>
+        <!-- optional -->
+        <Longitude>STRTYPE</Longitude>
+        <!-- optional -->
+        <UsageCode>STRTYPE</UsageCode>
+        <!-- optional -->
+        <UsageShort>STRTYPE</UsageShort>
+        <!-- optional -->
+        <RemovedBy>STRTYPE</RemovedBy>
+        <!-- optional -->
+        <BuildingPermit>STRTYPE</BuildingPermit>
+        <!-- optional -->
+        <ConfirmedBy>STRTYPE</ConfirmedBy>
+        <!-- optional -->
+        <JobsiteRadius>INTTYPE</JobsiteRadius>
+        <!-- optional -->
+        <Products>
+          <!-- optional, may rep -->
+          <Product>
+            <!-- required -->
+            <ProductID>INTTYPE</ProductID>
+            <!-- required -->
+            <ItemID>INTTYPE</ItemID>
+            <!-- required -->
+            <ItemCode>STRTYPE</ItemCode>
+            <!-- required -->
+            <Description>STRTYPE</Description>
+            <!-- required -->
+            <ShortDescription>STRTYPE</ShortDescription>
+            <!-- required -->
+            <IsMix>BOOLTYPE</IsMix>
+            <!-- required -->
+            <IsAssoc>BOOLTYPE</IsAssoc>
+            <!-- required -->
+            <Price>FLOATTYPE</Price>
+            <!-- required -->
+            <PriceUnit>STRTYPE</PriceUnit>
+            <!-- required -->
+            <OrderQty>FLOATTYPE</OrderQty>
+            <!-- required -->
+            <OrderQtyUnit>cy</OrderQtyUnit>
+            <!-- required -->
+            <LoadQty>FLOATTYPE</LoadQty>
+            <!-- required -->
+            <DelvQty>FLOATTYPE</DelvQty>
+            <!-- required -->
+            <DelvQtyUnit>STRTYPE</DelvQtyUnit>
+            <!-- optional -->
+            <Slump>STRTYPE</Slump>
+            <!-- optional -->
+            <TrimPercent>FLOATTYPE</TrimPercent>
+            <!-- optional -->
+            <Comments>STRTYPE</Comments>
+            <!-- optional -->
+            <UsageCode>STRTYPE</UsageCode>
+            <!-- optional -->
+            <UsageName>STRTYPE</UsageName>
+            <!-- required -->
+            <Taxable>BOOLTYPE</Taxable>
+            <!-- required -->
+            <TradeDiscountable>BOOLTYPE</TradeDiscountable>
+            <!-- optional -->
+            <Schedules>
+              <!-- optional, may rep -->
+              <Schedule>
+                <!-- required -->
+                <ProductScheduleID>INTTYPE</ProductScheduleID>
+                <!-- required -->
+                <PlantID>INTTYPE</PlantID>
+                <!-- required -->
+                <PlantCode>STRTYPE</PlantCode>
+                <!-- required -->
+                <StartTime>DATETIMETYPE</StartTime>
+                <!-- required -->
+                <ScheduleQty>FLOATTYPE</ScheduleQty>
+                <!-- required -->
+                <ScheduleDelvQty>FLOATTYPE</ScheduleDelvQty>
+                <!-- required -->
+                <HoldQty>FLOATTYPE</HoldQty>
+                <!-- required -->
+                <TruckTypeID>INTTYPE</TruckTypeID>
+                <!-- required -->
+                <TruckTypeCode>STRTYPE</TruckTypeCode>
+                <!-- required -->
+                <TruckTypeName>STRTYPE</TruckTypeName>
+                <!-- required -->
+                <LoadQty>FLOATTYPE</LoadQty>
+                <!-- required -->
+                <JobWashTime>INTTYPE</JobWashTime>
+                <!-- optional -->
+                <PouringMethodCode>STRTYPE</PouringMethodCode>
+                <!-- optional -->
+                <PouringMethodShort>STRTYPE</PouringMethodShort>
+                <!-- optional -->
+                <UnloadRatePerHour>FLOATTYPE</UnloadRatePerHour>
+                <!-- optional -->
+                <Distance>FLOATTYPE</Distance>
+                <!-- required -->
+                <TimeToJob>INTTYPE</TimeToJob>
+                <!-- required -->
+                <TimeToPlant>INTTYPE</TimeToPlant>
+                <!-- required -->
+                <TruckSpace>INTTYPE</TruckSpace>
+                <!-- required -->
+                <UnloadTime>INTTYPE</UnloadTime>
+                <!-- required -->
+                <DeliveryRatePerHour>FLOATTYPE</DeliveryRatePerHour>
+                <!-- required -->
+                <TrucksRequired>FLOATTYPE</TrucksRequired>
+                  <!-- required -->
+                <NumberOfLoads>INTTYPE</NumberOfLoads>
+                <!-- optional -->
+                <ScheduleLoads>
+                  <!-- optional, may rep -->
+                  <ScheduleLoad>
+                    <!-- required -->
+                    <ScheduleLoadID>INTTYPE</ScheduleLoadID>
+                    <!-- required -->
+                    <FromPlantID>INTTYPE</FromPlantID>
+                    <!-- required -->
+                    <FromPlant>STRTYPE</FromPlant>
+                    <!-- required -->
+                    <LoadQty>FLOATTYPE</LoadQty>
+                    <!-- optional -->
+                    <TruckID>INTTYPE</TruckID>
+                    <!-- optional -->
+                    <TruckCode>STRTYPE</TruckCode>
+                    <!-- required -->
+                    <ToPlantID>INTTYPE</ToPlantID>
+                    <!-- required -->
+                    <ToPlant>STRTYPE</ToPlant>
+                    <!-- required -->
+                    <TimeToJob>INTTYPE</TimeToJob>
+                    <!-- required -->
+                    <UnloadTime>INTTYPE</UnloadTime>
+                    <!-- required -->
+                    <TimeToPlant>INTTYPE</TimeToPlant>
+                    <!-- required -->
+                    <TruckSpace>INTTYPE</TruckSpace>
+                    <!-- required -->
+                    <PrintedTime>DATETIMETYPE</PrintedTime>
+                    <!-- required -->
+                    <LoadTime>DATETIMETYPE</LoadTime>
+                    <!-- required -->
+                    <OnJobTime>DATETIMETYPE</OnJobTime>
+                    <!-- required -->
+                    <FinPourTime>DATETIMETYPE</FinPourTime>
+                    <!-- required -->
+                    <AtPlantTime>DATETIMETYPE</AtPlantTime>
+                    <!-- required -->
+                    <TimeToWash>INTTYPE</TimeToWash>
+                    <!-- optional -->
+                    <TicketID>INTTYPE</TicketID>
+                    <!-- optional -->
+                    <TicketCode>STRTYPE</TicketCode>
+                  </ScheduleLoad>
+                </ScheduleLoads>
+              </Schedule>
+            </Schedules>
+          </Product>
+        </Products>
+        <!-- optional -->
+        <Notes>
+          <!-- optional, may rep -->
+          <Note>
+            <!-- required -->
+            <NoteID>INTTYPE</NoteID>
+            <!-- required -->
+            <NoteDescription>STRTYPE</NoteDescription>
+          <!-- required -->
+            <NoteDate>DATETIMETYPE</NoteDate>
+          </Note>
+        </Notes>
+        <!-- optional -->
+        <UserDefinedFields>
+          <!-- optional, may rep -->
+          <UserDefinedField>
+            <!-- required -->
+            <Name>STRTYPE</Name>
+            <!-- required -->
+            <Value>STRTYPE</Value>
+          </UserDefinedField>
+        </UserDefinedFields>
+      </OrderRet>
+    </OrderQueryRs>
+    
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <!--     'retCount' is optional -->
+    <!--     'iteratorRemainingCount' is optional -->
+    <!--     'iteratorID' is optional -->        
     <TicketQueryRs  requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE"  retCount = "INTTYPE" iteratorRemainingCount = "INTTYPE" iteratorID = "UUIDTYPE">
       <!-- optional, may rep -->
       <TicketRet>
