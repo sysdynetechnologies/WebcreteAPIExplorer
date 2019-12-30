@@ -411,6 +411,37 @@ namespace WebcreteAPIExplorer
            return x.ToString();
         }
 
+        public string GetTicketQueryForMixCodeRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("TicketQueryRq",
+                           new XElement("MixCode", "020-2"),
+                          new XElement("FromOrderDate", dtOrderFrom.ToShortDateString()),
+                          new XElement("ToOrderDate", dtOrderTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+        
+
+        public string GetTicketListQueryRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("TicketQueryRq",
+                          new XElement("ListOnly", "True"),
+                          new XElement("FromOrderDate", dtOrderFrom.ToShortDateString()),
+                          new XElement("ToOrderDate", dtOrderTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+
         public string GeOrderQueryRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -542,6 +573,21 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+
+        public string GetTicketBatchResultMessageQueryRequest(string messageQueueID, string lastTicketBatchResultMessageID)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+             new XDeclaration("1.0", "utf-8", "yes"),
+             new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+             new XElement("WebcreteXML",
+                 new XElement("WebcreteXMLMsgsRq",
+                     new XElement("TicketBatchResultMessageQueryRq",                            
+                            new XElement("MessageQueueID", messageQueueID),
+                            new XElement("LastTicketBatchResultMessageID", lastTicketBatchResultMessageID)))));
+
+            return x.ToString();
+        }
+
         private void comboBoxRequest_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (comboBoxRequest.SelectedItem.ToString())
@@ -566,7 +612,13 @@ namespace WebcreteAPIExplorer
                     break;
                 case "TicketQuery":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryRequest(DateTime.Now,DateTime.Now));
-                    break;           
+                    break;
+                case "TicketQuery(ListOnly)":
+                    textBoxRequest.Text = IndentXMLString(GetTicketListQueryRequest(DateTime.Now, DateTime.Now));
+                    break;
+                case "TicketQuery(MixCode)":
+                    textBoxRequest.Text = IndentXMLString(GetTicketQueryForMixCodeRequest(DateTime.Now, DateTime.Now));
+                    break;
                 case "ItemQuery":
                     textBoxRequest.Text = IndentXMLString(GetItemQueryRequest());
                     break;
@@ -632,6 +684,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "TicketMessageQuery":
                     textBoxRequest.Text = IndentXMLString(GetTicketMessageQueryRequest("1", "1", "0"));
+                    break;
+                case "TicketBatchResultMessageQuery":
+                    textBoxRequest.Text = IndentXMLString(GetTicketBatchResultMessageQueryRequest("1", "0"));
                     break;
                 case "UOMQuery":
                     textBoxRequest.Text = IndentXMLString(GetUOMQueryRequest());
