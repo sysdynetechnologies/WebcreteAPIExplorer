@@ -411,6 +411,21 @@ namespace WebcreteAPIExplorer
            return x.ToString();
         }
 
+        public string GetTicketQueryWithRemovedRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("TicketQueryRq",
+                          new XElement("IncludeRemovedTicket", "True"),
+                          new XElement("FromOrderDate", dtOrderFrom.ToShortDateString()),
+                          new XElement("ToOrderDate", dtOrderTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+        
         public string GetTicketQueryForMixCodeRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -612,6 +627,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "TicketQuery":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryRequest(DateTime.Now,DateTime.Now));
+                    break;
+                case "TicketQuery(IncludeRemovedTickets)":
+                    textBoxRequest.Text = IndentXMLString(GetTicketQueryWithRemovedRequest(DateTime.Now, DateTime.Now));
                     break;
                 case "TicketQuery(ListOnly)":
                     textBoxRequest.Text = IndentXMLString(GetTicketListQueryRequest(DateTime.Now, DateTime.Now));

@@ -216,6 +216,7 @@ namespace WebcreteAPIExplorer
             "TicketBatchResultMessageQuery",
             "TicketMessageQuery",
             "TicketQuery",
+            "TicketQuery(IncludeRemovedTickets)",
             "TicketQuery(ListOnly)",
             "TicketQuery(MixCode)",
             "TruckGpsUpdate",
