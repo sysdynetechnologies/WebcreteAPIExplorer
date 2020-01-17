@@ -411,6 +411,21 @@ namespace WebcreteAPIExplorer
            return x.ToString();
         }
 
+        public string GetTicketQueryByLoadTimeRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("TicketQueryRq",
+                          new XElement("FromLoadTime", dtOrderFrom.ToShortDateString()),
+                          new XElement("ToLoadTime", dtOrderTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+        
+
         public string GetTicketQueryWithRemovedRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -636,6 +651,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "TicketQuery(MixCode)":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryForMixCodeRequest(DateTime.Now, DateTime.Now));
+                    break;
+                case "TicketQuery(LoadTime)":
+                    textBoxRequest.Text = IndentXMLString(GetTicketQueryByLoadTimeRequest(DateTime.Now, DateTime.Now));
                     break;
                 case "ItemQuery":
                     textBoxRequest.Text = IndentXMLString(GetItemQueryRequest());

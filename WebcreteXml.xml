@@ -669,8 +669,12 @@
       <ToOrderDate>DATETIMETYPE</ToOrderDate>
       <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
       <FromUpdateTime>DATETIMETYPE</FromUpdateTime>
-      <!-- optional -->
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
       <ToUpdateTime>DATETIMETYPE</ToUpdateTime>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <FromLoadTime>DATETIMETYPE</FromLoadTime>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <ToLoadTime>DATETIMETYPE</ToLoadTime>
       <!-- optional,may repeat -->
       <TicketID>STRTYPE</TicketID>
       <!-- optional,may repeat -->
@@ -681,6 +685,10 @@
       <CustomerCode>STRTYPE</CustomerCode>
       <!-- optional,may repeat -->
       <ProjectCode>STRTYPE</ProjectCode>
+      <!-- optional,may repeat -->
+      <MixCode>STRTYPE</MixCode>
+      <!-- optional -->
+      <ListOnly>STRTYPE</ListOnly>
       <!-- optional -->
       <IncludeRemovedTicket>BOOLTYPE</IncludeRemovedTicket>
     </TicketQueryRq>
@@ -1223,6 +1231,10 @@
         <Pricing>
           <!-- optional -->
           <PriceCategoryCode>STRTYPE</PriceCategoryCode>
+          <!-- optional -->
+          <PriceCategoryName>STRTYPE</PriceCategoryName>
+          <!-- optional -->
+          <PriceCategoryDescription>STRTYPE</PriceCategoryDescription>
           <!-- optional -->
           <PricingPlantCode>STRTYPE</PricingPlantCode>
           <!-- optional -->
@@ -2093,7 +2105,13 @@
         <!-- required -->
         <OrderDate>DATETIMETYPE</OrderDate>
         <!-- required -->
+        <UpdateTime>DATETIMETYPE</UpdateTime>
+        <!-- required -->
         <OrderCode>STRTYPE</OrderCode>
+        <!-- required -->
+        <OrderType>INTTYPE</OrderType>
+        <!-- required -->
+        <OrderTypeDescription>STRTYPE</OrderTypeDescription>
         <!-- required -->
         <CustomerCode>STRTYPE</CustomerCode>
         <!-- required -->
@@ -2159,6 +2177,8 @@
         <!-- optional -->
         <NonTaxableReasonShortDescription>STRTYPE</NonTaxableReasonShortDescription>
         <!-- optional -->
+        <TakenByEmployeeID>STRTYPE</TakenByEmployeeID>
+        <!-- optional -->
         <TakenByEmployeeCode>STRTYPE</TakenByEmployeeCode>
         <!-- optional -->
         <TakenOnExtension>STRTYPE</TakenOnExtension>
@@ -2168,6 +2188,8 @@
         <OrderedByPhone>STRTYPE</OrderedByPhone>
         <!-- optional -->
         <PocketNumber>STRTYPE</PocketNumber>
+        <!-- optional -->
+        <SalesmanID>STRTYPE</SalesmanID>
         <!-- optional -->
         <SalesmanCode>STRTYPE</SalesmanCode>
         <!-- optional -->
@@ -2400,6 +2422,10 @@
         <!-- required -->
         <OrderCode>STRTYPE</OrderCode>
         <!-- required -->
+        <MixCode>STRTYPE</MixCode>
+        <!-- required -->
+        <CurrentStatus>INTTYPE</CurrentStatus>
+        <!-- required -->
         <PaymentForm>ENUMTYPE</PaymentForm>
         <!-- optional -->
         <TruckCode>STRTYPE</TruckCode>
@@ -2442,8 +2468,8 @@
         <!-- optional -->
         <InstructionAddr5>STRTYPE</InstructionAddr5>
         <!-- optional -->
-        <InstructionAddr6>STRTYPE</InstructionAddr6>
-        <!-- optional -->
+        <InstructionAddr6>STRTYPE</InstructionAddr6>        
+        <!-- optional -->        
         <ZoneCode>STRTYPE</ZoneCode>
         <!-- optional -->
         <ZoneName>STRTYPE</ZoneName>
@@ -2473,6 +2499,8 @@
         <WaterAddedOnJob>FLOATTYPE</WaterAddedOnJob>
         <!-- optional -->
         <QBInvoiceEmailChecked>BOOL</QBInvoiceEmailChecked>
+        <!-- optional -->
+        <ScheduledOnJobTime>DATETIMETYPE</ScheduledOnJobTime>
          <!-- optional -->
         <PrintedTime>DATETIMETYPE</PrintedTime>
         <!-- optional -->
@@ -2510,11 +2538,15 @@
         <!-- optional -->
         <Removed>BOOLTYPE</Removed>
         <!-- optional -->
+        <PrintMixWeight>BOOLTYPE</PrintMixWeight>
+        <!-- optional -->
         <UpdateTime>DATETIMETYPE</UpdateTime>
         <!-- optional -->
         <Products>
           <!-- optional may repeat-->
           <Product>
+            <!-- required -->
+            <ItemID>STRTYPE</ItemID>
             <!-- required -->
             <ItemCode>STRTYPE</ItemCode>
             <!-- optional -->
@@ -3003,9 +3035,14 @@
         <TicketMessageID>INTTYPE</TicketMessageID>
         <!-- 1:new ticket 2:update ticket -1: remove ticket -->
         <MessageComand>INTTYPE</MessageComand>        
+        <!-- required -->
         <OrderDate>DATETIMETYPE</OrderDate>        
+        <!-- required -->
         <OrderCode>INTTYPE</OrderCode>
+        <!-- required -->
         <OrderId>INTTYPE</OrderId>
+        <!-- required -->
+        <CurrentStatus>INTTYPE</CurrentStatus>
         <TicketId>INTTYPE</TicketId>
         <TicketCode>STRTYPE</TicketCode>
         <CreatedDate>DATETIMETYPE</CreatedDate>
@@ -3049,6 +3086,8 @@
         <Amount>FLOATTYPE</Amount>
         <TaxAmount>FLOATTYPE</TaxAmount>
         <TotalAmount>FLOATTYPE</TotalAmount>
+        <!-- optional -->
+        <PrintMixWeight>BOOLTYPE</PrintMixWeight>
         <ScheduleLoadId>INTTYPE</ScheduleLoadId>        
         <Products>
           <!-- optional may repeat-->
@@ -3077,6 +3116,79 @@
         </Products>
       </TicketMessageRet>
     </TicketMessageQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <TicketBatchResultMessageQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <TicketBatchResultMessageRet>
+        <!-- required -->
+        <BatchResultMessageID>INTTYPE</BatchResultMessageID>
+        <!-- required -->
+        <TicketID>INTTYPE</TicketID>        
+        <!-- required -->
+        <TicketCode>STRTYPE</TicketCode>
+        <!-- optional -->
+        <TruckCode>STRTYPE</TruckCode>
+        <!-- required -->
+        <LoadSize>FLOATTYPE</LoadSize>
+        <!-- required -->
+        <MixCode>STRTYPE</MixCode>
+        <!-- optional -->
+        <QuantityOnBoard>FLOATTYPE</QuantityOnBoard>
+        <!-- required -->
+        <LoadTime>DATETIMETYPE</LoadTime>
+        <!-- optional -->
+        <DriverName>STRTYPE</DriverName>
+        <!-- optional -->
+        <SpecificGravityofSlurry>FLOATTYPE</SpecificGravityofSlurry>
+        <!-- optional -->
+        <ActivityofSlurry>FLOATTYPE</ActivityofSlurry>
+        <!-- optional -->
+        <SubstitutionofSlurry>FLOATTYPE</SubstitutionofSlurry>
+        <!-- optional -->
+        <TempWater>FLOATTYPE</TempWater>
+        <!-- optional -->
+        <TemperWaterUnits>STRTYPE</TemperWaterUnits>
+        <!-- optional -->
+        <Metric>BOOLTYPE</Metric>
+        <!-- required -->
+        <OrderDate>DATETIMETYPE</OrderDate>
+        <!-- required -->
+        <OrderCode>STRTYPE</OrderCode>
+        <!-- required -->
+        <CustomerName>STRTYPE</CustomerName>
+        <!-- required -->
+        <ProjectName>STRTYPE</ProjectName>
+        <!-- required -->
+        <PlantCode>STRTYPE</PlantCode>
+        <!-- required -->
+        <TicketPrintedTime>DATETIMETYPE</TicketPrintedTime>
+        <!-- required -->
+        <TicketLoadTime>DATETIMETYPE</TicketLoadTime>
+        <!-- required -->
+        <MixDescription>STRTYPE</MixDescription>
+        <!-- required -->
+        <MixUnit>STRTYPE</MixUnit>
+        <!-- required -->
+        <BatchWeights>
+          <!-- optional, may repeat-->
+          <Material>
+            <!-- required -->
+            <Name>STRTYPE</Name>
+            <!-- required -->
+            <Unit>STRTYPE</Unit>
+            <!-- required -->
+            <Target>FLOATTYPE</Target>
+            <!-- required -->
+            <Actual>FLOATTYPE</Actual>
+            <!-- optional -->
+            <Moisture>FLOATTYPE</Moisture>
+          </Material>
+        </BatchWeights>
+      </TicketBatchResultMessageRet>      
+    </TicketBatchResultMessageQueryRs>
     <!--     'requestID' is optional   -->
     <!--     'statusCode' is required -->
     <!--     'statusSeverity' is required -->
