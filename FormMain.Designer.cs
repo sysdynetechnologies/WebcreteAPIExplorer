@@ -220,6 +220,8 @@ namespace WebcreteAPIExplorer
             "TicketQuery(ListOnly)",
             "TicketQuery(LoadTime)",
             "TicketQuery(MixCode)",
+            "TicketQuery(SortDesc)",
+            "TicketQuery(WithBatchWeightsOnly)",
             "TruckGpsUpdate",
             "TruckStatusUpdate",
             "UOMQuery",

@@ -411,6 +411,38 @@ namespace WebcreteAPIExplorer
            return x.ToString();
         }
 
+        public string GetTicketQueryWithBatchWeightsOnlyRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("TicketQueryRq",
+                          new XElement("FromOrderDate", dtOrderFrom.ToShortDateString()),
+                          new XElement("ToOrderDate", dtOrderTo.ToShortDateString()),
+                          new XElement("WithBatchWeightsOnly", "true")))));
+
+            return x.ToString();
+        }
+
+        
+
+        public string GetTicketQueryDescRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("TicketQueryRq",
+                          new XElement("FromOrderDate", dtOrderFrom.ToShortDateString()),
+                          new XElement("ToOrderDate", dtOrderTo.ToShortDateString()),
+                          new XElement("OrderBy", "desc")))));
+
+            return x.ToString();
+        }
+
         public string GetTicketQueryByLoadTimeRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -654,6 +686,12 @@ namespace WebcreteAPIExplorer
                     break;
                 case "TicketQuery(LoadTime)":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryByLoadTimeRequest(DateTime.Now, DateTime.Now));
+                    break;
+                case "TicketQuery(SortDesc)":
+                    textBoxRequest.Text = IndentXMLString(GetTicketQueryDescRequest(DateTime.Now, DateTime.Now));
+                    break;
+                case "TicketQuery(WithBatchWeightsOnly)":
+                    textBoxRequest.Text = IndentXMLString(GetTicketQueryWithBatchWeightsOnlyRequest(DateTime.Now, DateTime.Now));
                     break;
                 case "ItemQuery":
                     textBoxRequest.Text = IndentXMLString(GetItemQueryRequest());

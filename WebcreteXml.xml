@@ -690,7 +690,11 @@
       <!-- optional -->
       <ListOnly>STRTYPE</ListOnly>
       <!-- optional -->
+      <OrderBy>STRTYPE</OrderBy>
+      <!-- optional -->
       <IncludeRemovedTicket>BOOLTYPE</IncludeRemovedTicket>
+      <!-- optional -->
+      <WithBatchWeightsOnly>BOOLTYPE</WithBatchWeightsOnly>
     </TicketQueryRq>
     <!--    'requestID' is optional -->
     <!--    'metaData' is optional and may have one of the following values: NoMetaData[DEFAULT], MetaDataOnly, MetaDataAndResponseData -->
