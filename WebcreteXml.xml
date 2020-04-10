@@ -792,6 +792,17 @@
           <DosageQuantity>INTTYPE</DosageQuantity>
           <!-- optional -->
           <PerCemWeightDivisor>INTTYPE</PerCemWeightDivisor>
+          <!-- optional -->
+          <UseDosageQuantityUOMInMixDesign>
+            <!-- required -->
+            <Enable>BOOLTYPE</Enable>
+            <!-- required -->
+            <DosageQuantityExtensionCode>STRTYPE</DosageQuantityExtensionCode>
+            <!-- required -->
+            <PerCemWeightDivisor>INTTYPE</PerCemWeightDivisor>
+            <!-- required -->
+            <DosageQuantity>FLOATTYPE</DosageQuantity>
+          </UseDosageQuantityUOMInMixDesign>
         </UOM>
         <!-- optional -->
         <Sales>
@@ -862,6 +873,7 @@
                 <Code>STRTYPE</Code>
                 <Description>STRTYPE</Description>
                 <Quantity>FLOATTYPE</Quantity>
+                <DosageQuantity>FLOATTYPE</DosageQuantity>
                 <Unit>STRTYPE</Unit>
               </Material>
             </MixDesign>
@@ -1045,6 +1057,52 @@
       <!-- END OR -->
       <!--  opt, may rep -->
     </PlantQueryRq>
+    <!--  TruckQueryRq contains 1 optional attribute: 'requestID' -->
+    <TruckQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- END OR -->
+      <!--  opt may reppeat-->
+      <PlantID>INTTYPE</PlantID>      
+      <!--  opt may repeat-->
+      <PlantCode>STRTYPE</PlantCode>      
+      <!-- optional -->
+      <ListOnly>BOOLTYPE</ListOnly>
+      <!-- optional -->
+      <Active>BOOLTYPE</Active>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <FromStatusTimeStamp>DATETIMETYPE</FromStatusTimeStamp>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <ToStatusTimeStamp>DATETIMETYPE</ToStatusTimeStamp>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <FromLocationUpdateTime>DATETIMETYPE</FromLocationUpdateTime>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <ToLocationUpdateTime>DATETIMETYPE</ToLocationUpdateTime>
+    </TruckQueryRq>
+    <!--  EmployeeQueryRq contains 1 optional attribute: 'requestID' -->
+    <EmployeeQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!--  opt may reppeat-->
+      <PlantID>INTTYPE</PlantID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <PlantCode>STRTYPE</PlantCode>
+      <!--  opt may repeat-->
+      <EmployeeType>STRTYPE</EmployeeType>
+      <!-- END OR -->
+      <!--  opt, may rep -->
+      <!-- optional -->
+      <ListOnly>BOOLTYPE</ListOnly>
+    </EmployeeQueryRq>
   </WebcreteXMLMsgsRq>
   <!-- WebcreteXMLMsgsRs contains 2 attributes -->
   <!--    'newMessageSetID' is optional -->
@@ -2158,7 +2216,7 @@
         <ZoneCode>STRTYPE</ZoneCode>
         <!-- optional -->
         <ZoneName>STRTYPE</ZoneName>
-        <!-- required -->
+        <!-- required 0:normal 1:will call 2:Weather Permitting 3:Hold Delivery 4:Completed 5:Wait List-->
         <CurrentStatus>INTTYPE</CurrentStatus>
         <!-- optional -->
         <RemoveReasonCode>STRTYPE</RemoveReasonCode>
@@ -2704,6 +2762,17 @@
           <DosageQuantity>INTTYPE</DosageQuantity>
           <!-- optional -->
           <PerCemWeightDivisor>INTTYPE</PerCemWeightDivisor>
+          <!-- optional -->
+          <UseDosageQuantityUOMInMixDesign>
+            <!-- required -->
+            <Enable>BOOLTYPE</Enable>
+            <!-- required -->
+            <DosageQuantityExtensionCode>STRTYPE</DosageQuantityExtensionCode>
+            <!-- required -->
+            <PerCemWeightDivisor>INTTYPE</PerCemWeightDivisor>
+            <!-- required -->
+            <DosageQuantity>FLOATTYPE</DosageQuantity>
+          </UseDosageQuantityUOMInMixDesign>
         </UOM>
         <!-- optional -->
         <Sales>
@@ -2774,6 +2843,7 @@
                 <Code>STRTYPE</Code>
                 <Description>STRTYPE</Description>
                 <Quantity>FLOATTYPE</Quantity>
+                <DosageQuantity>FLOATTYPE</DosageQuantity>
                 <Unit>STRTYPE</Unit>
               </Material>
             </MixDesign>
@@ -3302,8 +3372,132 @@
         <CompanyID>INTTYPE</CompanyID>
         <!-- required -->
         <CompanyCode>STRTYPE</CompanyCode>
+        <!-- required -->
+        <WindowsTimeZone>STRTYPE</WindowsTimeZone>
+        <!-- required -->
+        <IANATimeZone>STRTYPE</IANATimeZone>
+        <!-- optional -->
+        <Latitude>STRTYPE</Latitude>
+        <!-- optional -->
+        <Longitude>STRTYPE</Longitude>
+        <!-- optional -->
+        <MaxBatchSize>FLOATTYPE</MaxBatchSize>
+        <!-- optional -->
+        <MaxBatchSizeUnit>STRTYPE</MaxBatchSizeUnit>
+        <!-- optional -->
+        <MaxBatchSizeUnitID>STRTYPE</MaxBatchSizeUnitID>
+        <!-- optional -->
+        <MaxBatchSizeUnitCode>STRTYPE</MaxBatchSizeUnitCode>
       </PlantRet>
     </PlantQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <TruckQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <TruckRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- optional -->
+        <Description>STRTYPE</Description>
+        <!-- optional -->
+        <ShortDescription>STRTYPE</ShortDescription>
+        <!-- optional -->
+        <Active>BOOLTYPE</Active>
+        <!-- optional -->
+        <PlantID>STRTYPE</PlantID>
+        <!-- optional -->
+        <PlantCode>STRTYPE</PlantCode>
+        <!-- optional -->
+        <PlantName>STRTYPE</PlantName>
+        <!-- optional -->
+        <DriverID>STRTYPE</DriverID>
+        <!-- optional -->
+        <DriverCode>STRTYPE</DriverCode>
+        <!-- optional -->
+        <DriverName>STRTYPE</DriverName>
+        <!-- optional -->
+        <CurrentPlantID>INTTYPE</CurrentPlantID>
+        <!-- optional -->
+        <CurrentPlantCode>STRTYPE</CurrentPlantCode>
+        <!-- optional -->
+        <CurrentPlantName>STRTYPE</CurrentPlantName>
+        <!-- optional -->
+        <CurrentDriverID>INTTYPE</CurrentDriverID>
+        <!-- optional -->
+        <CurrentDriverCode>STRTYPE</CurrentDriverCode>
+        <!-- optional -->
+        <CurrentDriverName>STRTYPE</CurrentDriverName>
+        <!-- required -->
+        <TruckTypeID>INTTYPE</TruckTypeID>
+        <!-- required -->
+        <TruckTypeCode>STRTYPE</TruckTypeCode>
+        <!-- required -->
+        <TruckTypeName>STRTYPE</TruckTypeName>
+        <!-- required -->
+        <SignalingUnitCode>STRTYPE</SignalingUnitCode>
+        <!-- optional -->
+        <Latitude>STRTYPE</Latitude>
+        <!-- optional -->
+        <Longitude>STRTYPE</Longitude>
+        <!-- optional -->
+        <LocationUpdateTime>DATETIMETYPE</LocationUpdateTime>
+        <!-- optional TICKETED|LOADING|LOADED|TOJOB|ONJOB|POURING|WASHING|TOPLANT|ATPLANT|INSERVICE|OUTOFSERVICE|CLOCKEDIN|CLOCKEDOUT|DEADHEAD-->
+        <StatusCode>STRTYPE</StatusCode>
+        <!-- optional use sortable format like 2009-06-15T13:45:30 -->
+        <StatusTimeStamp>DATETIMETYPE</StatusTimeStamp>
+        <!-- optional -->
+        <TicketID>INTTYPE</TicketID>
+        <!-- optional -->
+        <ReturnedMaterialQty>FLOATTYPE</ReturnedMaterialQty>
+        <!-- optional -->
+        <SetupDate>STRTYPE</SetupDate>
+      </TruckRet>
+    </TruckQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <EmployeeQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <EmployeeRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- optional -->
+        <Name>STRTYPE</Name>        
+        <!-- EmployeeType DRIVER|SALESMAN|WEIGHMASTER|CREDITPERSON -->
+        <EmployeeType>STRTYPE</EmployeeType>
+        <!-- optional -->
+        <Address1>STRTYPE</Address1>
+        <!-- optional -->
+        <Address2>STRTYPE</Address2>
+        <!-- optional -->
+        <City>STRTYPE</City>
+        <!-- optional -->
+        <State>STRTYPE</State>
+        <!-- optional -->
+        <Country>STRTYPE</Country>
+        <!-- optional -->
+        <PostalCode>STRTYPE</PostalCode>
+        <!-- optional -->
+        <Phone>STRTYPE</Phone>
+        <!-- optional -->
+        <PhoneExt>STRTYPE</PhoneExt>
+        <!-- optional -->
+        <Email>STRTYPE</Email>
+        <!-- optional -->
+        <Fax>STRTYPE</Fax>
+        <!-- optional -->
+        <PlantID>INTTYPE</PlantID>
+        <!-- optional -->
+        <PlantCode>STRTYPE</PlantCode>
+       </EmployeeRet>
+    </EmployeeQueryRs>
   </WebcreteXMLMsgsRs>
 </WebcreteXML>
 

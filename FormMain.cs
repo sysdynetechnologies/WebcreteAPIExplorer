@@ -166,6 +166,30 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetTruckQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TruckQueryRq", ""))));
+
+            return x.ToString();
+        }
+
+        public string GetEmployeeQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("EmployeeQueryRq", ""))));
+
+            return x.ToString();
+        }
+
         public string GetCustomerQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -776,6 +800,12 @@ namespace WebcreteAPIExplorer
                     break;
                 case "PlantQuery":
                     textBoxRequest.Text = IndentXMLString(GetPlantQueryRequest());
+                    break;
+                case "TruckQuery":
+                    textBoxRequest.Text = IndentXMLString(GetTruckQueryRequest());
+                    break;
+                case "EmployeeQuery":
+                    textBoxRequest.Text = IndentXMLString(GetEmployeeQueryRequest());
                     break;
             }
         }

@@ -189,6 +189,7 @@ namespace WebcreteAPIExplorer
             "CustomerQuery",
             "CustomerQuery(ListOnly)",
             "CustomerUpdate",
+            "EmployeeQuery",
             "ItemCategoryQuery",
             "ItemQuery",
             "ItemQuery(ByItemCateogry)",
@@ -223,6 +224,7 @@ namespace WebcreteAPIExplorer
             "TicketQuery(SortDesc)",
             "TicketQuery(WithBatchWeightsOnly)",
             "TruckGpsUpdate",
+            "TruckQuery",
             "TruckStatusUpdate",
             "UOMQuery",
             "VersionQuery"});
