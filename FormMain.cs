@@ -142,6 +142,18 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetCreditCodeQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("CreditCodeQueryRq", ""))));
+
+            return x.ToString();
+        }
+
         public string GetLocationQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -806,6 +818,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "EmployeeQuery":
                     textBoxRequest.Text = IndentXMLString(GetEmployeeQueryRequest());
+                    break;
+                case "CreditCodeQuery":
+                    textBoxRequest.Text = IndentXMLString(GetCreditCodeQueryRequest());
                     break;
             }
         }

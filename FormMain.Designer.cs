@@ -186,6 +186,7 @@ namespace WebcreteAPIExplorer
             this.comboBoxRequest.FormattingEnabled = true;
             this.comboBoxRequest.Items.AddRange(new object[] {
             "CompanyQuery",
+            "CreditCodeQuery",
             "CustomerQuery",
             "CustomerQuery(ListOnly)",
             "CustomerUpdate",

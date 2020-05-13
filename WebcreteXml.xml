@@ -1103,6 +1103,17 @@
       <!-- optional -->
       <ListOnly>BOOLTYPE</ListOnly>
     </EmployeeQueryRq>
+    <!--  CreditCodeQueryRq contains 1 optional attribute: 'requestID' -->
+    <CreditCodeQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- END OR -->
+      <!--  opt, may rep -->
+    </CreditCodeQueryRq>
   </WebcreteXMLMsgsRq>
   <!-- WebcreteXMLMsgsRs contains 2 attributes -->
   <!--    'newMessageSetID' is optional -->
@@ -2686,7 +2697,11 @@
             <!-- optional may repeat-->
             <Material>
               <!-- required -->
-              <Code>STRTYPE</Code>
+              <ItemID>STRTYPE</ItemID>
+              <!-- required -->
+              <ItemCode>STRTYPE</ItemCode>
+              <!-- required -->
+              <Name>STRTYPE</Name>
               <!-- required -->
               <BatchTarget>FLOATTYPE</BatchTarget>
               <!-- required -->
@@ -3250,6 +3265,10 @@
           <!-- optional, may repeat-->
           <Material>
             <!-- required -->
+            <ItemID>STRTYPE</ItemID>
+            <!-- required -->
+            <ItemCode>STRTYPE</ItemCode>
+            <!-- required -->
             <Name>STRTYPE</Name>
             <!-- required -->
             <Unit>STRTYPE</Unit>
@@ -3498,6 +3517,33 @@
         <PlantCode>STRTYPE</PlantCode>
        </EmployeeRet>
     </EmployeeQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <CreditCodeQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <CreditCodeRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- optional -->
+        <Description>STRTYPE</Description>
+        <!-- optional -->
+        <ShortDescription>STRTYPE</ShortDescription>
+        <!-- required -->
+        <CreditTypeID>INTTYPE</CreditTypeID>
+        <!-- required -->
+        <CreditType>STRTYPE</CreditType>
+        <!-- optional -->
+        <Message>STRTYPE</Message>
+        <!-- optional -->
+        <CheckCredtLimit>BOOLTYPE</CheckCredtLimit>
+        <!-- optional -->
+        <UpdateDate>STRTYPE</UpdateDate>
+      </CreditCodeRet>
+    </CreditCodeQueryRs>
   </WebcreteXMLMsgsRs>
 </WebcreteXML>
 
