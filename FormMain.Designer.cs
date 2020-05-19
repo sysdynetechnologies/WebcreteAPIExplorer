@@ -190,6 +190,7 @@ namespace WebcreteAPIExplorer
             "CustomerQuery",
             "CustomerQuery(ListOnly)",
             "CustomerUpdate",
+            "DivisionQuery",
             "EmployeeQuery",
             "ItemCategoryQuery",
             "ItemQuery",
