@@ -166,6 +166,30 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetPriceCategoryQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("PriceCategoryQueryRq", ""))));
+
+            return x.ToString();
+        }
+
+        public string GetAccountingCategoryQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("AccountingCategoryQueryRq", ""))));
+
+            return x.ToString();
+        }
+
         public string GetLocationQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -836,6 +860,12 @@ namespace WebcreteAPIExplorer
                     break;
                 case "DivisionQuery":
                     textBoxRequest.Text = IndentXMLString(GetDivisionQueryRequest());
+                    break;
+                case "PriceCategoryQuery":
+                    textBoxRequest.Text = IndentXMLString(GetPriceCategoryQueryRequest());
+                    break;
+                case "AccountingCategoryQuery":
+                    textBoxRequest.Text = IndentXMLString(GetAccountingCategoryQueryRequest());
                     break;
             }
         }

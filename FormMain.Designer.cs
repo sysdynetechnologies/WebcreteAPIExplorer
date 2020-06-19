@@ -185,6 +185,7 @@ namespace WebcreteAPIExplorer
             this.comboBoxRequest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRequest.FormattingEnabled = true;
             this.comboBoxRequest.Items.AddRange(new object[] {
+            "AccountingCategoryQuery",
             "CompanyQuery",
             "CreditCodeQuery",
             "CustomerQuery",
@@ -212,6 +213,7 @@ namespace WebcreteAPIExplorer
             "OrderQuery",
             "OrderQuery(OrderUpdate)",
             "PlantQuery",
+            "PriceCategoryQuery",
             "ProjectQuery",
             "ProjectQuery(IncludeCustomer)",
             "ProjectQuery(ListOnly)",
