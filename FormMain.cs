@@ -202,6 +202,21 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetLocationUpdateRequest(string code, string name)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+             new XDeclaration("1.0", "utf-8", "yes"),
+             new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+             new XElement("WebcreteXML",
+                 new XElement("WebcreteXMLMsgsRq",
+                     new XElement("LocationUpdateRq",
+                         new XElement("LocationUpdate",
+                            new XElement("Code", code),
+                            new XElement("Name", name))))));
+
+            return x.ToString();
+        }
+
         public string GetPlantQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -845,6 +860,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "LocationQuery":
                     textBoxRequest.Text = IndentXMLString(GetLocationQueryRequest());
+                    break;
+                case "LocationUpdate":
+                    textBoxRequest.Text = IndentXMLString(GetLocationUpdateRequest("1","Location 1"));
                     break;
                 case "PlantQuery":
                     textBoxRequest.Text = IndentXMLString(GetPlantQueryRequest());
