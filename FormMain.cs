@@ -530,7 +530,7 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
-        public string GetTicketQueryByLoadTimeRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
+        public string GetTicketQueryByLoadTimeRequest(DateTime dtLoadTimeFrom, DateTime dtLoadTimeTo)
         {
             XDocument x = new System.Xml.Linq.XDocument(
               new XDeclaration("1.0", "utf-8", "yes"),
@@ -538,12 +538,26 @@ namespace WebcreteAPIExplorer
               new XElement("WebcreteXML",
                   new XElement("WebcreteXMLMsgsRq",
                       new XElement("TicketQueryRq",
-                          new XElement("FromLoadTime", dtOrderFrom.ToShortDateString()),
-                          new XElement("ToLoadTime", dtOrderTo.ToShortDateString())))));
+                          new XElement("FromLoadTime", dtLoadTimeFrom.ToString("s")),
+                          new XElement("ToLoadTime", dtLoadTimeTo.ToString("s"))))));
 
             return x.ToString();
         }
-        
+
+        public string GetTicketQueryByUpdateTimeRequest(DateTime dtUpdateTimeFrom, DateTime dtUpdateTimeTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("TicketQueryRq",
+                          new XElement("FromUpdateTime", dtUpdateTimeFrom.ToString("s")),
+                          new XElement("ToUpdateTime", dtUpdateTimeTo.ToString("s"))))));
+
+            return x.ToString();
+        }
+
 
         public string GetTicketQueryWithRemovedRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
@@ -757,7 +771,7 @@ namespace WebcreteAPIExplorer
                     textBoxRequest.Text = IndentXMLString(GeOrderQueryRequest(DateTime.Now, DateTime.Now));
                     break;
                 case "OrderQuery(OrderUpdate)":
-                    textBoxRequest.Text = IndentXMLString(GeOrderUpdateQueryRequest(DateTime.Now, DateTime.Now.AddHours(-1)));
+                    textBoxRequest.Text = IndentXMLString(GeOrderUpdateQueryRequest(DateTime.Now.AddMinutes(-5), DateTime.Now));
                     break;
                 case "TicketQuery":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryRequest(DateTime.Now,DateTime.Now));
@@ -772,7 +786,10 @@ namespace WebcreteAPIExplorer
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryForMixCodeRequest(DateTime.Now, DateTime.Now));
                     break;
                 case "TicketQuery(LoadTime)":
-                    textBoxRequest.Text = IndentXMLString(GetTicketQueryByLoadTimeRequest(DateTime.Now, DateTime.Now));
+                    textBoxRequest.Text = IndentXMLString(GetTicketQueryByLoadTimeRequest(DateTime.Now.AddMinutes(-1), DateTime.Now));
+                    break;
+                case "TicketQuery(UpdateTime)":
+                    textBoxRequest.Text = IndentXMLString(GetTicketQueryByUpdateTimeRequest(DateTime.Now.AddMinutes(-1), DateTime.Now));
                     break;
                 case "TicketQuery(SortDesc)":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryDescRequest(DateTime.Now, DateTime.Now));

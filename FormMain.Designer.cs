@@ -227,6 +227,7 @@ namespace WebcreteAPIExplorer
             "TicketQuery(LoadTime)",
             "TicketQuery(MixCode)",
             "TicketQuery(SortDesc)",
+            "TicketQuery(UpdateTime)",
             "TicketQuery(WithBatchWeightsOnly)",
             "TruckGpsUpdate",
             "TruckQuery",
