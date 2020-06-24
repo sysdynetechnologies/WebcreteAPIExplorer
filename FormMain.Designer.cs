@@ -231,6 +231,8 @@ namespace WebcreteAPIExplorer
             "TicketQuery(WithBatchWeightsOnly)",
             "TruckGpsUpdate",
             "TruckQuery",
+            "TruckQuery(LocationUpdateTime)",
+            "TruckQuery(StatusUpdateTime)",
             "TruckStatusUpdate",
             "UOMQuery",
             "VersionQuery"});

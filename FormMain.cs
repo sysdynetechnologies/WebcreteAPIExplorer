@@ -241,6 +241,34 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetTruckQueryByStatusUpdateTimeRequest(DateTime dtUpdateTimeFrom, DateTime dtUpdateTimeTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TruckQueryRq", 
+                          new XElement("FromStatusTimeStamp", dtUpdateTimeFrom.ToString("s")),
+                          new XElement("ToStatusTimeStamp", dtUpdateTimeTo.ToString("s"))))));
+
+            return x.ToString();
+        }
+
+        public string GetTruckQueryByLocationUpdateTimeRequest(DateTime dtUpdateTimeFrom, DateTime dtUpdateTimeTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TruckQueryRq", 
+                          new XElement("FromLocationUpdateTime", dtUpdateTimeFrom.ToString("s")),
+                          new XElement("ToLocationUpdateTime", dtUpdateTimeTo.ToString("s"))))));
+
+            return x.ToString();
+        }
+
         public string GetEmployeeQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -886,6 +914,12 @@ namespace WebcreteAPIExplorer
                     break;
                 case "TruckQuery":
                     textBoxRequest.Text = IndentXMLString(GetTruckQueryRequest());
+                    break;
+                case "TruckQuery(StatusUpdateTime)":
+                    textBoxRequest.Text = IndentXMLString(GetTruckQueryByStatusUpdateTimeRequest(DateTime.Now.AddMinutes(-1), DateTime.Now));
+                    break;
+                case "TruckQuery(LocationUpdateTime)":
+                    textBoxRequest.Text = IndentXMLString(GetTruckQueryByLocationUpdateTimeRequest(DateTime.Now.AddMinutes(-1), DateTime.Now));
                     break;
                 case "EmployeeQuery":
                     textBoxRequest.Text = IndentXMLString(GetEmployeeQueryRequest());
