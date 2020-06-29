@@ -321,6 +321,8 @@
           <!-- optional -->
           <PrinterSelector>STRTYPE</PrinterSelector>
         </Distribution>
+        <!-- required -->
+        <DivisionID>INTTYPE</DivisionID>
       </CustomerUpdate>
       <!--optional, may repeat -->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
@@ -931,6 +933,30 @@
         <ClockOutTime>DATETIMETYPE</ClockOutTime>
       </ClockTime>
     </EmployeeTimeUpdateRq>
+    <!--  TruckStatusQueryRq contains 1 optional attribute: 'requestID' -->
+    <TruckStatusQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- END OR -->
+      <!--  opt may reppeat-->
+      <PlantID>INTTYPE</PlantID>
+      <!--  opt may repeat-->
+      <PlantCode>STRTYPE</PlantCode>      
+      <!-- optional -->
+      <Active>BOOLTYPE</Active>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <FromStatusTimeStamp>DATETIMETYPE</FromStatusTimeStamp>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <ToStatusTimeStamp>DATETIMETYPE</ToStatusTimeStamp>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <FromLocationUpdateTime>DATETIMETYPE</FromLocationUpdateTime>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <ToLocationUpdateTime>DATETIMETYPE</ToLocationUpdateTime>
+    </TruckStatusQueryRq>
     <!--    'requestID' is optional -->
     <TruckStatusUpdateRq   requestID="UUIDTYPE">
       <!-- required, may repeat-->
@@ -1046,6 +1072,57 @@
       <!-- END OR -->
       <!--  opt, may rep -->
     </LocationQueryRq>
+    <!--    'requestID' is optional -->
+    <LocationUpdateRq  requestID="UUIDTYPE">
+      <LocationUpdate>
+        <!-- BEGIN OR-->
+        <!-- optional-->
+        <ID>INTTYPE</ID>
+        <!-- OR -->
+        <!-- optional-->
+        <Code>STRTYPE</Code>
+        <!-- OR -->
+        <!-- optional-->
+        <Name>STRTYPE</Name>
+        <!-- END OR -->
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+        <!-- optional -->
+        <ShortName>STRTYPE</ShortName>
+        <!-- optional -->
+        <AddressLine1>STRTYPE</AddressLine1>
+        <!-- optional -->
+        <AddressLine2>STRTYPE</AddressLine2>
+        <!-- optional -->
+        <City>STRTYPE</City>
+        <!-- optional -->
+        <State>STRTYPE</State>
+        <!-- optional -->
+        <Country>STRTYPE</Country>
+        <!-- optional -->
+        <PostalCode>STRTYPE</PostalCode>
+        <!-- optional -->
+        <PhoneNumber1>STRTYPE</PhoneNumber1>
+        <!-- optional -->
+        <PhoneNumber2>STRTYPE</PhoneNumber2>
+        <!-- optional -->
+        <Email>STRTYPE</Email>
+        <!-- optional -->
+        <CompanyID>INTTYPE</CompanyID>
+        <!-- optional -->
+        <CompanyCode>INTTYPE</CompanyCode>
+        <!-- optional -->
+        <Divisions>
+          <!-- optional -->
+          <Division>            
+            <!-- required -->
+            <DivisionID>INTTYPE</DivisionID>            
+          </Division>
+        </Divisions>
+      </LocationUpdate>
+      <!--optional, may repeat -->
+      <IncludeRetElement>STRTYPE</IncludeRetElement>
+    </LocationUpdateRq>
     <!--  PlantQueryRq contains 1 optional attribute: 'requestID' -->
     <PlantQueryRq  requestID="UUIDTYPE">
       <!-- BEGIN OR -->
@@ -1083,6 +1160,96 @@
       <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
       <ToLocationUpdateTime>DATETIMETYPE</ToLocationUpdateTime>
     </TruckQueryRq>
+    <!--    'requestID' is optional -->
+    <TruckUpdateRq  requestID="UUIDTYPE">
+      <TruckUpdate>
+        <!-- BEGIN OR-->
+        <!-- optional-->
+        <ID>INTTYPE</ID>
+        <!-- OR -->
+        <!-- optional-->
+        <Code>STRTYPE</Code>        
+        <!-- END OR -->
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+        <!-- optional -->
+        <Description>STRTYPE</Description>
+        <!-- optional -->
+        <ShortDescription>STRTYPE</ShortDescription>
+        <!-- optional -->
+        <Active>BOOLTYPE</Active>
+        <!-- optional -->
+        <PlantID>STRTYPE</PlantID>
+        <!-- optional -->
+        <PlantCode>STRTYPE</PlantCode>        
+        <!-- optional -->
+        <DriverID>STRTYPE</DriverID>
+        <!-- optional -->
+        <DriverCode>STRTYPE</DriverCode>        
+        <!-- optional -->
+        <CurrentPlantID>INTTYPE</CurrentPlantID>
+        <!-- optional -->
+        <CurrentPlantCode>STRTYPE</CurrentPlantCode>        
+        <!-- optional -->
+        <CurrentDriverID>INTTYPE</CurrentDriverID>
+        <!-- optional -->
+        <CurrentDriverCode>STRTYPE</CurrentDriverCode>        
+        <!-- required -->
+        <TruckTypeID>INTTYPE</TruckTypeID>
+        <!-- required -->
+        <TruckTypeCode>STRTYPE</TruckTypeCode>
+        <!-- optional -->
+        <ProductLine>STRTYPE</ProductLine>
+        <!-- optional -->
+        <MinimumLoadSize>FLOATTYPE</MinimumLoadSize>
+        <!-- optional -->
+        <MinimumLoadSizeUnitID>INTTYPE</MinimumLoadSizeUnitID>
+        <!-- optional -->
+        <MinimumLoadSizeUnitCode>STRTYPE</MinimumLoadSizeUnitCode>
+        <!-- optional -->
+        <ScheduleLoadSize>FLOATTYPE</ScheduleLoadSize>
+        <!-- optional -->
+        <ScheduleLoadSizeUnitID>INTTYPE</ScheduleLoadSizeUnitID>
+        <!-- optional -->
+        <ScheduleLoadSizeUnitCode>STRTYPE</ScheduleLoadSizeUnitCode>
+        <!-- optional -->
+        <MaximumLoadSize>FLOATTYPE</MaximumLoadSize>
+        <!-- optional -->
+        <MaximumLoadSizeUnitID>INTTYPE</MaximumLoadSizeUnitID>
+        <!-- optional -->
+        <MaximumLoadSizeUnitCode>STRTYPE</MaximumLoadSizeUnitCode>
+        <!-- optional -->
+        <TareWeight>FLOATTYPE</TareWeight>
+        <!-- optional -->
+        <TareWeightUnitID>INTTYPE</TareWeightUnitID>
+        <!-- optional -->
+        <TareWeightUnitCode>STRTYPE</TareWeightUnitCode>
+        <!-- optional -->
+        <DaysTareIsValid>INTTYPE</DaysTareIsValid>
+        <!-- optional -->
+        <TareType>STRTYPE</TareType>
+        <!-- optional -->
+        <DeliveryMethod>STRTYPE</DeliveryMethod>
+        <!-- optional -->
+        <FOBonly>BOOLTYPE</FOBonly>
+        <!-- optional -->
+        <RadioCode>STRTYPE</RadioCode>
+        <!-- optional -->
+        <AutomaticSignaling>BOOLTYPE</AutomaticSignaling>
+        <!-- optional -->
+        <EnableGPS>BOOLTYPE</EnableGPS>
+        <!-- optional -->
+        <EnableAutoStatusing>BOOLTYPE</EnableAutoStatusing>
+        <!-- optional -->
+        <NumberOfDrops>INTTYPE</NumberOfDrops>
+        <!-- optional -->
+        <SignalingUnitCode>STRTYPE</SignalingUnitCode>
+        <!-- optional -->
+        <SetupDate>STRTYPE</SetupDate>
+      </TruckUpdate>
+      <!--optional, may repeat -->
+      <IncludeRetElement>STRTYPE</IncludeRetElement>
+    </TruckUpdateRq>
     <!--  EmployeeQueryRq contains 1 optional attribute: 'requestID' -->
     <EmployeeQueryRq  requestID="UUIDTYPE">
       <!-- BEGIN OR -->
@@ -1103,6 +1270,50 @@
       <!-- optional -->
       <ListOnly>BOOLTYPE</ListOnly>
     </EmployeeQueryRq>
+    <!--    'requestID' is optional -->
+    <EmployeeUpdateRq  requestID="UUIDTYPE">
+      <EmployeeUpdate>
+        <!-- BEGIN OR-->
+        <!-- optional-->
+        <ID>INTTYPE</ID>
+        <!-- OR -->
+        <!-- optional-->
+        <Code>STRTYPE</Code>
+        <!-- END OR -->
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+        <!-- optional -->
+        <Name>STRTYPE</Name>
+        <!-- EmployeeType DRIVER|SALESMAN|WEIGHMASTER|CREDITPERSON|BATCHER may repeat-->
+        <EmployeeType>STRTYPE</EmployeeType>
+        <!-- optional -->
+        <Address1>STRTYPE</Address1>
+        <!-- optional -->
+        <Address2>STRTYPE</Address2>
+        <!-- optional -->
+        <City>STRTYPE</City>
+        <!-- optional -->
+        <State>STRTYPE</State>
+        <!-- optional -->
+        <Country>STRTYPE</Country>
+        <!-- optional -->
+        <PostalCode>STRTYPE</PostalCode>
+        <!-- optional -->
+        <Phone>STRTYPE</Phone>
+        <!-- optional -->
+        <PhoneExt>STRTYPE</PhoneExt>
+        <!-- optional -->
+        <Email>STRTYPE</Email>
+        <!-- optional -->
+        <Fax>STRTYPE</Fax>
+        <!-- optional -->
+        <PlantID>INTTYPE</PlantID>
+        <!-- optional -->
+        <PlantCode>STRTYPE</PlantCode>
+      </EmployeeUpdate>
+      <!--optional, may repeat -->
+      <IncludeRetElement>STRTYPE</IncludeRetElement>
+    </EmployeeUpdateRq>
     <!--  CreditCodeQueryRq contains 1 optional attribute: 'requestID' -->
     <CreditCodeQueryRq  requestID="UUIDTYPE">
       <!-- BEGIN OR -->
@@ -1114,6 +1325,76 @@
       <!-- END OR -->
       <!--  opt, may rep -->
     </CreditCodeQueryRq>
+    <!--  DivisionQueryRq contains 1 optional attribute: 'requestID' -->
+    <DivisionQueryRq requestID="UUIDTYPE" metaData="ENUMTYPE" iterator="ENUMTYPE" iteratorID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Name>STRTYPE</Name>
+      <!-- END OR -->
+      <!--  opt, may rep -->
+      <IncludeRetElement>STRTYPE</IncludeRetElement>
+    </DivisionQueryRq>
+    <!--  PriceCategoryQueryRq contains 1 optional attribute: 'requestID' -->
+    <PriceCategoryQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- END OR -->
+      <!--  opt, may rep -->
+    </PriceCategoryQueryRq>
+    <!--  AccountingCategoryQueryRq contains 1 optional attribute: 'requestID' -->
+    <AccountingCategoryQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- END OR -->
+      <!--  opt, may rep -->
+    </AccountingCategoryQueryRq>
+    <!--  TaxAuthorityQueryRq contains 1 optional attribute: 'requestID' -->
+    <TaxAuthorityQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- END OR -->
+      <!--  opt, may rep -->
+    </TaxAuthorityQueryRq>
+    <!--  TaxLocationQueryRq contains 1 optional attribute: 'requestID' -->
+    <TaxLocationQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- END OR -->
+      <!--  opt, may rep -->
+    </TaxLocationQueryRq>
+    <!--  TaxCodeQueryRq contains 1 optional attribute: 'requestID' -->
+    <TaxCodeQueryRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR -->
+      <!--  opt may reppeat-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!--  opt may repeat-->
+      <Code>STRTYPE</Code>
+      <!-- END OR -->
+      <!--  opt, may rep -->
+    </TaxCodeQueryRq>
   </WebcreteXMLMsgsRq>
   <!-- WebcreteXMLMsgsRs contains 2 attributes -->
   <!--    'newMessageSetID' is optional -->
@@ -1429,6 +1710,9 @@
           <!-- optional -->
           <PrinterSelector>STRTYPE</PrinterSelector>
         </Distribution>
+        <!-- required -->
+        <DivisionID>INTTYPE</DivisionID>
+        <!-- required -->
         <UpdateDate>DATETIMETYPE</UpdateDate>
       </CustomerRet>
     </CustomerQueryRs>
@@ -1664,6 +1948,8 @@
           <!-- optional -->
           <PrinterSelector>STRTYPE</PrinterSelector>
         </Distribution>
+        <!-- required -->
+        <DivisionID>INTTYPE</DivisionID>
       </CustomerRet>
     </CustomerUpdateRs>
     <!--     'requestID' is optional   -->
@@ -2289,6 +2575,8 @@
         <UsageCode>STRTYPE</UsageCode>
         <!-- optional -->
         <UsageShort>STRTYPE</UsageShort>
+        <!-- optional -->
+        <Removed>BOOLTYPE</Removed>
         <!-- optional -->
         <RemovedBy>STRTYPE</RemovedBy>
         <!-- optional -->
@@ -3073,6 +3361,47 @@
     <EmployeeTimeUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
     </EmployeeTimeUpdateRs>
     <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <TruckStatusQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <TruckStatusRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>                
+        <!-- optional -->
+        <CurrentPlantID>INTTYPE</CurrentPlantID>
+        <!-- optional -->
+        <CurrentPlantCode>STRTYPE</CurrentPlantCode>
+        <!-- optional -->
+        <CurrentPlantName>STRTYPE</CurrentPlantName>
+        <!-- optional -->
+        <CurrentDriverID>INTTYPE</CurrentDriverID>
+        <!-- optional -->
+        <CurrentDriverCode>STRTYPE</CurrentDriverCode>
+        <!-- optional -->
+        <CurrentDriverName>STRTYPE</CurrentDriverName>
+        <!-- optional -->
+        <SignalingUnitCode>STRTYPE</SignalingUnitCode>
+        <!-- optional -->
+        <Latitude>STRTYPE</Latitude>
+        <!-- optional -->
+        <Longitude>STRTYPE</Longitude>
+        <!-- optional -->
+        <LocationUpdateTime>DATETIMETYPE</LocationUpdateTime>
+        <!-- optional TICKETED|LOADING|LOADED|TOJOB|ONJOB|POURING|WASHING|TOPLANT|ATPLANT|INSERVICE|OUTOFSERVICE|CLOCKEDIN|CLOCKEDOUT|DEADHEAD-->
+        <StatusCode>STRTYPE</StatusCode>
+        <!-- optional use sortable format like 2009-06-15T13:45:30 -->
+        <StatusTimeStamp>DATETIMETYPE</StatusTimeStamp>
+        <!-- optional -->
+        <TicketID>INTTYPE</TicketID>
+        <!-- optional -->
+        <ReturnedMaterialQty>FLOATTYPE</ReturnedMaterialQty>        
+      </TruckStatusRet>
+    </TruckStatusQueryRs>
+    <!--     'requestID' is optional   -->
     <!--     'statusCode' is required  -->
     <!--     'statusSeverity' is required -->
     <!--     'statusMessage' is optional -->
@@ -3355,11 +3684,56 @@
         <!-- required -->
         <Name>STRTYPE</Name>
         <!-- required -->
+        <ShortName>STRTYPE</ShortName>
+        <!-- optional -->
+        <AddressLine1>STRTYPE</AddressLine1>
+        <!-- optional -->
+        <AddressLine2>STRTYPE</AddressLine2>
+        <!-- optional -->
+        <City>STRTYPE</City>
+        <!-- optional -->
+        <State>STRTYPE</State>
+        <!-- optional -->
+        <Country>STRTYPE</Country>
+        <!-- optional -->
+        <PostalCode>STRTYPE</PostalCode>
+        <!-- optional -->
+        <PhoneNumber1>STRTYPE</PhoneNumber1>
+        <!-- optional -->
+        <PhoneNumber2>STRTYPE</PhoneNumber2>
+        <!-- optional -->
+        <Email>STRTYPE</Email>
+        <!-- required -->
         <CompanyID>INTTYPE</CompanyID>
         <!-- required -->
         <CompanyCode>INTTYPE</CompanyCode>
+        <!-- required -->
+        <Divisions>
+          <!-- optional -->
+          <Division>            
+            <!-- required -->
+            <DivisionID>INTTYPE</DivisionID>
+            <!-- required -->
+            <DivisionName>STRTYPE</DivisionName>
+          </Division>
+        </Divisions>
       </LocationRet>
     </LocationQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <LocationUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <LocationRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>INTTYPE</Code>
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+      </LocationRet>
+    </LocationUpdateRs>
     <!--     'requestID' is optional   -->
     <!--     'statusCode' is required -->
     <!--     'statusSeverity' is required -->
@@ -3450,13 +3824,65 @@
         <CurrentDriverCode>STRTYPE</CurrentDriverCode>
         <!-- optional -->
         <CurrentDriverName>STRTYPE</CurrentDriverName>
-        <!-- required -->
+        <!-- optional -->
         <TruckTypeID>INTTYPE</TruckTypeID>
-        <!-- required -->
+        <!-- optional -->
         <TruckTypeCode>STRTYPE</TruckTypeCode>
-        <!-- required -->
+        <!-- optional -->
         <TruckTypeName>STRTYPE</TruckTypeName>
-        <!-- required -->
+        <!-- optional -->
+        <ProductLine>STRTYPE</ProductLine>
+        <!-- optional -->
+        <MinimumLoadSize>FLOATTYPE</MinimumLoadSize>
+        <!-- optional -->
+        <MinimumLoadSizeUnitID>INTTYPE</MinimumLoadSizeUnitID>
+        <!-- optional -->
+        <MinimumLoadSizeUnit>STRTYPE</MinimumLoadSizeUnit>
+        <!-- optional -->
+        <MinimumLoadSizeUnitCode>STRTYPE</MinimumLoadSizeUnitCode>
+        <!-- optional -->
+        <ScheduleLoadSize>FLOATTYPE</ScheduleLoadSize>
+        <!-- optional -->
+        <ScheduleLoadSizeUnitID>INTTYPE</ScheduleLoadSizeUnitID>
+        <!-- optional -->
+        <ScheduleLoadSizeUnit>STRTYPE</ScheduleLoadSizeUnit>
+        <!-- optional -->
+        <ScheduleLoadSizeUnitCode>STRTYPE</ScheduleLoadSizeUnitCode>
+        <!-- optional -->
+        <MaximumLoadSize>FLOATTYPE</MaximumLoadSize>
+        <!-- optional -->
+        <MaximumLoadSizeUnitID>INTTYPE</MaximumLoadSizeUnitID>
+        <!-- optional -->
+        <MaximumLoadSizeUnit>STRTYPE</MaximumLoadSizeUnit>
+        <!-- optional -->
+        <MaximumLoadSizeUnitCode>STRTYPE</MaximumLoadSizeUnitCode>
+        <!-- optional -->
+        <TareWeight>STRTYPE</TareWeight>
+        <!-- optional -->
+        <TareWeightUnitID>INTTYPE</TareWeightUnitID>
+        <!-- optional -->
+        <TareWeightUnit>STRTYPE</TareWeightUnit>
+        <!-- optional -->
+        <TareWeightUnitCode>STRTYPE</TareWeightUnitCode>        
+        <!-- optional -->
+        <DaysTareIsValid>INTTYPE</DaysTareIsValid>
+        <!-- optional -->
+        <TareType>STRTYPE</TareType>
+        <!-- optional -->
+        <DeliveryMethod>STRTYPE</DeliveryMethod>
+        <!-- optional -->
+        <FOBonly>BOOLTYPE</FOBonly>
+        <!-- optional -->
+        <RadioCode>STRTYPE</RadioCode>
+        <!-- optional -->
+        <AutomaticSignaling>BOOLTYPE</AutomaticSignaling>
+        <!-- optional -->
+        <EnableGPS>BOOLTYPE</EnableGPS>
+        <!-- optional -->
+        <EnableAutoStatusing>BOOLTYPE</EnableAutoStatusing>
+        <!-- optional -->
+        <NumberOfDrops>INTTYPE</NumberOfDrops>
+        <!-- optional -->
         <SignalingUnitCode>STRTYPE</SignalingUnitCode>
         <!-- optional -->
         <Latitude>STRTYPE</Latitude>
@@ -3474,8 +3900,23 @@
         <ReturnedMaterialQty>FLOATTYPE</ReturnedMaterialQty>
         <!-- optional -->
         <SetupDate>STRTYPE</SetupDate>
-      </TruckRet>
+    </TruckRet>
     </TruckQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <TruckUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <TruckRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>INTTYPE</Code>
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+      </TruckRet>
+    </TruckUpdateRs>
     <!--     'requestID' is optional   -->
     <!--     'statusCode' is required -->
     <!--     'statusSeverity' is required -->
@@ -3489,7 +3930,7 @@
         <Code>STRTYPE</Code>
         <!-- optional -->
         <Name>STRTYPE</Name>        
-        <!-- EmployeeType DRIVER|SALESMAN|WEIGHMASTER|CREDITPERSON -->
+        <!-- EmployeeType DRIVER|SALESMAN|WEIGHMASTER|CREDITPERSON may repeat-->
         <EmployeeType>STRTYPE</EmployeeType>
         <!-- optional -->
         <Address1>STRTYPE</Address1>
@@ -3521,6 +3962,21 @@
     <!--     'statusCode' is required -->
     <!--     'statusSeverity' is required -->
     <!--     'statusMessage' is optional -->
+    <EmployeeUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <EmployeeRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>INTTYPE</Code>
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+      </EmployeeRet>
+    </EmployeeUpdateRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
     <CreditCodeQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
       <!-- optional, may repeat-->
       <CreditCodeRet>
@@ -3543,7 +3999,161 @@
         <!-- optional -->
         <UpdateDate>STRTYPE</UpdateDate>
       </CreditCodeRet>
-    </CreditCodeQueryRs>
+    </CreditCodeQueryRs>    
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <DivisionQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional -->
+      <DivisionRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>       
+        <!-- required -->
+        <Name>STRTYPE</Name>
+        <!-- required -->
+        <ParentID>STRTYPE</ParentID>
+        <!-- required -->
+        <HierarchyID>STRTYPE</HierarchyID>
+      </DivisionRet>
+    </DivisionQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <PriceCategoryQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <PriceCategoryRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- optional -->
+        <Name>STRTYPE</Name>
+        <!-- optional -->        
+        <Description>STRTYPE</Description>        
+      </PriceCategoryRet>
+    </PriceCategoryQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <AccountingCategoryQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <AccountingCategoryRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- optional -->
+        <Description>STRTYPE</Description>
+        <!-- optional -->
+        <ShortDescription>STRTYPE</ShortDescription>        
+      </AccountingCategoryRet>
+    </AccountingCategoryQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <TaxAuthorityQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <TaxAuthorityRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- optional -->
+        <Description>STRTYPE</Description>
+        <!-- optional -->
+        <ShortDescription>STRTYPE</ShortDescription>
+        <!-- optional 1:Taxable sales. 2: Taxable sales plus previous authorities’ tax -->
+        <TaxBasedOn>INTTYPE</TaxBasedOn>
+        <!-- optional 1:Origination 2:Destination  -->
+        <PointOfTaxation>INTTYPE</PointOfTaxation>
+        <!-- optional -->
+        <AllowReciprocation>BOOLTYPE</AllowReciprocation>
+        <!-- optional -->
+        <AccountLinkCode>STRTYPE</AccountLinkCode>
+      </TaxAuthorityRet>
+    </TaxAuthorityQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <TaxLocationQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <TaxLocationRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <TaxAuthorityID>INTTYPE</TaxAuthorityID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- optional -->
+        <Description>STRTYPE</Description>
+        <!-- optional -->
+        <ShortDescription>STRTYPE</ShortDescription>
+        <!-- required -->
+        <CurrentRate>FLOATTYPE</CurrentRate>
+        <!-- required -->
+        <EffectiveDate>DATETIMETYPE</EffectiveDate>
+        <!-- required -->
+        <PreviousRate>FLOATTYPE</PreviousRate>
+        <!-- optional -->
+        <MaxTaxableAmount>FLOATTYPE</MaxTaxableAmount>
+        <!-- optional -->
+        <NonTaxableReasonID>INTTYPE</NonTaxableReasonID>
+        <!-- optional -->
+        <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
+        <!-- optional -->
+        <CalculateTaxOnDiscount>BOOLTYPE</CalculateTaxOnDiscount>
+        <!-- optional -->
+        <ReadyMixDeliveryExempt>BOOLTYPE</ReadyMixDeliveryExempt>
+        <!-- optional -->
+        <ReadyMixNonTaxableReasonID>INTTYPE</ReadyMixNonTaxableReasonID>
+        <!-- optional -->
+        <ReadyMixNonTaxableReasonCode>STRTYPE</ReadyMixNonTaxableReasonCode>
+        <!-- optional -->
+        <ReadyMixExemptionType>INTTYPE</ReadyMixExemptionType>
+        <!-- optional -->
+        <ReadyMixExemptionRate>FLOATTYPE</ReadyMixExemptionRate>
+        <!-- optional -->
+        <ReadyMixExemptionUnitID>FLOATTYPE</ReadyMixExemptionUnitID>
+        <!-- optional -->
+        <ReadyMixExemptionUnitCode>FLOATTYPE</ReadyMixExemptionUnitCode>
+      </TaxLocationRet>
+    </TaxLocationQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <TaxCodeQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <TaxCodeRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>STRTYPE</Code>
+        <!-- optional -->
+        <Description>STRTYPE</Description>
+        <!-- optional -->
+        <ShortDescription>STRTYPE</ShortDescription>
+        <!-- required -->
+        <TaxLocations>
+          <!-- optional may repeat-->
+          <TaxLocation>
+            <!-- required -->
+            <TaxAuthorityID>INTTYPE</TaxAuthorityID>
+            <!-- required -->
+            <TaxAuthorityCode>STRTYPE</TaxAuthorityCode>
+            <!-- required -->
+            <TaxLocationID>INTTYPE</TaxLocationID>
+            <!-- required -->
+            <TaxLocationCode>STRTYPE</TaxLocationCode>
+          </TaxLocation>
+        </TaxLocations>
+      </TaxCodeRet>
+    </TaxCodeQueryRs>
   </WebcreteXMLMsgsRs>
 </WebcreteXML>
 

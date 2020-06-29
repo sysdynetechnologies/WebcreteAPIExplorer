@@ -193,6 +193,7 @@ namespace WebcreteAPIExplorer
             "CustomerUpdate",
             "DivisionQuery",
             "EmployeeQuery",
+            "EmployeeUpdate",
             "ItemCategoryQuery",
             "ItemQuery",
             "ItemQuery(ByItemCateogry)",
@@ -233,7 +234,11 @@ namespace WebcreteAPIExplorer
             "TruckQuery",
             "TruckQuery(LocationUpdateTime)",
             "TruckQuery(StatusUpdateTime)",
+            "TruckStatusQuery",
+            "TruckStatusQuery(LocationUpdateTime)",
+            "TruckStatusQuery(StatusUpdateTime)",
             "TruckStatusUpdate",
+            "TruckUpdate",
             "UOMQuery",
             "VersionQuery"});
             this.comboBoxRequest.Location = new System.Drawing.Point(103, 48);

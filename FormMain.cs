@@ -241,6 +241,21 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetTruckUpdateRequest(string code, string description, string plantCode)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TruckUpdateRq", 
+                            new XElement("Code", code),
+                            new XElement("Description", description),
+                            new XElement("PlantCode", plantCode)))));
+
+            return x.ToString();
+        }
+
         public string GetTruckQueryByStatusUpdateTimeRequest(DateTime dtUpdateTimeFrom, DateTime dtUpdateTimeTo)
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -276,7 +291,22 @@ namespace WebcreteAPIExplorer
                new XProcessingInstruction("webcretexml", "version=\"1.0\""),
                new XElement("WebcreteXML",
                    new XElement("WebcreteXMLMsgsRq",
-                       new XElement("EmployeeQueryRq", ""))));
+                       new XElement("EmployeeQueryRq"))));
+
+            return x.ToString();
+        }
+
+        public string GetEmployeeUpdateRequest(string code, string name, string employeeType)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("EmployeeUpdateRq",                            
+                            new XElement("Code", code),
+                            new XElement("Name", name),
+                            new XElement("EmployeeType", employeeType)))));
 
             return x.ToString();
         }
@@ -714,6 +744,45 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetTruckStatusQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TruckQueryRq", ""))));
+
+            return x.ToString();
+        }
+
+        public string GetTruckStatusQueryByStatusUpdateTimeRequest(DateTime dtUpdateTimeFrom, DateTime dtUpdateTimeTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TruckQueryRq",
+                          new XElement("FromStatusTimeStamp", dtUpdateTimeFrom.ToString("s")),
+                          new XElement("ToStatusTimeStamp", dtUpdateTimeTo.ToString("s"))))));
+
+            return x.ToString();
+        }
+
+        public string GetTruckStatusQueryByLocationUpdateTimeRequest(DateTime dtUpdateTimeFrom, DateTime dtUpdateTimeTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TruckQueryRq",
+                          new XElement("FromLocationUpdateTime", dtUpdateTimeFrom.ToString("s")),
+                          new XElement("ToLocationUpdateTime", dtUpdateTimeTo.ToString("s"))))));
+
+            return x.ToString();
+        }
         public string GetTruckStatusUpdateRequest(string code, string truckCode, string statusCode, DateTime statusTimeStamp)
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -882,6 +951,15 @@ namespace WebcreteAPIExplorer
                 case "ItemUpdate":
                     textBoxRequest.Text = IndentXMLString(GetItemUpdateRequest("4011", "4000 psi pump", "4000 psi", "MIX"));
                     break;
+                case "TruckStatusQuery":
+                    textBoxRequest.Text = IndentXMLString(GetTruckStatusQueryRequest());
+                    break;
+                case "TruckStatusQuery(StatusUpdateTime)":
+                    textBoxRequest.Text = IndentXMLString(GetTruckStatusQueryByStatusUpdateTimeRequest(DateTime.Now.AddMinutes(-1), DateTime.Now));
+                    break;
+                case "TruckStatusQuery(LocationUpdateTime)":
+                    textBoxRequest.Text = IndentXMLString(GetTruckStatusQueryByLocationUpdateTimeRequest(DateTime.Now.AddMinutes(-1), DateTime.Now));
+                    break;
                 case "TruckStatusUpdate":
                     textBoxRequest.Text = IndentXMLString(GetTruckStatusUpdateRequest("1", "32", "TOJOB", DateTime.Now));
                     break;
@@ -915,6 +993,9 @@ namespace WebcreteAPIExplorer
                 case "TruckQuery":
                     textBoxRequest.Text = IndentXMLString(GetTruckQueryRequest());
                     break;
+                case "TruckUpdate":
+                    textBoxRequest.Text = IndentXMLString(GetTruckUpdateRequest("1","Truck 1","1"));
+                    break;
                 case "TruckQuery(StatusUpdateTime)":
                     textBoxRequest.Text = IndentXMLString(GetTruckQueryByStatusUpdateTimeRequest(DateTime.Now.AddMinutes(-1), DateTime.Now));
                     break;
@@ -923,6 +1004,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "EmployeeQuery":
                     textBoxRequest.Text = IndentXMLString(GetEmployeeQueryRequest());
+                    break;
+                case "EmployeeUpdate":
+                    textBoxRequest.Text = IndentXMLString(GetEmployeeUpdateRequest("2387","Mike Tyson","Driver"));
                     break;
                 case "CreditCodeQuery":
                     textBoxRequest.Text = IndentXMLString(GetCreditCodeQueryRequest());
