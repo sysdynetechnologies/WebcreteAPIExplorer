@@ -848,6 +848,98 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetTaxAuthorityQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TaxAuthorityQueryRq", ""))));
+
+            return x.ToString();
+        }
+
+        public string GetTaxAuthorityUpdateRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TaxAuthorityUpdateRq",
+                            new XElement("Code","S"),
+                            new XElement("Description", "State Tax"),
+                            new XElement("ShortDescription", "State Tax"),
+                            new XElement("TaxBasedOn", "1"),
+                            new XElement("PointOfTaxation", "1"),
+                            new XElement("AllowReciprocation", "False")))));
+
+            return x.ToString();
+        }
+
+        public string GetTaxLocationQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TaxLocationQueryRq", ""))));
+
+            return x.ToString();
+        }
+
+        public string GetTaxLocationUpdateRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TaxAuthorityUpdateRq",
+                            new XElement("Code", "1"),
+                            new XElement("Description", "NY State"),
+                            new XElement("ShortDescription", "NY State"),
+                            new XElement("TaxAuthorityCode", "S"),
+                            new XElement("CurrentRate", "8.675"),
+                            new XElement("EffectiveDate", "1/1/2020"),
+                            new XElement("PreviousRate", "6.5")
+                            ))));
+
+            return x.ToString();
+        }
+        public string GetTaxCodeQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TaxCodeQueryRq", ""))));
+
+            return x.ToString();
+        }
+
+        public string GetTaxCodeUpdateRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TaxAuthorityUpdateRq",
+                            new XElement("Code", "1"),
+                            new XElement("Description", "NY State"),
+                            new XElement("ShortDescription", "NY State"),
+                            new XElement("TaxAuthorityCode", "S"),
+                            new XElement("TaxLocations",
+                                    new XElement("TaxLocation",
+                                            new XElement("TaxLocationCode", "1")))))));
+
+            return x.ToString();
+        }
+
         private void comboBoxRequest_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (comboBoxRequest.SelectedItem.ToString())
@@ -1019,6 +1111,24 @@ namespace WebcreteAPIExplorer
                     break;
                 case "AccountingCategoryQuery":
                     textBoxRequest.Text = IndentXMLString(GetAccountingCategoryQueryRequest());
+                    break;
+                case "TaxAuthorityQuery":
+                    textBoxRequest.Text = IndentXMLString(GetTaxAuthorityQueryRequest());
+                    break;
+                case "TaxAuthorityUpdate":
+                    textBoxRequest.Text = IndentXMLString(GetTaxAuthorityUpdateRequest());
+                    break;
+                case "TaxLocationQuery":
+                    textBoxRequest.Text = IndentXMLString(GetTaxLocationQueryRequest());
+                    break;
+                case "TaxLocationUpdate":
+                    textBoxRequest.Text = IndentXMLString(GetTaxLocationUpdateRequest());
+                    break;
+                case "TaxCodeQuery":
+                    textBoxRequest.Text = IndentXMLString(GetTaxCodeQueryRequest());
+                    break;
+                case "TaxCodeUpdate":
+                    textBoxRequest.Text = IndentXMLString(GetTaxCodeUpdateRequest());
                     break;
             }
         }
