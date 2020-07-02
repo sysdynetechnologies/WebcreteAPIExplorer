@@ -248,10 +248,11 @@ namespace WebcreteAPIExplorer
                new XProcessingInstruction("webcretexml", "version=\"1.0\""),
                new XElement("WebcreteXML",
                    new XElement("WebcreteXMLMsgsRq",
-                       new XElement("TruckUpdateRq", 
-                            new XElement("Code", code),
-                            new XElement("Description", description),
-                            new XElement("PlantCode", plantCode)))));
+                       new XElement("TruckUpdateRq",
+                            new XElement("TruckUpdate",
+                                new XElement("Code", code),
+                                new XElement("Description", description),
+                                new XElement("PlantCode", plantCode))))));
 
             return x.ToString();
         }
@@ -868,12 +869,13 @@ namespace WebcreteAPIExplorer
                new XElement("WebcreteXML",
                    new XElement("WebcreteXMLMsgsRq",
                        new XElement("TaxAuthorityUpdateRq",
-                            new XElement("Code","S"),
-                            new XElement("Description", "State Tax"),
-                            new XElement("ShortDescription", "State Tax"),
-                            new XElement("TaxBasedOn", "1"),
-                            new XElement("PointOfTaxation", "1"),
-                            new XElement("AllowReciprocation", "False")))));
+                            new XElement("TaxAuthorityUpdate",
+                                new XElement("Code","S"),
+                                new XElement("Description", "State Tax"),
+                                new XElement("ShortDescription", "State Tax"),
+                                new XElement("TaxBasedOn", "1"),
+                                new XElement("PointOfTaxation", "1"),
+                                new XElement("AllowReciprocation", "False"))))));
 
             return x.ToString();
         }
@@ -898,14 +900,15 @@ namespace WebcreteAPIExplorer
                new XElement("WebcreteXML",
                    new XElement("WebcreteXMLMsgsRq",
                        new XElement("TaxAuthorityUpdateRq",
-                            new XElement("Code", "1"),
-                            new XElement("Description", "NY State"),
-                            new XElement("ShortDescription", "NY State"),
-                            new XElement("TaxAuthorityCode", "S"),
-                            new XElement("CurrentRate", "8.675"),
-                            new XElement("EffectiveDate", "1/1/2020"),
-                            new XElement("PreviousRate", "6.5")
-                            ))));
+                            new XElement("TaxAuthorityUpdate",
+                                new XElement("Code", "1"),
+                                new XElement("Description", "NY State"),
+                                new XElement("ShortDescription", "NY State"),
+                                new XElement("TaxAuthorityCode", "S"),
+                                new XElement("CurrentRate", "8.675"),
+                                new XElement("EffectiveDate", "1/1/2020"),
+                                new XElement("PreviousRate", "6.5")
+                            )))));
 
             return x.ToString();
         }
@@ -929,13 +932,14 @@ namespace WebcreteAPIExplorer
                new XElement("WebcreteXML",
                    new XElement("WebcreteXMLMsgsRq",
                        new XElement("TaxAuthorityUpdateRq",
-                            new XElement("Code", "1"),
-                            new XElement("Description", "NY State"),
-                            new XElement("ShortDescription", "NY State"),
-                            new XElement("TaxAuthorityCode", "S"),
-                            new XElement("TaxLocations",
-                                    new XElement("TaxLocation",
-                                            new XElement("TaxLocationCode", "1")))))));
+                            new XElement("TaxAuthorityUpdate",
+                                new XElement("Code", "1"),
+                                new XElement("Description", "NY State"),
+                                new XElement("ShortDescription", "NY State"),
+                                new XElement("TaxAuthorityCode", "S"),
+                                new XElement("TaxLocations",
+                                        new XElement("TaxLocation",
+                                                new XElement("TaxLocationCode", "1"))))))));
 
             return x.ToString();
         }
