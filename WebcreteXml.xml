@@ -56,6 +56,8 @@
       <!-- optional -->
       <ListOnly>BOOLTYPE</ListOnly>
       <!-- optional -->
+      <InActive>BOOLTYPE</InActive>
+      <!-- optional -->
       <FromSetupDate>DATETIMETYPE</FromSetupDate>
       <!-- optional -->
       <ToSetupDate>DATETIMETYPE</ToSetupDate>
@@ -166,7 +168,7 @@
         <!-- optional -->
         <Email>STRTYPE</Email>
         <!-- optional -->
-        <QBInvoiceEmailChecked>BOOL</QBInvoiceEmailChecked>
+        <QBInvoiceEmailChecked>BOOLTYPE</QBInvoiceEmailChecked>
         <!-- optional -->        
         <Sales>
           <!-- optional -->
@@ -323,6 +325,8 @@
         </Distribution>
         <!-- required -->
         <DivisionID>INTTYPE</DivisionID>
+        <!-- optional -->
+        <InActive>BOOLTYPE</InActive>
       </CustomerUpdate>
       <!--optional, may repeat -->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
@@ -697,6 +701,8 @@
       <IncludeRemovedTicket>BOOLTYPE</IncludeRemovedTicket>
       <!-- optional -->
       <WithBatchWeightsOnly>BOOLTYPE</WithBatchWeightsOnly>
+	  <!-- optional, may repeat, can be USERDEFINEDFIELD-->
+	  <IncludeRetElement>STRTYPE</IncludeRetElement>
     </TicketQueryRq>
     <!--    'requestID' is optional -->
     <!--    'metaData' is optional and may have one of the following values: NoMetaData[DEFAULT], MetaDataOnly, MetaDataAndResponseData -->
@@ -770,24 +776,38 @@
         <AccountLinkCode>STRTYPE</AccountLinkCode>
         <!-- optional -->
         <UOM>
+		  <!-- optional -->
+          <OrderedQuantityUnitCode>STRTYPE</OrderedQuantityUnitCode>
           <!-- optional -->
           <OrderedQuantityUnit>STRTYPE</OrderedQuantityUnit>
           <!-- optional -->
           <OrderedQuantityExtCode>STRTYPE</OrderedQuantityExtCode>
+		  <!-- optional -->
+          <DeliveredQuantityUnitCode>STRTYPE</DeliveredQuantityUnitCode>
           <!-- optional -->
           <DeliveredQuantityUnit>STRTYPE</DeliveredQuantityUnit>
           <!-- optional -->
           <TicketQuantityExtCode>STRTYPE</TicketQuantityExtCode>
+		  <!-- optional -->
+		  <PriceQuantityUnitCode>STRTYPE</PriceQuantityUnitCode>
           <!-- optional -->
           <PriceQuantityUnit>STRTYPE</PriceQuantityUnit>
           <!-- optional -->
           <PriceQuantityExtCode>STRTYPE</PriceQuantityExtCode>
+		  <!-- optional -->
+          <BatchUnitCode>STRTYPE</BatchUnitCode>	
           <!-- optional -->
           <BatchUnit>STRTYPE</BatchUnit>
+		  <!-- optional -->
+          <InventoryUnitCode>STRTYPE</InventoryUnitCode>
           <!-- optional -->
           <InventoryUnit>STRTYPE</InventoryUnit>
+		  <!-- optional -->
+          <PurchaseUnitCode>STRTYPE</PurchaseUnitCode>
           <!-- optional -->
           <PurchaseUnit>STRTYPE</PurchaseUnit>
+		  <!-- optional -->
+          <ReportingUnitCode>STRTYPE</ReportingUnitCode>
           <!-- optional -->
           <ReportingUnit>STRTYPE</ReportingUnit>
           <!-- optional -->
@@ -1179,6 +1199,12 @@
         <!-- optional -->
         <Active>BOOLTYPE</Active>
         <!-- optional -->
+        <OwnerName>STRTYPE</OwnerName>
+        <!-- optional -->
+        <LicenseNumber>STRTYPE</LicenseNumber>
+        <!-- optional -->
+        <LicenseExpirationDate>DATETYPE</LicenseExpirationDate>
+        <!-- optional -->
         <PlantID>STRTYPE</PlantID>
         <!-- optional -->
         <PlantCode>STRTYPE</PlantCode>        
@@ -1245,7 +1271,7 @@
         <!-- optional -->
         <SignalingUnitCode>STRTYPE</SignalingUnitCode>
         <!-- optional -->
-        <SetupDate>STRTYPE</SetupDate>
+        <SetupDate>DATETYPE</SetupDate>
       </TruckUpdate>
       <!--optional, may repeat -->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
@@ -1373,6 +1399,30 @@
       <!-- END OR -->
       <!--  opt, may rep -->
     </TaxAuthorityQueryRq>
+    <!--  TaxAuthorityUpdateRq contains 1 optional attribute: 'requestID' -->
+    <TaxAuthorityUpdateRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR-->
+      <!-- optional-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!-- optional-->
+      <Code>STRTYPE</Code>
+      <!-- END OR -->
+      <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+      <Action>STRTYPE</Action>
+      <!-- optional -->
+      <Description>STRTYPE</Description>
+      <!-- optional -->
+      <ShortDescription>STRTYPE</ShortDescription>
+      <!-- optional 1:Taxable sales. 2: Taxable sales plus previous authorities’ tax -->
+      <TaxBasedOn>INTTYPE</TaxBasedOn>
+      <!-- optional 1:Origination 2:Destination  -->
+      <PointOfTaxation>INTTYPE</PointOfTaxation>
+      <!-- optional -->
+      <AllowReciprocation>BOOLTYPE</AllowReciprocation>
+      <!-- optional -->
+      <AccountLinkCode>STRTYPE</AccountLinkCode>
+    </TaxAuthorityUpdateRq>
     <!--  TaxLocationQueryRq contains 1 optional attribute: 'requestID' -->
     <TaxLocationQueryRq  requestID="UUIDTYPE">
       <!-- BEGIN OR -->
@@ -1384,6 +1434,54 @@
       <!-- END OR -->
       <!--  opt, may rep -->
     </TaxLocationQueryRq>
+    <!--  TaxLocationUpdateRq contains 1 optional attribute: 'requestID' -->
+    <TaxLocationUpdateRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR-->
+      <!-- optional-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!-- optional-->
+      <Code>STRTYPE</Code>
+      <!-- END OR -->
+      <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+      <Action>STRTYPE</Action>
+      <!-- optional -->
+      <TaxAuthorityID>STRTYPE</TaxAuthorityID>
+      <!-- optional -->
+      <TaxAuthorityCode>STRTYPE</TaxAuthorityCode>
+      <!-- optional -->
+      <Description>STRTYPE</Description>
+      <!-- optional -->
+      <ShortDescription>STRTYPE</ShortDescription>
+      <!-- required -->
+      <CurrentRate>FLOATTYPE</CurrentRate>
+      <!-- required -->
+      <EffectiveDate>DATETIMETYPE</EffectiveDate>
+      <!-- required -->
+      <PreviousRate>FLOATTYPE</PreviousRate>
+      <!-- optional -->
+      <MaxTaxableAmount>FLOATTYPE</MaxTaxableAmount>
+      <!-- optional -->
+      <NonTaxableReasonID>INTTYPE</NonTaxableReasonID>
+      <!-- optional -->
+      <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
+      <!-- optional -->
+      <CalculateTaxOnDiscount>BOOLTYPE</CalculateTaxOnDiscount>
+      <!-- optional -->
+      <ReadyMixDeliveryExempt>BOOLTYPE</ReadyMixDeliveryExempt>
+      <!-- optional -->
+      <ReadyMixNonTaxableReasonID>INTTYPE</ReadyMixNonTaxableReasonID>
+      <!-- optional -->
+      <ReadyMixNonTaxableReasonCode>STRTYPE</ReadyMixNonTaxableReasonCode>
+      <!-- optional 1:Dollar Amount  2: Percentage -->
+      <ReadyMixExemptionType>INTTYPE</ReadyMixExemptionType>
+      <!-- optional -->
+      <ReadyMixExemptionRate>FLOATTYPE</ReadyMixExemptionRate>
+      <!-- optional -->
+      <ReadyMixExemptionUnitID>FLOATTYPE</ReadyMixExemptionUnitID>
+      <!-- optional -->
+      <ReadyMixExemptionUnitCode>FLOATTYPE</ReadyMixExemptionUnitCode>
+    </TaxLocationUpdateRq>
     <!--  TaxCodeQueryRq contains 1 optional attribute: 'requestID' -->
     <TaxCodeQueryRq  requestID="UUIDTYPE">
       <!-- BEGIN OR -->
@@ -1395,6 +1493,32 @@
       <!-- END OR -->
       <!--  opt, may rep -->
     </TaxCodeQueryRq>
+    <!--  TaxCodeUpdateRq contains 1 optional attribute: 'requestID' -->
+    <TaxCodeUpdateRq  requestID="UUIDTYPE">
+      <!-- BEGIN OR-->
+      <!-- optional-->
+      <ID>INTTYPE</ID>
+      <!-- OR -->
+      <!-- optional-->
+      <Code>STRTYPE</Code>
+      <!-- END OR -->
+      <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+      <Action>STRTYPE</Action>
+      <!-- optional -->
+      <Description>STRTYPE</Description>
+      <!-- optional -->
+      <ShortDescription>STRTYPE</ShortDescription>
+      <!-- required -->
+      <TaxLocations>
+        <!-- optional may repeat-->
+        <TaxLocation>          
+          <!-- required -->
+          <TaxLocationID>INTTYPE</TaxLocationID>
+          <!-- required -->
+          <TaxLocationCode>STRTYPE</TaxLocationCode>
+        </TaxLocation>
+      </TaxLocations>
+    </TaxCodeUpdateRq>
   </WebcreteXMLMsgsRq>
   <!-- WebcreteXMLMsgsRs contains 2 attributes -->
   <!--    'newMessageSetID' is optional -->
@@ -1714,6 +1838,8 @@
         <DivisionID>INTTYPE</DivisionID>
         <!-- required -->
         <UpdateDate>DATETIMETYPE</UpdateDate>
+        <!-- optional -->
+        <InActive>BOOLTYPE</InActive>
       </CustomerRet>
     </CustomerQueryRs>
     <!--     'requestID' is optional   -->
@@ -2900,6 +3026,10 @@
         <Removed>BOOLTYPE</Removed>
         <!-- optional -->
         <PrintMixWeight>BOOLTYPE</PrintMixWeight>
+		<!-- optional -->
+		<PaymentTermsCode>AMTTYPE</PaymentTermsCode>
+		<!-- optional -->
+		<PaymentTermsName>AMTTYPE</PaymentTermsName>
         <!-- optional -->
         <UpdateTime>DATETIMETYPE</UpdateTime>
         <!-- optional -->
@@ -3041,24 +3171,38 @@
         <ItemType>INTTYPE</ItemType>
         <!-- optional -->
         <UOM>
+		  <!-- optional -->
+          <OrderedQuantityUnitCode>STRTYPE</OrderedQuantityUnitCode>
           <!-- optional -->
           <OrderedQuantityUnit>STRTYPE</OrderedQuantityUnit>
           <!-- optional -->
           <OrderedQuantityExtCode>STRTYPE</OrderedQuantityExtCode>
+		  <!-- optional -->
+          <DeliveredQuantityUnitCode>STRTYPE</DeliveredQuantityUnitCode>
           <!-- optional -->
           <DeliveredQuantityUnit>STRTYPE</DeliveredQuantityUnit>
           <!-- optional -->
           <TicketQuantityExtCode>STRTYPE</TicketQuantityExtCode>
+		  <!-- optional -->
+		  <PriceQuantityUnitCode>STRTYPE</PriceQuantityUnitCode>
           <!-- optional -->
           <PriceQuantityUnit>STRTYPE</PriceQuantityUnit>
           <!-- optional -->
           <PriceQuantityExtCode>STRTYPE</PriceQuantityExtCode>
+		  <!-- optional -->
+          <BatchUnitCode>STRTYPE</BatchUnitCode>	
           <!-- optional -->
           <BatchUnit>STRTYPE</BatchUnit>
+		  <!-- optional -->
+          <InventoryUnitCode>STRTYPE</InventoryUnitCode>
           <!-- optional -->
           <InventoryUnit>STRTYPE</InventoryUnit>
+		  <!-- optional -->
+          <PurchaseUnitCode>STRTYPE</PurchaseUnitCode>
           <!-- optional -->
           <PurchaseUnit>STRTYPE</PurchaseUnit>
+		  <!-- optional -->
+          <ReportingUnitCode>STRTYPE</ReportingUnitCode>
           <!-- optional -->
           <ReportingUnit>STRTYPE</ReportingUnit>
           <!-- optional -->
@@ -3801,6 +3945,12 @@
         <!-- optional -->
         <Active>BOOLTYPE</Active>
         <!-- optional -->
+        <OwnerName>STRTYPE</OwnerName>
+        <!-- optional -->
+        <LicenseNumber>STRTYPE</LicenseNumber>
+        <!-- optional -->
+        <LicenseExpirationDate>DATETYPE</LicenseExpirationDate>
+        <!-- optional -->
         <PlantID>STRTYPE</PlantID>
         <!-- optional -->
         <PlantCode>STRTYPE</PlantCode>
@@ -4080,6 +4230,21 @@
     <!--     'statusCode' is required -->
     <!--     'statusSeverity' is required -->
     <!--     'statusMessage' is optional -->
+    <TaxAuthorityUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <TaxAuthorityRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>INTTYPE</Code>
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+      </TaxAuthorityRet>
+    </TaxAuthorityUpdateRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
     <TaxLocationQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
       <!-- optional, may repeat-->
       <TaxLocationRet>
@@ -4087,6 +4252,8 @@
         <ID>INTTYPE</ID>
         <!-- required -->
         <TaxAuthorityID>INTTYPE</TaxAuthorityID>
+        <!-- required -->
+        <TaxAuthorityCode>INTTYPE</TaxAuthorityCode>
         <!-- required -->
         <Code>STRTYPE</Code>
         <!-- optional -->
@@ -4113,16 +4280,31 @@
         <ReadyMixNonTaxableReasonID>INTTYPE</ReadyMixNonTaxableReasonID>
         <!-- optional -->
         <ReadyMixNonTaxableReasonCode>STRTYPE</ReadyMixNonTaxableReasonCode>
-        <!-- optional -->
+        <!-- optional 1:Dollar Amount  2: Percentage -->
         <ReadyMixExemptionType>INTTYPE</ReadyMixExemptionType>
         <!-- optional -->
         <ReadyMixExemptionRate>FLOATTYPE</ReadyMixExemptionRate>
         <!-- optional -->
-        <ReadyMixExemptionUnitID>FLOATTYPE</ReadyMixExemptionUnitID>
+        <ReadyMixExemptionUnitID>INTTYPE</ReadyMixExemptionUnitID>
         <!-- optional -->
-        <ReadyMixExemptionUnitCode>FLOATTYPE</ReadyMixExemptionUnitCode>
+        <ReadyMixExemptionUnitCode>STRTYPE</ReadyMixExemptionUnitCode>
       </TaxLocationRet>
     </TaxLocationQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <TaxLocationUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <TaxLocationRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>INTTYPE</Code>
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+      </TaxLocationRet>
+    </TaxLocationUpdateRs>
     <!--     'requestID' is optional   -->
     <!--     'statusCode' is required -->
     <!--     'statusSeverity' is required -->
@@ -4154,6 +4336,21 @@
         </TaxLocations>
       </TaxCodeRet>
     </TaxCodeQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <TaxCodeUpdateRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+      <!-- optional, may repeat-->
+      <TaxCodeRet>
+        <!-- required -->
+        <ID>INTTYPE</ID>
+        <!-- required -->
+        <Code>INTTYPE</Code>
+        <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+        <Action>STRTYPE</Action>
+      </TaxCodeRet>
+    </TaxCodeUpdateRs>
   </WebcreteXMLMsgsRs>
 </WebcreteXML>
 

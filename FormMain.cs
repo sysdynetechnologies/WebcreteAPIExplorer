@@ -35,8 +35,10 @@ namespace WebcreteAPIExplorer
                     api.Endpoint.Address = new System.ServiceModel.EndpointAddress(textBoxURL.Text);
                 }
 
-                // please contact us to get the appId and apiKey for your application                
-                var ticketHeader = api.GetPublicKey("Test", "F52D2965BF8318F", out string publicKey); 
+                // please contact us to get the appId and apiKey for your application    
+                string AppID = "Test";
+                string APIKey = "F52D2965BF8318F";
+                var ticketHeader = api.GetPublicKey(AppID, APIKey, out string publicKey); 
                
                 if (publicKey == null)
                 {
@@ -385,6 +387,21 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetItemDeleteRequest(string code)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+             new XDeclaration("1.0", "utf-8", "yes"),
+             new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+             new XElement("WebcreteXML",
+                 new XElement("WebcreteXMLMsgsRq",
+                     new XElement("ItemUpdateRq",
+                         new XElement("ItemUpdate",
+                            new XElement("Code", code),
+                            new XElement("Action", "Delete"))))));
+
+            return x.ToString();
+        }
+
         public string GetItemListQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -557,6 +574,21 @@ namespace WebcreteAPIExplorer
            return x.ToString();
         }
 
+        public string GetTicketQueryRequestWithUserDefinedFields(DateTime dtOrderFrom, DateTime dtOrderTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("TicketQueryRq",
+                          new XElement("FromOrderDate", dtOrderFrom.ToShortDateString()),
+                          new XElement("ToOrderDate", dtOrderTo.ToShortDateString()),
+                          new XElement("IncludeRetElement", "USERDEFINEDFIELD")))));
+
+            return x.ToString();
+        }
+        
         public string GetTicketQueryWithBatchWeightsOnlyRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -969,6 +1001,9 @@ namespace WebcreteAPIExplorer
                 case "TicketQuery":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryRequest(DateTime.Now,DateTime.Now));
                     break;
+                case "TicketQuery(WithUserDefinedFields)":
+                    textBoxRequest.Text = IndentXMLString(GetTicketQueryRequestWithUserDefinedFields(DateTime.Now, DateTime.Now));
+                    break;
                 case "TicketQuery(IncludeRemovedTickets)":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryWithRemovedRequest(DateTime.Now, DateTime.Now));
                     break;
@@ -1133,6 +1168,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "TaxCodeUpdate":
                     textBoxRequest.Text = IndentXMLString(GetTaxCodeUpdateRequest());
+                    break;
+                case "ItemDelete":
+                    textBoxRequest.Text = IndentXMLString(GetItemDeleteRequest("030-4"));
                     break;
             }
         }

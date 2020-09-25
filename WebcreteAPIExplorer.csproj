@@ -66,6 +66,11 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\WebcreteAPI2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\WebcreteAPI\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +98,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Connected Services\WebcreteAPI2\WebcreteApi.wsdl" />
+    <None Include="Connected Services\WebcreteAPI2\WebcreteAPIExplorer.WebcreteAPI2.GetPublicKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebcreteAPI2\WebcreteAPIExplorer.WebcreteAPI2.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebcreteAPI2\WebcreteAPIExplorer.WebcreteAPI2.LogoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebcreteAPI2\WebcreteAPIExplorer.WebcreteAPI2.ProcessRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebcreteAPI2\WebcreteAPIExplorer.WebcreteAPI2.TicketHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\WebcreteAPI\webcreteapi.wsdl" />
     <None Include="Connected Services\WebcreteAPI\WebcreteAPIExplorer.WebcreteAPI.GetPublicKeyResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -144,12 +165,20 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\WebcreteAPI2\WebcreteApi.disco" />
+    <None Include="Connected Services\WebcreteAPI2\configuration91.svcinfo" />
+    <None Include="Connected Services\WebcreteAPI2\configuration.svcinfo" />
+    <None Include="Connected Services\WebcreteAPI2\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="WebcreteXml.xml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WebcreteAPI2\" />
     <WCFMetadataStorage Include="Connected Services\WebcreteAPI\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
