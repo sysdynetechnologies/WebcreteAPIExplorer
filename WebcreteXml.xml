@@ -659,6 +659,8 @@
       <CustomerCode>STRTYPE</CustomerCode>
       <!-- optional,may repeat -->
       <ProjectCode>STRTYPE</ProjectCode>
+	  <!-- optional -->
+      <Reviewed>BOOLTYPE</Reviewed>	
       <!-- optional -->
       <IncludeRemovedOrder>BOOLTYPE</IncludeRemovedOrder>
       <!--optional, may repeat can be  PRODUCT|SCHEDULE|SCHEDULELOAD|USERDEFINEDFIELD|ORDERNOTE-->
@@ -697,6 +699,8 @@
       <ListOnly>STRTYPE</ListOnly>
       <!-- optional -->
       <OrderBy>STRTYPE</OrderBy>
+	  <!-- optional -->
+      <Reviewed>BOOLTYPE</Reviewed>
       <!-- optional -->
       <IncludeRemovedTicket>BOOLTYPE</IncludeRemovedTicket>
       <!-- optional -->
@@ -744,7 +748,7 @@
       <ToUpdateDate>DATETIMETYPE</ToUpdateDate>
       <!-- optional -->
       <MaxReturned>INTTYPE</MaxReturned>      
-      <!-- optional, may repeat, can be LOCATION|COST|PRICING|MIXDESIGN|BATCHING-->
+      <!-- optional, may repeat, can be LOCATION|COST|PRICING|MIXDESIGN|BATCHING|TAXOVERRIDE-->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
     </ItemQueryRq>
     <!--    'requestID' is optional -->
@@ -935,6 +939,18 @@
             </Inventory>
           </Location>
         </Locations>
+		<!-- optional -->
+		<TaxOverrides>
+			<TaxOverride>
+				<TaxAuthorityID>INTTYPE</TaxAuthorityID>
+				<TaxAuthorityCode>STRTYPE</TaxAuthorityCode>
+				<TaxLocationID>INTTYPE</TaxLocationID>
+				<TaxLocationCode>STRTYPE</TaxLocationCode>
+				<OverrideTaxable>BOOLTYPE</OverrideTaxable>
+				<OverrideTaxRateLocationID>INTTYPE</OverrideTaxRateLocationID>
+				<OverrideTaxRateLocationCode>STRTYPE</OverrideTaxRateLocationCode>
+			</TaxOverride>
+		</TaxOverrides>
       </ItemUpdate>
       <!--optional, may repeat -->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
@@ -2711,7 +2727,9 @@
         <ConfirmedBy>STRTYPE</ConfirmedBy>
         <!-- optional -->
         <JobsiteRadius>INTTYPE</JobsiteRadius>
-        <!-- optional -->
+        <!-- optional -->		
+        <Reviewed>BOOLTYPE</Reviewed>
+		<!-- optional -->
         <Products>
           <!-- optional, may rep -->
           <Product>
@@ -3032,7 +3050,9 @@
 		<PaymentTermsName>AMTTYPE</PaymentTermsName>
         <!-- optional -->
         <UpdateTime>DATETIMETYPE</UpdateTime>
-        <!-- optional -->
+        <!-- optional -->		
+        <Reviewed>BOOLTYPE</Reviewed>
+		<!-- optional -->
         <Products>
           <!-- optional may repeat-->
           <Product>
@@ -3130,7 +3150,17 @@
               <MoisturePercent>FLOATTYPE</MoisturePercent>
             </Material>
           </BatchWeight>
-        </BatchResult>        
+        </BatchResult>
+		<!-- optional -->
+		<UserDefinedFields>
+			<!-- optional, may rep -->
+			<UserDefinedField>
+				<!-- required -->
+				<Name>STRTYPE</Name>
+				<!-- required -->
+				<Value>STRTYPE</Value>
+			</UserDefinedField>
+		</UserDefinedFields>
       </TicketRet>
     </TicketQueryRs>
     <!--     'requestID' is optional   -->
@@ -3330,6 +3360,18 @@
             </Inventory>
           </Location>
         </Locations>
+		<!-- optional -->
+		<TaxOverrides>
+			<TaxOverride>
+				<TaxAuthorityID>INTTYPE</TaxAuthorityID>
+				<TaxAuthorityCode>STRTYPE</TaxAuthorityCode>
+				<TaxLocationID>INTTYPE</TaxLocationID>
+				<TaxLocationCode>STRTYPE</TaxLocationCode>
+				<OverrideTaxable>BOOLTYPE</OverrideTaxable>
+				<OverrideTaxRateLocationID>INTTYPE</OverrideTaxRateLocationID>
+				<OverrideTaxRateLocationCode>STRTYPE</OverrideTaxRateLocationCode>
+			</TaxOverride>
+		</TaxOverrides>
         <!-- optional -->
         <SetupDate>DATETIMETYPE</SetupDate>
         <!-- optional -->

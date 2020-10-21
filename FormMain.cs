@@ -560,6 +560,19 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetItemIncludeTaxOverrideQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("ItemQueryRq",
+                        new XElement("IncludeRetElement", "TaxOverride")))));
+
+            return x.ToString();
+        }        
+
         public string GetTicketQueryRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
            XDocument x = new System.Xml.Linq.XDocument(
@@ -1081,6 +1094,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "ItemQuery(IncludeBatching)":
                     textBoxRequest.Text = IndentXMLString(GetItemIncludeBatchingQueryRequest());
+                    break;
+                case "ItemQuery(IncludeTaxOverride)":
+                    textBoxRequest.Text = IndentXMLString(GetItemIncludeTaxOverrideQueryRequest());
                     break;
                 case "ProjectQuery":
                     textBoxRequest.Text = IndentXMLString(GetProjectQueryRequest());

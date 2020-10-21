@@ -204,6 +204,7 @@ namespace WebcreteAPIExplorer
             "ItemQuery(IncludeLocation)",
             "ItemQuery(IncludeMixDesign)",
             "ItemQuery(IncludePricing)",
+            "ItemQuery(IncludeTaxOverride)",
             "ItemQuery(ListConstituentOnly)",
             "ItemQuery(ListMixOnly)",
             "ItemQuery(ListOnly)",
