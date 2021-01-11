@@ -350,6 +350,30 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetJobQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("JobQueryRq", ""))));
+
+            return x.ToString();
+        }
+
+        public string GetQuoteQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("QuoteQueryRq", ""))));
+
+            return x.ToString();
+        }
+
         public string GetProjectListQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -673,6 +697,20 @@ namespace WebcreteAPIExplorer
                       new XElement("TicketQueryRq",
                           new XElement("FromUpdateTime", dtUpdateTimeFrom.ToString("s")),
                           new XElement("ToUpdateTime", dtUpdateTimeTo.ToString("s"))))));
+
+            return x.ToString();
+        }
+
+        public string GetTicketQueryByTicketTimeRequest(DateTime dtUpdateTimeFrom, DateTime dtUpdateTimeTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("TicketQueryRq",
+                          new XElement("FromTicketTime", dtUpdateTimeFrom.ToString("s")),
+                          new XElement("ToTicketTime", dtUpdateTimeTo.ToString("s"))))));
 
             return x.ToString();
         }
@@ -1050,6 +1088,9 @@ namespace WebcreteAPIExplorer
                 case "TicketQuery(UpdateTime)":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryByUpdateTimeRequest(DateTime.Now.AddMinutes(-1), DateTime.Now));
                     break;
+                case "TicketQuery(TicketTime)":
+                    textBoxRequest.Text = IndentXMLString(GetTicketQueryByTicketTimeRequest(DateTime.Now.AddMinutes(-1), DateTime.Now));
+                    break;
                 case "TicketQuery(SortDesc)":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryDescRequest(DateTime.Now, DateTime.Now));
                     break;
@@ -1205,6 +1246,12 @@ namespace WebcreteAPIExplorer
                     break;
                 case "ItemDelete":
                     textBoxRequest.Text = IndentXMLString(GetItemDeleteRequest("030-4"));
+                    break;
+                case "JobQuery":
+                    textBoxRequest.Text = IndentXMLString(GetJobQueryRequest());
+                    break;
+                case "QuoteQuery":
+                    textBoxRequest.Text = IndentXMLString(GetQuoteQueryRequest());
                     break;
             }
         }
