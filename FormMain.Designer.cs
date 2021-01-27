@@ -242,6 +242,7 @@ namespace WebcreteAPIExplorer
             "TicketQuery(TicketTime)",
             "TicketQuery(UpdateTime)",
             "TicketQuery(WithBatchWeightsOnly)",
+            "TicketQuery(WithOrderUserDefinedFields)",
             "TicketQuery(WithUserDefinedFields)",
             "TruckGpsUpdate",
             "TruckQuery",
