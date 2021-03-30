@@ -313,6 +313,8 @@
           <ExternalLiensRequiredInOrderEntry>BOOLTYPE</ExternalLiensRequiredInOrderEntry>
           <!-- optional -->
           <SuspendOrderReasonCode>BOOLTYPE</SuspendOrderReasonCode>
+		  <!-- optional -->
+		  <UsageCodeRequiredInOrderEntry>BOOLTYPE</UsageCodeRequiredInOrderEntry>
         </Accounting>
         <!-- optional -->
         <Distribution>
@@ -535,6 +537,8 @@
           <ApplyZoneCharges>BOOLTYPE</ApplyZoneCharges>
           <!-- optional -->
           <AllowPriceChangeInOrderEntry>BOOLTYPE</AllowPriceChangeInOrderEntry>
+		  <!-- optional -->
+		  <ControlPricePrintInOE>BOOLTYPE</ControlPricePrintInOE>
           <!-- optional -->
           <PrintPricesOnTicket>BOOLTYPE</PrintPricesOnTicket>
           <!-- optional -->
@@ -602,6 +606,8 @@
           <LotBlock>STRTYPE</LotBlock>
           <!-- optional -->
           <SuspendOrderReasonCode>BOOLTYPE</SuspendOrderReasonCode>
+		  <!-- optional -->
+		  <UsageCodeRequiredInOrderEntry>BOOLTYPE</UsageCodeRequiredInOrderEntry>
         </Accounting>
         <!-- optional -->
         <Distribution>
@@ -617,7 +623,7 @@
           <MapPage>STRTYPE</MapPage>
           <!-- optional -->
           <EstimatedTravelTime>FLOATTYPE</EstimatedTravelTime>
-          <!-- optional -->
+          <!-- optional 1 Do Not Poll 2 Poll First Truck 3 Poll Every Truck-->
           <TruckPollType>STRTYPE</TruckPollType>
           <!-- optional -->
           <UpdateProjectMapCoordinates>BOOLTYPE</UpdateProjectMapCoordinates>
@@ -825,7 +831,7 @@
       <IncludeRemovedTicket>BOOLTYPE</IncludeRemovedTicket>
       <!-- optional -->
       <WithBatchWeightsOnly>BOOLTYPE</WithBatchWeightsOnly>
-	  <!-- optional, may repeat, can be USERDEFINEDFIELD-->
+	  <!-- optional, may repeat, can be USERDEFINEDFIELD|ORDERUSERDEFINEDFIELD-->
 	  <IncludeRetElement>STRTYPE</IncludeRetElement>
     </TicketQueryRq>
     <!--    'requestID' is optional -->
@@ -960,6 +966,8 @@
           <TermDiscountable>BOOLTYPE</TermDiscountable>
           <!-- optional -->
           <UsageCode>STRTYPE</UsageCode>
+		  <!-- optional -->
+		  <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
           <!-- optional -->
           <ExpirationDate>DATETIMETYPE</ExpirationDate>
         </Sales>
@@ -993,7 +1001,7 @@
         <!-- optional -->
         <Locations>
           <!-- optional, may repeat -->
-          <Location>
+          <Location Active="BOOLTYPE"> 
             <LocationID>INTTYPE</LocationID>
             <LocationCode>STRTYPE</LocationCode>
             <!-- optional -->
@@ -1871,6 +1879,8 @@
           <ApplyZoneCharges>BOOLTYPE</ApplyZoneCharges>
           <!-- optional -->
           <AllowPriceChangeInOrderEntry>BOOLTYPE</AllowPriceChangeInOrderEntry>
+		  <!-- optional -->
+		  <ControlPricePrintInOE>BOOLTYPE</ControlPricePrintInOE>
           <!-- optional -->
           <PrintPricesOnTicket>BOOLTYPE</PrintPricesOnTicket>
           <!-- optional -->
@@ -1960,6 +1970,8 @@
           <ExternalLiensRequiredInOrderEntry>BOOLTYPE</ExternalLiensRequiredInOrderEntry>
           <!-- optional -->
           <SuspendOrderReasonCode>BOOLTYPE</SuspendOrderReasonCode>
+		  <!-- optional -->
+		  <UsageCodeRequiredInOrderEntry>BOOLTYPE</UsageCodeRequiredInOrderEntry>
         </Accounting>
         <!-- optional -->
         <Distribution>
@@ -2357,6 +2369,8 @@
           <ApplyZoneCharges>BOOLTYPE</ApplyZoneCharges>
           <!-- optional -->
           <AllowPriceChangeInOrderEntry>BOOLTYPE</AllowPriceChangeInOrderEntry>
+		  <!-- optional -->
+		  <ControlPricePrintInOE>BOOLTYPE</ControlPricePrintInOE>
           <!-- optional -->
           <PrintPricesOnTicket>BOOLTYPE</PrintPricesOnTicket>
           <!-- optional -->
@@ -2426,6 +2440,8 @@
           <LotBlock>STRTYPE</LotBlock>
           <!-- optional -->
           <SuspendOrderReasonCode>BOOLTYPE</SuspendOrderReasonCode>
+		  <!-- optional -->
+		  <UsageCodeRequiredInOrderEntry>BOOLTYPE</UsageCodeRequiredInOrderEntry>
         </Accounting>
         <!-- optional -->
         <Distribution>
@@ -2441,7 +2457,7 @@
           <MapPage>STRTYPE</MapPage>
           <!-- optional -->
           <EstimatedTravelTime>FLOATTYPE</EstimatedTravelTime>
-          <!-- optional -->
+          <!-- optional 1 Do Not Poll 2 Poll First Truck 3 Poll Every Truck-->
           <TruckPollType>STRTYPE</TruckPollType>
           <!-- optional -->
           <UpdateProjectMapCoordinates>BOOLTYPE</UpdateProjectMapCoordinates>
@@ -2703,7 +2719,7 @@
           <MapPage>STRTYPE</MapPage>
           <!-- optional -->
           <EstimatedTravelTime>FLOATTYPE</EstimatedTravelTime>
-          <!-- optional -->
+          <!-- optional 1 Do Not Poll 2 Poll First Truck 3 Poll Every Truck-->
           <TruckPollType>STRTYPE</TruckPollType>
           <!-- optional -->
           <UpdateProjectMapCoordinates>BOOLTYPE</UpdateProjectMapCoordinates>
@@ -2949,7 +2965,7 @@
           <MapPage>STRTYPE</MapPage>
           <!-- optional -->
           <EstimatedTravelTime>FLOATTYPE</EstimatedTravelTime>
-          <!-- optional -->
+          <!-- optional 1 Do Not Poll 2 Poll First Truck 3 Poll Every Truck-->
           <TruckPollType>STRTYPE</TruckPollType>
           <!-- optional -->
           <UpdateProjectMapCoordinates>BOOLTYPE</UpdateProjectMapCoordinates>
@@ -2985,9 +3001,7 @@
 		<!-- optional -->
 		<JobBeginDate>DATETIMETYPE</JobBeginDate>
 		<!-- optional -->
-		<JobCompletionDate>DATETIMETYPE</JobCompletionDate>
-		<!-- optional -->
-		<CurrentStatus>STRTYPE</CurrentStatus>
+		<JobCompletionDate>DATETIMETYPE</JobCompletionDate>		
 		<!-- optional -->
         <UpdateDate>DATETIMETYPE</UpdateDate>
       </JobRet>      
@@ -3138,9 +3152,11 @@
           <!-- optional -->
           <PrintPricesOnTicket>BOOLTYPE</PrintPricesOnTicket>
           <!-- optional -->
-          <RestrictOrderstoCustomerProducts>BOOLTYPE</RestrictOrderstoCustomerProducts>
+          <RestrictOrderstoProjectProducts>BOOLTYPE</RestrictOrderstoProjectProducts>
           <!-- optional -->
           <AllowAutomaticPriceAjustment>BOOLTYPE</AllowAutomaticPriceAjustment>
+		  <!-- optional -->
+		  <RestrictOrdersToProjectMixProduct>BOOLTYPE</RestrictOrdersToProjectMixProduct>
         </Pricing>
         <!-- optional -->
         <Charges>
@@ -3217,7 +3233,7 @@
           <MapPage>STRTYPE</MapPage>
           <!-- optional -->
           <EstimatedTravelTime>FLOATTYPE</EstimatedTravelTime>
-          <!-- optional -->
+          <!-- optional 1 Do Not Poll 2 Poll First Truck 3 Poll Every Truck-->
           <TruckPollType>STRTYPE</TruckPollType>
           <!-- optional -->
           <UpdateProjectMapCoordinates>BOOLTYPE</UpdateProjectMapCoordinates>
@@ -3232,6 +3248,16 @@
           <!-- optional -->
           <DeliveryMethod>STRTYPE</DeliveryMethod>
         </Distribution>
+		<!-- optional -->
+		<EnablePriceEscalation>BOOLTYPE</EnablePriceEscalation>
+		<!-- optional -->
+		<PriceEscalationAmount>FLOATTYPE</PriceEscalationAmount>
+        <!-- optional -->
+		<PriceEscalationDate>DATETIMETYPE</PriceEscalationDate>		
+		<!-- optional -->
+		<QuoteRequiredDate>DATETIMETYPE</QuoteRequiredDate>
+		<!-- optional -->
+		<QuoteExpirationDate>DATETIMETYPE</QuoteExpirationDate>
         <!-- optional -->
         <UpdateDate>DATETIMETYPE</UpdateDate>
       </QuoteRet>      
@@ -3340,6 +3366,8 @@
         <SalesmanID>STRTYPE</SalesmanID>
         <!-- optional -->
         <SalesmanCode>STRTYPE</SalesmanCode>
+		<!-- optional -->
+		<SalesmanName>STRTYPE</SalesmanName>
         <!-- optional -->
         <SalesAnalysisCode>STRTYPE</SalesAnalysisCode>
         <!-- optional -->
@@ -3690,11 +3718,17 @@
         <!-- optional -->
         <Removed>BOOLTYPE</Removed>
         <!-- optional -->
-        <PrintMixWeight>BOOLTYPE</PrintMixWeight>
+        <PrintMixWeight>BOOLTYPE</PrintMixWeight>		
 		<!-- optional -->
 		<PaymentTermsCode>AMTTYPE</PaymentTermsCode>
 		<!-- optional -->
 		<PaymentTermsName>AMTTYPE</PaymentTermsName>
+		<!-- optional -->
+		<SalesmanID>AMTTYPE</SalesmanID>
+		<!-- optional -->
+		<SalesmanCode>AMTTYPE</SalesmanCode>
+		<!-- optional -->
+		<SalesmanName>AMTTYPE</SalesmanName>
         <!-- optional -->
         <UpdateTime>DATETIMETYPE</UpdateTime>
         <!-- optional -->		
@@ -3808,6 +3842,16 @@
 				<Value>STRTYPE</Value>
 			</UserDefinedField>
 		</UserDefinedFields>
+		<!-- optional -->
+		<OrderUserDefinedFields>
+			<!-- optional, may rep -->
+			<UserDefinedField>
+				<!-- required -->
+				<Name>STRTYPE</Name>
+				<!-- required -->
+				<Value>STRTYPE</Value>
+			</UserDefinedField>
+		</OrderUserDefinedFields>
       </TicketRet>
     </TicketQueryRs>
     <!--     'requestID' is optional   -->
@@ -3908,6 +3952,8 @@
           <TermDiscountable>BOOLTYPE</TermDiscountable>
           <!-- optional -->
           <UsageCode>STRTYPE</UsageCode>
+		  <!-- optional -->
+		  <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
           <!-- optional -->
           <ExpirationDate>DATETIMETYPE</ExpirationDate>
         </Sales>

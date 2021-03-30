@@ -212,6 +212,7 @@ namespace WebcreteAPIExplorer
             "ItemQuery(SpecificLocation(s))",
             "ItemTypeQuery",
             "ItemUpdate",
+            "ItemUpdate(Remove Location)",
             "JobQuery",
             "LocationQuery",
             "LocationUpdate",

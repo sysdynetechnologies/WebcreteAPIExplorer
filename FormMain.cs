@@ -858,6 +858,26 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetItemUpdateRemoveLocationRequest(string code, string locationToBeRemoved)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+             new XDeclaration("1.0", "utf-8", "yes"),
+             new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+             new XElement("WebcreteXML",
+                 new XElement("WebcreteXMLMsgsRq",
+                     new XElement("ItemUpdateRq",
+                         new XElement("ItemUpdate",
+                            new XElement("Code", code),
+                            new XElement("Locations",
+                                new XElement("Location",
+                                    new XAttribute("Active","False"),
+                                    new XElement("LocationCode", locationToBeRemoved)
+                           )))))));
+
+            return x.ToString();
+        }
+        
+
         public string GetTruckStatusQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -1174,6 +1194,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "ItemUpdate":
                     textBoxRequest.Text = IndentXMLString(GetItemUpdateRequest("4011", "4000 psi pump", "4000 psi", "MIX"));
+                    break;
+                case "ItemUpdate(Remove Location)":
+                    textBoxRequest.Text = IndentXMLString(GetItemUpdateRemoveLocationRequest("4011", "01"));
                     break;
                 case "TruckStatusQuery":
                     textBoxRequest.Text = IndentXMLString(GetTruckStatusQueryRequest());
