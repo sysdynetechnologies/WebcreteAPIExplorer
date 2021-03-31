@@ -238,6 +238,7 @@ namespace WebcreteAPIExplorer
             "TicketQuery(ListOnly)",
             "TicketQuery(LoadTime)",
             "TicketQuery(MixCode)",
+            "TicketQuery(OrderID)",
             "TicketQuery(Reviewed)",
             "TicketQuery(SortDesc)",
             "TicketQuery(TicketTime)",

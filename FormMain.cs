@@ -760,7 +760,20 @@ namespace WebcreteAPIExplorer
 
             return x.ToString();
         }
-        
+
+        public string GetTicketQueryForOrderIDRequest(int OrderID)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("TicketQueryRq",
+                           new XElement("OrderID", OrderID)))));
+
+            return x.ToString();
+        }
+
 
         public string GetTicketListQueryRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
@@ -1134,6 +1147,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "TicketQuery(WithBatchWeightsOnly)":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryWithBatchWeightsOnlyRequest(DateTime.Now, DateTime.Now));
+                    break;
+                case "TicketQuery(OrderID)":
+                    textBoxRequest.Text = IndentXMLString(GetTicketQueryForOrderIDRequest(54604));
                     break;
                 case "ItemQuery":
                     textBoxRequest.Text = IndentXMLString(GetItemQueryRequest());

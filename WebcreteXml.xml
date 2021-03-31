@@ -809,6 +809,8 @@
       <FromLoadTime>DATETIMETYPE</FromLoadTime>
       <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
       <ToLoadTime>DATETIMETYPE</ToLoadTime>
+	  <!-- optional,may repeat -->
+	  <OrderID>STRTYPE</OrderID>	
       <!-- optional,may repeat -->
       <TicketID>STRTYPE</TicketID>
       <!-- optional,may repeat -->
