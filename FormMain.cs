@@ -393,8 +393,8 @@ namespace WebcreteAPIExplorer
                new XProcessingInstruction("webcretexml", "version=\"1.0\""),
                new XElement("WebcreteXML",
                    new XElement("WebcreteXMLMsgsRq",
-                       new XElement("ProjectQueryRq", ""),
-                            new XElement("IncludeRetElement", "Customer"))));
+                       new XElement("ProjectQueryRq", 
+                            new XElement("IncludeRetElement", "Customer")))));
 
             return x.ToString();
         }        
