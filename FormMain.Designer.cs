@@ -42,6 +42,10 @@ namespace WebcreteAPIExplorer
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxRequest = new System.Windows.Forms.ComboBox();
+            this.textBoxAPIKEY = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxAPPID = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -94,7 +98,7 @@ namespace WebcreteAPIExplorer
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(770, 18);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(136, 20);
+            this.textBoxPassword.Size = new System.Drawing.Size(212, 20);
             this.textBoxPassword.TabIndex = 5;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
@@ -117,7 +121,7 @@ namespace WebcreteAPIExplorer
             this.textBoxRequest.Multiline = true;
             this.textBoxRequest.Name = "textBoxRequest";
             this.textBoxRequest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRequest.Size = new System.Drawing.Size(480, 493);
+            this.textBoxRequest.Size = new System.Drawing.Size(480, 560);
             this.textBoxRequest.TabIndex = 7;
             // 
             // textBoxResponse
@@ -129,7 +133,7 @@ namespace WebcreteAPIExplorer
             this.textBoxResponse.Multiline = true;
             this.textBoxResponse.Name = "textBoxResponse";
             this.textBoxResponse.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxResponse.Size = new System.Drawing.Size(481, 493);
+            this.textBoxResponse.Size = new System.Drawing.Size(481, 560);
             this.textBoxResponse.TabIndex = 8;
             // 
             // splitContainer1
@@ -149,7 +153,7 @@ namespace WebcreteAPIExplorer
             // 
             this.splitContainer1.Panel2.Controls.Add(this.label6);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxResponse);
-            this.splitContainer1.Size = new System.Drawing.Size(977, 519);
+            this.splitContainer1.Size = new System.Drawing.Size(977, 586);
             this.splitContainer1.SplitterDistance = 486;
             this.splitContainer1.TabIndex = 9;
             // 
@@ -264,11 +268,50 @@ namespace WebcreteAPIExplorer
             this.comboBoxRequest.TabIndex = 11;
             this.comboBoxRequest.SelectedIndexChanged += new System.EventHandler(this.comboBoxRequest_SelectedIndexChanged);
             // 
+            // textBoxAPIKEY
+            // 
+            this.textBoxAPIKEY.Location = new System.Drawing.Point(770, 48);
+            this.textBoxAPIKEY.Name = "textBoxAPIKEY";
+            this.textBoxAPIKEY.Size = new System.Drawing.Size(212, 20);
+            this.textBoxAPIKEY.TabIndex = 15;
+            this.textBoxAPIKEY.Text = "F52D2965BF8318F";
+            this.textBoxAPIKEY.UseSystemPasswordChar = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(707, 51);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "API KEY";
+            // 
+            // textBoxAPPID
+            // 
+            this.textBoxAPPID.Location = new System.Drawing.Point(561, 48);
+            this.textBoxAPPID.Name = "textBoxAPPID";
+            this.textBoxAPPID.Size = new System.Drawing.Size(134, 20);
+            this.textBoxAPPID.TabIndex = 13;
+            this.textBoxAPPID.Text = "Test";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(498, 51);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 13);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "APP ID";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 610);
+            this.ClientSize = new System.Drawing.Size(997, 677);
+            this.Controls.Add(this.textBoxAPIKEY);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBoxAPPID);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBoxRequest);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.splitContainer1);
@@ -309,6 +352,10 @@ namespace WebcreteAPIExplorer
         private System.Windows.Forms.ComboBox comboBoxRequest;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxAPIKEY;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxAPPID;
+        private System.Windows.Forms.Label label8;
     }
 }
 

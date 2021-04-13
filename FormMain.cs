@@ -36,8 +36,8 @@ namespace WebcreteAPIExplorer
                 }
 
                 // please contact us to get the appId and apiKey for your application    
-                string AppID = "Test";
-                string APIKey = "F52D2965BF8318F";
+                string AppID = textBoxAPPID.Text;
+                string APIKey = textBoxAPIKEY.Text;
                 var ticketHeader = api.GetPublicKey(AppID, APIKey, out string publicKey); 
                
                 if (publicKey == null)
