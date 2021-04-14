@@ -325,8 +325,12 @@
           <!-- optional -->
           <PrinterSelector>STRTYPE</PrinterSelector>
         </Distribution>
+		<!-- BEGIN OR-->  
         <!-- required -->
         <DivisionID>INTTYPE</DivisionID>
+		<!-- OR -->		
+		<DivisionCode>STRTYPE</DivisionCode>
+		<!-- END OR-->
         <!-- optional -->
         <InActive>BOOLTYPE</InActive>
       </CustomerUpdate>
@@ -387,7 +391,7 @@
       <StatementCycle>STRTYPE</StatementCycle>
       <!-- optional, may repeat-->
       <AccountingCategoryCode>STRTYPE</AccountingCategoryCode>
-      <!--optional, may repeat, can be CUSTOMER -->
+      <!--optional, may repeat, can be CUSTOMER | PRODUCT -->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
       <!-- END OR -->      
     </ProjectQueryRq>
@@ -788,7 +792,17 @@
       <!--optional, may repeat can be  PRODUCT|SCHEDULE|SCHEDULELOAD|USERDEFINEDFIELD|ORDERNOTE-->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
     </OrderQueryRq>
-    <!--    'requestID' is optional -->
+	<!--    'requestID' is optional -->
+	<OrderUpdateRq  requestID="UUIDTYPE">
+		<!-- required, may repeat-->
+		<OrderUpdate>
+			<!-- required -->
+			<ID>INTTYPE</ID>
+			<!-- optional -->
+			<Invoiced>BOOLTYPE</Invoiced>
+		</OrderUpdate>
+	</OrderUpdateRq>
+	  <!--    'requestID' is optional -->
     <!--    'metaData' is optional and may have one of the following values: NoMetaData[DEFAULT], MetaDataOnly, MetaDataAndResponseData -->
     <!--    'iterator' is optional and may have one of the following values: Start, Continue, Stop -->
     <!--    'iteratorID' is optional -->
@@ -836,7 +850,17 @@
 	  <!-- optional, may repeat, can be USERDEFINEDFIELD|ORDERUSERDEFINEDFIELD-->
 	  <IncludeRetElement>STRTYPE</IncludeRetElement>
     </TicketQueryRq>
-    <!--    'requestID' is optional -->
+	<!--    'requestID' is optional -->
+	<TicketUpdateRq  requestID="UUIDTYPE">
+		<!-- required, may repeat-->
+		<TicketUpdate>
+			<!-- required -->
+			<ID>INTTYPE</ID>
+			<!-- optional -->
+			<Invoiced>BOOLTYPE</Invoiced>			
+		</TicketUpdate>
+	</TicketUpdateRq>    
+	<!--    'requestID' is optional -->
     <!--    'metaData' is optional and may have one of the following values: NoMetaData[DEFAULT], MetaDataOnly, MetaDataAndResponseData -->
     <!--    'iterator' is optional and may have one of the following values: Start, Continue, Stop -->
     <!--    'iteratorID' is optional -->
@@ -1986,6 +2010,8 @@
         </Distribution>
         <!-- required -->
         <DivisionID>INTTYPE</DivisionID>
+		<!-- required -->
+		<DivisionCode>STRTYPE</DivisionCode>
         <!-- required -->
         <UpdateDate>DATETIMETYPE</UpdateDate>
         <!-- optional -->
@@ -2474,6 +2500,38 @@
           <!-- optional -->
           <DeliveryMethod>STRTYPE</DeliveryMethod>
         </Distribution>
+		<!-- optional -->
+		<Products>
+			<!-- optional may repeat -->
+			<MixProduct>
+				<PlantCode></PlantCode>
+				<ItemID></ItemID>
+				<ItemCode></ItemCode>
+				<ShortDescription></ShortDescription>
+				<Description></Description>
+				<BatchCode></BatchCode>
+				<Slump></Slump>
+				<UsageCode></UsageCode>
+				<!-- optional may repeat -->
+				<AssocProduct>
+					<ItemID></ItemID>
+					<ItemCode></ItemCode>
+					<ShortDescription></ShortDescription>
+					<Description></Description>
+					<BatchCode></BatchCode>
+					<Slump></Slump>
+					<UsageCode></UsageCode>
+				</AssocProduct>
+			</MixProduct>
+			<!-- optional may repeat -->
+			<ExtraProduct>
+				<ItemID></ItemID>
+				<ItemCode></ItemCode>
+				<ShortDescription></ShortDescription>
+				<Description></Description>				
+				<UsageCode></UsageCode>
+			</ExtraProduct>
+		</Products>
 		<!-- optional -->
 		<EnablePriceEscalation>BOOLTYPE</EnablePriceEscalation>
 		<!-- optional -->
@@ -3576,7 +3634,15 @@
         </UserDefinedFields>
       </OrderRet>
     </OrderQueryRs>
-    
+	<!--    'requestID' is optional -->
+	<OrderUpdateRs  requestID="UUIDTYPE">
+		<!-- required, may repeat-->
+		<OrderRet>
+			<!-- required -->
+			<ID>INTTYPE</ID>
+			<Action>STRTYPE</Action>
+		</OrderRet>
+	</OrderUpdateRs>    
     <!--     'requestID' is optional   -->
     <!--     'statusCode' is required -->
     <!--     'statusSeverity' is required -->
@@ -3856,7 +3922,15 @@
 		</OrderUserDefinedFields>
       </TicketRet>
     </TicketQueryRs>
-    <!--     'requestID' is optional   -->
+	<!--    'requestID' is optional -->
+	<TicketUpdateRs  requestID="UUIDTYPE">
+		<!-- required, may repeat-->
+		<TicketRet>
+			<!-- required -->
+			<ID>INTTYPE</ID>
+		</TicketRet>
+	</TicketUpdateRs>
+	  <!--     'requestID' is optional   -->
     <!--     'statusCode' is required -->
     <!--     'statusSeverity' is required -->
     <!--     'statusMessage' is optional -->
@@ -4895,7 +4969,9 @@
       <!-- optional -->
       <DivisionRet>
         <!-- required -->
-        <ID>INTTYPE</ID>       
+        <ID>INTTYPE</ID>
+		<!-- required -->
+		<Code>STRTYPE</Code>
         <!-- required -->
         <Name>STRTYPE</Name>
         <!-- required -->

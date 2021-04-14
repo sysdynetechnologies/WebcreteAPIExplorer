@@ -1090,6 +1090,35 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetOrderUpdateRequest(int orderID, bool invoiced)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("OrderUpdateRq",
+                            new XElement("OrderUpdate",
+                                new XElement("ID", orderID),                                
+                                new XElement("Invoiced", invoiced))))));
+
+            return x.ToString();
+        }
+
+        public string GetTicketUpdateRequest(int ticketId, bool invoiced)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TicketUpdateRq",
+                            new XElement("TicketUpdate",
+                                new XElement("ID", ticketId),
+                                new XElement("Invoiced", invoiced))))));
+
+            return x.ToString();
+        }
         private void comboBoxRequest_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (comboBoxRequest.SelectedItem.ToString())
@@ -1309,6 +1338,12 @@ namespace WebcreteAPIExplorer
                     break;
                 case "QuoteQuery":
                     textBoxRequest.Text = IndentXMLString(GetQuoteQueryRequest());
+                    break;
+                case "OrderUpdate":
+                    textBoxRequest.Text = IndentXMLString(GetOrderUpdateRequest(61278,true));
+                    break;
+                case "TicketUpdate":
+                    textBoxRequest.Text = IndentXMLString(GetTicketUpdateRequest(100, true));
                     break;
             }
         }
