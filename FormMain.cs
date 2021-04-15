@@ -397,7 +397,20 @@ namespace WebcreteAPIExplorer
                             new XElement("IncludeRetElement", "Customer")))));
 
             return x.ToString();
-        }        
+        }
+
+        public string GetProjectIncludeProductQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("ProjectQueryRq",
+                            new XElement("IncludeRetElement", "Product")))));
+
+            return x.ToString();
+        }
 
         public string GetItemQueryRequest()
         {
@@ -1230,6 +1243,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "ProjectQuery(IncludeCustomer)":
                     textBoxRequest.Text = IndentXMLString(GetProjectIncludeCustomerQueryRequest());
+                    break;
+                case "ProjectQuery(IncludeProduct)":
+                    textBoxRequest.Text = IndentXMLString(GetProjectIncludeProductQueryRequest());
                     break;
                 case "CustomerUpdate":
                     textBoxRequest.Text = IndentXMLString(GetCustomerUpdateRequest("ABCConcrete","ABCConcrete Inc.","ABCConcrete"));
