@@ -31,6 +31,14 @@ namespace WebcreteAPIExplorer.WebcreteAPI {
         [System.ServiceModel.OperationContractAttribute(Action="http://api.concretego.com/Login", ReplyAction="*")]
         System.Threading.Tasks.Task<WebcreteAPIExplorer.WebcreteAPI.LoginResponse> LoginAsync(WebcreteAPIExplorer.WebcreteAPI.LoginRequest request);
         
+        // CODEGEN: Generating message contract since message Login2Request has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://api.concretego.com/Login2", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        WebcreteAPIExplorer.WebcreteAPI.Login2Response Login2(WebcreteAPIExplorer.WebcreteAPI.Login2Request request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://api.concretego.com/Login2", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebcreteAPIExplorer.WebcreteAPI.Login2Response> Login2Async(WebcreteAPIExplorer.WebcreteAPI.Login2Request request);
+        
         // CODEGEN: Generating message contract since message ProcessRequestRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://api.concretego.com/ProcessRequest", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -49,7 +57,7 @@ namespace WebcreteAPIExplorer.WebcreteAPI {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -176,6 +184,48 @@ namespace WebcreteAPIExplorer.WebcreteAPI {
         
         public LoginResponse(bool LoginResult) {
             this.LoginResult = LoginResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Login2", WrapperNamespace="http://api.concretego.com/", IsWrapped=true)]
+    public partial class Login2Request {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://api.concretego.com/")]
+        public WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://api.concretego.com/", Order=0)]
+        public string userName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://api.concretego.com/", Order=1)]
+        public string password;
+        
+        public Login2Request() {
+        }
+        
+        public Login2Request(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, string password) {
+            this.TicketHeader = TicketHeader;
+            this.userName = userName;
+            this.password = password;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Login2Response", WrapperNamespace="http://api.concretego.com/", IsWrapped=true)]
+    public partial class Login2Response {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://api.concretego.com/", Order=0)]
+        public bool Login2Result;
+        
+        public Login2Response() {
+        }
+        
+        public Login2Response(bool Login2Result) {
+            this.Login2Result = Login2Result;
         }
     }
     
@@ -329,6 +379,33 @@ namespace WebcreteAPIExplorer.WebcreteAPI {
             inValue.userName = userName;
             inValue.password = password;
             return ((WebcreteAPIExplorer.WebcreteAPI.WebcreteAPISoap)(this)).LoginAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebcreteAPIExplorer.WebcreteAPI.Login2Response WebcreteAPIExplorer.WebcreteAPI.WebcreteAPISoap.Login2(WebcreteAPIExplorer.WebcreteAPI.Login2Request request) {
+            return base.Channel.Login2(request);
+        }
+        
+        public bool Login2(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, string password) {
+            WebcreteAPIExplorer.WebcreteAPI.Login2Request inValue = new WebcreteAPIExplorer.WebcreteAPI.Login2Request();
+            inValue.TicketHeader = TicketHeader;
+            inValue.userName = userName;
+            inValue.password = password;
+            WebcreteAPIExplorer.WebcreteAPI.Login2Response retVal = ((WebcreteAPIExplorer.WebcreteAPI.WebcreteAPISoap)(this)).Login2(inValue);
+            return retVal.Login2Result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebcreteAPIExplorer.WebcreteAPI.Login2Response> WebcreteAPIExplorer.WebcreteAPI.WebcreteAPISoap.Login2Async(WebcreteAPIExplorer.WebcreteAPI.Login2Request request) {
+            return base.Channel.Login2Async(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebcreteAPIExplorer.WebcreteAPI.Login2Response> Login2Async(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, string password) {
+            WebcreteAPIExplorer.WebcreteAPI.Login2Request inValue = new WebcreteAPIExplorer.WebcreteAPI.Login2Request();
+            inValue.TicketHeader = TicketHeader;
+            inValue.userName = userName;
+            inValue.password = password;
+            return ((WebcreteAPIExplorer.WebcreteAPI.WebcreteAPISoap)(this)).Login2Async(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

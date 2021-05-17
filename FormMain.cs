@@ -56,7 +56,7 @@ namespace WebcreteAPIExplorer
 
                 try
                 {
-                    if (api.Login(ticketHeader, textBoxUserName.Text, encryptedPassword) == false)
+                    if (api.Login(ticketHeader, textBoxUserName.Text, encryptedPassword) == false)                    
                     {
                         MessageBox.Show("Login failed.");
                         return;
@@ -306,10 +306,11 @@ namespace WebcreteAPIExplorer
                new XProcessingInstruction("webcretexml", "version=\"1.0\""),
                new XElement("WebcreteXML",
                    new XElement("WebcreteXMLMsgsRq",
-                       new XElement("EmployeeUpdateRq",                            
-                            new XElement("Code", code),
-                            new XElement("Name", name),
-                            new XElement("EmployeeType", employeeType)))));
+                       new XElement("EmployeeUpdateRq",
+                            new XElement("EmployeeUpdate",
+                                new XElement("Code", code),
+                                new XElement("Name", name),
+                                new XElement("EmployeeType", employeeType))))));
 
             return x.ToString();
         }

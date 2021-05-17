@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://api.concretego.com/webcreteapi.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://api1.concretego.com/webcreteapi.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="webcreteapi.wsdl" MetadataType="Wsdl" ID="554cd473-42d2-4953-b4f5-0145096522d0" SourceId="1" SourceUrl="http://api.concretego.com/webcreteapi.asmx?wsdl" />
-    <MetadataFile FileName="webcreteapi.disco" MetadataType="Disco" ID="4b546d11-6200-49b4-a178-cc7e47a9a9de" SourceId="1" SourceUrl="http://api.concretego.com/webcreteapi.asmx?disco" />
+    <MetadataFile FileName="webcreteapi1.wsdl" MetadataType="Wsdl" ID="541a26e5-973c-4153-b4d3-5e76a16bb2b0" SourceId="1" SourceUrl="http://api1.concretego.com/webcreteapi.asmx?wsdl" />
+    <MetadataFile FileName="webcreteapi1.disco" MetadataType="Disco" ID="a7384d25-74c4-4571-b061-4ed58b195af5" SourceId="1" SourceUrl="http://api1.concretego.com/webcreteapi.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
