@@ -912,7 +912,7 @@ namespace WebcreteAPIExplorer
                new XProcessingInstruction("webcretexml", "version=\"1.0\""),
                new XElement("WebcreteXML",
                    new XElement("WebcreteXMLMsgsRq",
-                       new XElement("TruckQueryRq", ""))));
+                       new XElement("TruckStatusQueryRq", ""))));
 
             return x.ToString();
         }
@@ -924,7 +924,7 @@ namespace WebcreteAPIExplorer
                new XProcessingInstruction("webcretexml", "version=\"1.0\""),
                new XElement("WebcreteXML",
                    new XElement("WebcreteXMLMsgsRq",
-                       new XElement("TruckQueryRq",
+                       new XElement("TruckStatusQueryRq",
                           new XElement("FromStatusTimeStamp", dtUpdateTimeFrom.ToString("s")),
                           new XElement("ToStatusTimeStamp", dtUpdateTimeTo.ToString("s"))))));
 
@@ -938,7 +938,7 @@ namespace WebcreteAPIExplorer
                new XProcessingInstruction("webcretexml", "version=\"1.0\""),
                new XElement("WebcreteXML",
                    new XElement("WebcreteXMLMsgsRq",
-                       new XElement("TruckQueryRq",
+                       new XElement("TruckStatusQueryRq",
                           new XElement("FromLocationUpdateTime", dtUpdateTimeFrom.ToString("s")),
                           new XElement("ToLocationUpdateTime", dtUpdateTimeTo.ToString("s"))))));
 
