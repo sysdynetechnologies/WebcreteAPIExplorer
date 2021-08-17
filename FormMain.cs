@@ -804,6 +804,51 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetInvoiceQueryByInvoiceDateRequest(DateTime dtInvoiceFrom, DateTime dtInvoiceTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("InvoiceQueryRq",
+                          new XElement("FromInvoiceDate", dtInvoiceFrom.ToShortDateString()),
+                          new XElement("ToInvoiceDate", dtInvoiceTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+
+        public string GetInvoiceQueryByCustomerCodeRequest(DateTime dtInvoiceFrom, DateTime dtInvoiceTo, string customerCode)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("InvoiceQueryRq",
+                          new XElement("CustomerCode", customerCode),
+                          new XElement("FromInvoiceDate", dtInvoiceFrom.ToShortDateString()),
+                          new XElement("ToInvoiceDate", dtInvoiceTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+
+        public string GetInvoiceQueryByCustomerCodeListOnlyRequest(DateTime dtInvoiceFrom, DateTime dtInvoiceTo, string customerCode)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("InvoiceQueryRq",
+                          new XElement("ListOnly", "True"),
+                          new XElement("CustomerCode", customerCode),
+                          new XElement("FromInvoiceDate", dtInvoiceFrom.ToShortDateString()),
+                          new XElement("ToInvoiceDate", dtInvoiceTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+
         public string GeOrderQueryRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -1362,6 +1407,16 @@ namespace WebcreteAPIExplorer
                 case "TicketUpdate":
                     textBoxRequest.Text = IndentXMLString(GetTicketUpdateRequest(100, true));
                     break;
+                case "InvoiceQueryByInvoiceDate":
+                    textBoxRequest.Text = IndentXMLString(GetInvoiceQueryByInvoiceDateRequest(DateTime.Now.AddDays(-7), DateTime.Now));
+                    break;
+                case "InvoiceQueryByCustomerCode":
+                    textBoxRequest.Text = IndentXMLString(GetInvoiceQueryByCustomerCodeRequest(DateTime.Now.AddDays(-30), DateTime.Now, "CAL1074"));
+                    break;
+                case "InvoiceQueryByCustomerCodeListOnly":
+                    textBoxRequest.Text = IndentXMLString(GetInvoiceQueryByCustomerCodeListOnlyRequest(DateTime.Now.AddDays(-30), DateTime.Now, "CAL1074"));
+                    break;
+
             }
         }
 
