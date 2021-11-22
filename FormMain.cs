@@ -849,6 +849,38 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        
+        public string GetInventoryTransactionQueryUsagesRequest(DateTime dtTransactionFrom, DateTime dtTransactionTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("InventoryTransactionQueryRq",
+                          new XElement("ListOnly", "True"),
+                          new XElement("TransactionType", "USAGE"),
+                          new XElement("FromTransactionDate", dtTransactionFrom.ToShortDateString()),
+                          new XElement("ToTransactionDate", dtTransactionTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+        
+        public string GetInventoryTransactionQueryRawMaterialReceiptsRequest(DateTime dtTransactionFrom, DateTime dtTransactionTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("InventoryTransactionQueryRq",
+                          new XElement("ListOnly", "True"),
+                          new XElement("TransactionType", "RAWMATERIALRECEIPT"),
+                          new XElement("FromTransactionDate", dtTransactionFrom.ToShortDateString()),
+                          new XElement("ToTransactionDate", dtTransactionTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
         public string GeOrderQueryRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -1140,8 +1172,7 @@ namespace WebcreteAPIExplorer
                             new XElement("TaxCodeUpdate",
                                 new XElement("Code", "1"),
                                 new XElement("Description", "NY State"),
-                                new XElement("ShortDescription", "NY State"),
-                                new XElement("TaxAuthorityCode", "S"),
+                                new XElement("ShortDescription", "NY State"),                                
                                 new XElement("TaxLocations",
                                         new XElement("TaxLocation",
                                                 new XElement("TaxLocationCode", "1"))))))));
@@ -1415,6 +1446,12 @@ namespace WebcreteAPIExplorer
                     break;
                 case "InvoiceQueryByCustomerCodeListOnly":
                     textBoxRequest.Text = IndentXMLString(GetInvoiceQueryByCustomerCodeListOnlyRequest(DateTime.Now.AddDays(-30), DateTime.Now, "CAL1074"));
+                    break;
+                case "InventoryTransactionQuery(Usages)":
+                    textBoxRequest.Text = IndentXMLString(GetInventoryTransactionQueryUsagesRequest(DateTime.Now.AddDays(-30), DateTime.Now));
+                    break;
+                case "InventoryTransactionQuery(RawMaterialReceipt)":
+                    textBoxRequest.Text = IndentXMLString(GetInventoryTransactionQueryRawMaterialReceiptsRequest(DateTime.Now.AddDays(-30), DateTime.Now));
                     break;
 
             }

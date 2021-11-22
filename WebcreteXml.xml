@@ -642,6 +642,194 @@
           <!-- optional -->
           <DeliveryMethod>STRTYPE</DeliveryMethod>
         </Distribution>
+		<!-- optional Action: PUT|PATCH, default PATCH -->
+		<Products Method="STRTYPE">
+			<!-- optional may repeat Action: UPSERT|DELETE-->
+			<MixProduct Action="STRTYPE">
+				<!-- optional BEGIN OR-->
+				<PlantID>INTTYPE</PlantID>
+				<!-- optional-->
+				<PlantCode>STRTYPE</PlantCode>
+				<!-- END OR -->
+				<!-- required BEGIN OR-->				
+				<!-- optional -->
+				<ItemID>INTTYPE</ItemID>
+				<!-- optional -->
+				<ItemCode>STRTYPE</ItemCode>
+				<!-- END OR -->
+				<!-- required -->
+				<ShortDescription>STRTYPE</ShortDescription>
+				<!-- required -->
+				<Description>STRTYPE</Description>
+				<!-- optional -->
+				<BatchCode>STRTYPE</BatchCode>
+				<!-- optional -->
+				<Slump>FLOATTYPE</Slump>
+				<!-- optional -->
+				<UsageCode>STRTYPE</UsageCode>
+				<!-- optional -->
+				<AllowAuto>BOOLTYPE</AllowAuto>
+				<!-- optional -->
+				<Pricing>
+				    <!-- optional -->
+				    <EstimatedQuantity>FLOATTYPE</EstimatedQuantity>
+				    <!-- optional BEGIN OR-->
+				    <!-- optional -->
+				    <EstimatedQuantityUnitID>INTTYPE</EstimatedQuantityUnitID>
+				    <!-- optional -->
+				    <EstimatedQuantityUnitCode>INTTYPE</EstimatedQuantityUnitCode>
+				    <!-- optional -->
+				    <EstimatedQuantityUnit>INTTYPE</EstimatedQuantityUnit>
+				    <!-- END OR -->
+				    <!-- optional -->
+				    <Price>FLOATTYPE</Price>
+				    <!-- optional BEGIN OR-->
+				    <!-- optional -->
+				    <PriceUnitID>INTTYPE</PriceUnitID>
+				    <!-- optional -->
+				    <PriceUnitCode>STRTYPE</PriceUnitCode>
+				    <!-- optional -->
+				    <PriceUnit>STRTYPE</PriceUnit>
+				    <!-- END OR -->
+				    <!-- optional -->
+				    <PriceExtensionCode>STRTYPE</PriceExtensionCode>
+				    <!-- optional -->
+				    <EffectiveDate>DATETIMETYPE</EffectiveDate>
+				    <!-- optional -->
+				    <PreviousPrice>FLOATTYPE</PreviousPrice>
+				    <!-- optional BEGIN OR-->
+				    <!-- optional -->
+				    <PreviousPriceUnitID>INTTYPE</PreviousPriceUnitID>
+				    <!-- optional -->
+				    <PreviousPriceUnitCode>INTTYPE</PreviousPriceUnitCode>
+				    <!-- optional -->
+				    <PreviousPriceUnit>STRTYPE</PreviousPriceUnit>
+				    <!-- END OR -->
+				    <!-- optional -->
+				    <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
+				    <!-- optional -->
+				    <CreateSeperatedInvoice>BOOLTYPE</CreateSeperatedInvoice>
+				</Pricing>
+				<!-- optional may repeat -->
+				<AssocProduct>
+					<!-- optional BEGIN OR-->
+					<PlantID>INTTYPE</PlantID>
+					<!-- optional-->
+					<PlantCode>STRTYPE</PlantCode>
+					<!-- END OR -->
+					<!-- required BEGIN OR-->
+					<!-- optional -->
+					<ItemID>INTTYPE</ItemID>
+					<!-- optional -->
+					<ItemCode>STRTYPE</ItemCode>
+					<!-- END OR -->
+					<!-- required -->
+					<ShortDescription>STRTYPE</ShortDescription>
+					<!-- required -->
+					<Description>STRTYPE</Description>
+					<!-- optional -->
+					<Pricing>
+					    <!-- optional -->
+					    <EstimatedQuantity>FLOATTYPE</EstimatedQuantity>
+					    <!-- optional BEGIN OR-->
+					    <!-- optional -->
+					    <EstimatedQuantityUnitID>INTTYPE</EstimatedQuantityUnitID>
+					    <!-- optional -->
+					    <EstimatedQuantityUnitCode>INTTYPE</EstimatedQuantityUnitCode>
+					    <!-- optional -->
+					    <EstimatedQuantityUnit>INTTYPE</EstimatedQuantityUnit>
+					    <!-- END OR -->
+					    <!-- optional -->
+					    <Price>FLOATTYPE</Price>
+					    <!-- optional BEGIN OR-->
+					    <!-- optional -->
+					    <PriceUnitID>INTTYPE</PriceUnitID>
+					    <!-- optional -->
+					    <PriceUnitCode>STRTYPE</PriceUnitCode>
+					    <!-- optional -->
+					    <PriceUnit>STRTYPE</PriceUnit>
+					    <!-- END OR -->
+					    <!-- optional -->
+					    <PriceExtensionCode>STRTYPE</PriceExtensionCode>
+					    <!-- optional -->
+					    <EffectiveDate>DATETIMETYPE</EffectiveDate>
+					    <!-- optional -->
+					    <PreviousPrice>FLOATTYPE</PreviousPrice>
+					    <!-- optional BEGIN OR-->
+					    <!-- optional -->
+					    <PreviousPriceUnitID>INTTYPE</PreviousPriceUnitID>
+					    <!-- optional -->
+					    <PreviousPriceUnitCode>INTTYPE</PreviousPriceUnitCode>
+					    <!-- optional -->
+					    <PreviousPriceUnit>STRTYPE</PreviousPriceUnit>
+					    <!-- END OR -->
+					    <!-- optional -->
+					    <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
+					    <!-- optional -->
+					    <CreateSeperatedInvoice>BOOLTYPE</CreateSeperatedInvoice>
+					</Pricing>
+				</AssocProduct>
+			</MixProduct>
+			<!-- optional may repeat -->
+			<ExtraProduct>
+				<!-- optional BEGIN OR-->
+				<PlantID>INTTYPE</PlantID>
+				<!-- optional-->
+				<PlantCode>STRTYPE</PlantCode>
+				<!-- END OR -->
+				<!-- required BEGIN OR-->
+				<!-- optional -->
+				<ItemID>INTTYPE</ItemID>
+				<!-- optional -->
+				<ItemCode>STRTYPE</ItemCode>
+				<!-- END OR -->
+				<!-- required -->
+				<ShortDescription>STRTYPE</ShortDescription>
+				<!-- required -->
+				<Description>STRTYPE</Description>
+				<!-- optional -->
+				<Pricing>
+				    <!-- optional -->
+				    <EstimatedQuantity>FLOATTYPE</EstimatedQuantity>
+				    <!-- optional BEGIN OR-->
+				    <!-- optional -->
+				    <EstimatedQuantityUnitID>INTTYPE</EstimatedQuantityUnitID>
+				    <!-- optional -->
+				    <EstimatedQuantityUnitCode>INTTYPE</EstimatedQuantityUnitCode>
+				    <!-- optional -->
+				    <EstimatedQuantityUnit>INTTYPE</EstimatedQuantityUnit>
+				    <!-- END OR -->
+				    <!-- optional -->
+				    <Price>FLOATTYPE</Price>
+				    <!-- optional BEGIN OR-->
+				    <!-- optional -->
+				    <PriceUnitID>INTTYPE</PriceUnitID>
+				    <!-- optional -->
+				    <PriceUnitCode>STRTYPE</PriceUnitCode>
+				    <!-- optional -->
+				    <PriceUnit>STRTYPE</PriceUnit>
+				    <!-- END OR -->
+				    <!-- optional -->
+				    <PriceExtensionCode>STRTYPE</PriceExtensionCode>
+				    <!-- optional -->
+				    <EffectiveDate>DATETIMETYPE</EffectiveDate>
+				    <!-- optional -->
+				    <PreviousPrice>FLOATTYPE</PreviousPrice>
+				    <!-- optional BEGIN OR-->
+				    <!-- optional -->
+				    <PreviousPriceUnitID>INTTYPE</PreviousPriceUnitID>
+				    <!-- optional -->
+				    <PreviousPriceUnitCode>INTTYPE</PreviousPriceUnitCode>
+				    <!-- optional -->
+				    <PreviousPriceUnit>STRTYPE</PreviousPriceUnit>
+				    <!-- END OR -->
+				    <!-- optional -->
+				    <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
+				    <!-- optional -->
+				    <CreateSeperatedInvoice>BOOLTYPE</CreateSeperatedInvoice>
+				</Pricing>
+			</ExtraProduct>
+		</Products>
       </ProjectUpdate>
       <!--optional, may repeat -->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
@@ -861,6 +1049,42 @@
 		</TicketUpdate>
 	</TicketUpdateRq>    
 	<!--    'requestID' is optional -->
+	<!--    'metaData' is optional and may have one of the following values: NoMetaData[DEFAULT], MetaDataOnly, MetaDataAndResponseData -->
+	<!--    'iterator' is optional and may have one of the following values: Start, Continue, Stop -->
+	<!--    'iteratorID' is optional -->
+	<InvoiceQueryRq  requestID="UUIDTYPE" metaData="ENUMTYPE" iterator="ENUMTYPE" iteratorID="UUIDTYPE">
+		<!-- BEGIN OR-->
+		<!-- optional, may repeat-->
+		<ID>INTTYPE</ID>
+		<!-- OR -->
+		<!-- optional, may repeat-->
+		<InvoiceNumber>STRTYPE</InvoiceNumber>		
+		<!-- OR -->
+		<!-- optional, may repeat-->
+		<CustomerID>STRTYPE</CustomerID>
+		<!-- OR -->
+		<!-- optional, may repeat-->
+		<CustomerCode>STRTYPE</CustomerCode>
+		<!-- OR -->
+		<!-- optional, may repeat-->
+		<CustomerName>STRTYPE</CustomerName>
+		<!-- OR -->
+		<!-- optional, may repeat-->
+		<DivisionID>STRTYPE</DivisionID>
+		<!-- OR -->
+		<!-- optional, may repeat-->
+		<DivisionCode>STRTYPE</DivisionCode>
+		<!-- END OR -->		
+		<!-- optional -->
+		<FromInvoiceDate>DATETIMETYPE</FromInvoiceDate>
+		<!-- optional -->
+		<ToInvoiceDate>DATETIMETYPE</ToInvoiceDate>			
+		<!-- optional -->
+		<ListOnly>BOOLTYPE</ListOnly>
+		<!-- optional -->
+		<IncludeRemovedInvoice>BOOLTYPE</IncludeRemovedInvoice>
+	</InvoiceQueryRq>
+	<!--    'requestID' is optional -->
     <!--    'metaData' is optional and may have one of the following values: NoMetaData[DEFAULT], MetaDataOnly, MetaDataAndResponseData -->
     <!--    'iterator' is optional and may have one of the following values: Start, Continue, Stop -->
     <!--    'iteratorID' is optional -->
@@ -918,7 +1142,7 @@
         <Description>STRTYPE</Description>
         <!-- optional -->
         <ShortDescription>STRTYPE</ShortDescription>
-        <!-- optional -->
+        <!-- optional required for new item -->
         <CategoryCode>STRTYPE</CategoryCode>
         <!-- optional -->
         <KeepInInventory>BOOLTYPE</KeepInInventory>
@@ -1192,26 +1416,26 @@
       </TruckGpsUpdate>
     </TruckGpsUpdateRq>
     <!--    'requestID' is optional -->    
-    <TruckMessgeQueryRq  requestID = "UUIDTYPE">         
+    <TruckMessageQueryRq  requestID = "UUIDTYPE">         
       <!-- required -->
       <LastTruckMessageID>INTTYPE</LastTruckMessageID>
-    </TruckMessgeQueryRq>
+    </TruckMessageQueryRq>
     <!--    'requestID' is optional -->    
-    <TicketMessgeQueryRq  requestID = "UUIDTYPE">    
+    <TicketMessageQueryRq  requestID = "UUIDTYPE">    
       <!-- optional -->
       <SignalingUnitCode>STRTYPE</SignalingUnitCode>
       <!-- required, 1/2/3 -->
       <MessageQueueID>INTTYPE</MessageQueueID>
       <!-- required -->
       <LastTicketMessageID>INTTYPE</LastTicketMessageID>
-    </TicketMessgeQueryRq>
+    </TicketMessageQueryRq>
     <!--    'requestID' is optional -->    
-    <TicketBatchResultMessgeQueryRq  requestID = "UUIDTYPE">         
+    <TicketBatchResultMessageQueryRq  requestID = "UUIDTYPE">         
       <!-- required, 1/2/3 -->
       <MessageQueueID>INTTYPE</MessageQueueID>
       <!-- required -->
       <LastTicketBatchResultMessageID>INTTYPE</LastTicketBatchResultMessageID>
-    </TicketBatchResultMessgeQueryRq>
+    </TicketBatchResultMessageQueryRq>
     <!--  UOMQueryRq contains 1 optional attribute: 'requestID' -->
     <UOMQueryRq  requestID="UUIDTYPE">
       <!-- BEGIN OR -->
@@ -1340,7 +1564,7 @@
       <!-- optional -->
       <ListOnly>BOOLTYPE</ListOnly>
       <!-- optional -->
-      <Active>BOOLTYPE</Active>
+      <IncludeInactive>BOOLTYPE</IncludeInactive>
       <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
       <FromStatusTimeStamp>DATETIMETYPE</FromStatusTimeStamp>
       <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
@@ -1465,6 +1689,8 @@
       <!--  opt, may rep -->
       <!-- optional -->
       <ListOnly>BOOLTYPE</ListOnly>
+	  <!-- optional -->
+	  <IncludeInactive>BOOLTYPE</IncludeInactive>
     </EmployeeQueryRq>
     <!--    'requestID' is optional -->
     <EmployeeUpdateRq  requestID="UUIDTYPE">
@@ -1480,6 +1706,8 @@
         <Action>STRTYPE</Action>
         <!-- optional -->
         <Name>STRTYPE</Name>
+		<!-- optional -->
+		<Active>BOOLTYPE</Active>
         <!-- EmployeeType DRIVER|SALESMAN|WEIGHMASTER|CREDITPERSON|BATCHER|!DRIVER|!SALESMAN|!WEIGHMASTER|!CREDITPERSON|!BATCHER may repeat-->
         <EmployeeType>STRTYPE</EmployeeType>
         <!-- optional -->
@@ -1689,6 +1917,31 @@
         </TaxLocation>
       </TaxLocations>
     </TaxCodeUpdateRq>
+	<!--  InventoryQueryRq contains 1 optional attribute: 'requestID' -->
+	<InventoryTransactionQueryRq  requestID="UUIDTYPE">
+		<!-- BEGIN OR-->
+		<!-- optional, may repeat-->
+		<ID>INTTYPE</ID>
+		<!-- OR -->
+		<!-- optional, may repeat-->
+		<DocumentNumber>STRTYPE</DocumentNumber>
+		<!-- END OR -->
+		<!-- BEGIN OR-->
+		<!-- optional, may repeat-->
+		<LocationID>STRTYPE</LocationID>
+		<!-- OR -->
+		<!-- optional, may repeat-->
+		<LocationCode>STRTYPE</LocationCode>
+		<!-- END OR -->
+		<!-- optional -->
+		<FromTransactionDate>DATETIMETYPE</FromTransactionDate>
+		<!-- optional -->
+		<ToTransactionDate>DATETIMETYPE</ToTransactionDate>
+		<!-- optional, may repeat, can be RAWMATERIALRECEIPT|PURCHASEORDERRECEIPT|USAGE|TRANSFER|ITEMCONVERSION|QUANTITYADJUSTMENT|-->
+		<TransactionType>STRTYPE</TransactionType>
+		<!-- optional, may repeat, can be QUANTITYPOSTED|RELEASED|ONHOLD|POSTED|ABORTEDORREJECTED-->
+		<PostStatus>STRTYPE</PostStatus>		
+	</InventoryTransactionQueryRq>
   </WebcreteXMLMsgsRq>
   <!-- WebcreteXMLMsgsRs contains 2 attributes -->
   <!--    'newMessageSetID' is optional -->
@@ -2504,7 +2757,9 @@
 		<Products>
 			<!-- optional may repeat -->
 			<MixProduct>
-				<!-- required # for all plants-->
+				<!-- required-->
+				<PlantID>STRTYPE</PlantID>
+				<!-- required-->
 				<PlantCode>STRTYPE</PlantCode>
 				<!-- required -->
 				<ItemID>INTTYPE</ItemID>
@@ -2523,33 +2778,46 @@
 				<!-- optional -->
 				<AllowAuto>BOOLTYPE</AllowAuto>
 				<!-- optional -->
-				<EstimatedQuantity>FLOATTYPE</EstimatedQuantity>
-				<!-- optional -->
-				<EstimatedQuantityUnitID>INTTYPE</EstimatedQuantityUnitID>
-				<!-- optional -->
-				<EstimatedQuantityUnit>INTTYPE</EstimatedQuantityUnit>
-				<!-- optional -->
-				<Price>FLOATTYPE</Price>
-				<!-- optional -->
-				<PriceUnitID>INTTYPE</PriceUnitID>
-				<!-- optional -->
-				<PriceUnit>STRTYPE</PriceUnit>
-				<!-- optional -->
-				<PriceExtensionCode>STRTYPE</PriceExtensionCode>
-				<!-- optional -->
-				<EffectiveDate>DATETIMETYPE</EffectiveDate>
-				<!-- optional -->
-				<PreviousPrice>FLOATTYPE</PreviousPrice>
-				<!-- optional -->
-				<PreviousPriceUnitID>INTTYPE</PreviousPriceUnitID>
-				<!-- optional -->
-				<PreviousPriceUnit>STRTYPE</PreviousPriceUnit>
-				<!-- optional -->
-				<PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
-				<!-- optional -->
-				<CreateSeperatedInvoice>BOOLTYPE</CreateSeperatedInvoice>				
+				<Pricing>
+				    <!-- optional -->
+				    <EstimatedQuantity>FLOATTYPE</EstimatedQuantity>
+				    <!-- optional -->
+				    <EstimatedQuantityUnitID>INTTYPE</EstimatedQuantityUnitID>
+				    <!-- optional -->
+				    <EstimatedQuantityUnitCode>INTTYPE</EstimatedQuantityUnitCode>
+				    <!-- optional -->
+				    <EstimatedQuantityUnit>INTTYPE</EstimatedQuantityUnit>
+				    <!-- optional -->
+				    <Price>FLOATTYPE</Price>
+				    <!-- optional -->
+				    <PriceUnitID>INTTYPE</PriceUnitID>
+				    <!-- optional -->
+				    <PriceUnitCode>STRTYPE</PriceUnitCode>
+				    <!-- optional -->
+				    <PriceUnit>STRTYPE</PriceUnit>
+				    <!-- optional -->
+				    <PriceExtensionCode>STRTYPE</PriceExtensionCode>
+				    <!-- optional -->
+				    <EffectiveDate>DATETIMETYPE</EffectiveDate>
+				    <!-- optional -->
+				    <PreviousPrice>FLOATTYPE</PreviousPrice>
+				    <!-- optional -->
+				    <PreviousPriceUnitID>INTTYPE</PreviousPriceUnitID>
+				    <!-- optional -->
+				    <PreviousPriceUnitCode>INTTYPE</PreviousPriceUnitCode>
+				    <!-- optional -->
+				    <PreviousPriceUnit>STRTYPE</PreviousPriceUnit>
+				    <!-- optional -->
+				    <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
+				    <!-- optional -->
+				    <CreateSeperatedInvoice>BOOLTYPE</CreateSeperatedInvoice>	
+				</Pricing>
 				<!-- optional may repeat -->
 				<AssocProduct>
+					<!-- required-->
+					<PlantID>STRTYPE</PlantID>
+					<!-- required-->
+					<PlantCode>STRTYPE</PlantCode>
 					<!-- required -->
 					<ItemID>INTTYPE</ItemID>
 					<!-- required -->
@@ -2559,35 +2827,48 @@
 					<!-- required -->
 					<Description>STRTYPE</Description>
 					<!-- optional -->
-					<EstimatedQuantity>FLOATTYPE</EstimatedQuantity>
-					<!-- optional -->
-					<EstimatedQuantityUnitID>INTTYPE</EstimatedQuantityUnitID>
-					<!-- optional -->
-					<EstimatedQuantityUnit>INTTYPE</EstimatedQuantityUnit>
-					<!-- optional -->
-					<Price>FLOATTYPE</Price>
-					<!-- optional -->
-					<PriceUnitID>INTTYPE</PriceUnitID>
-					<!-- optional -->
-					<PriceUnit>STRTYPE</PriceUnit>
-					<!-- optional -->
-					<PriceExtensionCode>STRTYPE</PriceExtensionCode>
-					<!-- optional -->
-					<EffectiveDate>DATETIMETYPE</EffectiveDate>
-					<!-- optional -->
-					<PreviousPrice>FLOATTYPE</PreviousPrice>
-					<!-- optional -->
-					<PreviousPriceUnitID>INTTYPE</PreviousPriceUnitID>
-					<!-- optional -->
-					<PreviousPriceUnit>STRTYPE</PreviousPriceUnit>
-					<!-- optional -->
-					<PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
-					<!-- optional -->
-					<CreateSeperatedInvoice>BOOLTYPE</CreateSeperatedInvoice>
+					<Pricing>
+					    <!-- optional -->
+					    <EstimatedQuantity>FLOATTYPE</EstimatedQuantity>
+					    <!-- optional -->
+					    <EstimatedQuantityUnitID>INTTYPE</EstimatedQuantityUnitID>
+					    <!-- optional -->
+					    <EstimatedQuantityUnitCode>INTTYPE</EstimatedQuantityUnitCode>
+					    <!-- optional -->
+					    <EstimatedQuantityUnit>INTTYPE</EstimatedQuantityUnit>
+					    <!-- optional -->
+					    <Price>FLOATTYPE</Price>
+					    <!-- optional -->
+					    <PriceUnitID>INTTYPE</PriceUnitID>
+					    <!-- optional -->
+					    <PriceUnitCode>STRTYPE</PriceUnitCode>
+					    <!-- optional -->
+					    <PriceUnit>STRTYPE</PriceUnit>
+					    <!-- optional -->
+					    <PriceExtensionCode>STRTYPE</PriceExtensionCode>
+					    <!-- optional -->
+					    <EffectiveDate>DATETIMETYPE</EffectiveDate>
+					    <!-- optional -->
+					    <PreviousPrice>FLOATTYPE</PreviousPrice>
+					    <!-- optional -->
+					    <PreviousPriceUnitID>INTTYPE</PreviousPriceUnitID>
+					    <!-- optional -->
+					    <PreviousPriceUnitCode>INTTYPE</PreviousPriceUnitCode>
+					    <!-- optional -->
+					    <PreviousPriceUnit>STRTYPE</PreviousPriceUnit>
+					    <!-- optional -->
+					    <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
+					    <!-- optional -->
+					    <CreateSeperatedInvoice>BOOLTYPE</CreateSeperatedInvoice>
+					</Pricing>
 				</AssocProduct>
 			</MixProduct>
 			<!-- optional may repeat -->
 			<ExtraProduct>
+				<!-- required-->
+				<PlantID>STRTYPE</PlantID>
+				<!-- required-->
+				<PlantCode>STRTYPE</PlantCode>
 				<!-- required -->
 				<ItemID>INTTYPE</ItemID>
 				<!-- required -->
@@ -2596,32 +2877,41 @@
 				<ShortDescription>STRTYPE</ShortDescription>
 				<!-- required -->
 				<Description>STRTYPE</Description>
-				<!-- optional -->
-				<EstimatedQuantity>FLOATTYPE</EstimatedQuantity>
-				<!-- optional -->
-				<EstimatedQuantityUnitID>INTTYPE</EstimatedQuantityUnitID>
-				<!-- optional -->
-				<EstimatedQuantityUnit>INTTYPE</EstimatedQuantityUnit>
-				<!-- optional -->
-				<Price>FLOATTYPE</Price>
-				<!-- optional -->
-				<PriceUnitID>INTTYPE</PriceUnitID>
-				<!-- optional -->
-				<PriceUnit>STRTYPE</PriceUnit>
-				<!-- optional -->
-				<PriceExtensionCode>STRTYPE</PriceExtensionCode>
-				<!-- optional -->
-				<EffectiveDate>DATETIMETYPE</EffectiveDate>
-				<!-- optional -->
-				<PreviousPrice>FLOATTYPE</PreviousPrice>
-				<!-- optional -->
-				<PreviousPriceUnitID>INTTYPE</PreviousPriceUnitID>
-				<!-- optional -->
-				<PreviousPriceUnit>STRTYPE</PreviousPriceUnit>
-				<!-- optional -->
-				<PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
-				<!-- optional -->
-				<CreateSeperatedInvoice>BOOLTYPE</CreateSeperatedInvoice>
+				<!-- optional -->			    
+				<Pricing>
+				    <!-- optional -->
+				    <EstimatedQuantity>FLOATTYPE</EstimatedQuantity>
+				    <!-- optional -->
+				    <EstimatedQuantityUnitID>INTTYPE</EstimatedQuantityUnitID>
+				    <!-- optional -->
+				    <EstimatedQuantityUnitCode>INTTYPE</EstimatedQuantityUnitCode>
+				    <!-- optional -->
+				    <EstimatedQuantityUnit>INTTYPE</EstimatedQuantityUnit>
+				    <!-- optional -->
+				    <Price>FLOATTYPE</Price>
+				    <!-- optional -->
+				    <PriceUnitID>INTTYPE</PriceUnitID>
+				    <!-- optional -->
+				    <PriceUnitCode>STRTYPE</PriceUnitCode>
+				    <!-- optional -->
+				    <PriceUnit>STRTYPE</PriceUnit>
+				    <!-- optional -->
+				    <PriceExtensionCode>STRTYPE</PriceExtensionCode>
+				    <!-- optional -->
+				    <EffectiveDate>DATETIMETYPE</EffectiveDate>
+				    <!-- optional -->
+				    <PreviousPrice>FLOATTYPE</PreviousPrice>
+				    <!-- optional -->
+				    <PreviousPriceUnitID>INTTYPE</PreviousPriceUnitID>
+				    <!-- optional -->
+				    <PreviousPriceUnitCode>INTTYPE</PreviousPriceUnitCode>
+				    <!-- optional -->
+				    <PreviousPriceUnit>STRTYPE</PreviousPriceUnit>
+				    <!-- optional -->
+				    <PreviousPriceExtensionCode>STRTYPE</PreviousPriceExtensionCode>
+				    <!-- optional -->
+				    <CreateSeperatedInvoice>BOOLTYPE</CreateSeperatedInvoice>
+				</Pricing>
 			</ExtraProduct>
 		</Products>
 		<!-- optional -->
@@ -3753,6 +4043,8 @@
         <PlantCode>STRTYPE</PlantCode>
         <!-- optional -->
         <PlantName>STRTYPE</PlantName>
+		<!-- optional -->
+		<PricingPlantCode>STRTYPE</PricingPlantCode>  
         <!-- required -->
         <TicketCode>STRTYPE</TicketCode>
         <!-- required -->
@@ -3763,7 +4055,7 @@
         <OrderCode>STRTYPE</OrderCode>
         <!-- required -->
         <MixCode>STRTYPE</MixCode>
-        <!-- required -->
+		<!-- required 0:normal 1:will call 2:Weather Permitting 3:Hold Delivery 4:Completed 5:Wait List-->
         <CurrentStatus>INTTYPE</CurrentStatus>
         <!-- required -->
         <PaymentForm>ENUMTYPE</PaymentForm>
@@ -3777,6 +4069,8 @@
         <CustomerCode>STRTYPE</CustomerCode>
         <!-- required -->
         <CustomerName>STRTYPE</CustomerName>
+		<!-- required -->
+		<CustomerDivisionCode>STRTYPE</CustomerDivisionCode>
         <!-- optional -->
         <CustomerJob>STRTYPE</CustomerJob>
         <!-- optional -->
@@ -3817,6 +4111,10 @@
         <RemoveReasonCode>STRTYPE</RemoveReasonCode>
         <!-- optional -->
         <TaxCode>STRTYPE</TaxCode>
+		<!-- optional -->
+        <TaxCodeDescription>STRTYPE</TaxCodeDescription>
+		<!-- optional -->
+        <TaxCodeShortDescription>STRTYPE</TaxCodeShortDescription>
         <!-- optional -->
         <Taxable>BOOLTYPE</Taxable>
         <!-- optional -->
@@ -3889,7 +4187,11 @@
 		<SalesmanCode>AMTTYPE</SalesmanCode>
 		<!-- optional -->
 		<SalesmanName>AMTTYPE</SalesmanName>
-        <!-- optional -->
+		<!-- optional -->
+		<SalesAnalysisCode>STRTYPE</SalesAnalysisCode> 
+		<!-- optional -->
+        <SchedulingTruckTypeCode>STRTYPE</SchedulingTruckTypeCode>
+		<!-- optional -->
         <UpdateTime>DATETIMETYPE</UpdateTime>
         <!-- optional -->		
         <Reviewed>BOOLTYPE</Reviewed>
@@ -3897,6 +4199,8 @@
         <Products>
           <!-- optional may repeat-->
           <Product>
+			<!-- required -->
+			<ProductID>STRTYPE</ProductID>  
             <!-- required -->
             <ItemID>STRTYPE</ItemID>
             <!-- required -->
@@ -4022,7 +4326,172 @@
 			<ID>INTTYPE</ID>
 		</TicketRet>
 	</TicketUpdateRs>
-	  <!--     'requestID' is optional   -->
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <!--     'retCount' is optional -->
+    <!--     'iteratorRemainingCount' is optional -->
+    <!--     'iteratorID' is optional -->
+    <InvoiceQueryRs  requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE"  retCount = "INTTYPE" iteratorRemainingCount = "INTTYPE" iteratorID = "UUIDTYPE">
+	    <!-- optional, may repeat-->
+	    <InvoiceRet>
+		    <!-- required -->
+		    <ID>INTTYPE</ID>
+		    <!-- required -->
+		    <InvoiceNumber>STRTYPE</InvoiceNumber>
+		    <!-- required -->
+		    <InvoiceDate>STRTYPE</InvoiceDate>
+			<!-- required -->
+			<OrderDate>STRTYPE</OrderDate>
+		    <!-- required -->
+		    <CustomerID>INTTYPE</CustomerID>
+		    <!-- required -->
+		    <CustomerCode>STRTYPE</CustomerCode>
+		    <!-- required -->
+		    <CustomerName>STRTYPE</CustomerName>
+			<!-- required -->
+			<DivisionID>INTTYPE</DivisionID>
+			<!-- required -->
+			<DivisionCode>STRTYPE</DivisionCode>
+			<!-- required -->
+			<ProjectID>INTTYPE</ProjectID>
+			<!-- required -->
+			<ProjectCode>STRTYPE</ProjectCode>
+			<!-- required -->
+			<ProjectName>STRTYPE</ProjectName>
+			<!-- required -->
+			<JobNumber>STRTYPE</JobNumber>
+			<!-- required -->
+			<PurchaseOrder>STRTYPE</PurchaseOrder>
+		    <!-- optional -->
+		    <DeliveryAddress>
+			    <!-- optional -->
+			    <Addr1>STRTYPE</Addr1>
+			    <!-- optional -->
+			    <Addr2>STRTYPE</Addr2>
+			    <!-- optional -->
+			    <Addr3>STRTYPE</Addr3>
+		    </DeliveryAddress>			
+		    <!-- optional -->
+		    <InvoiceAddress>			    
+			    <!-- optional -->
+			    <Addr1>STRTYPE</Addr1>
+			    <!-- optional -->
+			    <Addr2>STRTYPE</Addr2>
+			    <!-- optional -->
+			    <City>STRTYPE</City>
+			    <!-- optional -->
+			    <State>STRTYPE</State>
+			    <!-- optional -->
+			    <PostalCode>STRTYPE</PostalCode>
+			    <!-- optional -->
+			    <Country>STRTYPE</Country>
+		    </InvoiceAddress>
+			<!-- optional -->
+			<PaymentTerm>
+				<!-- optional -->
+				<ID>STRTYPE</ID>
+				<!-- optional -->
+				<Code>STRTYPE</Code>
+				<!-- optional -->
+				<Name>STRTYPE</Name>
+				<!-- optional -->
+				<DiscountType>STRTYPE</DiscountType>
+				<!-- optional -->
+				<Description>STRTYPE</Description>
+				<!-- optional -->
+				<NetDueDays>STRTYPE</NetDueDays>
+				<!-- optional -->
+				<Discount>STRTYPE</Discount>
+				<!-- optional -->
+				<DiscountPayDays>STRTYPE</DiscountPayDays>
+			</PaymentTerm>			
+		    <!-- optional -->
+			<TicketCodes>STRTYPE</TicketCodes>
+		    <!-- optional -->
+		    <MessageText>STRTYPE</MessageText>
+		    <!-- optional -->
+		    <AccountingCategoryCode>STRTYPE</AccountingCategoryCode>
+		    <!-- optional -->
+		    <PricingPlantCode>STRTYPE</PricingPlantCode>
+		    <!-- optional -->
+		    <CustomerJob>STRTYPE</CustomerJob>		    
+			<!-- optional -->
+		    <IsRemoved>STRTYPE</IsRemoved>
+		    <!-- optional -->
+		    <RemoveReason>STRTYPE</RemoveReason>			
+		    <!-- optional -->
+		    <TaxCode>STRTYPE</TaxCode>
+			<!-- optional -->
+			<TaxCodeDescription>STRTYPE</TaxCodeDescription>
+			<!-- optional -->
+			<TaxCodeShortDescription>STRTYPE</TaxCodeShortDescription>
+			<!-- required -->
+			<Taxable>BOOLTYPE</Taxable>			
+			<!-- optional -->
+			<PaymentForm>STRTYPE</PaymentForm>
+			<!-- optional -->
+			<Amount>AMTTYPE</Amount>
+			<!-- optional -->
+			<TaxAmount>AMTTYPE</TaxAmount>
+			<!-- optional -->
+			<TotalAmount>AMTTYPE</TotalAmount>
+			<!-- optional -->
+			<Products>
+				<!-- optional may repeat-->
+				<Product>
+					<!-- optional -->
+					<ProductID>INTTYPE</ProductID>					
+					<!-- optional -->
+					<OrderID>INTTYPE</OrderID>
+					<!-- optional -->
+					<OrderCode>STRTYPE</OrderCode>
+					<!-- optional -->
+					<TicketID>INTTYPE</TicketID>
+					<!-- optional -->
+					<TicketCode>STRTYPE</TicketCode>
+					<!-- optional -->
+					<TicketTime>STRTYPE</TicketTime>
+					<!-- optional -->
+					<TicketProductID>INTTYPE</TicketProductID>
+					<!-- optional -->
+					<ItemID>INTTYPE</ItemID>
+					<!-- optional -->
+					<ItemCode>STRTYPE</ItemCode>
+					<!-- optional -->
+					<ItemDescription>STRTYPE</ItemDescription>
+					<!-- optional -->
+					<AccountLinkCode>STRTYPE</AccountLinkCode>
+					<!-- optional -->
+					<IsMix>BOOLTYPE</IsMix>
+					<!-- optional -->
+					<PriceQty>STRTYPE</PriceQty>
+					<!-- optional -->
+					<Price>STRTYPE</Price>
+					<!-- optional -->
+					<PriceQtyUnit>STRTYPE</PriceQtyUnit>
+					<!-- optional -->
+					<OrderQtyUnit>STRTYPE</OrderQtyUnit>
+					<!-- required -->
+					<Taxable>BOOLTYPE</Taxable>
+					<!-- optional -->
+					<Amount>AMTTYPE</Amount>
+					<!-- optional -->
+					<TaxAmount>AMTTYPE</TaxAmount>
+					<!-- optional -->
+					<TotalAmount>AMTTYPE</TotalAmount>
+					<!-- optional -->
+					<TicketAmount>AMTTYPE</TicketAmount>
+					<!-- optional -->
+					<TicketTaxAmount>AMTTYPE</TicketTaxAmount>
+					<!-- optional -->
+					<TicketTotalAmount>AMTTYPE</TicketTotalAmount>
+				</Product>
+			</Products>		  		    
+	    </InvoiceRet>
+    </InvoiceQueryRs>
+	<!--     'requestID' is optional   -->
     <!--     'statusCode' is required -->
     <!--     'statusSeverity' is required -->
     <!--     'statusMessage' is optional -->
@@ -4506,7 +4975,7 @@
         <OrderCode>INTTYPE</OrderCode>
         <!-- required -->
         <OrderId>INTTYPE</OrderId>
-        <!-- required -->
+		<!-- required 0:normal 1:will call 2:Weather Permitting 3:Hold Delivery 4:Completed 5:Wait List-->
         <CurrentStatus>INTTYPE</CurrentStatus>
         <TicketId>INTTYPE</TicketId>
         <TicketCode>STRTYPE</TicketCode>
@@ -4982,7 +5451,9 @@
         <!-- required -->
         <Code>STRTYPE</Code>
         <!-- optional -->
-        <Name>STRTYPE</Name>        
+        <Name>STRTYPE</Name>
+		<!-- optional -->
+		<Active>BOOLTYPE</Active>
         <!-- EmployeeType DRIVER|SALESMAN|WEIGHMASTER|CREDITPERSON may repeat-->
         <EmployeeType>STRTYPE</EmployeeType>
         <!-- optional -->
@@ -5256,6 +5727,116 @@
         <Action>STRTYPE</Action>
       </TaxCodeRet>
     </TaxCodeUpdateRs>
+	<!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <InventoryTransactionQueryRs  requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+		<!-- optional -->
+		<MaterialReceipts>
+			<!-- optional -->
+			<MaterialReceipt>
+				<!-- required -->
+				<TransactionID>INTTYPE</TransactionID>
+				<!-- required -->
+				<TransactionHeaderID>INTTYPE</TransactionHeaderID>
+				<!-- required -->
+				<TransactionDate>DATETIMETYPE</TransactionDate>
+				<!-- required -->
+				<SeqNumber>INTTYPE</SeqNumber>
+				<!-- required -->
+				<DocumentNumber>INTTYPE</DocumentNumber>
+				<!-- required -->
+				<LocationID>INTTYPE</LocationID>
+				<!-- required -->
+				<LocationCode>STRTYPE</LocationCode>
+				<!-- required -->
+				<LocationName>STRTYPE</LocationName>
+				<!-- required -->
+				<ItemID>INTTYPE</ItemID>
+				<!-- required -->
+				<ItemCode>STRTYPE</ItemCode>
+				<!-- required -->
+				<ItemDescription>STRTYPE</ItemDescription>				
+				<!-- optional -->
+				<TicketCode>STRTYPE</TicketCode>
+				<!-- required -->
+				<Quantity>FLOATTYPE</Quantity>
+				<!-- required -->
+				<UnitID>INTTYPE</UnitID>
+				<!-- required -->
+				<UnitName>STRTYPE</UnitName>
+				<!-- optional -->
+				<MaterialVendorID>INTTYPE</MaterialVendorID>
+				<!-- optional -->
+				<MaterialVendorName>STRTYPE</MaterialVendorName>
+				<!-- optional -->
+				<HaulVendorID>INTTYPE</HaulVendorID>
+				<!-- optional -->
+				<HaulVendorName>STRTYPE</HaulVendorName>
+				<!-- optional -->
+				<HaulerID>INTTYPE</HaulerID>
+				<!-- optional -->
+				<HaulerCode>STRTYPE</HaulerCode>
+				<!-- optional -->
+				<FreightMethodID>INTTYPE</FreightMethodID>
+				<!-- optional -->
+				<FreightMethodCode>STRTYPE</FreightMethodCode>
+				<!-- optional -->
+				<FreightMethodDescription>STRTYPE</FreightMethodDescription>
+				<!-- optional -->
+				<FreightMethodShortDescription>STRTYPE</FreightMethodShortDescription>
+				<!-- required -->
+				<CreateTime>DATETIMETYPE</CreateTime>
+				<!-- required QUANTITYPOSTED|RELEASED|ONHOLD|POSTED|ABORTEDORREJECTED-->
+				<PostStatus>STRTYPE</PostStatus>
+			</MaterialReceipt>
+		</MaterialReceipts>
+		<!-- optional -->
+		<Usages>
+			<!-- optional -->
+			<Usage>
+				<!-- required -->
+				<TransactionID>INTTYPE</TransactionID>
+				<!-- required -->
+				<TransactionHeaderID>INTTYPE</TransactionHeaderID>				
+				<!-- required -->
+				<TransactionDate>DATETIMETYPE</TransactionDate>
+				<!-- required -->
+				<SeqNumber>INTTYPE</SeqNumber>
+				<!-- required -->
+				<DocumentNumber>INTTYPE</DocumentNumber>
+				<!-- required -->
+				<LocationID>INTTYPE</LocationID>
+				<!-- required -->
+				<LocationCode>STRTYPE</LocationCode>
+				<!-- required -->
+				<LocationName>STRTYPE</LocationName>
+				<!-- required -->
+				<ItemID>INTTYPE</ItemID>
+				<!-- required -->
+				<ItemCode>STRTYPE</ItemCode>
+				<!-- required -->				
+				<ItemDescription>STRTYPE</ItemDescription>
+				<!-- optional -->
+				<TicketID>INTTYPE</TicketID>
+				<!-- optional -->
+				<TicketCode>STRTYPE</TicketCode>
+				<!-- required -->
+				<Quantity>FLOATTYPE</Quantity>
+				<!-- required -->
+				<UnitID>INTTYPE</UnitID>
+				<!-- required -->
+				<UnitName>STRTYPE</UnitName>
+				<!-- required Sales|Constituent-->
+				<UsageType>STRTYPE</UsageType>
+				<!-- required -->
+				<CreateTime>DATETIMETYPE</CreateTime>
+				<!-- required QUANTITYPOSTED|RELEASED|ONHOLD|POSTED|ABORTEDORREJECTED-->
+				<PostStatus>STRTYPE</PostStatus>
+			</Usage>
+		</Usages>
+	</InventoryTransactionQueryRs>
   </WebcreteXMLMsgsRs>
 </WebcreteXML>
 
