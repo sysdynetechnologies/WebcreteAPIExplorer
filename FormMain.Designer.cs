@@ -198,6 +198,7 @@ namespace WebcreteAPIExplorer
             "DivisionQuery",
             "EmployeeQuery",
             "EmployeeUpdate",
+            "InventoryTransactionQuery(QuantityAdjustments)",
             "InventoryTransactionQuery(RawMaterialReceipt)",
             "InventoryTransactionQuery(Usages)",
             "InvoiceQueryByCustomerCode",

@@ -857,15 +857,29 @@ namespace WebcreteAPIExplorer
               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
               new XElement("WebcreteXML",
                   new XElement("WebcreteXMLMsgsRq",
-                      new XElement("InventoryTransactionQueryRq",
-                          new XElement("ListOnly", "True"),
+                      new XElement("InventoryTransactionQueryRq",                          
                           new XElement("TransactionType", "USAGE"),
                           new XElement("FromTransactionDate", dtTransactionFrom.ToShortDateString()),
                           new XElement("ToTransactionDate", dtTransactionTo.ToShortDateString())))));
 
             return x.ToString();
         }
-        
+
+        public string GetInventoryTransactionQueryQuantityAdjustmentsRequest(DateTime dtTransactionFrom, DateTime dtTransactionTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("InventoryTransactionQueryRq",                          
+                          new XElement("TransactionType", "QUANTITYADJUSTMENT"),
+                          new XElement("FromTransactionDate", dtTransactionFrom.ToShortDateString()),
+                          new XElement("ToTransactionDate", dtTransactionTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+
         public string GetInventoryTransactionQueryRawMaterialReceiptsRequest(DateTime dtTransactionFrom, DateTime dtTransactionTo)
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -873,8 +887,7 @@ namespace WebcreteAPIExplorer
               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
               new XElement("WebcreteXML",
                   new XElement("WebcreteXMLMsgsRq",
-                      new XElement("InventoryTransactionQueryRq",
-                          new XElement("ListOnly", "True"),
+                      new XElement("InventoryTransactionQueryRq",                          
                           new XElement("TransactionType", "RAWMATERIALRECEIPT"),
                           new XElement("FromTransactionDate", dtTransactionFrom.ToShortDateString()),
                           new XElement("ToTransactionDate", dtTransactionTo.ToShortDateString())))));
@@ -1452,6 +1465,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "InventoryTransactionQuery(RawMaterialReceipt)":
                     textBoxRequest.Text = IndentXMLString(GetInventoryTransactionQueryRawMaterialReceiptsRequest(DateTime.Now.AddDays(-30), DateTime.Now));
+                    break;
+                case "InventoryTransactionQuery(QuantityAdjustments)":
+                    textBoxRequest.Text = IndentXMLString(GetInventoryTransactionQueryQuantityAdjustmentsRequest(DateTime.Now.AddDays(-30), DateTime.Now));
                     break;
 
             }
