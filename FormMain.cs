@@ -339,6 +339,18 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetCustomerIncludeSundryChargesQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("CustomerQueryRq", new XElement("IncludeRetElement", "SUNDRYCHARGE")))));
+
+            return x.ToString();
+        }
+
         public string GetProjectQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -1237,6 +1249,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "CustomerQuery(ListOnly)":
                     textBoxRequest.Text = IndentXMLString(GetCustomerListQueryRequest());
+                    break;
+                case "CustomerQuery(IncludeSundryCharges)":
+                    textBoxRequest.Text = IndentXMLString(GetCustomerIncludeSundryChargesQueryRequest());
                     break;
                 case "OrderQuery":
                     textBoxRequest.Text = IndentXMLString(GeOrderQueryRequest(DateTime.Now, DateTime.Now));

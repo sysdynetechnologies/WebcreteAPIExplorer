@@ -118,6 +118,7 @@ namespace WebcreteAPIExplorer
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxRequest.Location = new System.Drawing.Point(3, 23);
+            this.textBoxRequest.MaxLength = 524272;
             this.textBoxRequest.Multiline = true;
             this.textBoxRequest.Name = "textBoxRequest";
             this.textBoxRequest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -193,6 +194,7 @@ namespace WebcreteAPIExplorer
             "CompanyQuery",
             "CreditCodeQuery",
             "CustomerQuery",
+            "CustomerQuery(IncludeSundryCharges)",
             "CustomerQuery(ListOnly)",
             "CustomerUpdate",
             "DivisionQuery",
