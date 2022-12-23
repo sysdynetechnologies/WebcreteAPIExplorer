@@ -425,6 +425,19 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetProjectIncludeSundryChargesQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("ProjectQueryRq",
+                            new XElement("IncludeRetElement", "SundryCharge")))));
+
+            return x.ToString();
+        }
+
         public string GetItemQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -1351,6 +1364,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "ProjectQuery(IncludeProduct)":
                     textBoxRequest.Text = IndentXMLString(GetProjectIncludeProductQueryRequest());
+                    break;
+                case "ProjectQuery(IncludeSundryCharges)":
+                    textBoxRequest.Text = IndentXMLString(GetProjectIncludeSundryChargesQueryRequest());
                     break;
                 case "CustomerUpdate":
                     textBoxRequest.Text = IndentXMLString(GetCustomerUpdateRequest("ABCConcrete","ABCConcrete Inc.","ABCConcrete"));

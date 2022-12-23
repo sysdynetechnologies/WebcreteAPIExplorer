@@ -236,6 +236,7 @@ namespace WebcreteAPIExplorer
             "ProjectQuery",
             "ProjectQuery(IncludeCustomer)",
             "ProjectQuery(IncludeProduct)",
+            "ProjectQuery(IncludeSundryCharges)",
             "ProjectQuery(ListOnly)",
             "ProjectUpdate",
             "QuoteQuery",
