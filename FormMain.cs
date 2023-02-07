@@ -1094,6 +1094,49 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetTruckStatusMessageQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TruckStatusMessageQueryRq",
+                        new XElement("LastTruckStatusMessageID", "0")))));
+
+            return x.ToString();
+        }
+
+        public string GetTruckStatusMessageByStatusBeginTimeQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TruckStatusMessageQueryRq",
+                        new XElement("LastTruckStatusMessageID", "0"),
+                        new XElement("FromStatusBeginTime", DateTime.Now.AddDays(-3).ToString("s")),
+                        new XElement("ToStatusBeginTime", DateTime.Now.ToString("s"))))));
+
+            return x.ToString();
+        }
+
+        public string GetTruckStatusMessageByUpdateTimeQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("TruckStatusMessageQueryRq",
+                        new XElement("LastTruckStatusMessageID", "0"),
+                        new XElement("FromUpdateTime", DateTime.Now.AddDays(-3).ToString("s")),
+                        new XElement("ToUpdateTime", DateTime.Now.ToString("s"))))));
+
+            return x.ToString();
+        }
+
         public string GetTicketMessageQueryRequest(string code, string messageQueueID, string LastTicketMessageID)
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -1394,6 +1437,15 @@ namespace WebcreteAPIExplorer
                     break;
                 case "TruckGpsUpdate":
                     textBoxRequest.Text = IndentXMLString(GetTruckGpsUpdateRequest("1", "32", "41.303603", "-73.933310", DateTime.Now));
+                    break;
+                case "TruckStatusMessageQuery":
+                    textBoxRequest.Text = IndentXMLString(GetTruckStatusMessageQueryRequest());
+                    break;
+                case "TruckStatusMessageQuery(StatusBeginTime)":
+                    textBoxRequest.Text = IndentXMLString(GetTruckStatusMessageByStatusBeginTimeQueryRequest());
+                    break;
+                case "TruckStatusMessageQuery(UpdateTime)":
+                    textBoxRequest.Text = IndentXMLString(GetTruckStatusMessageByUpdateTimeQueryRequest());
                     break;
                 case "TicketMessageQuery":
                     textBoxRequest.Text = IndentXMLString(GetTicketMessageQueryRequest("1", "1", "0"));
