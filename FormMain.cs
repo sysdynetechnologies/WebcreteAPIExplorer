@@ -829,6 +829,21 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetTicketQueryWithFailOnOrderLockRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("TicketQueryRq",
+                          new XElement("FailOnOrderLock", "True"),
+                          new XElement("FromOrderDate", dtOrderFrom.ToShortDateString()),
+                          new XElement("ToOrderDate", dtOrderTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+
         public string GetInvoiceQueryByInvoiceDateRequest(DateTime dtInvoiceFrom, DateTime dtInvoiceTo)
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -927,6 +942,23 @@ namespace WebcreteAPIExplorer
               new XElement("WebcreteXML",
                   new XElement("WebcreteXMLMsgsRq",
                       new XElement("OrderQueryRq",
+                          new XElement("FromOrderDate", dtOrderFrom.ToShortDateString()),
+                          new XElement("ToOrderDate", dtOrderTo.ToShortDateString()),
+                          new XElement("IncludeRetElement", "PRODUCT"),
+                          new XElement("IncludeRetElement", "SCHEDULE")))));
+
+            return x.ToString();
+        }
+
+        public string GeOrderQueryWithFailOnOrderLockRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("OrderQueryRq",
+                          new XElement("FailOnOrderLock", "True"),
                           new XElement("FromOrderDate", dtOrderFrom.ToShortDateString()),
                           new XElement("ToOrderDate", dtOrderTo.ToShortDateString()),
                           new XElement("IncludeRetElement", "PRODUCT"),
@@ -1312,6 +1344,9 @@ namespace WebcreteAPIExplorer
                 case "OrderQuery":
                     textBoxRequest.Text = IndentXMLString(GeOrderQueryRequest(DateTime.Now, DateTime.Now));
                     break;
+                case "OrderQuery(FailOnOrderLock)":
+                    textBoxRequest.Text = IndentXMLString(GeOrderQueryWithFailOnOrderLockRequest(DateTime.Now, DateTime.Now));
+                    break;
                 case "OrderQuery(OrderUpdate)":
                     textBoxRequest.Text = IndentXMLString(GeOrderUpdateQueryRequest(DateTime.Now.AddMinutes(-5), DateTime.Now));
                     break;
@@ -1353,6 +1388,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "TicketQuery(OrderID)":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryForOrderIDRequest(54604));
+                    break;
+                case "TicketQuery(FailOnOrderLock)":
+                    textBoxRequest.Text = IndentXMLString(GetTicketQueryWithFailOnOrderLockRequest(DateTime.Now, DateTime.Now));
                     break;
                 case "ItemQuery":
                     textBoxRequest.Text = IndentXMLString(GetItemQueryRequest());
