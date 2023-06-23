@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="rCXN9b0wdZ4K0VD2VgnOLmMKrBYDzwhpDI6H0ir+5uI=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="UuH10vpJ8tGIZseOLPaMi3S5SBWgVejMOdKYHNl8gs4=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="WebcreteAPISoap1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="WebcreteAPISoap">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WebcreteAPISoap1</serializedValue>
+          <serializedValue>WebcreteAPISoap</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WebcreteAPISoap" contract="WebcreteAPI.WebcreteAPISoap" bindingType="basicHttpBinding" address="http://api1.concretego.com/webcreteapi.asmx" bindingConfiguration="WebcreteAPISoap1">
+    <endpoint name="WebcreteAPISoap" contract="WebcreteAPI.WebcreteAPISoap" bindingType="basicHttpBinding" address="http://api1.concretego.com/webcreteapi.asmx" bindingConfiguration="WebcreteAPISoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://api1.concretego.com/webcreteapi.asmx</serializedValue>
@@ -124,7 +124,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WebcreteAPISoap1</serializedValue>
+          <serializedValue>WebcreteAPISoap</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>WebcreteAPI.WebcreteAPISoap</serializedValue>

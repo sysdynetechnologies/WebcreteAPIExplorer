@@ -57,7 +57,7 @@ namespace WebcreteAPIExplorer.WebcreteAPI {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4161.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -160,13 +160,17 @@ namespace WebcreteAPIExplorer.WebcreteAPI {
         [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
         public byte[] password;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://api.concretego.com/", Order=2)]
+        public string slug;
+        
         public LoginRequest() {
         }
         
-        public LoginRequest(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, byte[] password) {
+        public LoginRequest(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, byte[] password, string slug) {
             this.TicketHeader = TicketHeader;
             this.userName = userName;
             this.password = password;
+            this.slug = slug;
         }
     }
     
@@ -202,13 +206,17 @@ namespace WebcreteAPIExplorer.WebcreteAPI {
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://api.concretego.com/", Order=1)]
         public string password;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://api.concretego.com/", Order=2)]
+        public string slug;
+        
         public Login2Request() {
         }
         
-        public Login2Request(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, string password) {
+        public Login2Request(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, string password, string slug) {
             this.TicketHeader = TicketHeader;
             this.userName = userName;
             this.password = password;
+            this.slug = slug;
         }
     }
     
@@ -359,11 +367,12 @@ namespace WebcreteAPIExplorer.WebcreteAPI {
             return base.Channel.Login(request);
         }
         
-        public bool Login(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, byte[] password) {
+        public bool Login(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, byte[] password, string slug) {
             WebcreteAPIExplorer.WebcreteAPI.LoginRequest inValue = new WebcreteAPIExplorer.WebcreteAPI.LoginRequest();
             inValue.TicketHeader = TicketHeader;
             inValue.userName = userName;
             inValue.password = password;
+            inValue.slug = slug;
             WebcreteAPIExplorer.WebcreteAPI.LoginResponse retVal = ((WebcreteAPIExplorer.WebcreteAPI.WebcreteAPISoap)(this)).Login(inValue);
             return retVal.LoginResult;
         }
@@ -373,11 +382,12 @@ namespace WebcreteAPIExplorer.WebcreteAPI {
             return base.Channel.LoginAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WebcreteAPIExplorer.WebcreteAPI.LoginResponse> LoginAsync(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, byte[] password) {
+        public System.Threading.Tasks.Task<WebcreteAPIExplorer.WebcreteAPI.LoginResponse> LoginAsync(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, byte[] password, string slug) {
             WebcreteAPIExplorer.WebcreteAPI.LoginRequest inValue = new WebcreteAPIExplorer.WebcreteAPI.LoginRequest();
             inValue.TicketHeader = TicketHeader;
             inValue.userName = userName;
             inValue.password = password;
+            inValue.slug = slug;
             return ((WebcreteAPIExplorer.WebcreteAPI.WebcreteAPISoap)(this)).LoginAsync(inValue);
         }
         
@@ -386,11 +396,12 @@ namespace WebcreteAPIExplorer.WebcreteAPI {
             return base.Channel.Login2(request);
         }
         
-        public bool Login2(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, string password) {
+        public bool Login2(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, string password, string slug) {
             WebcreteAPIExplorer.WebcreteAPI.Login2Request inValue = new WebcreteAPIExplorer.WebcreteAPI.Login2Request();
             inValue.TicketHeader = TicketHeader;
             inValue.userName = userName;
             inValue.password = password;
+            inValue.slug = slug;
             WebcreteAPIExplorer.WebcreteAPI.Login2Response retVal = ((WebcreteAPIExplorer.WebcreteAPI.WebcreteAPISoap)(this)).Login2(inValue);
             return retVal.Login2Result;
         }
@@ -400,11 +411,12 @@ namespace WebcreteAPIExplorer.WebcreteAPI {
             return base.Channel.Login2Async(request);
         }
         
-        public System.Threading.Tasks.Task<WebcreteAPIExplorer.WebcreteAPI.Login2Response> Login2Async(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, string password) {
+        public System.Threading.Tasks.Task<WebcreteAPIExplorer.WebcreteAPI.Login2Response> Login2Async(WebcreteAPIExplorer.WebcreteAPI.TicketHeader TicketHeader, string userName, string password, string slug) {
             WebcreteAPIExplorer.WebcreteAPI.Login2Request inValue = new WebcreteAPIExplorer.WebcreteAPI.Login2Request();
             inValue.TicketHeader = TicketHeader;
             inValue.userName = userName;
             inValue.password = password;
+            inValue.slug = slug;
             return ((WebcreteAPIExplorer.WebcreteAPI.WebcreteAPISoap)(this)).Login2Async(inValue);
         }
         

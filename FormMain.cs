@@ -56,7 +56,7 @@ namespace WebcreteAPIExplorer
 
                 try
                 {
-                    if (api.Login(ticketHeader, textBoxUserName.Text, encryptedPassword) == false)                    
+                    if (api.Login(ticketHeader, textBoxUserName.Text, encryptedPassword, textBoxSlug.Text) == false)                    
                     {
                         MessageBox.Show("Login failed.");
                         return;
