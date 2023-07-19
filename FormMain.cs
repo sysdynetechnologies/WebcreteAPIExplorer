@@ -351,6 +351,20 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetCustomerIncludeUserDefinedFieldsQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("CustomerQueryRq", new XElement("IncludeRetElement", "USERDEFINEDFIELD")))));
+
+            return x.ToString();
+        }
+
+        
+
         public string GetProjectQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -1340,6 +1354,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "CustomerQuery(IncludeSundryCharges)":
                     textBoxRequest.Text = IndentXMLString(GetCustomerIncludeSundryChargesQueryRequest());
+                    break;
+                case "CustomerQuery(IncludeUserDefinedFields)":
+                    textBoxRequest.Text = IndentXMLString(GetCustomerIncludeUserDefinedFieldsQueryRequest());
                     break;
                 case "OrderQuery":
                     textBoxRequest.Text = IndentXMLString(GeOrderQueryRequest(DateTime.Now, DateTime.Now));

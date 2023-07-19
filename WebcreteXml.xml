@@ -84,7 +84,7 @@
       <!-- optional, may repeat-->
       <AccountingCategoryCode>STRTYPE</AccountingCategoryCode>
       <!-- END OR -->
-      <!-- optional, may repeat can be SUNDRYCHARGE |  -->      
+      <!-- optional, may repeat can be SUNDRYCHARGE | USERDEFINEDFIELD  -->      
       <IncludeRetElement>STRTYPE</IncludeRetElement>
     </CustomerQueryRq>
     <!--    'requestID' is optional -->
@@ -2469,6 +2469,16 @@
         <UpdateDate>DATETIMETYPE</UpdateDate>
         <!-- optional -->
         <InActive>BOOLTYPE</InActive>
+	    <!-- optional -->
+        <UserDefinedFields>
+          <!-- optional, may rep -->
+          <UserDefinedField>
+            <!-- required -->
+            <Name>STRTYPE</Name>
+            <!-- required -->
+            <Value>STRTYPE</Value>
+          </UserDefinedField>
+        </UserDefinedFields>
       </CustomerRet>
     </CustomerQueryRs>
     <!--     'requestID' is optional   -->
@@ -4084,6 +4094,18 @@
         <JobsiteRadius>INTTYPE</JobsiteRadius>
         <!-- optional -->		
         <Reviewed>BOOLTYPE</Reviewed>
+		<!-- optional -->		
+        <PaymentAmount>AMTTYPE</PaymentAmount>
+		<!-- optional -->
+        <CheckNumber>STRTYPE</CheckNumber>
+		<!-- optional -->
+        <CreditCardLastFourDigits>STRTYPE</CreditCardLastFourDigits>
+	    <!-- optional -->
+        <CreditCardExpirationDate>STRTYPE</CreditCardExpirationDate>
+		<!-- optional -->
+        <CreditCardAuthorizationCode>STRTYPE</CreditCardAuthorizationCode>
+		<!-- optional -->
+        <BankAccount>STRTYPE</BankAccount>
 		<!-- optional -->
         <Products>
           <!-- optional, may rep -->

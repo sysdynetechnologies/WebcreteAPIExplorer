@@ -197,6 +197,7 @@ namespace WebcreteAPIExplorer
             "CreditCodeQuery",
             "CustomerQuery",
             "CustomerQuery(IncludeSundryCharges)",
+            "CustomerQuery(IncludeUserDefinedFields)",
             "CustomerQuery(ListOnly)",
             "CustomerUpdate",
             "DivisionQuery",
