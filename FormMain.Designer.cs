@@ -329,7 +329,6 @@ namespace WebcreteAPIExplorer
             this.textBoxSlug.Name = "textBoxSlug";
             this.textBoxSlug.Size = new System.Drawing.Size(111, 20);
             this.textBoxSlug.TabIndex = 17;
-            this.textBoxSlug.UseSystemPasswordChar = true;
             // 
             // label9
             // 
