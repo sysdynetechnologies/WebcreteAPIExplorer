@@ -709,6 +709,21 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetTicketQueryRequestWithCustomerUserDefinedFields(DateTime dtOrderFrom, DateTime dtOrderTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("TicketQueryRq",
+                          new XElement("FromOrderDate", dtOrderFrom.ToShortDateString()),
+                          new XElement("ToOrderDate", dtOrderTo.ToShortDateString()),
+                          new XElement("IncludeRetElement", "CUSTOMERUSERDEFINEDFIELD")))));
+
+            return x.ToString();
+        }
+
         public string GetTicketQueryWithBatchWeightsOnlyRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -1378,7 +1393,10 @@ namespace WebcreteAPIExplorer
                     break; 
                 case "TicketQuery(WithOrderUserDefinedFields)":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryRequestWithOrderUserDefinedFields(DateTime.Now, DateTime.Now));
-                    break; 
+                    break;
+                case "TicketQuery(WithCustomerUserDefinedFields)":
+                    textBoxRequest.Text = IndentXMLString(GetTicketQueryRequestWithCustomerUserDefinedFields(DateTime.Now, DateTime.Now));
+                    break;
                 case "TicketQuery(IncludeRemovedTickets)":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryWithRemovedRequest(DateTime.Now, DateTime.Now));
                     break;
