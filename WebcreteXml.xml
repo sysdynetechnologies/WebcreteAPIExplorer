@@ -1095,6 +1095,10 @@
       <FromLoadTime>DATETIMETYPE</FromLoadTime>
       <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
       <ToLoadTime>DATETIMETYPE</ToLoadTime>
+	  <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <FromCreatedDate>DATETIMETYPE</FromCreatedDate>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <ToCreatedDate>DATETIMETYPE</ToCreatedDate>
 	  <!-- optional,may repeat -->
 	  <OrderID>STRTYPE</OrderID>	
       <!-- optional,may repeat -->
@@ -1123,7 +1127,7 @@
 	  <IncludeInvoicedTicket>BOOLTYPE</IncludeInvoicedTicket>
       <!-- optional -->
       <WithBatchWeightsOnly>BOOLTYPE</WithBatchWeightsOnly>
-	  <!-- optional, may repeat, can be USERDEFINEDFIELD|ORDERUSERDEFINEDFIELD-->
+	  <!-- optional, may repeat, can be USERDEFINEDFIELD|ORDERUSERDEFINEDFIELD|CUSTOMERUSERDEFINEDFIELD-->
 	  <IncludeRetElement>STRTYPE</IncludeRetElement>
 	  <!-- optional -->
       <MarkOrderAsInvoiced>BOOLTYPE</MarkOrderAsInvoiced>
@@ -4551,6 +4555,8 @@
             <ItemCategoryCode>STRTYPE</ItemCategoryCode>
 		    <!-- optional -->
             <ItemCategoryAccountLinkCode>STRTYPE</ItemCategoryAccountLinkCode>
+			<!-- optional -->
+            <ProductLink>STRTYPE</ProductLink>
 		    <!-- optional -->
             <ItemTypeID>INTTYPE</ItemTypeID>
 		    <!-- optional -->
@@ -4612,6 +4618,16 @@
 				<Value>STRTYPE</Value>
 			</UserDefinedField>
 		</OrderUserDefinedFields>
+	    <!-- optional -->
+		<CustomerUserDefinedFields>
+			<!-- optional, may rep -->
+			<UserDefinedField>
+				<!-- required -->
+				<Name>STRTYPE</Name>
+				<!-- required -->
+				<Value>STRTYPE</Value>
+			</UserDefinedField>
+		</CustomerUserDefinedFields>
       </TicketRet>
     </TicketQueryRs>
 	<!--    'requestID' is optional -->
@@ -4819,6 +4835,8 @@
         <AccountLinkCode>STRTYPE</AccountLinkCode>
         <!-- optional -->
         <CategoryAccountLinkCode>STRTYPE</CategoryAccountLinkCode>
+		<!-- optional -->
+        <ProductLink>STRTYPE</ProductLink>
         <!-- optional -->
         <ItemTypeID>INTTYPE</ItemTypeID>
         <!-- optional -->
@@ -5411,7 +5429,9 @@
             <DelvQtyUnit>STRTYPE</DelvQtyUnit>
             <OrderQty>FLOATTYPE</OrderQty>
             <OrderQtyUnit>STRTYPE</OrderQtyUnit>
-            <AccDelvQty>FLOATTYPE</AccDelvQty>
+            <AccDelvQty>FLOATTYPE</AccDelvQty>			
+            <PriceQty>FLOATTYPE</PriceQty>            
+            <PriceQtyUnit>STRTYPE</PriceQtyUnit>
             <Amount>FLOATTYPE</Amount>
             <TaxAmount>FLOATTYPE</TaxAmount>
             <TotalAmount>FLOATTYPE</TotalAmount>
@@ -5667,7 +5687,7 @@
         <!-- optional -->
         <MaxBatchSizeUnitCode>STRTYPE</MaxBatchSizeUnitCode>
 	    <!-- required -->
-        <AccountLinkCode>STRTYPE</AccountLinkCode>
+        <AccountLinkCode>STRTYPE</AccountLinkCode>		  
 		<!-- optional -->
 	    <TruckRentalCostPerHour>FLOATTYPE</TruckRentalCostPerHour>
 		<!-- optional -->
@@ -5686,6 +5706,8 @@
 	    <TruckProductiveFactor>FLOATTYPE</TruckProductiveFactor>
 		<!-- optional -->
 	    <DesiredProfitPerQuantity>FLOATTYPE</DesiredProfitPerQuantity>
+	    <!-- required -->
+        <TaxCode>STRTYPE</TaxCode>
       </PlantRet>
     </PlantQueryRs>
     <!--     'requestID' is optional   -->

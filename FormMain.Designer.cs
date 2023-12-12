@@ -253,6 +253,7 @@ namespace WebcreteAPIExplorer
             "TicketBatchResultMessageQuery",
             "TicketMessageQuery",
             "TicketQuery",
+            "TicketQuery(CreatedDate)",
             "TicketQuery(FailOnOrderLock)",
             "TicketQuery(IncludeRemovedTickets)",
             "TicketQuery(ListOnly)",

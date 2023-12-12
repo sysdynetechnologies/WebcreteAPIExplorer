@@ -798,6 +798,20 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetTicketQueryByCreatedDateRequest(DateTime dtUpdateTimeFrom, DateTime dtUpdateTimeTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("TicketQueryRq",
+                          new XElement("FromCreatedDate", dtUpdateTimeFrom.ToString("s")),
+                          new XElement("ToCreatedDate", dtUpdateTimeTo.ToString("s"))))));
+
+            return x.ToString();
+        }
+
 
         public string GetTicketQueryWithRemovedRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
@@ -1414,6 +1428,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "TicketQuery(TicketTime)":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryByTicketTimeRequest(DateTime.Now.AddMinutes(-1), DateTime.Now));
+                    break;
+                case "TicketQuery(CreatedDate)":
+                    textBoxRequest.Text = IndentXMLString(GetTicketQueryByCreatedDateRequest(DateTime.Now.AddMinutes(-1), DateTime.Now));
                     break;
                 case "TicketQuery(SortDesc)":
                     textBoxRequest.Text = IndentXMLString(GetTicketQueryDescRequest(DateTime.Now, DateTime.Now));
