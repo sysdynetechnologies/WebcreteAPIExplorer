@@ -193,6 +193,12 @@ namespace WebcreteAPIExplorer
             this.comboBoxRequest.FormattingEnabled = true;
             this.comboBoxRequest.Items.AddRange(new object[] {
             "AccountingCategoryQuery",
+            "BatchInventoryQuery(Adjustments)",
+            "BatchInventoryQuery(CurrentBalance)",
+            "BatchInventoryQuery(Reconciliations)",
+            "BatchInventoryQuery(Shipments)",
+            "BatchInventoryQuery(ShipmentsForPlantItem)",
+            "BatchInventoryQuery(Usages)",
             "CompanyQuery",
             "CreditCodeQuery",
             "CustomerQuery",

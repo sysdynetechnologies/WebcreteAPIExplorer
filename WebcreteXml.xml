@@ -1830,6 +1830,14 @@
         <SetupDate>DATETYPE</SetupDate>
 	    <!-- optional -->
         <VIN>STRTYPE</VIN>
+	    <!-- optional -->
+		<Flag>STRTYPE</Flag>		  
+	    <!-- optional -->
+		<ColorCode>STRTYPE</ColorCode>
+        <!-- optional -->
+		<FontColorCode>STRTYPE</FontColorCode>	  
+        <!-- optional -->
+		<PermanentColorCode>STRTYPE</PermanentColorCode>	  
       </TruckUpdate>
       <!--optional, may repeat -->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
@@ -2083,7 +2091,7 @@
         </TaxLocation>
       </TaxLocations>
     </TaxCodeUpdateRq>
-	<!--  InventoryQueryRq contains 1 optional attribute: 'requestID' -->
+	<!--  InventoryTransactionQueryRq contains 1 optional attribute: 'requestID' -->
 	<InventoryTransactionQueryRq  requestID="UUIDTYPE">
 		<!-- BEGIN OR-->
 		<!-- optional, may repeat-->
@@ -2108,6 +2116,36 @@
 		<!-- optional, may repeat, can be QUANTITYPOSTED|RELEASED|ONHOLD|POSTED|ABORTEDORREJECTED-->
 		<PostStatus>STRTYPE</PostStatus>		
 	</InventoryTransactionQueryRq>
+    <!--  InventoryQueryRq contains 1 optional attribute: 'requestID' -->
+	<BatchInventoryQueryRq  requestID="UUIDTYPE">
+		<!-- BEGIN OR-->
+		<!-- optional, may repeat-->
+		<ItemID>INTTYPE</ItemID>
+		<!-- OR -->
+		<!-- optional, may repeat-->
+		<ItemCode>STRTYPE</ItemCode>
+		<!-- END OR -->
+		<!-- BEGIN OR-->
+		<!-- optional, may repeat-->
+		<PlantID>STRTYPE</PlantID>
+		<!-- OR -->
+		<!-- optional, may repeat-->
+		<PlantCode>STRTYPE</PlantCode>
+		<!-- END OR -->
+		<!-- BEGIN OR-->
+		<!-- optional, may repeat-->
+		<LocationID>STRTYPE</LocationID>
+		<!-- OR -->
+		<!-- optional, may repeat-->
+		<LocationCode>STRTYPE</LocationCode>
+		<!-- END OR -->
+		<!-- optional -->
+		<FromTransactionDate>DATETIMETYPE</FromTransactionDate>
+		<!-- optional -->
+		<ToTransactionDate>DATETIMETYPE</ToTransactionDate>
+		<!-- optional, may repeat, can be SHIPMENT|USAGE|ADJUSTMENT|RECONCILIATION -->
+		<TransactionType>STRTYPE</TransactionType>			
+	</BatchInventoryQueryRq>
   </WebcreteXMLMsgsRq>
   <!-- WebcreteXMLMsgsRs contains 2 attributes -->
   <!--    'newMessageSetID' is optional -->
@@ -4421,6 +4459,8 @@
         <PrintedTime>DATETIMETYPE</PrintedTime>
         <!-- optional -->
         <LoadTime>DATETIMETYPE</LoadTime>
+		<!-- optional -->
+        <LoadedTime>DATETIMETYPE</LoadedTime>
         <!-- optional -->
         <ToJobTime>DATETIMETYPE</ToJobTime>
         <!-- optional -->
@@ -4477,6 +4517,8 @@
 		<Suspended>BOOLTYPE</Suspended>
 		<!-- optional -->
 		<Invoiced>BOOLTYPE</Invoiced>
+		<!-- optional -->		
+        <CostAmount>AMTTYPE</CostAmount>
 		<!-- optional -->
         <Products>
           <!-- optional may repeat-->
@@ -4561,6 +4603,12 @@
             <ItemTypeID>INTTYPE</ItemTypeID>
 		    <!-- optional -->
             <ItemTypeName>STRTYPE</ItemTypeName>
+		    <!-- optional -->
+            <Cost>FLOATTYPE</Cost>
+			<!-- optional -->
+            <CostUnit>STRTYPE</CostUnit>
+		    <!-- optional -->
+            <CostAmount>AMTTYPE</CostAmount>
           </Product>
         </Products>
         <!-- optional -->
@@ -5835,6 +5883,14 @@
         <SetupDate>STRTYPE</SetupDate>
 		<!-- optional -->
 		<VIN>STRTYPE</VIN>
+	    <!-- optional -->
+		<Flag>STRTYPE</Flag>		  
+	    <!-- optional -->
+		<ColorCode>STRTYPE</ColorCode>
+        <!-- optional -->
+		<FontColorCode>STRTYPE</FontColorCode>	  
+        <!-- optional -->
+		<PermanentColorCode>STRTYPE</PermanentColorCode>	  	  
     </TruckRet>
     </TruckQueryRs>
     <!--     'requestID' is optional   -->
@@ -6302,6 +6358,160 @@
 			</Transaction>
 		</QuantityAdjustments>
 	</InventoryTransactionQueryRs>
+    <!--     'requestID' is optional   -->
+    <!--     'statusCode' is required -->
+    <!--     'statusSeverity' is required -->
+    <!--     'statusMessage' is optional -->
+    <BatchInventoryQueryRs  requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+		<BatchInventoryRet>
+			<!-- required -->
+		    <ItemID>INTTYPE</ItemID>
+			<!-- required -->
+		    <ItemCode>STRTYPE</ItemCode>
+			<!-- optional -->
+		    <PlantID>INTTYPE</PlantID>
+			<!-- optional -->
+		    <PlantCode>STRTYPE</PlantCode>
+			<!-- optional -->
+		    <LocationID>INTTYPE</LocationID>
+			<!-- optional -->
+		    <LocationCode>STRTYPE</LocationCode>		    
+		    <!-- required -->
+		    <CurrentBalance>FLOATTYPE</CurrentBalance>
+			<!-- required -->
+			<UnitID>INTTYPE</UnitID>
+			<!-- required -->
+		    <UnitName>STRTYPE</UnitName>
+			<!-- optional -->
+		    <Shipments>
+			    <!-- optional may repeat -->
+			    <Transaction>
+				    <!-- required -->
+				    <ID>INTTYPE</ID>
+					<!-- required -->
+				    <Date>DATETIMETYPE</Date>				   			
+				    <!-- required SHIPMENT-->
+				    <Type>STRTYPE</Type>
+					<!-- required -->
+				    <Quantity>FLOATTYPE</Quantity>					
+					<!-- required -->
+				    <PreviousBalance>FLOATTYPE</PreviousBalance>
+				    <!-- optional -->
+				    <Ticket>STRTYPE</Ticket>
+					<!-- optional -->
+				    <Truck>STRTYPE</Truck>
+					<!-- optional -->
+				    <Hauler>STRTYPE</Hauler>
+					<!-- optional -->
+				    <Comment>STRTYPE</Comment>
+					<!-- required -->
+				    <CreateDate>DATETIMETYPE</CreateDate>
+				    <!-- optional -->
+				    <VendorID>INTTYPE</VendorID>
+					<!-- optional -->
+				    <VendorCode>STRTYPE</VendorCode>
+				    <!-- optional -->
+				    <VendorName>STRTYPE</VendorName>															    
+			    </Transaction>
+		    </Shipments>
+		    <!-- optional -->
+		    <Usages>
+			    <!-- optional may repeat -->
+			    <Transaction>
+				    <!-- required -->
+				    <ID>INTTYPE</ID>
+					<!-- required -->
+				    <Date>DATETIMETYPE</Date>				   			
+				    <!-- required USAGE-->
+				    <Type>STRTYPE</Type>
+					<!-- required -->
+				    <Quantity>FLOATTYPE</Quantity>					
+					<!-- required -->
+				    <PreviousBalance>FLOATTYPE</PreviousBalance>
+				    <!-- optional -->
+				    <Ticket>STRTYPE</Ticket>
+					<!-- optional -->
+				    <Truck>STRTYPE</Truck>
+					<!-- optional -->
+				    <Hauler>STRTYPE</Hauler>
+					<!-- optional -->
+				    <Comment>STRTYPE</Comment>
+					<!-- required -->
+				    <CreateDate>DATETIMETYPE</CreateDate>
+				    <!-- optional -->
+				    <VendorID>INTTYPE</VendorID>
+					<!-- optional -->
+				    <VendorCode>STRTYPE</VendorCode>
+				    <!-- optional -->
+				    <VendorName>STRTYPE</VendorName>															    
+			    </Transaction>
+		    </Usages>
+	        <!-- optional -->
+		    <Adjustments>
+			    <!-- optional may repeat -->
+			    <Transaction>
+				    <!-- required -->
+				    <ID>INTTYPE</ID>
+					<!-- required -->
+				    <Date>DATETIMETYPE</Date>				   			
+				    <!-- required ADJUSTMENT-->
+				    <Type>STRTYPE</Type>
+					<!-- required -->
+				    <Quantity>FLOATTYPE</Quantity>					
+					<!-- required -->
+				    <PreviousBalance>FLOATTYPE</PreviousBalance>
+				    <!-- optional -->
+				    <Ticket>STRTYPE</Ticket>
+					<!-- optional -->
+				    <Truck>STRTYPE</Truck>
+					<!-- optional -->
+				    <Hauler>STRTYPE</Hauler>
+					<!-- optional -->
+				    <Comment>STRTYPE</Comment>
+					<!-- required -->
+				    <CreateDate>DATETIMETYPE</CreateDate>
+				    <!-- optional -->
+				    <VendorID>INTTYPE</VendorID>
+					<!-- optional -->
+				    <VendorCode>STRTYPE</VendorCode>
+				    <!-- optional -->
+				    <VendorName>STRTYPE</VendorName>															    
+			    </Transaction>
+		    </Adjustments>
+			<!-- optional -->
+		    <Reconciliations>
+			    <!-- optional may repeat-->
+			    <Transaction>
+				    <!-- required -->
+				    <ID>INTTYPE</ID>
+					<!-- required -->
+				    <Date>DATETIMETYPE</Date>				   			
+				    <!-- required RECONCILIATION-->
+				    <Type>STRTYPE</Type>
+					<!-- required -->
+				    <Quantity>FLOATTYPE</Quantity>					
+					<!-- required -->
+				    <PreviousBalance>FLOATTYPE</PreviousBalance>
+				    <!-- optional -->
+				    <Ticket>STRTYPE</Ticket>
+					<!-- optional -->
+				    <Truck>STRTYPE</Truck>
+					<!-- optional -->
+				    <Hauler>STRTYPE</Hauler>
+					<!-- optional -->
+				    <Comment>STRTYPE</Comment>
+					<!-- required -->
+				    <CreateDate>DATETIMETYPE</CreateDate>
+				    <!-- optional -->
+				    <VendorID>INTTYPE</VendorID>
+					<!-- optional -->
+				    <VendorCode>STRTYPE</VendorCode>
+				    <!-- optional -->
+				    <VendorName>STRTYPE</VendorName>															    
+			    </Transaction>
+		    </Reconciliations>
+		</BatchInventoryRet>
+	</BatchInventoryQueryRs>
   </WebcreteXMLMsgsRs>
 </WebcreteXML>
 

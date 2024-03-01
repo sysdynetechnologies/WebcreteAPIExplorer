@@ -1365,6 +1365,96 @@ namespace WebcreteAPIExplorer
 
             return x.ToString();
         }
+
+        public string GetBatchInventoryQueryCurrentBalanceRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("BatchInventoryQueryRq"))));
+
+            return x.ToString();
+        }
+
+        public string GetBatchInventoryQueryShipmentsRequest(DateTime dtTransactionFrom, DateTime dtTransactionTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("BatchInventoryQueryRq",
+                          new XElement("TransactionType", "SHIPMENT"),
+                          new XElement("FromTransactionDate", dtTransactionFrom.ToShortDateString()),
+                          new XElement("ToTransactionDate", dtTransactionTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+
+        public string GetBatchInventoryQueryShipmentsForPlantItemRequest(DateTime dtTransactionFrom, DateTime dtTransactionTo, string plantCode, string itemCode)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("BatchInventoryQueryRq",
+                          new XElement("TransactionType", "SHIPMENT"),
+                          new XElement("PlantCode", plantCode),
+                          new XElement("ItemCode", itemCode),
+                          new XElement("FromTransactionDate", dtTransactionFrom.ToShortDateString()),
+                          new XElement("ToTransactionDate", dtTransactionTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+
+        public string GetBatchInventoryQueryUsagesRequest(DateTime dtTransactionFrom, DateTime dtTransactionTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("BatchInventoryQueryRq",
+                          new XElement("TransactionType", "USAGE"),
+                          new XElement("FromTransactionDate", dtTransactionFrom.ToShortDateString()),
+                          new XElement("ToTransactionDate", dtTransactionTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+
+        public string GetBatchInventoryQueryAdjustmentsRequest(DateTime dtTransactionFrom, DateTime dtTransactionTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("BatchInventoryQueryRq",
+                          new XElement("TransactionType", "ADJUSTMENT"),
+                          new XElement("FromTransactionDate", dtTransactionFrom.ToShortDateString()),
+                          new XElement("ToTransactionDate", dtTransactionTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+
+        public string GetBatchInventoryQueryReconciliationsRequest(DateTime dtTransactionFrom, DateTime dtTransactionTo)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("BatchInventoryQueryRq",
+                          new XElement("TransactionType", "RECONCILIATION"),
+                          new XElement("FromTransactionDate", dtTransactionFrom.ToShortDateString()),
+                          new XElement("ToTransactionDate", dtTransactionTo.ToShortDateString())))));
+
+            return x.ToString();
+        }
+
         private void comboBoxRequest_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (comboBoxRequest.SelectedItem.ToString())
@@ -1641,6 +1731,24 @@ namespace WebcreteAPIExplorer
                     break;
                 case "InventoryTransactionQuery(QuantityAdjustments)":
                     textBoxRequest.Text = IndentXMLString(GetInventoryTransactionQueryQuantityAdjustmentsRequest(DateTime.Now.AddDays(-30), DateTime.Now));
+                    break;
+                case "BatchInventoryQuery(CurrentBalance)":
+                    textBoxRequest.Text = IndentXMLString(GetBatchInventoryQueryCurrentBalanceRequest());
+                    break;
+                case "BatchInventoryQuery(Shipments)":
+                    textBoxRequest.Text = IndentXMLString(GetBatchInventoryQueryShipmentsRequest(DateTime.Now.AddDays(-30), DateTime.Now));
+                    break;
+                case "BatchInventoryQuery(Usages)":
+                    textBoxRequest.Text = IndentXMLString(GetBatchInventoryQueryUsagesRequest(DateTime.Now.AddDays(-30), DateTime.Now));
+                    break;
+                case "BatchInventoryQuery(Adjustments)":
+                    textBoxRequest.Text = IndentXMLString(GetBatchInventoryQueryAdjustmentsRequest(DateTime.Now.AddDays(-30), DateTime.Now));
+                    break;
+                case "BatchInventoryQuery(Reconciliations)":
+                    textBoxRequest.Text = IndentXMLString(GetBatchInventoryQueryReconciliationsRequest(DateTime.Now.AddDays(-30), DateTime.Now));
+                    break;
+                case "BatchInventoryQuery(ShipmentsForPlantItem)":
+                    textBoxRequest.Text = IndentXMLString(GetBatchInventoryQueryShipmentsForPlantItemRequest(DateTime.Now.AddDays(-30), DateTime.Now, "1", "CEMENT" ));
                     break;
 
             }
