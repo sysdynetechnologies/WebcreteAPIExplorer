@@ -648,7 +648,24 @@ namespace WebcreteAPIExplorer
                         new XElement("IncludeRetElement", "TaxOverride")))));
 
             return x.ToString();
-        }        
+        }
+
+        public string GetBatchTicketQueryRequest(DateTime dtOrderFrom, DateTime dtOrderTo, string dispatchOrderCode, string dispatchTicketCode)
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),
+              new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+              new XElement("WebcreteXML",
+                  new XElement("WebcreteXMLMsgsRq",
+                      new XElement("BatchTicketQueryRq",
+                          new XElement("FromOrderDate", dtOrderFrom.ToShortDateString()),
+                          new XElement("ToOrderDate", dtOrderTo.ToShortDateString()),
+                          new XElement("DispatchOrderCode", dispatchOrderCode),
+                          new XElement("DispatchTicketCode", dispatchTicketCode)
+                          ))));
+
+            return x.ToString();
+        }
 
         public string GetTicketQueryRequest(DateTime dtOrderFrom, DateTime dtOrderTo)
         {
@@ -1749,6 +1766,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "BatchInventoryQuery(ShipmentsForPlantItem)":
                     textBoxRequest.Text = IndentXMLString(GetBatchInventoryQueryShipmentsForPlantItemRequest(DateTime.Now.AddDays(-30), DateTime.Now, "1", "CEMENT" ));
+                    break;
+                case "BatchTicketQuery":
+                    textBoxRequest.Text = IndentXMLString(GetBatchTicketQueryRequest(DateTime.Now, DateTime.Now, "1340", "16377032"));
                     break;
 
             }

@@ -199,6 +199,7 @@ namespace WebcreteAPIExplorer
             "BatchInventoryQuery(Shipments)",
             "BatchInventoryQuery(ShipmentsForPlantItem)",
             "BatchInventoryQuery(Usages)",
+            "BatchTicketQuery",
             "CompanyQuery",
             "CreditCodeQuery",
             "CustomerQuery",
