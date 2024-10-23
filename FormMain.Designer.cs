@@ -251,6 +251,7 @@ namespace WebcreteAPIExplorer
             "ProjectQuery(ListOnly)",
             "ProjectUpdate",
             "QuoteQuery",
+            "ReasonCodeQuery",
             "TaxAuthorityQuery",
             "TaxAuthorityUpdate",
             "TaxCodeQuery",

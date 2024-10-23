@@ -156,6 +156,18 @@ namespace WebcreteAPIExplorer
             return x.ToString();
         }
 
+        public string GetReasonCodeQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("ReasonCodeQueryRq", ""))));
+
+            return x.ToString();
+        }
+
         public string GetDivisionQueryRequest()
         {
             XDocument x = new System.Xml.Linq.XDocument(
@@ -1769,6 +1781,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "BatchTicketQuery":
                     textBoxRequest.Text = IndentXMLString(GetBatchTicketQueryRequest(DateTime.Now, DateTime.Now, "1340", "16377032"));
+                    break;
+                case "ReasonCodeQuery":
+                    textBoxRequest.Text = IndentXMLString(GetReasonCodeQueryRequest());
                     break;
 
             }
