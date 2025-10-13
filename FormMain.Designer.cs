@@ -109,7 +109,7 @@ namespace WebcreteAPIExplorer
             this.buttonProcess.Location = new System.Drawing.Point(332, 45);
             this.buttonProcess.Name = "buttonProcess";
             this.buttonProcess.Size = new System.Drawing.Size(124, 25);
-            this.buttonProcess.TabIndex = 6;
+            this.buttonProcess.TabIndex = 12;
             this.buttonProcess.Text = "Process";
             this.buttonProcess.UseVisualStyleBackColor = true;
             this.buttonProcess.Click += new System.EventHandler(this.buttonProcess_Click);
@@ -125,7 +125,7 @@ namespace WebcreteAPIExplorer
             this.textBoxRequest.Name = "textBoxRequest";
             this.textBoxRequest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxRequest.Size = new System.Drawing.Size(480, 560);
-            this.textBoxRequest.TabIndex = 7;
+            this.textBoxRequest.TabIndex = 17;
             // 
             // textBoxResponse
             // 
@@ -137,7 +137,7 @@ namespace WebcreteAPIExplorer
             this.textBoxResponse.Name = "textBoxResponse";
             this.textBoxResponse.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxResponse.Size = new System.Drawing.Size(481, 560);
-            this.textBoxResponse.TabIndex = 8;
+            this.textBoxResponse.TabIndex = 18;
             // 
             // splitContainer1
             // 
@@ -243,6 +243,7 @@ namespace WebcreteAPIExplorer
             "OrderQuery(FailOnOrderLock)",
             "OrderQuery(OrderUpdate)",
             "OrderUpdate",
+            "PaymentTermsQuery",
             "PlantQuery",
             "PriceCategoryQuery",
             "ProjectQuery",
@@ -342,7 +343,7 @@ namespace WebcreteAPIExplorer
             this.textBoxSlug.Location = new System.Drawing.Point(874, 18);
             this.textBoxSlug.Name = "textBoxSlug";
             this.textBoxSlug.Size = new System.Drawing.Size(111, 20);
-            this.textBoxSlug.TabIndex = 17;
+            this.textBoxSlug.TabIndex = 7;
             // 
             // label9
             // 

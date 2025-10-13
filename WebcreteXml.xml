@@ -374,6 +374,16 @@
 		<!-- END OR-->
         <!-- optional -->
         <InActive>BOOLTYPE</InActive>
+		<!-- optional Method: PUT|PATCH, default PATCH -->
+		<UserDefinedFields Method="STRTYPE">
+			<!-- optional, may repeat Action: UPSERT|DELETE -->
+			<UserDefinedField Action="STRTYPE">
+				<!-- required -->
+				<Name>STRTYPE</Name>
+				<!-- required -->
+				<Value>STRTYPE</Value>
+			</UserDefinedField>
+		</UserDefinedFields>		  
       </CustomerUpdate>
       <!--optional, may repeat -->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
@@ -601,9 +611,13 @@
           <!-- optional -->
           <PrintPricesOnTicket>BOOLTYPE</PrintPricesOnTicket>
           <!-- optional -->
-          <RestrictOrderstoCustomerProducts>BOOLTYPE</RestrictOrderstoCustomerProducts>
+		  <RestrictOrderstoProjectProducts>BOOLTYPE</RestrictOrderstoProjectProducts>
           <!-- optional -->
           <AllowAutomaticPriceAjustment>BOOLTYPE</AllowAutomaticPriceAjustment>
+		  <!-- optional -->
+		  <RestrictOrdersToProjectMixProduct>BOOLTYPE</RestrictOrdersToProjectMixProduct>
+		  <!-- optional -->
+		  <AllowPriceViewInOrderEntry>BOOLTYPE</AllowPriceViewInOrderEntry>
         </Pricing>
         <!-- optional -->
         <Charges>
@@ -708,6 +722,8 @@
           <SuspendOrderReasonCode>BOOLTYPE</SuspendOrderReasonCode>
 		  <!-- optional -->
 		  <UsageCodeRequiredInOrderEntry>BOOLTYPE</UsageCodeRequiredInOrderEntry>
+		  <!-- optional -->
+		  <OrderByRequiredInOrderEntry>BOOLTYPE</OrderByRequiredInOrderEntry>
         </Accounting>
         <!-- optional -->
         <Distribution>
@@ -1132,6 +1148,10 @@
       <FromCreatedDate>DATETIMETYPE</FromCreatedDate>
       <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
       <ToCreatedDate>DATETIMETYPE</ToCreatedDate>
+	  <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <OrderFromUpdateTime>DATETIMETYPE</OrderFromUpdateTime>
+      <!-- optional in format yyyy-MM-dd HH:mm:ss.fff-->
+      <OrderToUpdateTime>DATETIMETYPE</OrderToUpdateTime>
 	  <!-- optional,may repeat -->
 	  <OrderID>STRTYPE</OrderID>	
       <!-- optional,may repeat -->
@@ -2245,6 +2265,36 @@
       <!-- END OR -->
       <!--  opt, may rep -->
     </ReasonCodeQueryRq>
+	<!--  SalesAnalysisCodeQueryRq contains 1 optional attribute: 'requestID' -->
+	<SalesAnalysisCodeQueryRq requestID="UUIDTYPE">
+		<!-- BEGIN OR -->
+		<!--  opt may repeat-->
+		<ID>INTTYPE</ID>
+		<!-- OR -->
+		<Code>STRTYPE</Code>		
+		<!-- END OR -->
+		<!--  opt, may rep -->
+	</SalesAnalysisCodeQueryRq>
+	<!--  HaulerQueryRq contains 1 optional attribute: 'requestID' -->
+	<HaulerQueryRq requestID="UUIDTYPE">
+		<!-- BEGIN OR -->
+		<!--  opt may repeat-->
+		<ID>INTTYPE</ID>
+		<!-- OR -->
+		<Code>STRTYPE</Code>
+		<!-- END OR -->
+		<!--  opt, may rep -->
+	</HaulerQueryRq>
+	<!--  PaymentTermsQueryRq contains 1 optional attribute: 'requestID' -->
+	<PaymentTermsQueryRq requestID="UUIDTYPE">
+		<!-- BEGIN OR -->
+		<!--  opt may repeat-->
+		<ID>INTTYPE</ID>
+		<!-- OR -->
+		<Code>STRTYPE</Code>
+		<!-- END OR -->
+		<!--  opt, may rep -->
+	</PaymentTermsQueryRq>
   </WebcreteXMLMsgsRq>
   <!-- WebcreteXMLMsgsRs contains 2 attributes -->
   <!--    'newMessageSetID' is optional -->
@@ -3025,6 +3075,8 @@
           <AllowAutomaticPriceAjustment>BOOLTYPE</AllowAutomaticPriceAjustment>
 	      <!-- optional -->
 		  <RestrictOrdersToProjectMixProduct>BOOLTYPE</RestrictOrdersToProjectMixProduct>
+		  <!-- optional -->
+		  <AllowPriceViewInOrderEntry>BOOLTYPE</AllowPriceViewInOrderEntry>
         </Pricing>
         <!-- optional -->
         <Charges>
@@ -3126,6 +3178,8 @@
           <SuspendOrderReasonCode>BOOLTYPE</SuspendOrderReasonCode>
 		  <!-- optional -->
 		  <UsageCodeRequiredInOrderEntry>BOOLTYPE</UsageCodeRequiredInOrderEntry>
+		  <!-- optional -->
+		  <OrderByRequiredInOrderEntry>BOOLTYPE</OrderByRequiredInOrderEntry>
         </Accounting>
         <!-- optional -->
         <Distribution>
@@ -4643,6 +4697,8 @@
         <SchedulingTruckTypeCode>STRTYPE</SchedulingTruckTypeCode>
 		<!-- optional -->
         <UpdateTime>DATETIMETYPE</UpdateTime>
+		<!-- optional -->
+        <OrderUpdateTime>DATETIMETYPE</OrderUpdateTime>
         <!-- optional -->		
         <Reviewed>BOOLTYPE</Reviewed>
 		<!-- optional -->
@@ -5755,6 +5811,8 @@
         <ItemTypeID>INTTYPE</ItemTypeID>
         <!-- required -->
         <ItemType>STRTYPE</ItemType>
+		<!-- optional -->
+        <AccountLinkCode>STRTYPE</AccountLinkCode>
       </ItemCategoryRet>
     </ItemCategoryQueryRs>
     <!--     'requestID' is optional   -->
@@ -6840,7 +6898,66 @@
 		<!-- required -->
         <ReasonUsage>STRTYPE</ReasonUsage>        
       </ReasonCodeRet>
-    </ReasonCodeQueryRs>      
+    </ReasonCodeQueryRs>
+	<SalesAnalysisCodeQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+		<!-- optional, may repeat-->
+		<SalesAnalysisCodeRet>
+			<!-- required -->
+			<ID>INTTYPE</ID>
+			<!-- required -->
+			<Code>STRTYPE</Code>
+			<!-- required -->
+			<Name>STRTYPE</Name>
+			<!-- optional -->
+			<Description>STRTYPE</Description>
+		</SalesAnalysisCodeRet>
+	</SalesAnalysisCodeQueryRs>
+	<HaulerQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+		<!-- optional, may repeat-->
+		<HaulerRet>
+			<!-- required -->
+			<ID>INTTYPE</ID>
+			<!-- required -->
+			<Code>STRTYPE</Code>
+			<!-- required -->
+			<Name>STRTYPE</Name>
+			<!-- optional -->
+			<CompanyCode>STRTYPE</CompanyCode>
+			<!-- optional -->
+			<CompanyName>STRTYPE</CompanyName>
+			<!-- optional -->
+			<Contact>STRTYPE</Contact>
+			<!-- optional -->
+			<InsuranceCarrierName>STRTYPE</InsuranceCarrierName>
+			<!-- optional -->
+			<InsuranceExpireDate>DATETYPE</InsuranceExpireDate>
+		</HaulerRet>
+	</HaulerQueryRs>
+	<PaymentTermsQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+		<!-- optional, may repeat-->
+		<PaymentTermsRet>
+			<!-- required -->
+			<ID>INTTYPE</ID>
+			<!-- required -->
+			<Code>STRTYPE</Code>
+			<!-- required -->
+			<Name>STRTYPE</Name>
+			<!-- optional -->
+			<Description>STRTYPE</Description>
+			<!-- optional -->
+			<NetDueDays>INTTYPE</NetDueDays>
+			<!-- optional -->
+			<Discount>FLOATTYPE</Discount>
+			<!-- optional 1:PERCENT 2:DOLLARS -->
+			<DiscountUnit>INTTYPE</DiscountUnit>
+			<!-- optional -->
+			<DiscountPayDays>INTTYPE</DiscountPayDays>
+			<!-- required -->
+			<CreatedAt>DATETIMETYPE</CreatedAt>
+			<!-- required -->
+			<UpdatedAt>DATETIMETYPE</UpdatedAt>
+		</PaymentTermsRet>
+	</PaymentTermsQueryRs>
   </WebcreteXMLMsgsRs>
 </WebcreteXML>
 

@@ -72,6 +72,10 @@ namespace WebcreteAPIExplorer
                         return;
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 finally
                 {
                     api.Logout(ticketHeader);
@@ -191,6 +195,18 @@ namespace WebcreteAPIExplorer
 
             return x.ToString();
         }
+
+        public string GetPaymentTermsQueryRequest()
+        {
+            XDocument x = new System.Xml.Linq.XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),
+               new XProcessingInstruction("webcretexml", "version=\"1.0\""),
+               new XElement("WebcreteXML",
+                   new XElement("WebcreteXMLMsgsRq",
+                       new XElement("PaymentTermsQueryRq", ""))));
+
+            return x.ToString();
+        }        
 
         public string GetDivisionQueryRequest()
         {
@@ -1848,6 +1864,9 @@ namespace WebcreteAPIExplorer
                     break;
                 case "HaulerQuery":
                     textBoxRequest.Text = IndentXMLString(GetHaulerQueryRequest());
+                    break;
+                case "PaymentTermsQuery":
+                    textBoxRequest.Text = IndentXMLString(GetPaymentTermsQueryRequest());
                     break;
 
             }
