@@ -248,6 +248,7 @@ namespace WebcreteAPIExplorer
             "PriceCategoryQuery",
             "ProjectQuery",
             "ProjectQuery(IncludeCustomer)",
+            "ProjectQuery(IncludePriceEscalations)",
             "ProjectQuery(IncludeProduct)",
             "ProjectQuery(IncludeSundryCharges)",
             "ProjectQuery(IncludeUserDefinedFields)",
