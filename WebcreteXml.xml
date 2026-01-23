@@ -442,7 +442,7 @@
       <StatementCycle>STRTYPE</StatementCycle>
       <!-- optional, may repeat-->
       <AccountingCategoryCode>STRTYPE</AccountingCategoryCode>
-      <!--optional, may repeat, can be SUNDRYCHARGE | CUSTOMER | PRODUCT | USERDEFINEDFIELD-->
+      <!--optional, may repeat, can be SUNDRYCHARGE | CUSTOMER | PRODUCT | USERDEFINEDFIELD | PRICEESCALATION-->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
       <!-- END OR -->      
     </ProjectQueryRq>
@@ -573,6 +573,8 @@
             <!-- optional -->
             <TaxExemptID>STRTYPE</TaxExemptID>
           </TaxExcempt>
+		  <!-- optional -->
+		  <ComputeMaxTaxBasedOnLifeOfProject>BOOLTYPE</ComputeMaxTaxBasedOnLifeOfProject>
         </Taxing>
         <!-- optional -->
         <Pricing>
@@ -961,6 +963,18 @@
 				<Value>STRTYPE</Value>
 			</UserDefinedField>
 		</UserDefinedFields>
+		<!-- optional -->
+		<PriceEscalations>
+			<!-- optional -->
+			<EnablePriceEscalation>BOOLTYPE</EnablePriceEscalation>
+			<!-- optional 0: Percentage 1: Amount  -->
+			<PriceEscalationType>INTTYPE</PriceEscalationType>
+			<!-- optional may repeat-->
+			<PriceEscalation>
+				<PriceEscalationAmount>FLOATTYPE</PriceEscalationAmount>
+				<PriceEscalationDate>DATETIMETYPE</PriceEscalationDate>
+			</PriceEscalation>
+		</PriceEscalations>
       </ProjectUpdate>
       <!--optional, may repeat -->
       <IncludeRetElement>STRTYPE</IncludeRetElement>
@@ -1121,6 +1135,8 @@
 			<ID>INTTYPE</ID>
 			<!-- optional -->
 			<Invoiced>BOOLTYPE</Invoiced>
+			<!-- optional -->
+			<InvoiceNumber>STRTYPE</InvoiceNumber>			
 		</OrderUpdate>
 	</OrderUpdateRq>
 	<!--    'requestID' is optional -->
@@ -2208,14 +2224,7 @@
 		<!-- OR -->
 		<!-- optional, may repeat-->
 		<PlantCode>STRTYPE</PlantCode>
-		<!-- END OR -->
-		<!-- BEGIN OR-->
-		<!-- optional, may repeat-->
-		<LocationID>STRTYPE</LocationID>
-		<!-- OR -->
-		<!-- optional, may repeat-->
-		<LocationCode>STRTYPE</LocationCode>
-		<!-- END OR -->
+		<!-- END OR -->		
 		<!-- optional -->
 		<FromTransactionDate>DATETIMETYPE</FromTransactionDate>
 		<!-- optional -->
@@ -2552,6 +2561,10 @@
 			  <SundryChargeID>INTTYPE</SundryChargeID>
 			  <!-- optional -->
 			  <SundryChargeCode>STRTYPE</SundryChargeCode>
+			  <!-- optional -->
+			  <ItemID>INTTYPE</ItemID>
+			  <!-- optional -->
+			  <ItemCode>STRTYPE</ItemCode>
 			  <!-- optional -->
 			  <ApplySundryCharge>BOOLTYPE</ApplySundryCharge>
 			  <!-- optional -->
@@ -3032,6 +3045,8 @@
             <!-- optional -->
             <TaxExemptID>STRTYPE</TaxExemptID>
           </TaxExcempt>
+		  <!-- optional -->
+		  <ComputeMaxTaxBasedOnLifeOfProject>BOOLTYPE</ComputeMaxTaxBasedOnLifeOfProject>
         </Taxing>
         <!-- optional -->
         <Pricing>
@@ -3110,6 +3125,10 @@
 			  <SundryChargeID>INTTYPE</SundryChargeID>
 			  <!-- optional -->
 			  <SundryChargeCode>STRTYPE</SundryChargeCode>
+			  <!-- optional -->
+			  <ItemID>INTTYPE</ItemID>
+			  <!-- optional -->
+			  <ItemCode>STRTYPE</ItemCode>
 			  <!-- optional -->
 			  <ApplySundryCharge>BOOLTYPE</ApplySundryCharge>
 			  <!-- optional -->
@@ -3373,13 +3392,7 @@
 				    <CreateSeperatedInvoice>BOOLTYPE</CreateSeperatedInvoice>
 				</Pricing>
 			</ExtraProduct>
-		</Products>
-		<!-- optional -->
-		<EnablePriceEscalation>BOOLTYPE</EnablePriceEscalation>
-		<!-- optional -->
-		<PriceEscalationAmount>FLOATTYPE</PriceEscalationAmount>
-        <!-- optional -->
-		<PriceEscalationDate>DATETIMETYPE</PriceEscalationDate>	
+		</Products>			
 		<!-- optional -->
 		<Latitude>FLOATTYPE</Latitude>
 		<!-- optional -->
@@ -3398,6 +3411,18 @@
 				<Value>STRTYPE</Value>
 			</UserDefinedField>
 		</UserDefinedFields>
+		<!-- optional -->
+		<PriceEscalations>
+			<!-- optional -->
+			<EnablePriceEscalation>BOOLTYPE</EnablePriceEscalation>
+			<!-- optional 0: Percentage 1: Amount  -->
+			<PriceEscalationType>INTTYPE</PriceEscalationType>
+			<!-- optional may repeat-->
+			<PriceEscalation>
+				<PriceEscalationAmount>FLOATTYPE</PriceEscalationAmount>
+				<PriceEscalationDate>DATETIMETYPE</PriceEscalationDate>
+			</PriceEscalation>
+		</PriceEscalations>
       </ProjectRet>      
     </ProjectQueryRs>
     <!--     'requestID' is optional   -->
@@ -4333,7 +4358,11 @@
 		<!-- optional -->
         <CreditCardAuthorizationCode>STRTYPE</CreditCardAuthorizationCode>
 		<!-- optional -->
-        <BankAccount>STRTYPE</BankAccount>		
+        <BankAccount>STRTYPE</BankAccount>
+		<!-- optional -->
+		<Invoiced>BOOLTYPE</Invoiced>
+		<!-- optional -->
+		<InvoiceNumber>STRTYPE</InvoiceNumber>
 		<!-- optional -->
         <Products>
           <!-- optional, may rep -->
@@ -4549,6 +4578,8 @@
         <OrderID>INTTYPE</OrderID>
         <!-- required -->
         <OrderCode>STRTYPE</OrderCode>
+		<!-- required 0: regular 1: credit memo 2: debit memo 4: pos order-->
+		<OrderType>INTTYPE</OrderType>
         <!-- required -->
         <MixCode>STRTYPE</MixCode>
 		<!-- required 0:normal 1:will call 2:Weather Permitting 3:Hold Delivery 4:Completed 5:Wait List-->
@@ -4761,16 +4792,30 @@
             <TradeDiscountable>BOOLTYPE</TradeDiscountable>
             <!-- optional -->
             <Taxable>BOOLTYPE</Taxable>
+			<!-- optional -->
+			<NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
+			<!-- optional -->
+			<NonTaxableReasonName>STRTYPE</NonTaxableReasonName>
             <!-- optional -->
             <Tax1>AMTTYPE</Tax1>
+			<!-- optional -->
+			<TaxLocationCode1></TaxLocationCode1>
             <!-- optional -->
             <Tax2>AMTTYPE</Tax2>
+		    <!-- optional -->
+			<TaxLocationCode2></TaxLocationCode2>
             <!-- optional -->
             <Tax3>AMTTYPE</Tax3>
+			<!-- optional -->
+			<TaxLocationCode3></TaxLocationCode3>
             <!-- optional -->
             <Tax4>AMTTYPE</Tax4>
+			<!-- optional -->
+			<TaxLocationCode4></TaxLocationCode4>
             <!-- optional -->
             <Tax5>AMTTYPE</Tax5>
+			<!-- optional -->
+			<TaxLocationCode5></TaxLocationCode5>
             <!-- optional -->
             <TaxAmount>AMTTYPE</TaxAmount>
             <!-- optional -->
@@ -6583,11 +6628,7 @@
 			<!-- optional -->
 		    <PlantID>INTTYPE</PlantID>
 			<!-- optional -->
-		    <PlantCode>STRTYPE</PlantCode>
-			<!-- optional -->
-		    <LocationID>INTTYPE</LocationID>
-			<!-- optional -->
-		    <LocationCode>STRTYPE</LocationCode>		    
+		    <PlantCode>STRTYPE</PlantCode>				    
 		    <!-- required -->
 		    <CurrentBalance>FLOATTYPE</CurrentBalance>
 			<!-- required -->
