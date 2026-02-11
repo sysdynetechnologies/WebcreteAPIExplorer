@@ -2066,27 +2066,29 @@
     </TaxAuthorityQueryRq>
     <!--  TaxAuthorityUpdateRq contains 1 optional attribute: 'requestID' -->
     <TaxAuthorityUpdateRq  requestID="UUIDTYPE">
-      <!-- BEGIN OR-->
-      <!-- optional-->
-      <ID>INTTYPE</ID>
-      <!-- OR -->
-      <!-- optional-->
-      <Code>STRTYPE</Code>
-      <!-- END OR -->
-      <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
-      <Action>STRTYPE</Action>
-      <!-- optional -->
-      <Description>STRTYPE</Description>
-      <!-- optional -->
-      <ShortDescription>STRTYPE</ShortDescription>
-      <!-- optional 1:Taxable sales. 2: Taxable sales plus previous authorities’ tax -->
-      <TaxBasedOn>INTTYPE</TaxBasedOn>
-      <!-- optional 1:Origination 2:Destination  -->
-      <PointOfTaxation>INTTYPE</PointOfTaxation>
-      <!-- optional -->
-      <AllowReciprocation>BOOLTYPE</AllowReciprocation>
-      <!-- optional -->
-      <AccountLinkCode>STRTYPE</AccountLinkCode>
+      <TaxAuthorityUpdate>		
+          <!-- BEGIN OR-->
+          <!-- optional-->
+          <ID>INTTYPE</ID>
+          <!-- OR -->
+          <!-- optional-->
+          <Code>STRTYPE</Code>
+          <!-- END OR -->
+          <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+          <Action>STRTYPE</Action>
+          <!-- optional -->
+          <Description>STRTYPE</Description>
+          <!-- optional -->
+          <ShortDescription>STRTYPE</ShortDescription>
+          <!-- optional 1:Taxable sales. 2: Taxable sales plus previous authorities’ tax -->
+          <TaxBasedOn>INTTYPE</TaxBasedOn>
+          <!-- optional 1:Origination 2:Destination  -->
+          <PointOfTaxation>INTTYPE</PointOfTaxation>
+          <!-- optional -->
+          <AllowReciprocation>BOOLTYPE</AllowReciprocation>
+          <!-- optional -->
+          <AccountLinkCode>STRTYPE</AccountLinkCode>
+	  </TaxAuthorityUpdate>
     </TaxAuthorityUpdateRq>
     <!--  TaxLocationQueryRq contains 1 optional attribute: 'requestID' -->
     <TaxLocationQueryRq  requestID="UUIDTYPE">
@@ -2101,51 +2103,53 @@
     </TaxLocationQueryRq>
     <!--  TaxLocationUpdateRq contains 1 optional attribute: 'requestID' -->
     <TaxLocationUpdateRq  requestID="UUIDTYPE">
-      <!-- BEGIN OR-->
-      <!-- optional-->
-      <ID>INTTYPE</ID>
-      <!-- OR -->
-      <!-- optional-->
-      <Code>STRTYPE</Code>
-      <!-- END OR -->
-      <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
-      <Action>STRTYPE</Action>
-      <!-- optional -->
-      <TaxAuthorityID>STRTYPE</TaxAuthorityID>
-      <!-- optional -->
-      <TaxAuthorityCode>STRTYPE</TaxAuthorityCode>
-      <!-- optional -->
-      <Description>STRTYPE</Description>
-      <!-- optional -->
-      <ShortDescription>STRTYPE</ShortDescription>
-      <!-- required -->
-      <CurrentRate>FLOATTYPE</CurrentRate>
-      <!-- required -->
-      <EffectiveDate>DATETIMETYPE</EffectiveDate>
-      <!-- required -->
-      <PreviousRate>FLOATTYPE</PreviousRate>
-      <!-- optional -->
-      <MaxTaxableAmount>FLOATTYPE</MaxTaxableAmount>
-      <!-- optional -->
-      <NonTaxableReasonID>INTTYPE</NonTaxableReasonID>
-      <!-- optional -->
-      <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
-      <!-- optional -->
-      <CalculateTaxOnDiscount>BOOLTYPE</CalculateTaxOnDiscount>
-      <!-- optional -->
-      <ReadyMixDeliveryExempt>BOOLTYPE</ReadyMixDeliveryExempt>
-      <!-- optional -->
-      <ReadyMixNonTaxableReasonID>INTTYPE</ReadyMixNonTaxableReasonID>
-      <!-- optional -->
-      <ReadyMixNonTaxableReasonCode>STRTYPE</ReadyMixNonTaxableReasonCode>
-      <!-- optional 1:Dollar Amount  2: Percentage -->
-      <ReadyMixExemptionType>INTTYPE</ReadyMixExemptionType>
-      <!-- optional -->
-      <ReadyMixExemptionRate>FLOATTYPE</ReadyMixExemptionRate>
-      <!-- optional -->
-      <ReadyMixExemptionUnitID>FLOATTYPE</ReadyMixExemptionUnitID>
-      <!-- optional -->
-      <ReadyMixExemptionUnitCode>FLOATTYPE</ReadyMixExemptionUnitCode>
+	  <TaxLocationUpdate>
+          <!-- BEGIN OR-->
+          <!-- optional-->
+          <ID>INTTYPE</ID>
+          <!-- OR -->
+          <!-- optional-->
+          <Code>STRTYPE</Code>
+          <!-- END OR -->
+          <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+          <Action>STRTYPE</Action>
+          <!-- optional -->
+          <TaxAuthorityID>STRTYPE</TaxAuthorityID>
+          <!-- optional -->
+          <TaxAuthorityCode>STRTYPE</TaxAuthorityCode>
+          <!-- optional -->
+          <Description>STRTYPE</Description>
+          <!-- optional -->
+          <ShortDescription>STRTYPE</ShortDescription>
+          <!-- required -->
+          <CurrentRate>FLOATTYPE</CurrentRate>
+          <!-- required -->
+          <EffectiveDate>DATETIMETYPE</EffectiveDate>
+          <!-- required -->
+          <PreviousRate>FLOATTYPE</PreviousRate>
+          <!-- optional -->
+          <MaxTaxableAmount>FLOATTYPE</MaxTaxableAmount>
+          <!-- optional -->
+          <NonTaxableReasonID>INTTYPE</NonTaxableReasonID>
+          <!-- optional -->
+          <NonTaxableReasonCode>STRTYPE</NonTaxableReasonCode>
+          <!-- optional -->
+          <CalculateTaxOnDiscount>BOOLTYPE</CalculateTaxOnDiscount>
+          <!-- optional -->
+          <ReadyMixDeliveryExempt>BOOLTYPE</ReadyMixDeliveryExempt>
+          <!-- optional -->
+          <ReadyMixNonTaxableReasonID>INTTYPE</ReadyMixNonTaxableReasonID>
+          <!-- optional -->
+          <ReadyMixNonTaxableReasonCode>STRTYPE</ReadyMixNonTaxableReasonCode>
+          <!-- optional 1:Dollar Amount  2: Percentage -->
+          <ReadyMixExemptionType>INTTYPE</ReadyMixExemptionType>
+          <!-- optional -->
+          <ReadyMixExemptionRate>FLOATTYPE</ReadyMixExemptionRate>
+          <!-- optional -->
+          <ReadyMixExemptionUnitID>FLOATTYPE</ReadyMixExemptionUnitID>
+          <!-- optional -->
+          <ReadyMixExemptionUnitCode>FLOATTYPE</ReadyMixExemptionUnitCode>
+	  </TaxLocationUpdate>
     </TaxLocationUpdateRq>
     <!--  TaxCodeQueryRq contains 1 optional attribute: 'requestID' -->
     <TaxCodeQueryRq  requestID="UUIDTYPE">
@@ -2160,29 +2164,31 @@
     </TaxCodeQueryRq>
     <!--  TaxCodeUpdateRq contains 1 optional attribute: 'requestID' -->
     <TaxCodeUpdateRq  requestID="UUIDTYPE">
-      <!-- BEGIN OR-->
-      <!-- optional-->
-      <ID>INTTYPE</ID>
-      <!-- OR -->
-      <!-- optional-->
-      <Code>STRTYPE</Code>
-      <!-- END OR -->
-      <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
-      <Action>STRTYPE</Action>
-      <!-- optional -->
-      <Description>STRTYPE</Description>
-      <!-- optional -->
-      <ShortDescription>STRTYPE</ShortDescription>
-      <!-- required -->
-      <TaxLocations>
-        <!-- optional may repeat-->
-        <TaxLocation>          
+	  <TaxCodeUpdate>
+          <!-- BEGIN OR-->
+          <!-- optional-->
+          <ID>INTTYPE</ID>
+          <!-- OR -->
+          <!-- optional-->
+          <Code>STRTYPE</Code>
+          <!-- END OR -->
+          <!-- Action is optional and may have one of the following values: add,edit,update,delete -->
+          <Action>STRTYPE</Action>
+          <!-- optional -->
+          <Description>STRTYPE</Description>
+          <!-- optional -->
+          <ShortDescription>STRTYPE</ShortDescription>
           <!-- required -->
-          <TaxLocationID>INTTYPE</TaxLocationID>
-          <!-- required -->
-          <TaxLocationCode>STRTYPE</TaxLocationCode>
-        </TaxLocation>
-      </TaxLocations>
+          <TaxLocations>
+            <!-- optional may repeat-->
+            <TaxLocation>          
+              <!-- required -->
+              <TaxLocationID>INTTYPE</TaxLocationID>
+              <!-- required -->
+              <TaxLocationCode>STRTYPE</TaxLocationCode>
+            </TaxLocation>
+          </TaxLocations>
+	  </TaxCodeUpdate>
     </TaxCodeUpdateRq>
 	<!--  InventoryTransactionQueryRq contains 1 optional attribute: 'requestID' -->
 	<InventoryTransactionQueryRq  requestID="UUIDTYPE">
@@ -2304,6 +2310,16 @@
 		<!-- END OR -->
 		<!--  opt, may rep -->
 	</PaymentTermsQueryRq>
+	<!--  VendorQueryRq contains 1 optional attribute: 'requestID' -->
+	<VendorQueryRq requestID="UUIDTYPE">
+		<!-- BEGIN OR -->
+		<!--  opt may repeat-->
+		<ID>INTTYPE</ID>
+		<!-- OR -->
+		<Code>STRTYPE</Code>
+		<!-- END OR -->
+		<!--  opt, may rep -->
+	</VendorQueryRq>
   </WebcreteXMLMsgsRq>
   <!-- WebcreteXMLMsgsRs contains 2 attributes -->
   <!--    'newMessageSetID' is optional -->
@@ -6999,6 +7015,53 @@
 			<UpdatedAt>DATETIMETYPE</UpdatedAt>
 		</PaymentTermsRet>
 	</PaymentTermsQueryRs>
+	<VendorQueryRs requestID="UUIDTYPE" statusCode="INTTYPE" statusSeverity="STRTYPE" statusMessage="STRTYPE">
+		<!-- optional, may repeat-->
+		<VendorRet>
+			<!-- required -->
+			<ID>INTTYPE</ID>
+			<!-- required -->
+			<Code>STRTYPE</Code>
+			<!-- required -->
+			<Name>STRTYPE</Name>
+			<!-- optional -->
+			<SortName>STRTYPE</SortName>
+			<!-- optional -->
+			<AddressLine1>STRTYPE</AddressLine1>
+			<!-- optional -->
+			<AddressLine2>STRTYPE</AddressLine2>
+			<!-- optional -->
+			<City>STRTYPE</City>
+			<!-- optional -->
+			<State>STRTYPE</State>
+			<!-- optional -->
+			<Country>STRTYPE</Country>
+			<!-- optional -->
+			<PostCode>STRTYPE</PostCode>
+			<!-- optional -->
+			<ContactName>STRTYPE</ContactName>
+			<!-- optional -->
+			<Phone>STRTYPE</Phone>
+			<!-- optional -->
+			<VendorGroupID>STRTYPE</VendorGroupID>
+			<!-- optional -->
+			<VendorGroupName>STRTYPE</VendorGroupName>			
+			<!-- required -->
+			<UpdateDate>DATETIMETYPE</UpdateDate>
+			<!-- optional -->
+			<InventoryLocations>
+				<!-- optional may repeat-->
+				<InventoryLocation>
+					<!-- required -->
+					<LocationID>INTTYPE</LocationID>
+					<!-- required -->
+					<LocationCode>STRTYPE</LocationCode>
+					<!-- required -->
+					<LocationName>STRTYPE</LocationName>
+				</InventoryLocation>
+			</InventoryLocations>
+	</VendorRet>
+	</VendorQueryRs>
   </WebcreteXMLMsgsRs>
 </WebcreteXML>
 

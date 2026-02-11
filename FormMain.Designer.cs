@@ -296,6 +296,7 @@ namespace WebcreteAPIExplorer
             "TruckStatusUpdate",
             "TruckUpdate",
             "UOMQuery",
+            "VendorQuery",
             "VersionQuery"});
             this.comboBoxRequest.Location = new System.Drawing.Point(103, 48);
             this.comboBoxRequest.Name = "comboBoxRequest";
